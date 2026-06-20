@@ -1,19 +1,28 @@
-# Wiki Index
+# Wiki 知識庫索引
 
-> 內容目錄。每頁列出摘要。
-> Last updated: 2026-06-20 | Total pages: 6
+統整自 `Jnocode/Knowledge_Base` 舊版知識庫的精華。
 
-## Entities
-- [[hermes-agent]] — Hermes Agent 框架：多模型、多工具、自主 AI Agent
-- [[agent-office-shared]] — 雙 Agent 協作目錄 + Obsidian 知識庫
-- [[openclaw]] — 後端重型運算 Agent（WSL Ubuntu）
-- [[aixquantmedia]] — AIxQuantMedia 公司營運中樞
-- [[jojo-trading]] — 量化交易系統
+## 知識庫本身
+- [[entities/knowledge-base|Knowledge Base 說明與結構]]
+- [[entities/mcp-config|MCP 配置說明]]
 
-## Concepts
-- [[model-training]] — 模型訓練與微調技術筆記
+## 🎓 學習
+- [[entities/ie-department|工業工程與管理系 — 課程筆記]]
+- [[entities/book-notes|書籍筆記]]
 
-## Comparisons
+## 🛠 技術
+- [[concepts/stable-diffusion-setup|Stable Diffusion 工具與設定]]
+- [[entities/mcp-config|MCP 配置說明]]
 
-## Queries
+## 💼 專案
+- [[entities/ai-content-business|AI 自動化內容生成商業模式]]
+- [[entities/ai-park-workspace|AI_Park 工作區 2025 計劃]]
 
+## 🎙 自媒體
+- [[entities/self-media|自媒體內容產出策略與除錯筆記]]
+
+## 🎨 創意
+- [[entities/creative-works|歌詞創作與隨筆]]
+
+## 🔧 系統
+- [[entities/hybrid-deployment|WSL/Windows 混合部署]]
