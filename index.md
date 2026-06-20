@@ -1,28 +1,28 @@
 # Wiki 知識庫索引
 
-統整自 `Jnocode/Knowledge_Base` 舊版知識庫的精華。
+統整自舊版 `00_Knowledge_Base` 的精華筆記。
 
-## 知識庫本身
-- [[entities/knowledge-base|Knowledge Base 說明與結構]]
-- [[entities/mcp-config|MCP 配置說明]]
+## 📖 知識庫本身
+- [Knowledge Base 說明與結構](entities/knowledge-base)
+- [MCP 配置說明](entities/mcp-config)
 
 ## 🎓 學習
-- [[entities/ie-department|工業工程與管理系 — 課程筆記]]
-- [[entities/book-notes|書籍筆記]]
+- [工業工程與管理系 — 課程筆記](entities/ie-department)
+- [書籍筆記](entities/book-notes)
 
 ## 🛠 技術
-- [[concepts/stable-diffusion-setup|Stable Diffusion 工具與設定]]
-- [[entities/mcp-config|MCP 配置說明]]
+- [Stable Diffusion 工具與設定](concepts/stable-diffusion-setup)
+- [MCP 配置說明](entities/mcp-config)
 
 ## 💼 專案
-- [[entities/ai-content-business|AI 自動化內容生成商業模式]]
-- [[entities/ai-park-workspace|AI_Park 工作區 2025 計劃]]
+- [AI 自動化內容生成商業模式](entities/ai-content-business)
+- [AI_Park 工作區 2025 計劃](entities/ai-park-workspace)
 
 ## 🎙 自媒體
-- [[entities/self-media|自媒體內容產出策略與除錯筆記]]
+- [自媒體內容產出策略與除錯筆記](entities/self-media)
 
 ## 🎨 創意
-- [[entities/creative-works|歌詞創作與隨筆]]
+- [歌詞創作與隨筆](entities/creative-works)
 
 ## 🔧 系統
-- [[entities/hybrid-deployment|WSL/Windows 混合部署]]
+- [WSL/Windows 混合部署](entities/hybrid-deployment)
