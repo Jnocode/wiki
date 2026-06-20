@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jun's Wiki — AI × Quant × Media</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --accent: #58a6ff;
+    --accent2: #3fb950;
+    --accent3: #d29922;
+    --purple: #bc8cff;
+    --pink: #ff7b72;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* Header */
+  header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  header h1 span { color: var(--accent); }
+  header p {
+    color: var(--text-dim);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  header .tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  header .tags span {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+
+  /* Sections */
+  .section { margin-bottom: 2.5rem; }
+  .section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Cards */
+  .cards { display: grid; gap: 0.75rem; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card:hover {
+    border-color: var(--accent);
+    background: #1c2333;
+    transform: translateX(4px);
+  }
+  .card .title {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .card .title .emoji { margin-right: 0.5rem; }
+  .card .desc {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-top: 0.2rem;
+  }
+  .card .arrow {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .card:hover .arrow { color: var(--accent); }
+
+  /* Footer */
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Jun's <span>Wiki</span></h1>
+  <p>AI × 量化交易 × 自媒體 — 知識庫統整</p>
+  <div class="tags">
+    <span>📚 知識庫</span>
+    <span>🎓 學習</span>
+    <span>🛠 技術</span>
+    <span>💼 專案</span>
+    <span>🎙 自媒體</span>
+    <span>🎨 創意</span>
+  </div>
+</header>
+
+<div class="section">
+  <div class="section-title">📖 知識庫本身</div>
+  <div class="cards">
+    <a href="entities/knowledge-base" class="card">
+      <div>
+        <div class="title">Knowledge Base 說明與結構</div>
+        <div class="desc">舊版 00_Knowledge_Base 的目錄結構、分類規則與使用指南</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="entities/mcp-config" class="card">
+      <div>
+        <div class="title">MCP 配置說明</div>
+        <div class="desc">GitHub、Filesystem、Maps、Playwright 等 10 個 MCP 伺服器設定</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">🎓 學習</div>
+  <div class="cards">
+    <a href="entities/ie-department" class="card">
+      <div>
+        <div class="title">工業工程與管理系 — 課程筆記</div>
+        <div class="desc">決策分析 17 週全課程、作業研究、專案管理、顧客關係、面試重點（生管/品管/統計）</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="entities/book-notes" class="card">
+      <div>
+        <div class="title">書籍筆記</div>
+        <div class="desc">台灣創投攻略、電商 0 到 1 等書籍摘要</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">🛠 技術</div>
+  <div class="cards">
+    <a href="concepts/stable-diffusion-setup" class="card">
+      <div>
+        <div class="title">Stable Diffusion 工具與設定</div>
+        <div class="desc">提示詞結構優先級、25+ 插件清單、Kohya 訓練參數 (Adafactor / DAdaptAdam)</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">💼 專案</div>
+  <div class="cards">
+    <a href="entities/ai-content-business" class="card">
+      <div>
+        <div class="title">AI 自動化內容生成商業模式</div>
+        <div class="desc">生成式 AI 市場趨勢、自動化文案產製、競品分析、在地化優勢</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="entities/ai-park-workspace" class="card">
+      <div>
+        <div class="title">AI_Park 工作區 2025 計劃</div>
+        <div class="desc">四大階段規劃、專案追蹤儀表板、LivePilotAI 等 6 個主要專案狀態</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">🎙 自媒體</div>
+  <div class="cards">
+    <a href="entities/self-media" class="card">
+      <div>
+        <div class="title">自媒體內容產出與除錯筆記</div>
+        <div class="desc">內容策略排程、OpenClaw 多模態失效 root cause 分析與修復步驟</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">🔧 系統</div>
+  <div class="cards">
+    <a href="entities/hybrid-deployment" class="card">
+      <div>
+        <div class="title">WSL/Windows 混合部署</div>
+        <div class="desc">OpenClaw 跨環境技能拆遷、WSL 端最終 6 技能配置</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">🎨 創意</div>
+  <div class="cards">
+    <a href="entities/creative-works" class="card">
+      <div>
+        <div class="title">歌詞創作與隨筆</div>
+        <div class="desc">韭菜人、強車大馬路、清醒夢、交易畢業了 — 9 首歌詞 + 6 篇隨筆</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span><a href="https://github.com/Jnocode/wiki">Jnocode/wiki</a> · GitHub Pages</span>
+  <span>Powered by ☕ &amp; Hermes</span>
+</footer>
+
+</div>
+</body>
+</html>
