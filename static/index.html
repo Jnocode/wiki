@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jun's Wiki</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --accent: #58a6ff;
+    --accent2: #3fb950;
+    --code-bg: #1c2128;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* Search */
+  .search-box {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  .search-box input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+  }
+  .search-box input:focus {
+    border-color: var(--accent);
+  }
+  .search-box input::placeholder { color: var(--text-dim); }
+  .search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #1c2333;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-top: 4px;
+    max-height: 420px;
+    overflow-y: auto;
+    display: none;
+    z-index: 100;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .search-results.show { display: block; }
+  .search-results .result-item {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .search-results .result-item:last-child { border-bottom: none; }
+  .search-results .result-item:hover { background: #212c3d; }
+  .search-results .result-item .r-title { font-weight: 500; }
+  .search-results .result-item .r-cat {
+    font-size: 0.75rem;
+    color: var(--accent2);
+    margin-left: 0.5rem;
+  }
+  .search-results .result-item .r-snippet {
+    font-size: 0.83rem;
+    color: var(--text-dim);
+    margin-top: 0.2rem;
+    line-height: 1.4;
+  }
+  .search-results .result-item .r-snippet mark {
+    background: rgba(88,166,255,0.2);
+    color: var(--accent);
+    padding: 0 2px;
+    border-radius: 2px;
+  }
+  .search-results .result-none {
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--text-dim);
+  }
+  .search-results .result-count {
+    padding: 0.5rem 1rem;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--border);
+    text-align: right;
+  }
+
+  header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  header h1 span { color: var(--accent); }
+  header p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+  }
+
+  .section { margin-bottom: 2.5rem; }
+  .section-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .cards { display: grid; gap: 0.6rem; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.85rem 1.1rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .card:hover {
+    border-color: var(--accent);
+    background: #1c2333;
+    transform: translateX(4px);
+  }
+  .card .title { font-size: 0.95rem; font-weight: 500; }
+  .card .desc {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    margin-top: 0.15rem;
+  }
+  .card .arrow {
+    color: var(--text-dim);
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .card:hover .arrow { color: var(--accent); }
+
+  .loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-dim);
+  }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Jun's <span>Wiki</span></h1>
+  <p>AI × Quant × Media</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="搜尋知識庫…（按 Enter 直接搜）" autocomplete="off">
+  <div class="search-results" id="searchResults"></div>
+</div>
+
+<div id="categories"></div>
+
+<footer>
+  <span><a href="https://github.com/Jnocode/wiki">Jnocode/wiki</a></span>
+  <span id="stats"></span>
+</footer>
+
+</div>
+
+<script>
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+const categoriesDiv = document.getElementById('categories');
+const statsSpan = document.getElementById('stats');
+
+let searchTimer = null;
+
+searchInput.addEventListener('input', () => {
+  clearTimeout(searchTimer);
+  const q = searchInput.value.trim();
+  if (q.length < 1) {
+    searchResults.classList.remove('show');
+    return;
+  }
+  searchTimer = setTimeout(() => doSearch(q), 200);
+});
+
+searchInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    doSearch(searchInput.value.trim());
+  }
+});
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-box')) {
+    searchResults.classList.remove('show');
+  }
+});
+
+async function doSearch(q) {
+  if (!q) return;
+  try {
+    const res = await fetch(`/api/search?q=${encodeURIComponent(q)}&limit=20`);
+    const data = await res.json();
+    renderResults(data.results, q);
+    searchResults.classList.add('show');
+  } catch (e) {
+    searchResults.innerHTML = `<div class="result-none">❌ 搜尋失敗</div>`;
+    searchResults.classList.add('show');
+  }
+}
+
+function renderResults(results, q) {
+  if (results.length === 0) {
+    searchResults.innerHTML = `<div class="result-none">沒有找到「${q}」的結果</div>`;
+    return;
+  }
+  let html = `<div class="result-count">找到 ${results.length} 筆結果</div>`;
+  results.forEach(r => {
+    html += `
+      <div class="result-item" onclick="navigate('${r.path}')">
+        <div>
+          <span class="r-title">${escapeHtml(r.title)}</span>
+          <span class="r-cat">${escapeHtml(r.category)}</span>
+        </div>
+        <div class="r-snippet">${r.snippet || ''}</div>
+      </div>
+    `;
+  });
+  searchResults.innerHTML = html;
+}
+
+function navigate(path) {
+  window.location.href = `/viewer?path=${encodeURIComponent(path)}`;
+}
+
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+async function loadCategories() {
+  try {
+    const res = await fetch('/api/list');
+    const data = await res.json();
+    renderCategories(data);
+  } catch (e) {
+    categoriesDiv.innerHTML = '<div class="loading">❌ 載入失敗</div>';
+  }
+}
+
+function renderCategories(grouped) {
+  const EMOJI_MAP = {
+    'entities': '📖',
+    'concepts': '🛠',
+    'comparisons': '⚖️',
+    'queries': '🔍',
+    'root': '📄'
+  };
+  const CAT_NAMES = {
+    'entities': '知識條目',
+    'concepts': '概念',
+    'comparisons': '比較',
+    'queries': '查詢',
+    'root': '其他'
+  };
+
+  let html = '';
+  const order = ['entities', 'concepts', 'comparisons', 'queries', 'root'];
+  for (const cat of order) {
+    const items = grouped[cat];
+    if (!items || items.length === 0) continue;
+    const emoji = EMOJI_MAP[cat] || '📄';
+    const name = CAT_NAMES[cat] || cat;
+    html += `<div class="section"><div class="section-title">${emoji} ${name}</div><div class="cards">`;
+    items.forEach(item => {
+      html += `
+        <div class="card" onclick="navigate('${item.path}')">
+          <div>
+            <div class="title">${escapeHtml(item.title)}</div>
+          </div>
+          <span class="arrow">→</span>
+        </div>
+      `;
+    });
+    html += `</div></div>`;
+  }
+  categoriesDiv.innerHTML = html;
+}
+
+async function loadStats() {
+  try {
+    const res = await fetch('/api/stats');
+    const data = await res.json();
+    statsSpan.textContent = `${data.total_pages} 篇 · ${data.categories.length} 分類`;
+  } catch (e) {}
+}
+
+loadCategories();
+loadStats();
+</script>
+</body>
+</html>

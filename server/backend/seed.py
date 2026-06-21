@@ -10,6 +10,7 @@ import httpx
 from config import settings
 from database import init_db, async_session
 from models import WikiPage
+from sqlalchemy import select
 
 WIKI_ROOT = settings.wiki_path
 
