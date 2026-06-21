@@ -65,10 +65,10 @@ async def seed():
     async with async_session() as db:
         for p in pages:
             result = await db.execute(select(WikiPage).where(WikiPage.slug == p["slug"]))
-            existing = result.scalar_one_or_none()
-            if existing:
+            existing_page = result.scalar_one_or_none()
+            if existing_page:
                 for k, v in p.items():
-                    setattr(existing, k, v)
+                    setattr(existing_page, k, v)
             else:
                 db.add(WikiPage(**p))
         await db.commit()
