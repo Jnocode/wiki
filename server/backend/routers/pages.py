@@ -25,8 +25,20 @@ async def list_categories():
         result = await db.execute(stmt)
         return [{"category": row[0], "count": row[1]} for row in result if row[0]]
 
-@router.get("/{slug}", response_model=WikiPageResponse)
+@router.get("/get", response_model=WikiPageResponse)
 async def get_page(slug: str):
+    """Get page by slug (query param, avoids / encoding issues)"""
+    async for db in get_db():
+        stmt = select(WikiPage).where(WikiPage.slug == slug)
+        result = await db.execute(stmt)
+        page = result.scalar_one_or_none()
+        if not page:
+            raise HTTPException(404, "Page not found")
+        return page
+
+@router.get("/{slug}", response_model=WikiPageResponse, include_in_schema=False)
+async def get_page_by_path(slug: str):
+    """Get page by slug (path param, slugs without / only)"""
     async for db in get_db():
         stmt = select(WikiPage).where(WikiPage.slug == slug)
         result = await db.execute(stmt)

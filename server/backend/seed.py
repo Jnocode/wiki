@@ -1,12 +1,6 @@
-"""
-Seed: 將 wiki/ 底下的 .md 檔案匯入 PostgreSQL + Meilisearch。
-用法: python seed.py
-"""
-import asyncio
-import os
-import re
-import frontmatter
-import httpx
+#!/usr/bin/env python3
+"""Seed: 將 wiki/ 底下的 .md 檔案匯入 PostgreSQL + Meilisearch。"""
+import asyncio, os, re, httpx, frontmatter
 from config import settings
 from database import init_db, async_session
 from models import WikiPage
@@ -14,7 +8,7 @@ from sqlalchemy import select
 
 WIKI_ROOT = settings.wiki_path
 
-def extract_title(filepath: str, content: str, fm: dict) -> str:
+def extract_title(filepath, content, fm):
     if fm.get("title"):
         return fm["title"]
     m = re.search(r"^#\s+(.+)", content, re.MULTILINE)
@@ -23,7 +17,7 @@ def extract_title(filepath: str, content: str, fm: dict) -> str:
     name = os.path.splitext(os.path.basename(filepath))[0]
     return name.replace("-", " ").replace("_", " ").title()
 
-def extract_category(filepath: str) -> str:
+def extract_category(filepath):
     parts = filepath.replace("\\", "/").split("/")
     for i, p in enumerate(parts):
         if p in ("entities", "concepts", "comparisons"):
@@ -72,40 +66,48 @@ async def seed():
             else:
                 db.add(WikiPage(**p))
         await db.commit()
-
     print(f"✅ DB: {len(pages)} pages seeded")
 
     # 寫入 Meilisearch
-    async with httpx.AsyncClient() as client:
-        docs = [
-            {
-                "slug": p["slug"],
-                "title": p["title"],
-                "category": p["category"],
-                "tags": p["tags"],
-                "content": p["content"],
-            }
-            for p in pages
-        ]
-        resp = await client.post(
-            f"{settings.meili_url}/indexes/wiki/documents",
-            json=docs,
-            headers={"Authorization": f"Bearer {settings.meili_key}"},
-        )
-        if resp.status_code == 202:
-            print(f"✅ Meilisearch: {len(docs)} docs indexed")
-        else:
-            print(f"⚠️  Meilisearch error: {resp.status_code} {resp.text}")
+    async with httpx.AsyncClient(timeout=30.0) as client:
+        url = settings.meili_url
+        hdr = {"Authorization": f"Bearer {settings.meili_key}"}
+        
+        # 1. 刪除舊索引（ignore error if not exists）
+        try:
+            await client.delete(url + "/indexes/wiki", headers=hdr)
+        except:
+            pass
+        await asyncio.sleep(0.5)
 
-        # 設定可搜尋欄位
-        await client.patch(
-            f"{settings.meili_url}/indexes/wiki/settings",
-            json={
-                "searchableAttributes": ["title", "content", "tags", "category"],
-                "filterableAttributes": ["category"],
-            },
-            headers={"Authorization": f"Bearer {settings.meili_key}"},
-        )
+        # 2. 用 primaryKey 建立索引
+        r = await client.post(url + "/indexes", json={"uid": "wiki", "primaryKey": "id"}, headers=hdr)
+        print(f"📦 Create index: {r.status_code} {r.json()}")
+        await asyncio.sleep(0.5)
+
+        # 3. 設定搜尋欄位
+        r = await client.patch(url + "/indexes/wiki/settings", json={
+            "searchableAttributes": ["title", "content", "tags", "category"],
+            "filterableAttributes": ["category"],
+        }, headers=hdr)
+        print(f"⚙️  Settings: {r.status_code} {r.json()}")
+        await asyncio.sleep(0.5)
+
+        # 4. 寫入文件（用 sanitized slug 當 id，Meilisearch 不允許 / ）
+        docs = [{"id": p["slug"].replace("/", "-"), **p} for p in pages]
+        r = await client.post(url + "/indexes/wiki/documents", json=docs, headers=hdr)
+        print(f"📄 Add docs: {r.status_code} {r.json()}")
+        
+        # 5. 等 indexing 完成後驗證
+        await asyncio.sleep(2)
+        r = await client.get(url + "/indexes/wiki/stats", headers=hdr)
+        stats = r.json()
+        print(f"📊 Stats: {stats.get('numberOfDocuments', 0)} documents")
+        
+        if stats.get("numberOfDocuments", 0) > 0:
+            print(f"✅ Meilisearch: {stats['numberOfDocuments']} docs indexed")
+        else:
+            print(f"⚠️  Meilisearch: index may still be processing, check again later")
 
 if __name__ == "__main__":
     asyncio.run(seed())
