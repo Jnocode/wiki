@@ -1,0 +1,27 @@
+# Debug/Deploy scripts with credentials
+server/*_nas*.py
+server/*_deploy*.py
+server/debug_*.py
+server/check_*.py
+server/diag.py
+server/exec_test.py
+server/fix_*.py
+server/final*.py
+server/net_debug.py
+server/push_deploy.py
+server/quick_deploy.py
+server/*.ps1
+server/deploy*.sh
+server/README.md
+
+# Environment files
+.env
+.env.local
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Build output
+server/frontend/.vitepress/dist/
+node_modules/

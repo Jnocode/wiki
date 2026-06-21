@@ -63,7 +63,8 @@ async def seed():
     # 寫入 PostgreSQL
     async with async_session() as db:
         for p in pages:
-            existing = await db.get(WikiPage, p["slug"])
+            result = await db.execute(select(WikiPage).where(WikiPage.slug == p["slug"]))
+            existing = result.scalar_one_or_none()
             if existing:
                 for k, v in p.items():
                     setattr(existing, k, v)

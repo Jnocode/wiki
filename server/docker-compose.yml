@@ -36,6 +36,9 @@ services:
       dockerfile: Dockerfile
     container_name: wiki-api
     restart: unless-stopped
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     environment:
       DATABASE_URL: postgresql+asyncpg://wiki:${DB_PASSWORD:-wiki_change_me}@postgres:5432/wiki
       MEILI_URL: http://meilisearch:7700
