@@ -32,3 +32,9 @@
 - 修復 datetime.utcnow → datetime.now(timezone.utc)
 - 修復 config.py 硬編碼 → os.getenv fallback
 - SCHEMA.md 同步：移除 comparisons/ queries/ raw/ 定義
+
+## 2026-06-23 (二修)
+- server/backend/main.py: CORS [*] → 限制 origin
+- server/backend/models.py: 3處 datetime.utcnow → timezone.utc
+- server/backend/config.py: 硬編碼 → os.getenv fallback
+- 修正 10 頁 frontmatter 三重括號 [[[xxx]]] → [[xxx]]
