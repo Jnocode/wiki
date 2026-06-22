@@ -4,7 +4,7 @@ created: 2026-06-23
 updated: 2026-06-23
 type: entity
 tags: [recall, memory, pitfalls]
-wikilinks: [[[recall-memory-devlog]], [[hermes-agent]]]
+wikilinks: [[recall-memory-devlog]], [[hermes-agent]]
 ---
 
 # recall. 🧠 踩坑記錄

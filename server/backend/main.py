@@ -21,7 +21,12 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://jno-worldline.myds.me",
+        "http://192.168.1.107:8000",
+        "http://localhost:8000",
+        "https://jnocode.github.io",
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )

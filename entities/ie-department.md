@@ -4,7 +4,7 @@ created: 2026-06-23
 updated: 2026-06-23
 type: entity
 tags: [learning, ie]
-wikilinks: [[[book-notes]], [[hybrid-deployment]]]
+wikilinks: [[book-notes]], [[hybrid-deployment]]
 ---
 
 # 工業工程與管理系 — 課程筆記

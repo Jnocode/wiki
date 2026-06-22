@@ -4,7 +4,7 @@ created: 2026-06-23
 updated: 2026-06-23
 type: entity
 tags: [business, ai, media]
-wikilinks: [[[aixquantmedia]], [[ai-park-workspace]]]
+wikilinks: [[aixquantmedia]], [[ai-park-workspace]]
 ---
 
 # AI 自動化內容生成商業模式

@@ -4,7 +4,7 @@ created: 2026-06-23
 updated: 2026-06-23
 type: entity
 tags: [creative, media]
-wikilinks: [[[self-media]], [[aixquantmedia]]]
+wikilinks: [[self-media]], [[aixquantmedia]]
 ---
 
 # 創意作品與歌詞

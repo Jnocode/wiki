@@ -4,7 +4,7 @@ created: 2026-06-23
 updated: 2026-06-23
 type: entity
 tags: [deploy, nas, docker]
-wikilinks: [[[agent-office-shared]], [[hermes-agent]]]
+wikilinks: [[agent-office-shared]], [[hermes-agent]]
 ---
 
 # WSL/Windows 混合部署

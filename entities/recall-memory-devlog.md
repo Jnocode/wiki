@@ -4,7 +4,7 @@ created: 2026-06-23
 updated: 2026-06-23
 type: entity
 tags: [recall, memory, devlog]
-wikilinks: [[[hermes-agent]], [[mcp-config]]]
+wikilinks: [[hermes-agent]], [[mcp-config]]
 ---
 
 # recall. 🧠 開發日誌

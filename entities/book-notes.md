@@ -4,7 +4,7 @@ created: 2026-06-23
 updated: 2026-06-23
 type: entity
 tags: [learning, book]
-wikilinks: [[[ie-department]], [[knowledge-base]]]
+wikilinks: [[ie-department]], [[knowledge-base]]
 ---
 
 # 書籍筆記

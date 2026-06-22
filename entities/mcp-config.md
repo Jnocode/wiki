@@ -4,7 +4,7 @@ created: 2026-06-23
 updated: 2026-06-23
 type: entity
 tags: [mcp, hermes, tool]
-wikilinks: [[[hermes-agent]], [[openclaw]]]
+wikilinks: [[hermes-agent]], [[openclaw]]
 ---
 
 # MCP (Model Context Protocol) 配置說明

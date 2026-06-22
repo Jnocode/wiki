@@ -4,7 +4,7 @@ created: 2026-06-23
 updated: 2026-06-23
 type: entity
 tags: [knowledge-base, wiki]
-wikilinks: [[[hermes-agent]], [[aixquantmedia]]]
+wikilinks: [[hermes-agent]], [[aixquantmedia]]
 ---
 
 # Knowledge Base (00_Knowledge_Base)
