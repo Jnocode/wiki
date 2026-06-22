@@ -1,3 +1,12 @@
+---
+title: "AI 內容商業化"
+created: 2026-06-23
+updated: 2026-06-23
+type: entity
+tags: [business, ai, media]
+wikilinks: [[[aixquantmedia]], [[ai-park-workspace]]]
+---
+
 # AI 自動化內容生成商業模式
 
 來源: `05.專案/AI自動化內容生成商業模式/`
@@ -31,3 +40,8 @@
 - 資料安全與隱私 → 本地處理
 - 模型運算成本 → MCP 調度
 - 平台整合複雜 → API 統一串接
+
+
+## 關聯頁面
+- [[aixquantmedia]]
+- [[ai-park-workspace]]

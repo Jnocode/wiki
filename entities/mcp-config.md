@@ -1,3 +1,12 @@
+---
+title: "MCP (Model Context Protocol) 配置說明"
+created: 2026-06-23
+updated: 2026-06-23
+type: entity
+tags: [mcp, hermes, tool]
+wikilinks: [[[hermes-agent]], [[openclaw]]]
+---
+
 # MCP (Model Context Protocol) 配置說明
 
 來源: `01.技術/程式碼範例/mcp_config_explanation.md`
@@ -45,3 +54,8 @@
 - 環境變數用於傳遞敏感資訊（API Key）
 - `disabled: false` 啟用，`true` 停用
 - `autoApprove: []` 表示所有工具需手動核准
+
+
+## 關聯頁面
+- [[hermes-agent]]
+- [[openclaw]]

@@ -1,3 +1,12 @@
+---
+title: "書籍筆記"
+created: 2026-06-23
+updated: 2026-06-23
+type: entity
+tags: [learning, book]
+wikilinks: [[[ie-department]], [[knowledge-base]]]
+---
+
 # 書籍筆記
 
 來源: `02.學習/書籍筆記/`
@@ -19,3 +28,8 @@
 所有書籍筆記使用統一模板:
 - frontmatter: title, author, year, status, rating, tags
 - 簡介 → 核心觀點 → 引言 → 心得 → 行動清單 → 相關連結
+
+
+## 關聯頁面
+- [[ie-department]]
+- [[knowledge-base]]

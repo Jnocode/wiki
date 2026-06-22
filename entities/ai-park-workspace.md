@@ -1,3 +1,12 @@
+---
+title: "AI Park 工作區"
+created: 2026-06-23
+updated: 2026-06-23
+type: entity
+tags: [workspace, ai, project]
+wikilinks: [[agent-office-shared]], [[hermes-agent]]
+---
+
 # AI_Park 工作區 — 2025 年度專案計劃
 
 來源: `05.專案/Planning/AI_Park_工作區_2025年度專案計劃.md`

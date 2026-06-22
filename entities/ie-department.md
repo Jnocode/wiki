@@ -1,3 +1,12 @@
+---
+title: "工業工程與管理系"
+created: 2026-06-23
+updated: 2026-06-23
+type: entity
+tags: [learning, ie]
+wikilinks: [[[book-notes]], [[hybrid-deployment]]]
+---
+
 # 工業工程與管理系 — 課程筆記
 
 來源: `02.學習/工業工程與管理系/`
@@ -71,3 +80,8 @@
 ## 電子或紙本
 
 關於學習方式的個人偏好筆記。
+
+
+## 關聯頁面
+- [[book-notes]]
+- [[hybrid-deployment]]

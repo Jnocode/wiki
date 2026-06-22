@@ -1,3 +1,12 @@
+---
+title: "recall-memory 開發日誌"
+created: 2026-06-23
+updated: 2026-06-23
+type: entity
+tags: [recall, memory, devlog]
+wikilinks: [[[hermes-agent]], [[mcp-config]]]
+---
+
 # recall. 🧠 開發日誌
 
 > 記錄 recall-memory 開發過程中的決策、踩坑與解法。
@@ -38,3 +47,8 @@
 ### 已完成（免做）
 - ✅ Hybrid search（3-path RRF：ANN + SQL JOIN + FTS5）
 - ✅ MCP server（recall_mcp.py）
+
+
+## 關聯頁面
+- [[hermes-agent]]
+- [[mcp-config]]

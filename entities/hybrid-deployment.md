@@ -1,3 +1,12 @@
+---
+title: "混合部署方案"
+created: 2026-06-23
+updated: 2026-06-23
+type: entity
+tags: [deploy, nas, docker]
+wikilinks: [[[agent-office-shared]], [[hermes-agent]]]
+---
+
 # WSL/Windows 混合部署
 
 來源: `System/Hybrid-Deployment-Progress.md`
@@ -27,3 +36,8 @@
 ## WSL 安裝進度
 
 Windows→WSL 環境遷移與技能分佈的最終測試報告。
+
+
+## 關聯頁面
+- [[agent-office-shared]]
+- [[hermes-agent]]

@@ -1,3 +1,12 @@
+---
+title: "Stable Diffusion — 工具與設定"
+created: 2026-06-23
+updated: 2026-06-23
+type: concept
+tags: [stable-diffusion, tool, creative]
+wikilinks: [[model-training]], [[creative-works]]
+---
+
 # Stable Diffusion — 工具與設定
 
 來源: `01.技術/Stable Diffusion/`
@@ -45,3 +54,9 @@
   - 參數: decouple=True, weight_decay=0.1, betas=0.9,0.99
 
 **DreamBooth 訓練:** 類+標識符方式
+
+
+## 關聯頁面
+
+- [[model-training]]
+- [[creative-works]]

@@ -1,3 +1,12 @@
+---
+title: "創意作品"
+created: 2026-06-23
+updated: 2026-06-23
+type: entity
+tags: [creative, media]
+wikilinks: [[[self-media]], [[aixquantmedia]]]
+---
+
 # 創意作品與歌詞
 
 來源: `04.創意與靈感/`
@@ -22,3 +31,8 @@
 - **關於 OPEN AI**: AI 觀點
 - **ROI**: 投資回報思考
 - **廣播節目結構**: Podcast 啟蒙
+
+
+## 關聯頁面
+- [[self-media]]
+- [[aixquantmedia]]

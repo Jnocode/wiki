@@ -1,3 +1,12 @@
+---
+title: "recall-memory 踩坑記錄"
+created: 2026-06-23
+updated: 2026-06-23
+type: entity
+tags: [recall, memory, pitfalls]
+wikilinks: [[[recall-memory-devlog]], [[hermes-agent]]]
+---
+
 # recall. 🧠 踩坑記錄
 
 > 開發 recall-memory 與 Hermes 記憶系統整合過程中遇到的坑與解法。
@@ -52,3 +61,8 @@ conn = sqlite3.connect("recall_p0.db")  # vec0 not loaded
 **坑：** 以為 Honcho connector 有問題需要「修復」，但 memory tool 從未有過 Honcho connector。
 
 **解法：** 從零建立 provider plugin。Hermes plugin 路徑 `plugins/memory/<name>/`，需實作 `MemoryProvider` abstract class。
+
+
+## 關聯頁面
+- [[recall-memory-devlog]]
+- [[hermes-agent]]

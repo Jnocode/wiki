@@ -1,3 +1,12 @@
+---
+title: "知識庫"
+created: 2026-06-23
+updated: 2026-06-23
+type: entity
+tags: [knowledge-base, wiki]
+wikilinks: [[[hermes-agent]], [[aixquantmedia]]]
+---
+
 # Knowledge Base (00_Knowledge_Base)
 
 來源: `D:\Knowledge_Base-main` (原 `Jnocode/Knowledge_Base` GitHub 倉庫)
@@ -29,3 +38,8 @@
 
 - [GitHub 原始倉庫](https://github.com/Jnocode/Knowledge_Base)
 - [antigravity 規則](file:///D:/Knowledge_Base-main/.antigravity/rules.md)
+
+
+## 關聯頁面
+- [[hermes-agent]]
+- [[aixquantmedia]]

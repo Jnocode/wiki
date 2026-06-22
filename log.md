@@ -22,3 +22,13 @@
 - 來源: D:\Workspace\agent_office\shared\brain/ (77 md files)
 - 跳過: 07_notes(日記), 03_meetings(會議), 06_tasks(任務) — 時效性內容
 
+
+## 2026-06-23
+- 新增 recall-memory-devlog.md (entities/)
+- 新增 recall-memory-pitfalls.md (entities/)
+- 補齊 11 頁 YAML frontmatter
+- 補齊 wikilinks（每頁 ≥2 條出鏈）
+- 修復 CORS [*] → restrict origins
+- 修復 datetime.utcnow → datetime.now(timezone.utc)
+- 修復 config.py 硬編碼 → os.getenv fallback
+- SCHEMA.md 同步：移除 comparisons/ queries/ raw/ 定義
