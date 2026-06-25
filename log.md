@@ -41,4 +41,6 @@
 
 ## 2026-06-25
 - 更新 entities/recall-memory-pitfalls.md，納入 SQLite 併發寫入自我死鎖與 Windows MCP 孤兒進程洩漏的根因及修復方案。
+- 併入本機除錯日誌至 entities/bug-hunt-log.md，將 2026-06-25 每日記憶存檔移入 entities/memories/2026-06-25.md。重新初始化並索引 SQLite 知識庫資料庫。
+
 
