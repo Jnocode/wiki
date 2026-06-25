@@ -1,7 +1,7 @@
 ---
 title: "recall-memory 踩坑記錄"
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-06-25
 type: entity
 tags: [recall, memory, pitfalls]
 wikilinks: [[recall-memory-devlog]], [[hermes-agent]]
@@ -61,6 +61,30 @@ conn = sqlite3.connect("recall_p0.db")  # vec0 not loaded
 **坑：** 以為 Honcho connector 有問題需要「修復」，但 memory tool 從未有過 Honcho connector。
 
 **解法：** 從零建立 provider plugin。Hermes plugin 路徑 `plugins/memory/<name>/`，需實作 `MemoryProvider` abstract class。
+
+---
+
+## SQLite 併發寫入死鎖 (Database is Locked)
+
+**坑：** 調用 `store_memory` 寫入 `hot` 梯度記憶時，100% 發生 `database is locked` 錯誤。
+
+**根因：**
+在 `store.add()` 中，Connection 1 開啟了資料庫事務寫入 `memories`，但在事務提交 (`commit`) 前，調用了 `_insert_vec_embedding()`，後者另外開啟了 Connection 2 嘗試寫入 `vec_embeddings`。Connection 2 被 Connection 1 的未提交鎖定堵塞，而 Connection 1 等待 Connection 2 返回，形成**自我死鎖 (Self-Deadlock)**。
+
+**解法：**
+將活動的 `conn` 連線作為參數傳遞給 `_insert_vec_embedding(..., conn=conn)`，使其在同一個 Transaction 中執行，避免重複開啟連線競爭排他鎖。同時，將所有 `sqlite3.connect` 連線加上 `timeout=30.0` 秒超時設定。
+
+---
+
+## Windows MCP 進程洩漏與孤兒化
+
+**坑：** 當 IDE 重開或重載視窗時，後台掛起多個 `recall_mcp` 進程且無法關閉，導致持續鎖定資料庫。
+
+**根因：**
+在 Windows 平台下，當父進程（IDE）關閉 `stdin` 時，Python 的 `sys.stdin.readline()` 由於系統緩衝區或直譯器堵塞，未能及時回傳空字串 (EOF)，導致進程掛起成為孤兒。
+
+**解法：**
+在 `recall_mcp.py` 的啟動區塊，為 Windows 平台（`os.name == 'nt'`）註冊背景守護線程 (Daemon Thread)，透過 `ctypes.windll.kernel32` 開啟父進程 Handle。一旦偵測到父進程 (IDE) 的退出代碼不再是 `STILL_ACTIVE` (259)，子進程主動退出釋放鎖定。
 
 
 ## 關聯頁面

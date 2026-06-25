@@ -38,3 +38,7 @@
 - server/backend/models.py: 3處 datetime.utcnow → timezone.utc
 - server/backend/config.py: 硬編碼 → os.getenv fallback
 - 修正 10 頁 frontmatter 三重括號 [[[xxx]]] → [[xxx]]
+
+## 2026-06-25
+- 更新 entities/recall-memory-pitfalls.md，納入 SQLite 併發寫入自我死鎖與 Windows MCP 孤兒進程洩漏的根因及修復方案。
+
