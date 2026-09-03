@@ -12,8 +12,8 @@ class WikiPage(Base):
     tags = Column(JSON, default=list)
     content = Column(Text, nullable=False)
     word_count = Column(Integer, default=0)
-    created_at = Column(DateTime, default=datetime.now(timezone.utc))
-    updated_at = Column(DateTime, default=datetime.now(timezone.utc), onupdate=datetime.now(timezone.utc))
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc).replace(tzinfo=None))
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc).replace(tzinfo=None), onupdate=lambda: datetime.now(timezone.utc).replace(tzinfo=None))
     published = Column(Boolean, default=True)
 
 class PageView(Base):
@@ -21,6 +21,6 @@ class PageView(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     page_id = Column(Integer, nullable=False, index=True)
-    timestamp = Column(DateTime, default=datetime.now(timezone.utc))
+    timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc).replace(tzinfo=None))
     ip = Column(String(45), default="")
     user_agent = Column(String(500), default="")

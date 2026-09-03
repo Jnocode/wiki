@@ -20,7 +20,7 @@ def extract_title(filepath, content, fm):
 def extract_category(filepath):
     parts = filepath.replace("\\", "/").split("/")
     for i, p in enumerate(parts):
-        if p in ("entities", "concepts", "comparisons"):
+        if p in ("entities", "concepts", "comparisons", "projects", "raw"):
             return f"{p}/{parts[i+1]}" if i + 1 < len(parts) else p
     return ""
 
@@ -29,7 +29,7 @@ async def seed():
 
     pages = []
     for root, dirs, files in os.walk(WIKI_ROOT):
-        dirs[:] = [d for d in dirs if not d.startswith(".") and d not in ("server", "_archive", "raw", "queries")]
+        dirs[:] = [d for d in dirs if not d.startswith(".") and d not in ("server", "_archive", "queries")]
         for f in files:
             if not f.endswith(".md") or f in ("index.md", "SCHEMA.md", "log.md"):
                 continue

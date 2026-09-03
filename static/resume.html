@@ -1,931 +1,340 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jun's Home — AI × Quant × Media</title>
-<meta name="description" content="Jun 姜鈞 — AI Engineer，12 年跨領域經驗。AI 應用 × 專案管理 × 量化交易 × Podcast。">
-<!-- Open Graph -->
-<meta property="og:title" content="Jun 姜鈞 — AI × Quant × Media">
-<meta property="og:description" content="AI Engineer · 12 年跨領域 · AI 應用 × 專案管理 × 量化交易">
-<meta property="og:image" content="https://raw.githubusercontent.com/Jnocode/wiki/main/static/img/og-preview.png">
-<meta property="og:url" content="https://jno-worldline.myds.me:8443/">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="zh_TW">
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Jun 姜鈞 — AI × Quant × Media">
-<meta name="twitter:description" content="AI Engineer · 12 年跨領域 · AI 應用 × 專案管理 × 量化交易">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%235e6ad2'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='sans-serif'%3EJ%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<style>
-/* =========== SYSTEM =========== */
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#08090a;
-  --surface:#0f1011;
-  --card:#161b22;
-  --card-hover:#1c2333;
-  --border:rgba(255,255,255,0.06);
-  --border-strong:rgba(255,255,255,0.10);
-  --text-primary:#f0f2f5;
-  --text-secondary:#b0b8c4;
-  --text-tertiary:#8a8f98;
-  --text-muted:#62666d;
-  --accent-blue:#58a6ff;
-  --accent-purple:#bc8cff;
-  --accent-green:#3fb950;
-  --accent-pink:#ff7b72;
-  --accent-orange:#d29922;
-  --accent-cyan:#79c0ff;
-  --brand:#5e6ad2;
-  --brand-hover:#7170ff;
-  --radius:8px;
-  --radius-lg:12px;
-  --shadow-card:0 0 0 1px var(--border),0 4px 12px rgba(0,0,0,0.15);
-  --transition:all 0.2s cubic-bezier(0.4,0,0.2,1);
-}
-html{scroll-behavior:smooth;scroll-padding-top:64px}
-body{
-  font-family:'Inter','Noto Sans TC',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  background:var(--bg);
-  color:var(--text-primary);
-  line-height:1.7;
-  font-feature-settings:'cv01','ss03';
-  -webkit-font-smoothing:antialiased;
-}
-a{color:var(--accent-blue);text-decoration:none;transition:var(--transition)}
-a:hover{color:var(--accent-cyan)}
-::selection{background:rgba(92,138,255,0.25)}
-
-/* =========== SCROLLBAR =========== */
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:var(--text-muted)}
-
-/* =========== NAVBAR =========== */
-.navbar{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  background:rgba(8,9,10,0.85);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-  height:56px;display:flex;align-items:center;
-  padding:0 1.5rem;
-}
-.nav-inner{
-  max-width:1100px;margin:0 auto;width:100%;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.nav-logo{
-  font-size:1.1rem;font-weight:600;letter-spacing:-0.3px;
-  background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  cursor:pointer;display:flex;align-items:center;gap:0.4rem;
-}
-.nav-logo span{-webkit-text-fill-color:var(--text-tertiary);font-weight:300}
-.nav-links{display:flex;gap:0.25rem;align-items:center}
-.nav-links a{
-  color:var(--text-tertiary);font-size:0.82rem;font-weight:500;
-  padding:0.35rem 0.7rem;border-radius:6px;cursor:pointer;
-  transition:var(--transition);white-space:nowrap;
-}
-.nav-links a:hover,.nav-links a.active{
-  color:var(--text-primary);background:rgba(255,255,255,0.04);
-}
-.nav-links a.active{color:var(--accent-blue)}
-.nav-hamburger{display:none;cursor:pointer;color:var(--text-tertiary);font-size:1.3rem;background:none;border:none;padding:0.25rem}
-
-/* =========== MAIN =========== */
-main{max-width:1100px;margin:0 auto;padding:72px 1.5rem 3rem}
-.section{display:none;animation:fadeIn 0.3s ease}
-.section.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-/* =========== HERO =========== */
-.hero{padding:4rem 0 3rem}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:0.4rem;
-  font-size:0.72rem;font-weight:500;color:var(--accent-blue);
-  background:rgba(88,166,255,0.08);border:1px solid rgba(88,166,255,0.15);
-  padding:0.25rem 0.65rem;border-radius:20px;margin-bottom:1.5rem;
-}
-.hero h1{
-  font-size:3rem;font-weight:700;letter-spacing:-1px;line-height:1.15;
-  margin-bottom:1rem;
-}
-.hero h1 .g1{color:var(--accent-blue)}
-.hero h1 .g2{color:var(--accent-purple)}
-.hero h1 .g3{color:var(--accent-green)}
-.hero h1 .g4{color:var(--accent-orange)}
-.hero .subtitle{
-  font-size:1.05rem;color:var(--text-tertiary);max-width:600px;
-  line-height:1.7;margin-bottom:2rem;
-}
-.hero-cta{display:flex;gap:0.75rem;flex-wrap:wrap}
-.hero-cta .btn{
-  display:inline-flex;align-items:center;gap:0.4rem;
-  padding:0.6rem 1.2rem;border-radius:var(--radius);font-size:0.88rem;font-weight:500;
-  cursor:pointer;transition:var(--transition);border:none;font-family:inherit;
-}
-.btn-primary{
-  background:var(--brand);color:#fff;
-}
-.btn-primary:hover{background:var(--brand-hover);transform:translateY(-1px)}
-.btn-ghost{
-  background:rgba(255,255,255,0.03);color:var(--text-secondary);
-  border:1px solid var(--border-strong);
-}
-.btn-ghost:hover{background:rgba(255,255,255,0.06);color:var(--text-primary)}
-
-/* Hero Tags */
-.hero-tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
-.hero-tags span{
-  font-size:0.78rem;font-weight:500;padding:0.25rem 0.75rem;
-  border-radius:20px;border:1px solid var(--border-strong);
-  color:var(--text-secondary);background:rgba(255,255,255,0.02);
-}
-
-/* =========== SECTION HEADER =========== */
-.section-header{
-  margin-bottom:2rem;padding-bottom:1rem;
-  border-bottom:1px solid var(--border);
-}
-.section-header h2{
-  font-size:1.5rem;font-weight:600;letter-spacing:-0.3px;
-  display:flex;align-items:center;gap:0.5rem;
-}
-.section-header p{color:var(--text-tertiary);font-size:0.9rem;margin-top:0.3rem}
-
-/* =========== CARDS =========== */
-.card-grid{display:grid;gap:0.75rem}
-.card-grid-2{display:grid;gap:0.75rem;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
-
-.card{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  padding:1rem 1.25rem;transition:var(--transition);
-}
-.card-clickable{
-  cursor:pointer;display:flex;align-items:center;justify-content:space-between;
-}
-.card-clickable:hover{
-  border-color:var(--accent-blue);background:var(--card-hover);transform:translateX(3px);
-}
-.card .ctitle{font-size:0.95rem;font-weight:500;display:flex;align-items:center;gap:0.4rem}
-.card .cdesc{font-size:0.82rem;color:var(--text-tertiary);margin-top:0.15rem}
-.card .cmeta{font-size:0.75rem;color:var(--text-muted);margin-top:0.3rem;display:flex;gap:0.5rem;flex-wrap:wrap}
-.card .arrow{color:var(--text-muted);font-size:1rem;flex-shrink:0;transition:var(--transition)}
-.card-clickable:hover .arrow{color:var(--accent-blue)}
-.card .ctags{display:flex;gap:0.3rem;flex-wrap:wrap;margin-top:0.4rem}
-.card .ctags span{
-  font-size:0.65rem;padding:0.1rem 0.45rem;border-radius:4px;
-  background:rgba(255,255,255,0.04);border:1px solid var(--border);
-  color:var(--text-muted);
-}
-
-/* =========== TIMELINE =========== */
-.timeline{position:relative;padding-left:2rem}
-.timeline::before{
-  content:'';position:absolute;left:7px;top:8px;bottom:8px;
-  width:1px;background:var(--border-strong);
-}
-.tl-item{position:relative;margin-bottom:1.5rem;padding-left:1.5rem}
-.tl-item::before{
-  content:'';position:absolute;left:-1.65rem;top:0.5rem;
-  width:9px;height:9px;border-radius:50%;
-  background:var(--accent-blue);border:2px solid var(--bg);
-}
-.tl-year{
-  font-size:0.72rem;font-weight:600;color:var(--accent-blue);
-  text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.2rem;
-}
-.tl-title{font-size:0.95rem;font-weight:500}
-.tl-desc{font-size:0.82rem;color:var(--text-tertiary);margin-top:0.1rem}
-.tl-sub{font-size:0.78rem;color:var(--text-muted);margin-top:0.15rem}
-
-/* =========== PROJECT CARD (rich) =========== */
-.proj-card{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
-  padding:1.25rem;transition:var(--transition);
-}
-.proj-card:hover{border-color:var(--border-strong);background:var(--card-hover)}
-.proj-card .p-icon{
-  width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;
-  font-size:1.1rem;margin-bottom:0.75rem;
-  background:rgba(255,255,255,0.04);border:1px solid var(--border);
-}
-.proj-card .p-title{font-size:1rem;font-weight:600;margin-bottom:0.25rem}
-.proj-card .p-desc{font-size:0.82rem;color:var(--text-tertiary);margin-bottom:0.6rem;line-height:1.5}
-.proj-card .p-meta{display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center}
-.proj-card .p-status{
-  font-size:0.68rem;font-weight:500;padding:0.1rem 0.5rem;border-radius:4px;
-}
-.status-dev{background:rgba(88,166,255,0.12);color:var(--accent-blue)}
-.status-proto{background:rgba(210,153,34,0.12);color:var(--accent-orange)}
-.status-done{background:rgba(63,185,80,0.12);color:var(--accent-green)}
-.status-exp{background:rgba(139,148,158,0.12);color:var(--text-tertiary)}
-
-/* =========== WIKI SEARCH =========== */
-.search-wrap{margin-bottom:2rem;position:relative}
-.search-bar{
-  display:flex;align-items:center;
-  background:rgba(255,255,255,0.03);border:1px solid var(--border-strong);
-  border-radius:var(--radius);padding:0.65rem 1rem;transition:var(--transition);
-}
-.search-bar:focus-within{border-color:var(--accent-blue);box-shadow:0 0 0 3px rgba(88,166,255,0.1)}
-.search-bar input{
-  flex:1;border:none;background:transparent;color:var(--text-primary);
-  font-size:0.9rem;outline:none;font-family:inherit;
-}
-.search-bar input::placeholder{color:var(--text-muted)}
-.search-bar .kbd{
-  font-size:0.65rem;color:var(--text-muted);
-  border:1px solid var(--border);border-radius:4px;
-  padding:0.1rem 0.35rem;font-family:inherit;
-}
-.search-res{
-  position:absolute;top:100%;left:0;right:0;
-  background:var(--card);border:1px solid var(--border-strong);
-  border-radius:var(--radius);margin-top:0.35rem;
-  max-height:420px;overflow-y:auto;display:none;z-index:50;
-  box-shadow:0 8px 24px rgba(0,0,0,0.4);
-}
-.search-res.active{display:block}
-.sr-item{
-  padding:0.7rem 1rem;border-bottom:1px solid var(--border);cursor:pointer;
-  transition:var(--transition);
-}
-.sr-item:last-child{border-bottom:none}
-.sr-item:hover{background:rgba(255,255,255,0.03)}
-.sr-item .srt{font-size:0.88rem;font-weight:500}
-.sr-item .srd{font-size:0.78rem;color:var(--text-tertiary);margin-top:0.1rem}
-.sr-item .srtg{font-size:0.65rem;color:var(--accent-orange);margin-top:0.1rem}
-.sr-empty{padding:1.5rem;text-align:center;color:var(--text-muted);font-size:0.85rem}
-.sr-load{padding:1rem;text-align:center;color:var(--text-muted)}
-
-/* =========== WIKI CATEGORY =========== */
-.wiki-cat{margin-bottom:1.5rem}
-.wiki-cat-title{
-  font-size:0.82rem;font-weight:600;color:var(--text-tertiary);
-  margin-bottom:0.5rem;display:flex;align-items:center;gap:0.4rem;
-}
-.wiki-cat-title::after{
-  content:'';flex:1;height:1px;background:var(--border);
-}
-
-/* =========== VIEWER =========== */
-.viewer{display:none}
-.viewer.active{display:block}
-.v-header{margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
-.v-back{
-  display:inline-flex;align-items:center;gap:0.3rem;
-  color:var(--text-tertiary);font-size:0.85rem;cursor:pointer;background:none;
-  border:none;font-family:inherit;transition:var(--transition);padding:0;
-}
-.v-back:hover{color:var(--accent-blue)}
-.v-title{font-size:1.6rem;font-weight:700;margin-top:0.5rem;letter-spacing:-0.3px}
-.v-meta{font-size:0.78rem;color:var(--text-muted);margin-top:0.4rem}
-.v-content{font-size:0.92rem;line-height:1.8}
-.v-content h1{font-size:1.5rem;margin:1.5rem 0 0.75rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border)}
-.v-content h2{font-size:1.25rem;margin:1.3rem 0 0.6rem;color:var(--accent-blue)}
-.v-content h3{font-size:1.05rem;margin:1.1rem 0 0.5rem}
-.v-content p{margin:0.6rem 0}
-.v-content ul,.v-content ol{margin:0.6rem 0;padding-left:1.5rem}
-.v-content li{margin:0.25rem 0}
-.v-content code{
-  background:rgba(88,166,255,0.08);border:1px solid var(--border);
-  border-radius:4px;padding:0.1rem 0.35rem;font-size:0.85em;
-  font-family:'JetBrains Mono',monospace;
-}
-.v-content pre{
-  background:#0d1117;border:1px solid var(--border);border-radius:var(--radius);
-  padding:1rem;overflow-x:auto;margin:0.75rem 0;
-}
-.v-content pre code{background:none;border:none;padding:0;font-size:0.85em}
-.v-content blockquote{
-  border-left:3px solid var(--accent-blue);padding:0.5rem 1rem;
-  margin:0.75rem 0;color:var(--text-tertiary);background:rgba(255,255,255,0.02);
-  border-radius:0 4px 4px 0;
-}
-.v-content table{width:100%;border-collapse:collapse;margin:0.75rem 0}
-.v-content th,.v-content td{border:1px solid var(--border);padding:0.45rem 0.65rem;text-align:left;font-size:0.85rem}
-.v-content th{background:var(--card);font-weight:600;color:var(--text-secondary)}
-.v-content hr{border:none;border-top:1px solid var(--border);margin:1.5rem 0}
-.v-content img{max-width:100%;border-radius:var(--radius);margin:0.75rem 0}
-.v-load{text-align:center;padding:3rem;color:var(--text-muted)}
-
-/* =========== FOOTER =========== */
-footer{
-  margin-top:4rem;padding-top:1.5rem;
-  border-top:1px solid var(--border);
-  font-size:0.78rem;color:var(--text-muted);
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;
-}
-
-/* =========== RESPONSIVE =========== */
-@media(max-width:768px){
-  .nav-links a{font-size:0.75rem;padding:0.3rem 0.5rem}
-  .hero h1{font-size:2rem}
-  .hero{padding:2rem 0}
-  .card-grid-2{grid-template-columns:1fr}
-  .navbar{padding:0 0.75rem}
-}
-@media(max-width:640px){
-  .nav-links{display:none;position:absolute;top:56px;left:0;right:0;
-    background:rgba(8,9,10,0.98);border-bottom:1px solid var(--border);
-    flex-direction:column;padding:0.5rem;gap:0.15rem;
-  }
-  .nav-links.open{display:flex}
-  .nav-hamburger{display:block}
-  .hero h1{font-size:1.6rem}
-  main{padding:64px 1rem 2rem}
-}
-</style>
-</head>
-<body>
-
-<!-- ========== NAVBAR ========== -->
-<nav class="navbar">
-  <div class="nav-inner">
-    <div class="nav-logo" onclick="switchSection('home')">Jun<span>.shi</span></div>
-    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-    <div class="nav-links" onclick="if(window.innerWidth<640)this.classList.remove('open')">
-      <a class="active" data-section="home" onclick="switchSection('home')">🏠 首頁</a>
-      <a data-section="resume" onclick="switchSection('resume')">📄 履歷</a>
-      <a data-section="projects" onclick="switchSection('projects')">📂 作品集</a>
-      <a data-section="learning" onclick="switchSection('learning')">📚 學習歷程</a>
-      <a data-section="wiki" onclick="switchSection('wiki')">📖 知識庫</a>
-    </div>
-  </div>
-</nav>
-
-<main>
-
-<!-- ========== HOME ========== -->
-<section id="home" class="section active">
-  <div class="hero">
-    <div class="hero-badge">⚡ AI Engineer · AI × Quant × Media</div>
-    <h1>
-      <span class="g1">Jun</span> <span class="g3">姜鈞</span><br>
-      <span class="g4">AI</span><span style="color:var(--text-tertiary)"> × </span><span class="g2">Quant</span><span style="color:var(--text-tertiary)"> × </span><span class="g1">Media</span>
-    </h1>
-    <div class="subtitle">
-      Python 後端工程師，專注於 AI 自動化、量化交易系統與自媒體內容生產。
-      從地端 LLM Agent 框架設計到台股期權策略回測，從 ComfyUI 影片生成到 Podcast 製作，
-      用程式打通從想法到落地的每一哩路。
-    </div>
-    <div class="hero-tags">
-      <span>🐍 Python</span>
-      <span>🤖 AI Agent</span>
-      <span>📈 量化交易</span>
-      <span>🎙 Podcast</span>
-      <span>🔧 自動化</span>
-      <span>🖥️ 全端</span>
-      <span>🎮 遊戲開發</span>
-      <span>🐳 Docker</span>
-    </div>
-    <div class="hero-cta">
-      <button class="btn btn-primary" onclick="switchSection('resume')">📄 看履歷</button>
-      <button class="btn btn-ghost" onclick="switchSection('projects')">📂 看作品集</button>
-      <button class="btn btn-ghost" onclick="switchSection('wiki')">📖 逛知識庫</button>
-    </div>
-  </div>
-
-  <!-- Highlights -->
-  <div class="section-header"><h2>🔥 精選亮點</h2><p>從程式碼到產出的代表作</p></div>
-  <div class="card-grid-2">
-    <div class="proj-card" style="cursor:pointer" onclick="switchSection('projects')">
-      <div class="p-icon">🎙</div>
-      <div class="p-title">《代碼縫隙》Podcast</div>
-      <div class="p-desc">全 AI 產製 Podcast 產線：腳本生成 → TTS 配音 → 自動剪輯 → 多平台上架。探索 AI 時代邊緣人的生存指南。</div>
-      <div class="p-meta"><span class="p-status status-done">✅ 營運中</span></div>
-    </div>
-    <div class="proj-card" style="cursor:pointer" onclick="switchSection('projects')">
-      <div class="p-icon">🧠</div>
-      <div class="p-title">AI Agent 框架</div>
-      <div class="p-desc">自主 AI Agent 框架，整合地端 LLM、工具呼叫、排程 cron、ComfyUI 影像生成，支援 Discord/Telegram 橋接。</div>
-      <div class="p-meta"><span class="p-status status-dev">🛠️ 開發中</span></div>
-    </div>
-    <div class="proj-card" style="cursor:pointer" onclick="switchSection('projects')">
-      <div class="p-icon">📈</div>
-      <div class="p-title">JoJo 量化交易系統</div>
-      <div class="p-desc">台股期權事件驅動回測系統，支援半導體類股分析、多券商整合、策略最佳化。</div>
-      <div class="p-meta"><span class="p-status status-dev">🛠️ 開發中</span></div>
-    </div>
-    <div class="proj-card" style="cursor:pointer" onclick="switchSection('projects')">
-      <div class="p-icon">🎮</div>
-      <div class="p-title">遊戲開發</div>
-      <div class="p-desc">Spirits-Calling | Shadowverse Tracker — 從桌寵到卡牌追蹤的多元遊戲開發。</div>
-      <div class="p-meta"><span class="p-status status-proto">🧪 原型</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== RESUME ========== -->
-<section id="resume" class="section">
-  <div class="section-header">
-    <h2>📄 履歷</h2>
-    <p>AI Engineer · 12 年跨領域 · AI × 專案管理</p>
-  </div>
-
-  <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:2rem">
-    <a href="https://github.com/Jnocode" target="_blank" class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;padding:0.45rem 0.9rem;border-radius:var(--radius);font-size:0.82rem;font-weight:500;border:1px solid var(--border-strong);color:var(--text-secondary);background:rgba(255,255,255,0.03);cursor:pointer">🐙 GitHub</a>
-    <a href="https://www.cake.me/me/jno1102" target="_blank" class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;padding:0.45rem 0.9rem;border-radius:var(--radius);font-size:0.82rem;font-weight:500;border:1px solid var(--border-strong);color:var(--text-secondary);background:rgba(255,255,255,0.03);cursor:pointer">🍰 CakeResume</a>
-  </div>
-
-  <div class="section-header" style="border-bottom-color:transparent;margin-bottom:1rem"><h3 style="font-size:1.1rem">💼 經歷</h3></div>
-  <div class="timeline">
-    <div class="tl-item">
-      <div class="tl-year">2023 — 現在</div>
-      <div class="tl-title">AI 開發 · 自由接案</div>
-      <div class="tl-desc">AI Agent 框架開發 · JoJo Trading 量化回測系統 · 全 AI Podcast 產線</div>
-      <div class="tl-sub">Python · FastAPI · Docker · AI Agent · RAG · ComfyUI</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2022 — 2023</div>
-      <div class="tl-title">專案管理師 · 耀欣數位科技</div>
-      <div class="tl-desc">冷鏈物流中心規劃建置專案 — 需求訪談、方案設計、跨部門協調</div>
-      <div class="tl-sub">專案管理 · Visio · 跨部門溝通 · 供應商評估</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2017</div>
-      <div class="tl-title">包材設計工程師 · 新航保麗龍</div>
-      <div class="tl-desc">SolidWorks 緩衝包材設計，製程改善，效率提升 15%</div>
-      <div class="tl-sub">SolidWorks · AutoCAD · 製程改善</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2006 — 2016</div>
-      <div class="tl-title">裝甲兵上士 · 中華民國陸軍</div>
-      <div class="tl-desc">領導 30 人戰車排，裝備維護 SOP 建立與執行</div>
-      <div class="tl-sub">團隊管理 · SOP · 裝備維護 · 任務規劃</div>
-    </div>
-  </div>
-
-  <div class="section-header" style="border-bottom-color:transparent;margin:1.5rem 0 1rem"><h3 style="font-size:1.1rem">🎓 學歷</h3></div>
-  <div class="timeline">
-    <div class="tl-item">
-      <div class="tl-year">2018 — 2022</div>
-      <div class="tl-title">國立臺北科技大學 · 工業工程與管理系</div>
-      <div class="tl-desc">主修決策分析、作業研究、品質管理、生產管理</div>
-      <div class="tl-sub">專題：智慧家庭系統測試架構設計與評估</div>
-    </div>
-  </div>
-
-  <div class="section-header" style="border-bottom-color:transparent;margin:1.5rem 0 1rem"><h3 style="font-size:1.1rem">🛠️ 技術棧</h3></div>
-  <div style="display:grid;gap:0.75rem;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">
-    <div class="card">
-      <div class="ctitle">🐍 語言</div>
-      <div class="ctags" style="margin-top:0.4rem">
-        <span>Python</span><span>SQL</span><span>HTML/CSS</span><span>JavaScript</span><span>Bash</span>
-      </div>
-    </div>
-    <div class="card">
-      <div class="ctitle">⚙️ 框架</div>
-      <div class="ctags" style="margin-top:0.4rem">
-        <span>FastAPI</span><span>Flask</span><span>LangChain</span><span>Playwright</span><span>DSPy</span><span>Discord.py</span>
-      </div>
-    </div>
-    <div class="card">
-      <div class="ctitle">🗄️ 資料庫</div>
-      <div class="ctags" style="margin-top:0.4rem">
-        <span>PostgreSQL</span><span>SQLite</span><span>Meilisearch</span><span>Redis</span>
-      </div>
-    </div>
-    <div class="card">
-      <div class="ctitle">🧰 DevOps</div>
-      <div class="ctags" style="margin-top:0.4rem">
-        <span>Docker</span><span>Git</span><span>GitHub Actions</span><span>WSL</span><span>NAS</span>
-      </div>
-    </div>
-    <div class="card">
-      <div class="ctitle">🤖 AI</div>
-      <div class="ctags" style="margin-top:0.4rem">
-        <span>LLM</span><span>RAG</span><span>ComfyUI</span><span>Stable Diffusion</span><span>Whisper</span><span>TTS</span>
-      </div>
-    </div>
-    <div class="card">
-      <div class="ctitle">📈 交易</div>
-      <div class="ctags" style="margin-top:0.4rem">
-        <span>回測系統</span><span>API 串接</span><span>技術分析</span><span>半導體分析</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-header" style="border-bottom-color:transparent;margin:1.5rem 0 1rem"><h3 style="font-size:1.1rem">📜 證照</h3></div>
-  <div class="card-grid">
-    <div class="card card-clickable" style="cursor:default">
-      <div>
-        <div class="ctitle">🎯 IPAS 經濟部產業人才能力鑑定</div>
-        <div class="cdesc">生產與作業管理基礎能力 · 品質管理基礎能力</div>
-      </div>
-    </div>
-    <div class="card card-clickable" style="cursor:default">
-      <div>
-        <div class="ctitle">🗣️ JLPT N4</div>
-        <div class="cdesc">日本語能力認定 · 2021</div>
-      </div>
-    </div>
-    <div class="card card-clickable" style="cursor:default">
-      <div>
-        <div class="ctitle">🏆 退除役官兵特考</div>
-        <div class="cdesc">報考經歷 · 112 年</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== PROJECTS ========== -->
-<section id="projects" class="section">
-  <div class="section-header">
-    <h2>📂 作品集</h2>
-    <p>從 AI 到量化到遊戲 — 每一個專案都是從 0 到 1 的實踐</p>
-  </div>
-
-  <div class="section-header" style="border-bottom-color:transparent;margin-bottom:1rem"><h3 style="font-size:1rem">🤖 AI / 自動化</h3></div>
-  <div class="card-grid-2" style="margin-bottom:1.5rem">
-    <div class="proj-card">
-      <div class="p-icon">🎙</div>
-      <div class="p-title">《代碼縫隙》Podcast</div>
-      <div class="p-desc">全 AI 產製 Podcast 產線：腳本生成 → SoulX TTS 配音 → 自動剪輯 → 多平台上架。導入 PG 選題框架與包裝方法論。</div>
-      <div class="p-meta"><span class="p-status status-done">✅ 營運中</span><a href="https://podcasts.apple.com/us/podcast/id..." target="_blank" style="font-size:0.75rem">收聽 →</a></div>
-    </div>
-    <div class="proj-card">
-      <div class="p-icon">🧠</div>
-      <div class="p-title">AI Agent 框架</div>
-      <div class="p-desc">自主開發地端 AI Agent，整合 LLM、工具呼叫、排程 cron、ComfyUI 影像生成，支援 Discord/Telegram 橋接。</div>
-      <div class="p-meta"><span class="p-status status-done">✅ 營運中</span><a href="https://github.com/Jnocode" target="_blank" style="font-size:0.75rem">GitHub →</a></div>
-    </div>
-  </div>
-  <div style="margin-bottom:1.5rem">
-    <div class="proj-card" style="max-width:calc(50% - 0.75rem)">
-      <div class="p-icon">🌐</div>
-      <div class="p-title">Wiki 知識庫</div>
-      <div class="p-desc">全棧個人知識庫網站：FastAPI + PostgreSQL + Meilisearch + Docker。暗色卡片前台、即時搜尋、NAS 部署、外網 SSL。</div>
-      <div class="p-meta"><span class="p-status status-done">✅ 營運中</span><a href="https://jno-worldline.myds.me:8443/" target="_blank" style="font-size:0.75rem">前往 →</a></div>
-    </div>
-  </div>
-
-  <div class="section-header" style="border-bottom-color:transparent;margin-bottom:1rem"><h3 style="font-size:1rem">📈 量化交易</h3></div>
-  <div class="card-grid-2" style="margin-bottom:1.5rem">
-    <div class="proj-card">
-      <div class="p-icon">📈</div>
-      <div class="p-title">JoJo Trading</div>
-      <div class="p-desc">台股期權事件驅動回測系統。支援半導體類股分析、多券商 API 整合、策略參數最佳化。</div>
-      <div class="p-meta"><span class="p-status status-dev">🛠️ 開發中</span><a href="https://github.com/Jnocode/jojo_trading" target="_blank" style="font-size:0.75rem">GitHub →</a></div>
-    </div>
-  </div>
-
-  <div class="section-header" style="border-bottom-color:transparent;margin-bottom:1rem"><h3 style="font-size:1rem">🎮 遊戲開發</h3></div>
-  <div class="card-grid-2" style="margin-bottom:1.5rem">
-    <div class="proj-card">
-      <div class="p-icon">👻</div>
-      <div class="p-title">Spirits-Calling</div>
-      <div class="p-desc">2D 遊戲專案，Python 後端支撐多人連線與遊戲邏輯。</div>
-      <div class="p-meta"><span class="p-status status-proto">🧪 原型</span><a href="https://github.com/Jnocode/Spirits-Calling" target="_blank" style="font-size:0.75rem">GitHub →</a></div>
-    </div>
-
-    <div class="proj-card">
-      <div class="p-icon">🃏</div>
-      <div class="p-title">Shadowverse Tracker</div>
-      <div class="p-desc">Shadowverse Worlds Beyond 卡牌遊戲輔助工具，AI 視覺辨識 + 數據追蹤。</div>
-      <div class="p-meta"><span class="p-status status-dev">🛠️ 開發中</span></div>
-    </div>
-  </div>
-
-  <div class="section-header" style="border-bottom-color:transparent;margin-bottom:1rem"><h3 style="font-size:1rem">🛠️ 工具</h3></div>
-  <div class="card-grid-2" style="margin-bottom:1.5rem">
-    <div class="proj-card">
-      <div class="p-icon">🌏</div>
-      <div class="p-title">SAMMI TC Patch</div>
-      <div class="p-desc">SAMMI 直播工具繁中翻譯補丁，完整中文化套件。</div>
-      <div class="p-meta"><span class="p-status status-done">✅ 完成</span></div>
-    </div>
-    <div class="proj-card">
-      <div class="p-icon">🦙</div>
-      <div class="p-title">Llama Launcher</div>
-      <div class="p-desc">Llama 系列模型啟動器，簡化地端 LLM 部署流程。</div>
-      <div class="p-meta"><span class="p-status status-done">✅ 完成</span></div>
-    </div>
-    <div class="proj-card">
-      <div class="p-icon">✂️</div>
-      <div class="p-title">Well Cut</div>
-      <div class="p-desc">影片剪輯輔助工具，自動化剪輯工作流。</div>
-      <div class="p-meta"><span class="p-status status-proto">🧪 實驗</span></div>
-    </div>
-
-    <div class="proj-card">
-      <div class="p-icon">🥗</div>
-      <div class="p-title">Gout Diet Cam</div>
-      <div class="p-desc">痛風飲食拍照分析 App (React Native + AI Vision)。</div>
-      <div class="p-meta"><span class="p-status status-proto">🧪 原型</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== LEARNING ========== -->
-<section id="learning" class="section">
-  <div class="section-header">
-    <h2>📚 學習歷程</h2>
-    <p>從 105 年到 114 年 — 工業工程到 AI 工程的跨域紀錄</p>
-  </div>
-
-  <div class="timeline">
-    <div class="tl-item">
-      <div class="tl-year">105 年</div>
-      <div class="tl-title">3D 列印產品設計與精密鑄造班</div>
-      <div class="tl-desc">職業訓練班，開啟工程領域之路</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">107 年</div>
-      <div class="tl-title">國立臺北科技大學 · 工業工程與管理系（入學）</div>
-      <div class="tl-desc">先修課程：大學入門、工管概論、計算機概論、經濟學、程式設計入門</div>
-      <div class="tl-sub">107-1 學期 · 智慧機器人設計師班（未修畢）</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">107-2</div>
-      <div class="tl-title">專業基礎深化</div>
-      <div class="tl-desc">工作研究、程式語言、零售管理、多媒體設計</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">108-1</div>
-      <div class="tl-title">核心專業課程</div>
-      <div class="tl-desc">作業研究、統計學、程式語言二 (Python)、管理學、微積分</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">108-2</div>
-      <div class="tl-title">技術拓展</div>
-      <div class="tl-desc">作業研究、統計學、HTML 網頁設計、Minitab 統計分析、電子商務網站設計</div>
-      <div class="tl-sub">取得 IPAS 生產與作業管理基礎能力認證</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">109-1</div>
-      <div class="tl-title">生產管理與品質專業</div>
-      <div class="tl-desc">品質管理、生產管理、自動化概論、產業分析、電子商務經營實務</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">109-2</div>
-      <div class="tl-title">IE 進階與跨域</div>
-      <div class="tl-desc">作業研究(二)、品質管理實習、人因工程、工程經濟、統計學(二)、管理數學</div>
-      <div class="tl-sub">取得 IPAS 品質管理基礎能力認證</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">109-3 (暑修)</div>
-      <div class="tl-title">畢業衝刺</div>
-      <div class="tl-desc">機率論、二元隨機變數 — 補足學分順利畢業</div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-year">自學</div>
-      <div class="tl-title">AI 工程師自學路徑</div>
-      <div class="tl-desc">Python 進階 → FastAPI → Docker → AI Agent (LangChain/DSPy) → RAG → 量化交易 → ComfyUI → Hermes Agent</div>
-      <div class="tl-sub">自主學習：從零搭建 Hermes AI Agent、JoJo Trading 回測系統、Wiki 全棧網站</div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== WIKI ========== -->
-<section id="wiki" class="section">
-  <div class="section-header">
-    <h2>📖 知識庫</h2>
-    <p>AI × 量化 × 媒體 — 系統化的技術筆記與知識管理</p>
-  </div>
-
-  <div class="search-wrap">
-    <div class="search-bar">
-      <span style="color:var(--text-muted);margin-right:0.6rem;font-size:1rem">🔍</span>
-      <input type="text" id="wikiSearch" placeholder="搜尋知識庫..." autocomplete="off">
-      <span class="kbd">⌘K</span>
-    </div>
-    <div class="search-res" id="wikiResults"></div>
-  </div>
-
-  <div id="wikiList"></div>
-</section>
-
-<!-- ========== VIEWER (embedded) ========== -->
-<section id="viewer" class="viewer">
-  <div class="v-header">
-    <button class="v-back" onclick="closeViewer()">← 返回知識庫</button>
-    <div class="v-title" id="vTitle"></div>
-    <div class="v-meta" id="vMeta"></div>
-  </div>
-  <div class="v-content" id="vContent"><div class="v-load">載入中…</div></div>
-</section>
-
-<footer>
-  <span><a href="https://github.com/Jnocode/wiki">Jnocode/wiki</a> · NAS 主機</span>
-  <span>Powered by FastAPI · PostgreSQL · Meilisearch · ☕ &amp; Hermes</span>
-</footer>
-</main>
-
-<script>
-// ========== NAVIGATION ==========
-let currentSection = 'home';
-
-function switchSection(name) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  const section = document.getElementById(name);
-  if (section) section.classList.add('active');
-  const link = document.querySelector(`.nav-links a[data-section="${name}"]`);
-  if (link) link.classList.add('active');
-  currentSection = name;
-  // Scroll to top
-  window.scrollTo({top: 0, behavior: 'smooth'});
-  // Close viewer if navigating away from wiki
-  if (name !== 'wiki') {
-    document.getElementById('viewer').classList.remove('active');
-    document.getElementById('wiki').classList.remove('active');
-  }
-}
-
-// Keyboard shortcut: Cmd+K
-document.addEventListener('keydown', e => {
-  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-    e.preventDefault();
-    if (currentSection === 'wiki') {
-      document.getElementById('wikiSearch').focus();
-    } else {
-      switchSection('wiki');
-      setTimeout(() => document.getElementById('wikiSearch').focus(), 100);
-    }
-  }
-});
-
-// ========== WIKI DATA ==========
-const API_BASE = '/api';
-
-const CAT_ICONS = {
-  'knowledge-base':'📖','learning':'🎓','tech':'🛠','project':'💼','media':'🎙','system':'🔧','creative':'🎨'
-};
-const CAT_LABELS = {
-  'knowledge-base':'知識庫本身','learning':'學習','tech':'技術','project':'專案','media':'自媒體','system':'系統','creative':'創意'
-};
-
-function guessCat(slug,tags,title) {
-  if(tags&&tags.length){
-    const m={'knowledge-base':'knowledge-base','kb':'knowledge-base','mcp':'knowledge-base','learning':'learning','course':'learning','book':'learning','tech':'tech','sd':'tech','stable-diffusion':'tech','model':'tech','project':'project','business':'project','workspace':'project','media':'media','podcast':'media','content':'media','system':'system','deploy':'system','wsl':'system','creative':'creative','song':'creative','writing':'creative'};
-    for(let t of tags){if(m[t])return m[t]}
-  }
-  if(slug.startsWith('concepts/'))return'tech';
-  if(slug.startsWith('entities/')){
-    let e=slug.replace('entities/','');
-    if(e.includes('knowledge')||e.includes('mcp'))return'knowledge-base';
-    if(e.includes('ie')||e.includes('book'))return'learning';
-    if(e.includes('sd')||e.includes('stable')||e.includes('model'))return'tech';
-    if(e.includes('business')||e.includes('park')||e.includes('workspace')||e.includes('trading')||e.includes('agent')||e.includes('quant')||e.includes('jojo'))return'project';
-    if(e.includes('media')||e.includes('podcast'))return'media';
-    if(e.includes('deploy')||e.includes('wsl'))return'system';
-    if(e.includes('creative')||e.includes('song')||e.includes('lyric'))return'creative';
-  }
-  return'project';
-}
-
-function getDesc(page){
-  if(page.description)return page.description;
-  if(page.content){
-    const lines=page.content.split('\n').filter(l=>l.trim()&&!l.startsWith('#')&&!l.startsWith('---'));
-    return lines[0]?lines[0].substring(0,100):'';
-  }
-  return'';
-}
-
-let allPages=[];
-let wikiTimer=null;
-
-async function loadWiki(){
-  try{
-    const res=await fetch(`${API_BASE}/pages/`);
-    if(!res.ok)throw new Error(`HTTP ${res.status}`);
-    const data=await res.json();
-    allPages=Array.isArray(data)?data:(data.pages||[]);
-    renderWiki(allPages);
-  }catch(e){
-    document.getElementById('wikiList').innerHTML=`<div style="text-align:center;padding:2rem;color:var(--text-muted)">❌ 載入失敗: ${e.message}</div>`;
-  }
-}
-
-function renderWiki(pages){
-  // Group by category
-  const groups={};
-  const order=['knowledge-base','learning','tech','project','media','system','creative'];
-  for(const p of pages){
-    const cat=guessCat(p.slug,p.tags,p.title);
-    if(!groups[cat])groups[cat]=[];
-    groups[cat].push(p);
-  }
-  let html='';
-  for(const cat of order){
-    const items=groups[cat];
-    if(!items||!items.length)continue;
-    html+=`<div class="wiki-cat"><div class="wiki-cat-title">${CAT_ICONS[cat]||'📄'} ${CAT_LABELS[cat]||cat}</div><div class="cards">`;
-    for(const p of items){
-      html+=`<div class="card card-clickable" onclick="openPage('${p.slug}')">
-        <div><div class="ctitle">${p.title||p.slug.split('/').pop().replace('.md','')}</div>
-        <div class="cdesc">${getDesc(p)}</div></div>
-        <span class="arrow">→</span></div>`;
-    }
-    html+=`</div></div>`;
-  }
-  document.getElementById('wikiList').innerHTML=html||'<div style="text-align:center;padding:2rem;color:var(--text-muted)">📭 暫無內容</div>';
-}
-
-// ========== SEARCH ==========
-const searchInput=document.getElementById('wikiSearch');
-const searchRes=document.getElementById('wikiResults');
-
-searchInput.addEventListener('input',()=>{
-  clearTimeout(wikiTimer);
-  const q=searchInput.value.trim();
-  if(!q){searchRes.classList.remove('active');searchRes.innerHTML='';return}
-  wikiTimer=setTimeout(()=>doSearch(q),250);
-});
-
-async function doSearch(q){
-  searchRes.classList.add('active');
-  searchRes.innerHTML='<div class="sr-load">🔍 搜尋中…</div>';
-  try{
-    // Try API search first
-    const res=await fetch(`${API_BASE}/search/?q=${encodeURIComponent(q)}&limit=20`);
-    if(res.ok){
-      const data=await res.json();
-      const results=data.results||data;
-      if(!results.length){
-        searchRes.innerHTML='<div class="sr-empty">未找到符合的結果</div>';
-        return;
-      }
-      let html='';
-      for(const r of results){
-        html+=`<div class="sr-item" onclick="openPage('${r.slug}')">
-          <div class="srt">${r.title||r.slug}</div>
-          <div class="srd">${r.description||''}</div>
-          <div class="srtg">${r.tags?r.tags.join(' · '):'📄 Wiki'}</div>
-        </div>`;
-      }
-      searchRes.innerHTML=html;
-    }else{
-      // Fallback: client-side filter
-      const ql=q.toLowerCase();
-      const results=allPages.filter(p=>(p.title&&p.title.toLowerCase().includes(ql))||(p.content&&p.content.toLowerCase().includes(ql))||(p.slug&&p.slug.toLowerCase().includes(ql)));
-      if(!results.length){
-        searchRes.innerHTML='<div class="sr-empty">未找到符合的結果</div>';
-        return;
-      }
-      let html='';
-      for(const r of results.slice(0,20)){
-        html+=`<div class="sr-item" onclick="openPage('${r.slug}')">
-          <div class="srt">${r.title||r.slug.split('/').pop().replace('.md','')}</div>
-          <div class="srd">${getDesc(r).substring(0,80)}</div>
-        </div>`;
-      }
-      searchRes.innerHTML=html;
-    }
-  }catch(e){
-    searchRes.innerHTML='<div class="sr-empty">搜尋失敗: '+e.message+'</div>';
-  }
-}
-
-// Close search on click outside
-document.addEventListener('click',e=>{
-  if(!e.target.closest('.search-wrap'))searchRes.classList.remove('active');
-});
-
-// ========== PAGE VIEWER ==========
-async function openPage(slug){
-  document.getElementById('wiki').classList.remove('active');
-  document.getElementById('viewer').classList.add('active');
-  document.getElementById('vTitle').textContent='';
-  document.getElementById('vMeta').textContent='';
-  document.getElementById('vContent').innerHTML='<div class="v-load">載入中…</div>';
-  window.scrollTo({top:0,behavior:'smooth'});
-  try{
-    const res=await fetch(`${API_BASE}/pages/get?slug=${encodeURIComponent(slug)}`);
-    if(!res.ok)throw new Error(`HTTP ${res.status}`);
-    const page=await res.json();
-    document.getElementById('vTitle').textContent=page.title||slug.split('/').pop().replace('.md','');
-    const tags=page.tags?page.tags.join(' · '):'';
-    document.getElementById('vMeta').textContent=tags?`🏷️ ${tags}`:'';
-    const html=marked.parse(page.content||'');
-    document.getElementById('vContent').innerHTML=html;
-    // Fix local file:// links
-    document.querySelectorAll('.v-content a[href^="file://"]').forEach(a=>{
-      a.style.opacity='0.4';a.title='本機檔案';
-    });
-  }catch(e){
-    document.getElementById('vContent').innerHTML=`<div style="text-align:center;padding:2rem;color:var(--accent-pink)">❌ 載入失敗: ${e.message}</div>`;
-  }
-  searchRes.classList.remove('active');
-}
-
-function closeViewer(){
-  document.getElementById('viewer').classList.remove('active');
-  document.getElementById('wiki').classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-// ========== INIT ==========
-loadWiki();
-</script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>姜鈞 (Jun) Persona — AI Agent & RAG Specialist</title>
+<meta name="description" content="專注於 Python AI Agent 架構設計、高效能 RAG (檢索增強生成) 系統與自動化流程開發的軟體工程師。具備獨立從零構建大規模 AI 產線（如音訊轉譯、多代理自動上架、CDP 反偵測瀏覽器自動化）的實戰經驗。擅長運用非同步架構 (AsyncIO)、混合檢索 (ANN + SQL JOI...">
+<!-- Open Graph -->
+<meta property="og:title" content="姜鈞 (Jun) — AI Agent & RAG 開發工程師 | Python 進階開發者">
+<meta property="og:description" content="專注於 Python AI Agent 架構設計、高效能 RAG (檢索增強生成) 系統與自動化流程開發的軟體工程師。具備獨立從零構建大規模 AI 產線（如音訊轉譯、多代理自動上架、CDP 反偵測瀏覽器自動化）的實戰經驗。擅長運用非同步架構...">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* =========== SYSTEM =========== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08090a;
+  --surface:#0f1011;
+  --card:#161b22;
+  --card-hover:#1c2333;
+  --border:rgba(255,255,255,0.06);
+  --border-strong:rgba(255,255,255,0.10);
+  --text-primary:#f0f2f5;
+  --text-secondary:#b0b8c4;
+  --text-tertiary:#8a8f98;
+  --text-muted:#62666d;
+  --accent-blue:#58a6ff;
+  --accent-purple:#bc8cff;
+  --accent-green:#3fb950;
+  --accent-pink:#ff7b72;
+  --accent-orange:#d29922;
+  --accent-cyan:#79c0ff;
+  --brand:#5e6ad2;
+  --brand-hover:#7170ff;
+  --radius:8px;
+  --radius-lg:12px;
+  --shadow-card:0 0 0 1px var(--border),0 4px 12px rgba(0,0,0,0.15);
+  --transition:all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{
+  font-family:'Inter','Noto Sans TC',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg);
+  color:var(--text-primary);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent-blue);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--accent-cyan)}
+
+/* =========== NAVBAR =========== */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(8,9,10,0.85);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  height:56px;display:flex;align-items:center;
+  padding:0 1.5rem;
+}
+.nav-inner{
+  max-width:1100px;margin:0 auto;width:100%;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{
+  font-size:1.1rem;font-weight:600;
+  background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  cursor:pointer;
+}
+.nav-links{display:flex;gap:0.5rem;align-items:center}
+.nav-links a{
+  color:var(--text-tertiary);font-size:0.82rem;font-weight:500;
+  padding:0.35rem 0.7rem;border-radius:6px;cursor:pointer;
+  transition:var(--transition);
+}
+.nav-links a:hover, .nav-links a.active{
+  color:var(--text-primary);background:rgba(255,255,255,0.04);
+}
+
+/* =========== MAIN =========== */
+main{max-width:1100px;margin:0 auto;padding:72px 1.5rem 3rem}
+.section{display:none;animation:fadeIn 0.3s ease}
+.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* =========== HERO =========== */
+.hero{padding:4rem 0 3rem}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  font-size:0.72rem;font-weight:500;color:var(--accent-blue);
+  background:rgba(88,166,255,0.08);border:1px solid rgba(88,166,255,0.15);
+  padding:0.25rem 0.65rem;border-radius:20px;margin-bottom:1.5rem;
+}
+.hero h1{
+  font-size:3rem;font-weight:700;line-height:1.15;
+  margin-bottom:1rem;
+}
+.hero h1 .g1{color:var(--accent-blue)}
+.hero h1 .g3{color:var(--accent-purple)}
+.hero h1 .g4{color:var(--accent-green)}
+.hero .subtitle{
+  font-size:1.05rem;color:var(--text-tertiary);max-width:800px;
+  line-height:1.7;margin-bottom:2rem;
+}
+.hero-cta{display:flex;gap:0.75rem;flex-wrap:wrap}
+.hero-cta .btn{
+  display:inline-flex;align-items:center;
+  padding:0.6rem 1.2rem;border-radius:var(--radius);font-size:0.88rem;font-weight:500;
+  cursor:pointer;transition:var(--transition);border:none;
+}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand-hover);transform:translateY(-1px)}
+.btn-ghost{background:rgba(255,255,255,0.03);color:var(--text-secondary);border:1px solid var(--border-strong)}
+.btn-ghost:hover{background:rgba(255,255,255,0.06);color:var(--text-primary)}
+
+.hero-tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.hero-tags span{
+  font-size:0.78rem;font-weight:500;padding:0.25rem 0.75rem;
+  border-radius:20px;border:1px solid var(--border-strong);
+  color:var(--text-secondary);background:rgba(255,255,255,0.02);
+}
+
+/* =========== TIMELINE & CARDS =========== */
+.section-header{margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.section-header h2{font-size:1.5rem;font-weight:600}
+.section-header p{color:var(--text-tertiary);font-size:0.9rem;margin-top:0.3rem}
+
+.card-grid-2{display:grid;gap:0.75rem;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem}
+.ctags{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.4rem}
+.ctags span{
+  font-size:0.75rem;padding:0.2rem 0.6rem;border-radius:4px;
+  background:rgba(255,255,255,0.04);border:1px solid var(--border);
+  color:var(--text-secondary);
+}
+
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{
+  content:'';position:absolute;left:7px;top:8px;bottom:8px;
+  width:1px;background:var(--border-strong);
+}
+.tl-item{position:relative;margin-bottom:1.5rem;padding-left:1.5rem}
+.tl-item::before{
+  content:'';position:absolute;left:-1.65rem;top:0.5rem;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--accent-blue);border:2px solid var(--bg);
+}
+.tl-year{font-size:0.72rem;font-weight:600;color:var(--accent-blue);margin-bottom:0.2rem}
+.tl-title{font-size:0.95rem;font-weight:600}
+.tl-desc{font-size:0.85rem;color:var(--text-tertiary);margin-top:0.2rem}
+
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;transition:var(--transition)}
+.proj-card:hover{border-color:var(--border-strong);background:var(--card-hover)}
+.proj-card .p-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:0.75rem;background:rgba(255,255,255,0.04);border:1px solid var(--border)}
+.proj-card .p-title{font-size:1rem;font-weight:600;margin-bottom:0.25rem}
+.proj-card .p-desc{font-size:0.82rem;color:var(--text-tertiary);margin-bottom:0.6rem;line-height:1.5}
+.proj-card .p-meta{display:flex;gap:0.5rem;align-items:center}
+.proj-card .p-status{font-size:0.68rem;font-weight:500;padding:0.1rem 0.5rem;border-radius:4px;background:rgba(88,166,255,0.12);color:var(--accent-blue)}
+
+footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);display:flex;justify-content:between}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="switchSection('home')">姜鈞 (Jun)<span>.profile</span></div>
+    <div class="nav-links">
+      <a class="active" data-section="home" onclick="switchSection('home')">🏠 首頁</a>
+      <a data-section="resume" onclick="switchSection('resume')">📄 履歷</a>
+      <a data-section="projects" onclick="switchSection('projects')">📂 作品集</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ========== HOME ========== -->
+<section id="home" class="section active">
+  <div class="hero">
+    <div class="hero-badge">⚡ AI Agent & RAG Developer · Python Expert</div>
+    <h1>
+      <span class="g1">姜鈞</span> <span class="g3">(Jun)</span><br>
+      <span class="g4">AI Agent</span><span style="color:var(--text-tertiary)"> × </span><span class="g1">RAG</span>
+    </h1>
+    <div class="subtitle">專注於 Python AI Agent 架構設計、高效能 RAG (檢索增強生成) 系統與自動化流程開發的軟體工程師。具備獨立從零構建大規模 AI 產線（如音訊轉譯、多代理自動上架、CDP 反偵測瀏覽器自動化）的實戰經驗。擅長運用非同步架構 (AsyncIO)、混合檢索 (ANN + SQL JOIN + FTS5 RRF 融合，延遲低於 80ms) 解決 AI 幻覺與長期記憶限制。具備 10 年團隊管理與跨部門專案協調底蘊，擅長將商業需求敏捷轉化為具備自動化測試、CI/CD 與高容錯的穩健系統。</div>
+    <div class="hero-tags">
+      <span>🐍 Python (AsyncIO)</span>
+      <span>🤖 AI Agent</span>
+      <span>🧠 RAG (ANN+FTS5)</span>
+      <span>🎙 Podcast Automation</span>
+      <span>🔧 CDP Browser Automation</span>
+      <span>🐳 Docker Compose</span>
+    </div>
+    <div class="hero-cta">
+      <button class="btn btn-primary" onclick="switchSection('resume')">📄 看履歷</button>
+      <button class="btn btn-ghost" onclick="switchSection('projects')">📂 看作品集</button>
+    </div>
+  </div>
+
+  <div class="section-header"><h2>🔥 精選研案亮點</h2><p>自主研發代表作</p></div>
+  <div class="card-grid-2">
+    
+    <div class="proj-card" style="cursor:pointer" onclick="switchSection('projects')">
+      <div class="p-icon">🧠</div>
+      <div class="p-title">Recall — 長期語意記憶與混合檢索引擎 (open-source)</div>
+      <div class="p-desc">獨立研發供 AI Agent 使用的高效語意記憶系統。核心特點：(1) 實現 ANN 向量、FTS5 全文檢索與 SQLite 索引的三路 RRF (Reciprocal Rank Fusion) 混合檢索，無 LLM 介入下查詢延遲 < 80ms；(2) 串...</div>
+      <div class="p-meta"><span class="p-status status-done">✅ active</span></div>
+    </div>
+    <div class="proj-card" style="cursor:pointer" onclick="switchSection('projects')">
+      <div class="p-icon">🎙</div>
+      <div class="p-title">Hermes Agent 多角色協作自動化產線 (self-hosted)</div>
+      <div class="p-desc">構建自託管的多代理協作自動化工作流系統。技術實作：(1) 基於 cron 與本地 GPU 資源（RTX 4070 12GB）實作 queue-based 自動化產線，以 background 模式運行 long-running 任務防超時；(2) 整合 fas...</div>
+      <div class="p-meta"><span class="p-status status-done">✅ active</span></div>
+    </div>
+    <div class="proj-card" style="cursor:pointer" onclick="switchSection('projects')">
+      <div class="p-icon">📈</div>
+      <div class="p-title">JoJo Trading Platform (量化交易系統)</div>
+      <div class="p-desc">技術亮點: 獨立構建從數據獲取、策略回測到自動下單的完整生態系。架構設計: 採用模組化設計 (Core/Data/Strategy/UI)，整合 Yahoo Finance API 與 DCF 估值模型。效能優化: 運用 asyncio 實現高併發市場數據爬取...</div>
+      <div class="p-meta"><span class="p-status status-done">✅ active</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RESUME ========== -->
+<section id="resume" class="section">
+  <div class="section-header">
+    <h2>📄 經歷與技術棧</h2>
+    <p>AI Agent & RAG 開發工程師 | Python 進階開發者 · 聯絡方式：jnoworldline@gmail.com</p>
+  </div>
+
+  <div class="section-header" style="border-bottom-color:transparent;margin-bottom:1rem"><h3 style="font-size:1.1rem">💼 工作經歷</h3></div>
+  <div class="timeline" style="margin-bottom:2.5rem">
+    
+    <div class="tl-item">
+      <div class="tl-year">2024/01 - 至今</div>
+      <div class="tl-title">個人開發者 / 自由接案 (Self-employed) · AI Agent & RAG 系統研發工程師</div>
+      <div class="tl-desc">研發以長期語意記憶為核心的自主 Agent 系統，實作從數據採集、混合檢索到自動化決策鏈的完整 DevOps 與 CI/CD 流程。深入研究大模型推理優化、GPU 併發調度，並使用 CDP 協定繞過 Cloudflare 機器人防護，實作多種瀏覽器自動化應用。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2022/10 - 2023/02</div>
+      <div class="tl-title">耀欣數位科技 (MOCIAL) · 專案管理師 (PM)</div>
+      <div class="tl-desc">負責冷鏈物流中心建置專案，協調跨部門 (IT/機構/業務) 資源，確保專案按時交付。建立標準化專案文件，展現系統化思考與流程優化能力。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2017/01 - 2017/12</div>
+      <div class="tl-title">新航保麗龍 · 包材設計工程師</div>
+      <div class="tl-desc">負責 3C 產品包裝結構設計 (SolidWorks)。參與生產線自動化改善專案。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2006/08 - 2016/12</div>
+      <div class="tl-title">中華民國陸軍 · 上士領導士官 | Team Leader</div>
+      <div class="tl-desc">10年軍旅生涯培養極強的抗壓性、紀律與責任感。領導 30+ 人團隊執行任務，具備優秀的人員管理與危機處理能力。</div>
+    </div>
+  </div>
+
+  <div class="section-header" style="border-bottom-color:transparent;margin-bottom:1rem"><h3 style="font-size:1.1rem">🎓 教育與證照</h3></div>
+  <div class="timeline" style="margin-bottom:2.5rem">
+    
+    <div class="tl-item">
+      <div class="tl-title">北科大 工業工程學士</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-title">APMP Level C 專案管理</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-title">CSWA 機構設計認證</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-title">乙級電腦硬體裝修</div>
+    </div>
+  </div>
+
+  <div class="section-header" style="border-bottom-color:transparent;margin-bottom:1rem"><h3 style="font-size:1.1rem">🛠️ 技術實力</h3></div>
+  
+    <div class="card">
+      <div class="ctitle">🛠️ 專業核心能力 (Core Skills)</div>
+      <div class="ctags" style="margin-top:0.4rem">
+        <span>Python (AsyncIO, FastAPI, Pytest)</span><span>AI Agent & RAG (ANN, SQL JOIN, FTS5, RRF 混合檢索)</span><span>Vector Database & Embeddings (nomic-embed, SQLite)</span><span>Browser Automation (Playwright, CDP Mode, Stealth Bypass)</span><span>Local AI Deployment (LM Studio, ComfyUI, GPU/RTX 4070 VRAM Optimizing)</span><span>DevOps & CI/CD (Docker Compose, Git Flow, Github Actions, Cron)</span><span>APMP Level C Project Management</span><span>Visio / Agile / Workflow Design</span>
+      </div>
+    </div>
+</section>
+
+<!-- ========== PROJECTS ========== -->
+<section id="projects" class="section">
+  <div class="section-header">
+    <h2>📂 所有開發專案</h2>
+    <p>從 0 到 1 的實踐</p>
+  </div>
+  <div class="card-grid-2">
+    
+    <div class="proj-card">
+      <div class="p-icon">🧠</div>
+      <div class="p-title">Recall — 長期語意記憶與混合檢索引擎 (open-source)</div>
+      <div class="p-desc">獨立研發供 AI Agent 使用的高效語意記憶系統。核心特點：(1) 實現 ANN 向量、FTS5 全文檢索與 SQLite 索引的三路 RRF (Reciprocal Rank Fusion) 混合檢索，無 LLM 介入下查詢延遲 < 80ms；(2) 串接本地 nomic-embed 實現離線向量計算與降級機制；(3) 開發 recall-vault 品質閘門層，實現基於 Wiki 原文與 frontmatter 來源的 provenance 檢驗、過期失效與人機協同審核佇列 (Pending Queue)，保證寫入記憶的誠信與可追溯性。</div>
+      <div class="p-meta">
+        <span class="p-status status-done">Lead Python Developer</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="p-icon">🎙</div>
+      <div class="p-title">Hermes Agent 多角色協作自動化產線 (self-hosted)</div>
+      <div class="p-desc">構建自託管的多代理協作自動化工作流系統。技術實作：(1) 基於 cron 與本地 GPU 資源（RTX 4070 12GB）實作 queue-based 自動化產線，以 background 模式運行 long-running 任務防超時；(2) 整合 faster-whisper 音訊本地轉譯、語音合成 (TTS/SoVITS) 與自動淡出 BGM 混音 pipeline，實現 Podcast 週一/週三產出，週三/週五自動 SoundOn 平台排程發布與社群推廣；(3) 設計 cli-proxy-api-plus 本地代理，實現多個 Claude Pro / Gemini Pro 帳號之 OAuth 認證池管理、API Key 輪換與 session 限額自動防禦。</div>
+      <div class="p-meta">
+        <span class="p-status status-done">Lead Systems Architect</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="p-icon">📈</div>
+      <div class="p-title">JoJo Trading Platform (量化交易系統)</div>
+      <div class="p-desc">技術亮點: 獨立構建從數據獲取、策略回測到自動下單的完整生態系。架構設計: 採用模組化設計 (Core/Data/Strategy/UI)，整合 Yahoo Finance API 與 DCF 估值模型。效能優化: 運用 asyncio 實現高併發市場數據爬取。穩健性: 實作完整的單元測試策略 (Unittest)。</div>
+      <div class="p-meta">
+        <span class="p-status status-done">Lead Python Developer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Jnocode/wiki · 個人 NAS 靜態託管</span>
+  <span>Powered by Python Build Engine &amp; Hermes</span>
+</footer>
+
+</main>
+
+<script>
+function switchSection(name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const section = document.getElementById(name);
+  if (section) section.classList.add('active');
+  const link = document.querySelector(`.nav-links a[data-section="${name}"]`);
+  if (link) link.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+</body>
+</html>

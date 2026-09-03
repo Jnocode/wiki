@@ -28,8 +28,8 @@
   .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
 
   header {
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--border);
   }
   header h1 {
@@ -59,9 +59,9 @@
 
   .section { margin-bottom: 2.5rem; }
   .section-title {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    color: var(--text-dim);
+    color: var(--accent);
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
@@ -105,6 +105,7 @@
     color: var(--text-dim);
     font-size: 1.1rem;
     flex-shrink: 0;
+    margin-left: 1rem;
   }
   .card:hover .arrow { color: var(--accent); }
 
@@ -132,123 +133,164 @@
 
 <header>
   <h1>Jun's <span>Wiki</span></h1>
-  <p>AI × 量化交易 × 自媒體 — 知識庫統整</p>
+  <p>AI × 量化交易 × 自媒體 — 知識庫與調研正本</p>
   <div class="tags">
-    <span>📚 知識庫</span>
-    <span>🎓 學習</span>
-    <span>🛠 技術</span>
-    <span>💼 專案</span>
-    <span>🎙 自媒體</span>
-    <span>🎨 創意</span>
+    <span>🧠 AI 記憶架構</span>
+    <span>💼 專案與求職</span>
+    <span>🎙 Podcast 代碼縫隙</span>
+    <span>📊 SMC 量化風控</span>
+    <span>🎮 Spirits-Calling</span>
   </div>
 </header>
 
+<!-- 核心概念與架構 -->
 <div class="section">
-  <div class="section-title">📖 知識庫本身</div>
+  <div class="section-title">🧠 核心概念與技術架構 (Concepts)</div>
   <div class="cards">
-    <a href="viewer.html?file=entities/knowledge-base.md" class="card">
+    <a href="viewer.html?file=concepts/memory_architecture.md" class="card">
       <div>
-        <div class="title">Knowledge Base 說明與結構</div>
-        <div class="desc">舊版 00_Knowledge_Base 的目錄結構、分類規則與使用指南</div>
+        <div class="title">記憶分家架構（Memory / Wiki / Business DB Separation）</div>
+        <div class="desc">四層邊界、canonical home、provenance 鏈、寫入閘門與預設不記住。</div>
       </div>
       <span class="arrow">→</span>
     </a>
-    <a href="viewer.html?file=entities/mcp-config.md" class="card">
+    <a href="viewer.html?file=concepts/deterministic_sniper_watcher.md" class="card">
       <div>
-        <div class="title">MCP 配置說明</div>
-        <div class="desc">GitHub、Filesystem、Maps、Playwright 等 10 個 MCP 伺服器設定</div>
+        <div class="title">限時高併發搶購與 Deterministic Watcher 排程架構規範</div>
+        <div class="desc">限時秒殺秒級精確觸發、去中心化防漏執行與雙機租約鎖技術。</div>
       </div>
       <span class="arrow">→</span>
     </a>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">🎓 學習</div>
-  <div class="cards">
-    <a href="viewer.html?file=entities/ie-department.md" class="card">
+    <a href="viewer.html?file=concepts/agent_reach_cli_evaluation.md" class="card">
       <div>
-        <div class="title">工業工程與管理系 — 課程筆記</div>
-        <div class="desc">決策分析 17 週全課程、作業研究、專案管理、顧客關係、面試重點（生管/品管/統計）</div>
+        <div class="title">Agent-Reach CLI 免費免 Key 社群爬取架構與風控評估</div>
+        <div class="desc">社群資料採集免 API Key 方案與封禁風控防禦評估。</div>
       </div>
       <span class="arrow">→</span>
     </a>
-    <a href="viewer.html?file=entities/book-notes.md" class="card">
+    <a href="viewer.html?file=concepts/moltbook_patrol_insights_20260903.md" class="card">
       <div>
-        <div class="title">書籍筆記</div>
-        <div class="desc">台灣創投攻略、電商 0 到 1 等書籍摘要</div>
+        <div class="title">Moltbook 巡邏靈感：Agent 安全邊界防禦與 Action Surface 基礎設施</div>
+        <div class="desc">沙箱隔離、權限防逃逸與多 Agent 協作安全架構。</div>
       </div>
       <span class="arrow">→</span>
     </a>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">🛠 技術</div>
-  <div class="cards">
     <a href="viewer.html?file=concepts/stable-diffusion-setup.md" class="card">
       <div>
-        <div class="title">Stable Diffusion 工具與設定</div>
-        <div class="desc">提示詞結構優先級、25+ 插件清單、Kohya 訓練參數 (Adafactor / DAdaptAdam)</div>
+        <div class="title">Stable Diffusion — 工具與設定</div>
+        <div class="desc">提示詞結構優先級、25+ 插件清單、Kohya 訓練參數。</div>
       </div>
       <span class="arrow">→</span>
     </a>
   </div>
 </div>
 
+<!-- 專案筆記 -->
 <div class="section">
-  <div class="section-title">💼 專案</div>
+  <div class="section-title">💼 進行中專案筆記 (Projects)</div>
   <div class="cards">
-    <a href="viewer.html?file=entities/ai-content-business.md" class="card">
+    <a href="viewer.html?file=projects/job_search/master_resume_google_xyz.md" class="card">
       <div>
-        <div class="title">AI 自動化內容生成商業模式</div>
-        <div class="desc">生成式 AI 市場趨勢、自動化文案產製、競品分析、在地化優勢</div>
+        <div class="title">Google XYZ 雙語 Master 履歷母版（AI 應用工程師 / 技術專案經理）</div>
+        <div class="desc">求職主線、量化成果、核心職位定位與跨平台投遞正本。</div>
       </div>
       <span class="arrow">→</span>
     </a>
-    <a href="viewer.html?file=entities/ai-park-workspace.md" class="card">
+    <a href="viewer.html?file=projects/job_search/2026-09-03_market_jobs_scan.md" class="card">
       <div>
-        <div class="title">AI_Park 工作區 2025 計劃</div>
-        <div class="desc">四大階段規劃、專案追蹤儀表板、LivePilotAI 等 6 個主要專案狀態</div>
+        <div class="title">2026-09-03 台灣市場 AI Agent 與自動化職缺情報掃描</div>
+        <div class="desc">市場即時職缺機會掃描與技能樹比對。</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="viewer.html?file=projects/podcast/ep04_notes.md" class="card">
+      <div>
+        <div class="title">EP4 筆記：AI 的記憶系統</div>
+        <div class="desc">無狀態 LLM、外接記憶、三路名次融合（RRF 式投票）實戰教訓。</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="viewer.html?file=projects/podcast/ep05_notes.md" class="card">
+      <div>
+        <div class="title">EP5 筆記：AI 開發工具的真實面貌</div>
+        <div class="desc">Claude Code、Codex、OpenCode 實測對比與工具鏈演進。</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="viewer.html?file=projects/spirits_calling/playtest_guide.md" class="card">
+      <div>
+        <div class="title">Spirits-Calling 玩家向垂直切片 Playtest 實機指引與驗收標準</div>
+        <div class="desc">賽博靈異弱靈魂潛行 Roguelite 核心手感與驗收規範。</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="viewer.html?file=projects/jojo_trading/smc_strategy_verification.md" class="card">
+      <div>
+        <div class="title">SMC (Smart Money Concepts) 與量化風控策略引擎深度驗證</div>
+        <div class="desc">流動性捕捉、Pivot 結構與回測風控系統。</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="viewer.html?file=projects/social_content_fracture/publish_queue_gate_spec.md" class="card">
+      <div>
+        <div class="title">多平台內容裂變發布隊列與六道 Gate 驗收標準</div>
+        <div class="desc">方格子長文、Discord 裂變、Payhip 成交之自動化矩陣。</div>
       </div>
       <span class="arrow">→</span>
     </a>
   </div>
 </div>
 
+<!-- 每日採集簡報 -->
 <div class="section">
-  <div class="section-title">🎙 自媒體</div>
+  <div class="section-title">🎙 每日調研與一手素材 (Recent Research Briefs)</div>
   <div class="cards">
-    <a href="viewer.html?file=entities/self-media.md" class="card">
+    <a href="viewer.html?file=raw/2026/2026-08-29_podcast_research_brief.md" class="card">
       <div>
-        <div class="title">自媒體內容產出與除錯筆記</div>
-        <div class="desc">內容策略排程、OpenClaw 多模態失效 root cause 分析與修復步驟</div>
+        <div class="title">Podcast 社群素材採集 Research Brief (2026-08-29)</div>
+        <div class="desc">社群焦點：Claude Code Auto Mode、Meta Muse Glimmer、開源 Agent 權限統計。</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="viewer.html?file=raw/2026/2026-08-28_podcast_research_brief.md" class="card">
+      <div>
+        <div class="title">Podcast 社群素材採集 Research Brief (2026-08-28)</div>
+        <div class="desc">前沿技術趨勢、架構討論與社群熱點焦點摘要。</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="viewer.html?file=raw/2026/2026-08-27_podcast_research_brief.md" class="card">
+      <div>
+        <div class="title">代碼縫隙 Podcast 社群素材採集 Research Brief (2026-08-27)</div>
+        <div class="desc">技術與開源前沿調研、社群多源驗證焦點。</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="viewer.html?file=raw/2026/2026-08-26_podcast_research_brief.md" class="card">
+      <div>
+        <div class="title">社群素材採集簡報 (Research Brief) - 2026-08-26</div>
+        <div class="desc">Karpathy LLM Wiki、AI 第二大腦架構與社群爭端。</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="viewer.html?file=raw/2026/2026-08-25_podcast_research_brief.md" class="card">
+      <div>
+        <div class="title">Podcast Research Brief 2026-08-25</div>
+        <div class="desc">AI Coding 依賴、agent.md 規範、Inference Engine 安全逃逸。</div>
       </div>
       <span class="arrow">→</span>
     </a>
   </div>
 </div>
 
+<!-- 人物與 Persona -->
 <div class="section">
-  <div class="section-title">🔧 系統</div>
+  <div class="section-title">👤 實體與 Persona (Entities)</div>
   <div class="cards">
-    <a href="viewer.html?file=entities/hybrid-deployment.md" class="card">
+    <a href="viewer.html?file=entities/jun_profile.md" class="card">
       <div>
-        <div class="title">WSL/Windows 混合部署</div>
-        <div class="desc">OpenClaw 跨環境技能拆遷、WSL 端最終 6 技能配置</div>
-      </div>
-      <span class="arrow">→</span>
-    </a>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">🎨 創意</div>
-  <div class="cards">
-    <a href="viewer.html?file=entities/creative-works.md" class="card">
-      <div>
-        <div class="title">歌詞創作與隨筆</div>
-        <div class="desc">韭菜人、強車大馬路、清醒夢、交易畢業了 — 9 首歌詞 + 6 篇隨筆</div>
+        <div class="title">Jun（姜鈞）— 使用者 Persona 正本</div>
+        <div class="desc">最高原則（DATA SOURCE INTEGRITY）、技術棧、偏好與架構哲學。</div>
       </div>
       <span class="arrow">→</span>
     </a>
@@ -257,7 +299,7 @@
 
 <footer>
   <span><a href="https://github.com/Jnocode/wiki">Jnocode/wiki</a> · GitHub Pages</span>
-  <span>Powered by ☕ &amp; Hermes</span>
+  <span>Powered by ☕ &amp; Hermes · 24/7 Global CDN</span>
 </footer>
 
 </div>
