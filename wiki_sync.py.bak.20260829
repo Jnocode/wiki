@@ -1,7 +1,6 @@
 # D:\Workspace\03_Dev_Projects\wiki\wiki_sync.py
 import os
 import re
-import sys
 import paramiko
 import frontmatter
 from datetime import datetime
@@ -18,15 +17,6 @@ def build_sync_tarball():
     import tarfile
     import subprocess
     
-    # 0. 先行自動編譯 hot.md（吸收 claude-obsidian 的 Hot Cache 機制）
-    try:
-        hot_compiler = r"D:\Workspace\agent_office\shared\brain_scripts\compile_hot.py"
-        if os.path.exists(hot_compiler):
-            subprocess.run(["python", hot_compiler], check=True)
-            print("✓ 已自動編譯最新 hot.md")
-    except Exception as e:
-        print(f"⚠️ 編譯 hot.md 失敗: {e}")
-
     # 1. 優先執行 build_resume.py 編譯最新履歷 HTML
     print("⏳ 正在本地編譯最新個人履歷...")
     try:
@@ -40,7 +30,6 @@ def build_sync_tarball():
         os.path.join(BRAIN_DIR, "concepts"): "concepts",
         os.path.join(BRAIN_DIR, "entities"): "entities",
         os.path.join(BRAIN_DIR, "projects"): "projects",
-        os.path.join(BRAIN_DIR, "raw", "2026"): "raw/2026",
     }
     
     out_buf = io.BytesIO()
@@ -88,18 +77,7 @@ def build_sync_tarball():
                     tar.addfile(info, io.BytesIO(file_content))
                     count += 1
                     
-        local_seed = r"D:\Workspace\03_Dev_Projects\wiki\server\backend\seed.py"
-        if os.path.exists(local_seed):
-            tar.add(local_seed, arcname="seed.py")
-            print("✓ 已將修正後的 seed.py 加入同步打包中")
-
-        # 打包 hot.md
-        local_hot = os.path.join(BRAIN_DIR, "hot.md")
-        if os.path.exists(local_hot):
-            tar.add(local_hot, arcname="hot.md")
-            print("✓ 已將 hot.md 加入同步打包中")
-
-        # 順便把修改後的 seed.py 打包進去，方便推送到 NAS 用於 Docker 複製更新
+        # 順便把修改後的 models.py 打包進去，方便推送到 NAS 用於 Docker 複製更新
         local_models = r"D:\Workspace\03_Dev_Projects\wiki\server\backend\models.py"
         if os.path.exists(local_models):
             tar.add(local_models, arcname="models.py")
@@ -215,15 +193,11 @@ def main():
             "export PATH=$PATH:/usr/local/bin:/usr/bin; "
             "if [ -f /volume1/web/wiki/models.py ]; then "
             "  sudo docker cp /volume1/web/wiki/models.py wiki-api:/app/models.py && "
-            "  echo '✓ 已複製 models.py 至容器'; "
+            "  echo '✓ 已複製 models.py 至容器' && "
+            "  sudo docker restart wiki-api && "
+            "  echo '✓ 已重啟 wiki-api 容器' && "
+            "  sleep 3; "
             "fi; "
-            "if [ -f /volume1/web/wiki/seed.py ]; then "
-            "  sudo docker cp /volume1/web/wiki/seed.py wiki-api:/app/seed.py && "
-            "  echo '✓ 已複製 seed.py 至容器'; "
-            "fi; "
-            "sudo docker restart wiki-api && "
-            "echo '✓ 已重啟 wiki-api 容器' && "
-            "sleep 3; "
             "sudo docker exec wiki-api python3 seed.py"
         )
         channel.exec_command(cmd)
@@ -251,14 +225,12 @@ def main():
             print("  Stdout:", out_str)
         if err_str:
             print("  Stderr:", err_str)
-        return 0
             
     except Exception as e:
-        print(f"❌ 同步失敗: {type(e).__name__}: {e}")
-        return 1
+        print(f"❌ 同步失敗: {e}")
     finally:
         if transport:
             transport.close()
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    main()
