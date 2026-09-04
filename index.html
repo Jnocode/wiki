@@ -3,320 +3,792 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jun's Wiki — AI × Quant × Media</title>
+<title>Jun's Wiki — 自由的個人知識庫</title>
 <style>
+  /* Wikipedia Vector Dark & Classic Variables */
   :root {
-    --bg: #0d1117;
-    --surface: #161b22;
-    --border: #30363d;
-    --text: #e6edf3;
-    --text-dim: #8b949e;
-    --accent: #58a6ff;
-    --accent2: #3fb950;
-    --accent3: #d29922;
-    --purple: #bc8cff;
-    --pink: #ff7b72;
+    --wiki-bg: #0d1117;
+    --wiki-surface: #161b22;
+    --wiki-border: #30363d;
+    --wiki-border-subtle: #21262d;
+    --wiki-text: #e6edf3;
+    --wiki-text-muted: #8b949e;
+    --wiki-link: #58a6ff;
+    --wiki-link-visited: #bc8cff;
+    --wiki-box-header: #21262d;
+    --wiki-box-border: #30363d;
+    --wiki-card-hover: #1c2333;
+    --wiki-accent-green: #3fb950;
+    --wiki-accent-orange: #f78166;
+    --wiki-accent-purple: #bc8cff;
+    --wiki-tab-active-border: #f78166;
+    --wiki-banner-bg: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
   }
+
+  body.theme-classic {
+    --wiki-bg: #ffffff;
+    --wiki-surface: #f8f9fa;
+    --wiki-border: #a2a9b1;
+    --wiki-border-subtle: #c8ccd1;
+    --wiki-text: #202122;
+    --wiki-text-muted: #54595d;
+    --wiki-link: #3366cc;
+    --wiki-link-visited: #6b4ba1;
+    --wiki-box-header: #eaecf0;
+    --wiki-box-border: #a2a9b1;
+    --wiki-card-hover: #f0f4f8;
+    --wiki-accent-green: #2e7d32;
+    --wiki-accent-orange: #c65102;
+    --wiki-accent-purple: #6b4ba1;
+    --wiki-tab-active-border: #3366cc;
+    --wiki-banner-bg: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Liberation Sans", "Noto Sans TC", sans-serif;
+    background: var(--wiki-bg);
+    color: var(--wiki-text);
     line-height: 1.6;
+    font-size: 15px;
     min-height: 100vh;
   }
-  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
 
-  header {
-    margin-bottom: 2.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
+  /* Top Navigation Bar */
+  .wiki-topbar {
+    background: var(--wiki-surface);
+    border-bottom: 1px solid var(--wiki-border);
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
   }
-  header h1 {
-    font-size: 2.2rem;
+  .wiki-logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--wiki-text);
     font-weight: 700;
+    font-size: 1.15rem;
     letter-spacing: -0.5px;
   }
-  header h1 span { color: var(--accent); }
-  header p {
-    color: var(--text-dim);
-    font-size: 1rem;
-    margin-top: 0.5rem;
+  .wiki-logo-icon {
+    width: 26px;
+    height: 26px;
+    background: #3366cc;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: serif;
+    font-size: 15px;
+    font-weight: bold;
   }
-  header .tags {
+  .wiki-top-tools {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .wiki-top-tools button, .wiki-top-tools a {
+    background: none;
+    border: none;
+    color: var(--wiki-link);
+    text-decoration: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  .wiki-top-tools button:hover, .wiki-top-tools a:hover {
+    text-decoration: underline;
+  }
+
+  /* Main Container */
+  .wiki-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  /* Wikipedia Tab Bar */
+  .wiki-tabs-bar {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--wiki-border);
+    margin-bottom: 1.25rem;
+    font-size: 0.85rem;
+  }
+  .wiki-tabs-left, .wiki-tabs-right {
+    display: flex;
+    gap: 0.25rem;
+  }
+  .wiki-tab {
+    padding: 0.5rem 0.9rem;
+    text-decoration: none;
+    color: var(--wiki-link);
+    border: 1px solid transparent;
+    border-bottom: none;
+    margin-bottom: -1px;
+  }
+  .wiki-tab.active {
+    color: var(--wiki-text);
+    font-weight: 600;
+    border-color: var(--wiki-border);
+    border-top: 2px solid var(--wiki-tab-active-border);
+    background: var(--wiki-bg);
+  }
+
+  /* Welcome Banner (維基百科首頁迎賓橫幅) */
+  .wiki-banner {
+    background: var(--wiki-banner-bg);
+    border: 1px solid var(--wiki-border);
+    border-radius: 4px;
+    padding: 1.25rem 1.75rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .wiki-banner-title h1 {
+    font-family: 'Linux Libertine', Georgia, serif;
+    font-size: 1.85rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+  .wiki-banner-title p {
+    color: var(--wiki-text-muted);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+  .wiki-banner-stats {
+    text-align: right;
+    font-size: 0.85rem;
+    color: var(--wiki-text-muted);
+  }
+  .wiki-banner-stats b {
+    color: var(--wiki-text);
+    font-size: 1.1rem;
+  }
+  .wiki-portals {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
-    margin-top: 1rem;
+    margin-top: 0.6rem;
   }
-  header .tags span {
+  .portal-tag {
+    background: var(--wiki-surface);
+    border: 1px solid var(--wiki-border);
+    padding: 0.15rem 0.6rem;
+    border-radius: 12px;
     font-size: 0.75rem;
-    padding: 0.2rem 0.6rem;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    color: var(--text-dim);
+    color: var(--wiki-link);
+    text-decoration: none;
+  }
+  .portal-tag:hover {
+    text-decoration: underline;
+    background: var(--wiki-card-hover);
   }
 
-  .section { margin-bottom: 2.5rem; }
-  .section-title {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 1rem;
+  /* Search & Filter Bar */
+  .wiki-search-box {
+    margin-bottom: 1.5rem;
     display: flex;
-    align-items: center;
     gap: 0.5rem;
   }
-  .section-title::after {
-    content: '';
+  .wiki-search-input {
     flex: 1;
-    height: 1px;
-    background: var(--border);
+    background: var(--wiki-surface);
+    border: 1px solid var(--wiki-border);
+    color: var(--wiki-text);
+    padding: 0.65rem 1rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    outline: none;
+  }
+  .wiki-search-input:focus {
+    border-color: var(--wiki-link);
+    box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.2);
   }
 
-  .cards { display: grid; gap: 0.75rem; }
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    text-decoration: none;
-    color: var(--text);
-    transition: all 0.2s;
+  /* Dual Column Grid (維基百科經典左右雙欄) */
+  .wiki-main-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Wikipedia Section Box (維基百科方框組件) */
+  .wiki-box {
+    background: var(--wiki-surface);
+    border: 1px solid var(--wiki-box-border);
+    border-radius: 4px;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .wiki-box-header {
+    background: var(--wiki-box-header);
+    border-bottom: 1px solid var(--wiki-box-border);
+    padding: 0.5rem 0.85rem;
+    font-size: 0.95rem;
+    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
   }
-  .card:hover {
-    border-color: var(--accent);
-    background: #1c2333;
-    transform: translateX(4px);
+  .wiki-box-header-title {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
   }
-  .card .title {
-    font-size: 1rem;
+  .wiki-box-body {
+    padding: 1rem 1.15rem;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  /* Featured Article Snippet (典範條目) */
+  .featured-snippet h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+  }
+  .featured-snippet h3 a {
+    color: var(--wiki-link);
+    text-decoration: none;
+  }
+  .featured-snippet h3 a:hover {
+    text-decoration: underline;
+  }
+  .featured-snippet p {
+    color: var(--wiki-text);
+    margin-bottom: 0.6rem;
+  }
+  .featured-snippet .more-link {
+    display: inline-block;
+    color: var(--wiki-link);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  /* In the News / Hot Cache List (動態焦點) */
+  .news-list {
+    list-style: none;
+  }
+  .news-list li {
+    position: relative;
+    padding-left: 1.2rem;
+    margin-bottom: 0.65rem;
+    line-height: 1.5;
+  }
+  .news-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0.3rem;
+    color: var(--wiki-link);
+    font-size: 1.1rem;
+  }
+  .news-list a {
+    color: var(--wiki-link);
+    text-decoration: none;
     font-weight: 500;
   }
-  .card .desc {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    margin-top: 0.2rem;
+  .news-list a:hover {
+    text-decoration: underline;
   }
-  .card .arrow {
-    color: var(--text-dim);
-    font-size: 1.1rem;
-    flex-shrink: 0;
-    margin-left: 1rem;
+  .news-date {
+    font-size: 0.75rem;
+    color: var(--wiki-text-muted);
+    margin-left: 0.4rem;
   }
-  .card:hover .arrow { color: var(--accent); }
 
-  footer {
-    margin-top: 4rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
+  /* Did You Know (你知道嗎) */
+  .dyk-list {
+    list-style: none;
+  }
+  .dyk-list li {
+    position: relative;
+    padding-left: 1.2rem;
+    margin-bottom: 0.65rem;
+  }
+  .dyk-list li::before {
+    content: "？";
+    position: absolute;
+    left: 0;
+    color: var(--wiki-accent-orange);
+    font-weight: bold;
     font-size: 0.85rem;
-    color: var(--text-dim);
+  }
+  .dyk-list a {
+    color: var(--wiki-link);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .dyk-list a:hover {
+    text-decoration: underline;
+  }
+
+  /* Full Index Catalog Sections (完整分類百科索引) */
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .catalog-card {
+    background: var(--wiki-surface);
+    border: 1px solid var(--wiki-border);
+    border-radius: 4px;
+    padding: 0.85rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: var(--wiki-text);
+  }
+  .catalog-card:hover {
+    border-color: var(--wiki-link);
+    background: var(--wiki-card-hover);
+    transform: translateY(-2px);
+  }
+  .catalog-card .cat-title {
+    color: var(--wiki-link);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+  .catalog-card .cat-desc {
+    color: var(--wiki-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+  .catalog-card .cat-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--wiki-text-muted);
+    margin-top: 0.6rem;
+    padding-top: 0.4rem;
+    border-top: 1px solid var(--wiki-border-subtle);
+  }
+
+  /* Footer */
+  .wiki-footer {
+    border-top: 1px solid var(--wiki-border);
+    margin-top: 3.5rem;
+    padding: 1.75rem 0;
+    font-size: 0.8rem;
+    color: var(--wiki-text-muted);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 1rem;
   }
-  footer a {
-    color: var(--accent);
+  .wiki-footer a {
+    color: var(--wiki-link);
     text-decoration: none;
   }
-  footer a:hover { text-decoration: underline; }
+  .wiki-footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 860px) {
+    .wiki-main-grid {
+      grid-template-columns: 1fr;
+    }
+    .wiki-banner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .wiki-banner-stats {
+      text-align: left;
+    }
+    .wiki-container {
+      padding: 1rem 0.85rem;
+    }
+  }
 </style>
 </head>
 <body>
-<div class="container">
 
-<header>
-  <h1>Jun's <span>Wiki</span></h1>
-  <p>AI × 量化交易 × 自媒體 — 知識庫與調研正本</p>
-  <div class="tags">
-    <a href="viewer.html?file=hot.md" style="text-decoration:none;"><span style="background:#ff7b7222; border-color:#ff7b72; color:#ff7b72; cursor:pointer;">🔥 近 7 天動態焦點 (Hot Cache)</span></a>
-    <span>🧠 AI 記憶架構</span>
-    <span>💼 專案與求職</span>
-    <span>🎙 Podcast 代碼縫隙</span>
-    <span>📊 SMC 量化風控</span>
-    <span>🎮 Spirits-Calling</span>
-  </div>
-</header>
-
-<!-- 🔥 近 7 天活躍焦點 (Hot Cache) -->
-<div class="section">
-  <div class="section-title">🔥 全域即時焦點 (Hot Cache · 近 7 天動態)</div>
-  <div class="cards">
-    <a href="viewer.html?file=hot.md" class="card" style="border-left: 4px solid var(--accent3);">
-      <div>
-        <div class="title" style="color: var(--accent3); font-weight: 600;">🔥 Hot Cache — 近 7 天全域活躍焦點總覽</div>
-        <div class="desc">由系統全自動聚類編譯：近期 34 篇專案演進、限時搶購 Watcher、求職情報與 8 月底 Podcast 一手調研。</div>
-      </div>
-      <span class="arrow" style="color: var(--accent3);">→</span>
-    </a>
+<!-- 頂部維基導航列 -->
+<div class="wiki-topbar">
+  <a href="./" class="wiki-logo-link">
+    <div class="wiki-logo-icon">W</div>
+    <span>Jun's Wiki</span>
+  </a>
+  <div class="wiki-top-tools">
+    <button onclick="toggleTheme()" id="themeBtn">🌓 經典白/深色</button>
+    <a href="viewer.html?file=hot.md">🔥 近 7 天動態</a>
+    <a href="https://github.com/Jnocode/wiki" target="_blank">GitHub 倉庫</a>
   </div>
 </div>
 
-<!-- 核心概念與架構 -->
-<div class="section">
-  <div class="section-title">🧠 核心概念與技術架構 (Concepts)</div>
-  <div class="cards">
-    <a href="viewer.html?file=concepts/memory_architecture.md" class="card">
-      <div>
-        <div class="title">記憶分家架構（Memory / Wiki / Business DB Separation）</div>
-        <div class="desc">四層邊界、canonical home、provenance 鏈、寫入閘門與預設不記住。</div>
+<div class="wiki-container">
+
+  <!-- Wikipedia 經典標籤列 -->
+  <div class="wiki-tabs-bar">
+    <div class="wiki-tabs-left">
+      <a href="javascript:void(0)" class="wiki-tab active">首頁</a>
+      <a href="javascript:void(0)" class="wiki-tab" style="opacity:0.6;">社群討論</a>
+    </div>
+    <div class="wiki-tabs-right">
+      <a href="javascript:void(0)" class="wiki-tab active">閱讀</a>
+      <a href="https://github.com/Jnocode/wiki/tree/main" target="_blank" class="wiki-tab">檢視原始碼</a>
+      <a href="https://github.com/Jnocode/wiki/commits/main" target="_blank" class="wiki-tab">歷史</a>
+    </div>
+  </div>
+
+  <!-- 首頁迎賓橫幅 -->
+  <div class="wiki-banner">
+    <div class="wiki-banner-title">
+      <h1>歡迎來到 Jun's Wiki</h1>
+      <p>自由的個人知識庫 · AI 記憶架構 × 量化交易 × 自媒體調研</p>
+      <div class="wiki-portals">
+        <a href="#sec-concepts" class="portal-tag">🧠 核心概念</a>
+        <a href="#sec-projects" class="portal-tag">💼 專案演進</a>
+        <a href="#sec-research" class="portal-tag">🎙 每日調研</a>
+        <a href="#sec-entities" class="portal-tag">👤 實體畫像</a>
+        <a href="viewer.html?file=hot.md" class="portal-tag" style="color:var(--wiki-accent-orange);border-color:var(--wiki-accent-orange);">🔥 動態焦點</a>
       </div>
-      <span class="arrow">→</span>
+    </div>
+    <div class="wiki-banner-stats">
+      收錄條目：<b id="pageCountDisplay">85+</b> 篇<br>
+      同步狀態：<span style="color:var(--wiki-accent-green);font-weight:600;">● Live Verified</span><br>
+      <small>最後修訂：2026-09-04</small>
+    </div>
+  </div>
+
+  <!-- 即時條目搜尋過濾器 -->
+  <div class="wiki-search-box">
+    <input type="text" id="wikiSearchInput" class="wiki-search-input" placeholder="🔍 在此輸入關鍵字即時篩選知識庫條目（例如：Cron、記憶、履歷、Podcast、SMC、Momo）..." oninput="filterCards()">
+  </div>
+
+  <!-- 維基百科經典雙欄版面 -->
+  <div class="wiki-main-grid">
+
+    <!-- 左欄：典範條目 + 你知道嗎 -->
+    <div class="wiki-grid-left">
+
+      <!-- 今日典範條目 (Featured Article) -->
+      <div class="wiki-box">
+        <div class="wiki-box-header">
+          <div class="wiki-box-header-title">
+            <span>⭐</span>
+            <span>典範條目 (Featured Article)</span>
+          </div>
+          <span style="font-size:0.75rem;color:var(--wiki-text-muted);">架構規範</span>
+        </div>
+        <div class="wiki-box-body featured-snippet">
+          <h3><a href="viewer.html?file=concepts/deterministic_sniper_watcher.md">限時高併發搶購與 Deterministic Watcher 排程架構規範</a></h3>
+          <p>
+            在限量搶購與高併發場景中，傳統作業系統級與代理人分鐘級 Cron 排程存在致命的 60 秒量化延遲、冷啟動握手開銷與本機時鐘漂移。本架構確立了透過目標伺服器 HTTP Date 校準真實網路偏差、基於 <code>monotonic clock</code> 提前預熱連線池、以及在送出前嚴格執行 Fail-closed 狀態機防禦性檢查的完整系統工程規範……
+          </p>
+          <a href="viewer.html?file=concepts/deterministic_sniper_watcher.md" class="more-link">閱讀全文…</a>
+        </div>
+      </div>
+
+      <!-- 你知道嗎？ (Did You Know?) -->
+      <div class="wiki-box">
+        <div class="wiki-box-header">
+          <div class="wiki-box-header-title">
+            <span>💡</span>
+            <span>你知道嗎？ (Did You Know)</span>
+          </div>
+          <span style="font-size:0.75rem;color:var(--wiki-text-muted);">技術精華</span>
+        </div>
+        <div class="wiki-box-body">
+          <ul class="dyk-list">
+            <li>
+              為什麼在 <a href="viewer.html?file=concepts/memory_architecture.md">記憶分家架構</a> 中，AI 記憶檢索採用<b>三路名次融合 (RRF 式投票)</b> 能顯著勝過單純的分數加權混合？
+            </li>
+            <li>
+              為什麼在電商限時搶購中，單純依賴系統時間會因為 <b>Wall Clock 跳躍</b> 導致過早開火被鎖或過晚錯失良機？（見 <a href="viewer.html?file=concepts/momo_concurrency_lease_verification.md">搶購租約鎖報告</a>）
+            </li>
+            <li>
+              為什麼建立 <a href="viewer.html?file=concepts/moltbook_patrol_insights_20260903.md">Agent 安全邊界</a> 時，必須把「自主執行的 Action Surface」限制在具備沙箱與審計追溯的確定性腳本之內？
+            </li>
+            <li>
+              如何透過 Google XYZ 原則在 <a href="viewer.html?file=projects/job_search/master_resume_google_xyz.md">Master 履歷母版</a> 中量化呈現自動化管線帶來的產能倍增？
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 右欄：動態焦點 (Hot Cache) + 核心實體 -->
+    <div class="wiki-grid-right">
+
+      <!-- 動態焦點 (In the News / Hot Cache) -->
+      <div class="wiki-box">
+        <div class="wiki-box-header">
+          <div class="wiki-box-header-title">
+            <span>🔥</span>
+            <span>近期動態焦點 (Hot Cache)</span>
+          </div>
+          <a href="viewer.html?file=hot.md" style="font-size:0.75rem;color:var(--wiki-link);text-decoration:none;">完整清單 »</a>
+        </div>
+        <div class="wiki-box-body">
+          <p style="font-size:0.8rem;color:var(--wiki-text-muted);margin-bottom:0.75rem;">
+            系統自適應聚合近 7 天活躍研究、專案更迭與技術決策：
+          </p>
+          <ul class="news-list">
+            <li>
+              <a href="viewer.html?file=projects/job_search/2026-09-03_market_jobs_scan.md">2026-09-03 台灣市場 AI Agent 與自動化職缺情報掃描</a>
+              <span class="news-date">09-03</span>
+            </li>
+            <li>
+              <a href="viewer.html?file=projects/spirits_calling/playtest_guide.md">Spirits-Calling 玩家垂直切片實機 Playtest 指引與手感驗收</a>
+              <span class="news-date">09-03</span>
+            </li>
+            <li>
+              <a href="viewer.html?file=projects/jojo_trading/smc_strategy_verification.md">SMC (Smart Money Concepts) 流動性捕捉策略回測與風控驗證</a>
+              <span class="news-date">09-03</span>
+            </li>
+            <li>
+              <a href="viewer.html?file=projects/social_content_fracture/publish_queue_gate_spec.md">多平台內容裂變隊列與六道 Gate 驗收標準規範</a>
+              <span class="news-date">09-03</span>
+            </li>
+            <li>
+              <a href="viewer.html?file=raw/2026/2026-08-29_podcast_research_brief.md">社群採集：Claude Code Auto Mode 與開源 Agent 權限統計</a>
+              <span class="news-date">08-29</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 核心實體 Persona (Entity Profile) -->
+      <div class="wiki-box">
+        <div class="wiki-box-header">
+          <div class="wiki-box-header-title">
+            <span>👤</span>
+            <span>核心實體 (Entity Persona)</span>
+          </div>
+          <span style="font-size:0.75rem;color:var(--wiki-text-muted);">Source of Truth</span>
+        </div>
+        <div class="wiki-box-body">
+          <b><a href="viewer.html?file=entities/jun_profile.md" style="color:var(--wiki-link);text-decoration:none;">Jun（姜鈞）— 個人 Persona 正本</a></b>
+          <p style="font-size:0.85rem;color:var(--wiki-text-muted);margin-top:0.35rem;">
+            全系統最高原則：<b>DATA SOURCE INTEGRITY（數據來源誠信）</b>。確立真實 execution、read-back、拒絕偽安全枷鎖與零人工審批之 Policy-as-Code 系統哲學。
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 分類導覽門戶 (Category Portals & Full Directory) -->
+
+  <!-- 1. 核心概念與技術架構 -->
+  <h2 id="sec-concepts" style="font-family:'Linux Libertine',Georgia,serif;font-weight:400;font-size:1.45rem;border-bottom:1px solid var(--wiki-border);padding-bottom:0.3rem;margin:2rem 0 1rem 0;">
+    🧠 核心概念與技術架構 (Concepts)
+  </h2>
+  <div class="catalog-grid" id="gridConcepts">
+    <a href="viewer.html?file=concepts/memory_architecture.md" class="catalog-card">
+      <div>
+        <div class="cat-title">記憶分家架構</div>
+        <div class="cat-desc">四層邊界（Memory / Wiki / Business DB / Session Log）、canonical home、provenance 鏈與預設不記住。</div>
+      </div>
+      <div class="cat-footer"><span>#architecture</span><span>concepts/</span></div>
     </a>
-    <a href="viewer.html?file=concepts/deterministic_sniper_watcher.md" class="card">
+    <a href="viewer.html?file=concepts/deterministic_sniper_watcher.md" class="catalog-card">
       <div>
-        <div class="title">限時高併發搶購與 Deterministic Watcher 排程架構規範</div>
-        <div class="desc">限時秒殺秒級精確觸發、去中心化防漏執行與雙機租約鎖技術。</div>
+        <div class="cat-title">限時高併發搶購架構規範</div>
+        <div class="cat-desc">解析分鐘級 Cron 延遲根因，確立基於 monotonic clock、提前預熱與 Fail-closed 狀態機之 Watcher。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>#concurrency</span><span>concepts/</span></div>
     </a>
-    <a href="viewer.html?file=concepts/agent_reach_cli_evaluation.md" class="card">
+    <a href="viewer.html?file=concepts/momo_concurrency_lease_verification.md" class="catalog-card">
       <div>
-        <div class="title">Agent-Reach CLI 免費免 Key 社群爬取架構與風控評估</div>
-        <div class="desc">社群資料採集免 API Key 方案與封禁風控防禦評估。</div>
+        <div class="cat-title">Momo 搶購高併發租約鎖</div>
+        <div class="cat-desc">多節點排程競爭防禦、單一 Controller Lease 驗證與秒殺排程深度技術報告。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>#lease</span><span>concepts/</span></div>
     </a>
-    <a href="viewer.html?file=concepts/moltbook_patrol_insights_20260903.md" class="card">
+    <a href="viewer.html?file=concepts/agent_reach_cli_evaluation.md" class="catalog-card">
       <div>
-        <div class="title">Moltbook 巡邏靈感：Agent 安全邊界防禦與 Action Surface 基礎設施</div>
-        <div class="desc">沙箱隔離、權限防逃逸與多 Agent 協作安全架構。</div>
+        <div class="cat-title">Agent-Reach CLI 爬取架構</div>
+        <div class="cat-desc">社群熱點免 API Key 採集方案評估、平台反爬風控與 headless 瀏覽器擬態。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>#scraping</span><span>concepts/</span></div>
     </a>
-    <a href="viewer.html?file=concepts/stable-diffusion-setup.md" class="card">
+    <a href="viewer.html?file=concepts/moltbook_patrol_insights_20260903.md" class="catalog-card">
       <div>
-        <div class="title">Stable Diffusion — 工具與設定</div>
-        <div class="desc">提示詞結構優先級、25+ 插件清單、Kohya 訓練參數。</div>
+        <div class="cat-title">Moltbook 巡邏靈感與安全邊界</div>
+        <div class="cat-desc">AI Agent 逃逸防禦、Action Surface 最小權限隔離與協作規範。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>#security</span><span>concepts/</span></div>
+    </a>
+    <a href="viewer.html?file=concepts/stable-diffusion-setup.md" class="catalog-card">
+      <div>
+        <div class="cat-title">Stable Diffusion — 工具與設定</div>
+        <div class="cat-desc">提示詞結構優先級、25+ 常用插件清單、Kohya LoRA 訓練超參數配置。</div>
+      </div>
+      <div class="cat-footer"><span>#genai</span><span>concepts/</span></div>
     </a>
   </div>
-</div>
 
-<!-- 專案筆記 -->
-<div class="section">
-  <div class="section-title">💼 進行中專案筆記 (Projects)</div>
-  <div class="cards">
-    <a href="viewer.html?file=projects/job_search/master_resume_google_xyz.md" class="card">
+  <!-- 2. 進行中專案筆記 -->
+  <h2 id="sec-projects" style="font-family:'Linux Libertine',Georgia,serif;font-weight:400;font-size:1.45rem;border-bottom:1px solid var(--wiki-border);padding-bottom:0.3rem;margin:2.5rem 0 1rem 0;">
+    💼 進行中專案筆記 (Projects)
+  </h2>
+  <div class="catalog-grid" id="gridProjects">
+    <a href="viewer.html?file=projects/job_search/master_resume_google_xyz.md" class="catalog-card">
       <div>
-        <div class="title">Google XYZ 雙語 Master 履歷母版（AI 應用工程師 / 技術專案經理）</div>
-        <div class="desc">求職主線、量化成果、核心職位定位與跨平台投遞正本。</div>
+        <div class="cat-title">Google XYZ 雙語 Master 履歷母版</div>
+        <div class="cat-desc">求職主線、量化成果、核心職位定位（AI 應用工程師 / 技術 PM）跨平台投遞正本。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>#career</span><span>projects/job_search/</span></div>
     </a>
-    <a href="viewer.html?file=projects/job_search/2026-09-03_market_jobs_scan.md" class="card">
+    <a href="viewer.html?file=projects/job_search/2026-09-03_market_jobs_scan.md" class="catalog-card">
       <div>
-        <div class="title">2026-09-03 台灣市場 AI Agent 與自動化職缺情報掃描</div>
-        <div class="desc">市場即時職缺機會掃描與技能樹比對。</div>
+        <div class="cat-title">2026-09-03 台灣市場 AI 職缺掃描</div>
+        <div class="cat-desc">台灣市場最新 AI Agent 與自動化工程師職缺機會即時掃描與技能樹比對。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>#market</span><span>projects/job_search/</span></div>
     </a>
-    <a href="viewer.html?file=projects/podcast/ep04_notes.md" class="card">
+    <a href="viewer.html?file=projects/podcast/ep04_notes.md" class="catalog-card">
       <div>
-        <div class="title">EP4 筆記：AI 的記憶系統</div>
-        <div class="desc">無狀態 LLM、外接記憶、三路名次融合（RRF 式投票）實戰教訓。</div>
+        <div class="cat-title">EP4 筆記：AI 的記憶系統</div>
+        <div class="cat-desc">無狀態 LLM、外接記憶、三路檢索與名次融合（RRF 式投票）取代分數加權的實戰教訓。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>#podcast</span><span>projects/podcast/</span></div>
     </a>
-    <a href="viewer.html?file=projects/podcast/ep05_notes.md" class="card">
+    <a href="viewer.html?file=projects/podcast/ep05_notes.md" class="catalog-card">
       <div>
-        <div class="title">EP5 筆記：AI 開發工具的真實面貌</div>
-        <div class="desc">Claude Code、Codex、OpenCode 實測對比與工具鏈演進。</div>
+        <div class="cat-title">EP5 筆記：AI 開發工具真實面貌</div>
+        <div class="cat-desc">Claude Code、Codex、OpenCode 實測對比與開箱踩坑全記錄。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>#podcast</span><span>projects/podcast/</span></div>
     </a>
-    <a href="viewer.html?file=projects/spirits_calling/playtest_guide.md" class="card">
+    <a href="viewer.html?file=projects/spirits_calling/playtest_guide.md" class="catalog-card">
       <div>
-        <div class="title">Spirits-Calling 玩家向垂直切片 Playtest 實機指引與驗收標準</div>
-        <div class="desc">賽博靈異弱靈魂潛行 Roguelite 核心手感與驗收規範。</div>
+        <div class="cat-title">Spirits-Calling 實機 Playtest 指引</div>
+        <div class="cat-desc">賽博靈異弱靈魂潛行 Roguelite 核心手感、附身機制與垂直切片驗收標準。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>#gamedev</span><span>projects/spirits_calling/</span></div>
     </a>
-    <a href="viewer.html?file=projects/jojo_trading/smc_strategy_verification.md" class="card">
+    <a href="viewer.html?file=projects/jojo_trading/smc_strategy_verification.md" class="catalog-card">
       <div>
-        <div class="title">SMC (Smart Money Concepts) 與量化風控策略引擎深度驗證</div>
-        <div class="desc">流動性捕捉、Pivot 結構與回測風控系統。</div>
+        <div class="cat-title">SMC 量化風控策略引擎驗證</div>
+        <div class="cat-desc">Smart Money Concepts 結構判斷、流動性清算與回測風控系統實測報告。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>#quant</span><span>projects/jojo_trading/</span></div>
     </a>
-    <a href="viewer.html?file=projects/social_content_fracture/publish_queue_gate_spec.md" class="card">
+    <a href="viewer.html?file=projects/social_content_fracture/publish_queue_gate_spec.md" class="catalog-card">
       <div>
-        <div class="title">多平台內容裂變發布隊列與六道 Gate 驗收標準</div>
-        <div class="desc">方格子長文、Discord 裂變、Payhip 成交之自動化矩陣。</div>
+        <div class="cat-title">多平台內容裂變發布隊列規範</div>
+        <div class="cat-desc">方格子長文、Discord 裂變、Payhip 成交之自動化矩陣與六道品質驗收 Gate。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>#content_os</span><span>projects/social/</span></div>
+    </a>
+    <a href="viewer.html?file=projects/live2d_pipeline/placement_fix_report.md" class="catalog-card">
+      <div>
+        <div class="cat-title">Live2D 產線圖層位置修復報告</div>
+        <div class="cat-desc">Cubism 建模分件位置漂移根因分析與自動校正演算法驗收報告。</div>
+      </div>
+      <div class="cat-footer"><span>#live2d</span><span>projects/live2d/</span></div>
     </a>
   </div>
-</div>
 
-<!-- 每日採集簡報 -->
-<div class="section">
-  <div class="section-title">🎙 每日調研與一手素材 (Recent Research Briefs)</div>
-  <div class="cards">
-    <a href="viewer.html?file=raw/2026/2026-08-29_podcast_research_brief.md" class="card">
+  <!-- 3. 每日調研素材庫 -->
+  <h2 id="sec-research" style="font-family:'Linux Libertine',Georgia,serif;font-weight:400;font-size:1.45rem;border-bottom:1px solid var(--wiki-border);padding-bottom:0.3rem;margin:2.5rem 0 1rem 0;">
+    🎙 每日調研與一手素材 (Research Briefs · 35 篇存檔)
+  </h2>
+  <div class="catalog-grid" id="gridResearch">
+    <a href="viewer.html?file=raw/2026/2026-08-29_podcast_research_brief.md" class="catalog-card">
       <div>
-        <div class="title">Podcast 社群素材採集 Research Brief (2026-08-29)</div>
-        <div class="desc">社群焦點：Claude Code Auto Mode、Meta Muse Glimmer、開源 Agent 權限統計。</div>
+        <div class="cat-title">Podcast Research Brief (2026-08-29)</div>
+        <div class="cat-desc">Claude Code Auto Mode、Meta Muse Glimmer、開源 Agent 權限統計。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>2026-08-29</span><span>raw/2026/</span></div>
     </a>
-    <a href="viewer.html?file=raw/2026/2026-08-28_podcast_research_brief.md" class="card">
+    <a href="viewer.html?file=raw/2026/2026-08-28_podcast_research_brief.md" class="catalog-card">
       <div>
-        <div class="title">Podcast 社群素材採集 Research Brief (2026-08-28)</div>
-        <div class="desc">前沿技術趨勢、架構討論與社群熱點焦點摘要。</div>
+        <div class="cat-title">Podcast Research Brief (2026-08-28)</div>
+        <div class="cat-desc">前沿開源模型動態、社群架構論戰與技術踩坑彙整。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>2026-08-28</span><span>raw/2026/</span></div>
     </a>
-    <a href="viewer.html?file=raw/2026/2026-08-27_podcast_research_brief.md" class="card">
+    <a href="viewer.html?file=raw/2026/2026-08-27_podcast_research_brief.md" class="catalog-card">
       <div>
-        <div class="title">代碼縫隙 Podcast 社群素材採集 Research Brief (2026-08-27)</div>
-        <div class="desc">技術與開源前沿調研、社群多源驗證焦點。</div>
+        <div class="cat-title">代碼縫隙 Research Brief (2026-08-27)</div>
+        <div class="cat-desc">前沿技術趨勢調研、多源驗證焦點與節目選題線索。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>2026-08-27</span><span>raw/2026/</span></div>
     </a>
-    <a href="viewer.html?file=raw/2026/2026-08-26_podcast_research_brief.md" class="card">
+    <a href="viewer.html?file=raw/2026/2026-08-26_podcast_research_brief.md" class="catalog-card">
       <div>
-        <div class="title">社群素材採集簡報 (Research Brief) - 2026-08-26</div>
-        <div class="desc">Karpathy LLM Wiki、AI 第二大腦架構與社群爭端。</div>
+        <div class="cat-title">Research Brief (2026-08-26)</div>
+        <div class="cat-desc">Karpathy LLM Wiki、AI 第二大腦架構、社群爭端與技術對比。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>2026-08-26</span><span>raw/2026/</span></div>
     </a>
-    <a href="viewer.html?file=raw/2026/2026-08-25_podcast_research_brief.md" class="card">
+    <a href="viewer.html?file=raw/2026/2026-08-25_podcast_research_brief.md" class="catalog-card">
       <div>
-        <div class="title">Podcast Research Brief 2026-08-25</div>
-        <div class="desc">AI Coding 依賴、agent.md 規範、Inference Engine 安全逃逸。</div>
+        <div class="cat-title">Podcast Research Brief (2026-08-25)</div>
+        <div class="cat-desc">AI Coding 依賴隱憂、agent.md 規範、Inference Engine 安全威脅。</div>
       </div>
-      <span class="arrow">→</span>
+      <div class="cat-footer"><span>2026-08-25</span><span>raw/2026/</span></div>
+    </a>
+    <a href="viewer.html?file=hot.md" class="catalog-card" style="border-left: 3px solid var(--wiki-accent-orange);">
+      <div>
+        <div class="cat-title" style="color:var(--wiki-accent-orange);">📂 檢視全部 35 篇歷史素材...</div>
+        <div class="cat-desc">包含 2026-07-27 至 08-29 每日社群採集與節目逐字稿全文存檔。</div>
+      </div>
+      <div class="cat-footer"><span>全量索引</span><span>hot.md</span></div>
     </a>
   </div>
-</div>
 
-<!-- 人物與 Persona -->
-<div class="section">
-  <div class="section-title">👤 實體與 Persona (Entities)</div>
-  <div class="cards">
-    <a href="viewer.html?file=entities/jun_profile.md" class="card">
-      <div>
-        <div class="title">Jun（姜鈞）— 使用者 Persona 正本</div>
-        <div class="desc">最高原則（DATA SOURCE INTEGRITY）、技術棧、偏好與架構哲學。</div>
-      </div>
-      <span class="arrow">→</span>
-    </a>
+  <!-- 頁尾 -->
+  <div class="wiki-footer">
+    <div>
+      <b>Jun's Wiki</b> · 自由的個人知識庫 · 遵循 CC BY-SA 4.0 授權<br>
+      <small>雙向連線：GitHub Pages 全球 CDN 鏡像 + Synology NAS 本地私有雲雙同步</small>
+    </div>
+    <div>
+      <a href="https://github.com/Jnocode/wiki" target="_blank">GitHub Repository</a> · 
+      <a href="viewer.html?file=SCHEMA.md">資料契約 SCHEMA</a> · 
+      <a href="viewer.html?file=hot.md">動態焦點 Hot Cache</a>
+    </div>
   </div>
-</div>
-
-<footer>
-  <span><a href="https://github.com/Jnocode/wiki">Jnocode/wiki</a> · GitHub Pages</span>
-  <span>Powered by ☕ &amp; Hermes · 24/7 Global CDN</span>
-</footer>
 
 </div>
+
+<script>
+// 主題切換 (經典白 / 深色模式)
+function toggleTheme() {
+  document.body.classList.toggle('theme-classic');
+  const isClassic = document.body.classList.contains('theme-classic');
+  localStorage.setItem('wiki_theme', isClassic ? 'classic' : 'dark');
+}
+if (localStorage.getItem('wiki_theme') === 'classic') {
+  document.body.classList.add('theme-classic');
+}
+
+// 即時條目卡片搜尋過濾
+function filterCards() {
+  const query = document.getElementById('wikiSearchInput').value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.catalog-card');
+  cards.forEach(c => {
+    const text = c.textContent.toLowerCase();
+    if (!query || text.includes(query)) {
+      c.style.display = 'flex';
+    } else {
+      c.style.display = 'none';
+    }
+  });
+}
+</script>
 </body>
 </html>
