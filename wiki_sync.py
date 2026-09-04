@@ -99,7 +99,7 @@ def build_sync_tarball():
             tar.add(local_hot, arcname="hot.md")
             print("✓ 已將 hot.md 加入同步打包中")
 
-        # 順便把修改後的 seed.py 打包進去，方便推送到 NAS 用於 Docker 複製更新
+        # 順便把修改後的 models.py 打包進去，方便推送到 NAS 用於 Docker 複製更新
         local_models = r"D:\Workspace\03_Dev_Projects\wiki\server\backend\models.py"
         if os.path.exists(local_models):
             tar.add(local_models, arcname="models.py")
@@ -116,6 +116,12 @@ def build_sync_tarball():
         if os.path.exists(local_index):
             tar.add(local_index, arcname="index.html")
             print("✓ 已將門戶首頁 index.html 加入同步打包中")
+
+        # 打包 Markdown 渲染器 viewer.html
+        local_viewer = r"D:\Workspace\03_Dev_Projects\wiki\viewer.html"
+        if os.path.exists(local_viewer):
+            tar.add(local_viewer, arcname="viewer.html")
+            print("✓ 已將閱讀器 viewer.html 加入同步打包中")
                     
     return out_buf.getvalue(), count
 

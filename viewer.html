@@ -3,282 +3,665 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="pageTitle">Jun's Wiki</title>
+<title id="pageTitle">條目 · Jun's Wiki</title>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <style>
+  /* Wikipedia Vector Dark & Light Variables */
   :root {
-    --bg: #0d1117;
-    --surface: #161b22;
-    --border: #30363d;
-    --text: #e6edf3;
-    --text-dim: #8b949e;
-    --accent: #58a6ff;
-    --accent2: #3fb950;
-    --accent3: #d29922;
-    --code-bg: #1c2128;
+    --wiki-bg: #0d1117;
+    --wiki-surface: #161b22;
+    --wiki-border: #30363d;
+    --wiki-text: #e6edf3;
+    --wiki-text-muted: #8b949e;
+    --wiki-link: #58a6ff;
+    --wiki-link-visited: #bc8cff;
+    --wiki-link-red: #ff7b72;
+    --wiki-infobox-bg: #161b22;
+    --wiki-infobox-header: #21262d;
+    --wiki-toc-bg: #161b22;
+    --wiki-code-bg: #1c2128;
+    --wiki-quote-bg: #161b22;
+    --wiki-tab-active-border: #f78166;
+    --wiki-border-subtle: #21262d;
   }
+
+  body.theme-classic {
+    --wiki-bg: #ffffff;
+    --wiki-surface: #f8f9fa;
+    --wiki-border: #a2a9b1;
+    --wiki-text: #202122;
+    --wiki-text-muted: #54595d;
+    --wiki-link: #3366cc;
+    --wiki-link-visited: #6b4ba1;
+    --wiki-link-red: #ba0000;
+    --wiki-infobox-bg: #f8f9fa;
+    --wiki-infobox-header: #eaecf0;
+    --wiki-toc-bg: #f8f9fa;
+    --wiki-code-bg: #f8f9fa;
+    --wiki-quote-bg: #f8f9fa;
+    --wiki-tab-active-border: #3366cc;
+    --wiki-border-subtle: #c8ccd1;
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Liberation Sans", "Noto Sans TC", sans-serif;
+    background: var(--wiki-bg);
+    color: var(--wiki-text);
+    line-height: 1.65;
+    font-size: 15px;
     min-height: 100vh;
   }
-  .container { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
 
-  nav {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border);
+  /* Top Global Header */
+  .wiki-topbar {
+    background: var(--wiki-surface);
+    border-bottom: 1px solid var(--wiki-border);
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+  }
+  .wiki-logo-link {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-  }
-  nav a {
-    color: var(--accent);
+    gap: 0.6rem;
     text-decoration: none;
-    font-size: 0.9rem;
-  }
-  nav a:hover { text-decoration: underline; }
-  nav .sep { color: var(--text-dim); font-size: 0.8rem; }
-
-  #content h1 {
-    font-size: 1.8rem;
+    color: var(--wiki-text);
     font-weight: 700;
-    margin: 1.5rem 0 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  #content h2 {
-    font-size: 1.35rem;
-    font-weight: 600;
-    margin: 1.5rem 0 0.75rem;
-    color: var(--accent2);
-  }
-  #content h3 {
     font-size: 1.1rem;
-    font-weight: 600;
-    margin: 1.2rem 0 0.5rem;
-    color: var(--accent);
+    letter-spacing: -0.5px;
   }
-  #content p { margin: 0.5rem 0; }
-  #content a { color: var(--accent); text-decoration: none; }
-  #content a:hover { text-decoration: underline; }
-  #content ul, #content ol { margin: 0.5rem 0; padding-left: 1.5rem; }
-  #content li { margin: 0.25rem 0; }
-  #content table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
-    font-size: 0.9rem;
+  .wiki-logo-icon {
+    width: 24px;
+    height: 24px;
+    background: #3366cc;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: serif;
+    font-size: 14px;
+    font-weight: bold;
   }
-  #content th, #content td {
-    border: 1px solid var(--border);
-    padding: 0.5rem 0.75rem;
-    text-align: left;
-  }
-  #content th {
-    background: var(--surface);
-    color: var(--text-dim);
-    font-weight: 600;
-  }
-  #content tr:nth-child(even) { background: #111820; }
-  #content code {
-    background: var(--code-bg);
-    padding: 0.15rem 0.4rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    color: var(--accent3);
-    font-family: 'Cascadia Code', 'Fira Code', monospace;
-  }
-  #content pre {
-    background: var(--code-bg);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 1rem;
-    margin: 1rem 0;
-    overflow-x: auto;
-  }
-  #content pre code {
-    background: none;
-    padding: 0;
-    color: var(--text);
-  }
-  #content blockquote {
-    border-left: 3px solid var(--accent);
-    padding: 0.5rem 1rem;
-    margin: 1rem 0;
-    color: var(--text-dim);
-    background: #111820;
-    border-radius: 0 4px 4px 0;
-  }
-  #content hr {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 1.5rem 0;
-  }
-  #content strong { color: var(--accent3); }
-  #content em { color: var(--purple); }
-  #content img { max-width: 100%; border-radius: 6px; margin: 1rem 0; }
-  
-  /* Article Meta Box (人類友善導讀卡片) */
-  .article-meta-box {
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    margin-bottom: 2rem;
-  }
-  .article-meta-box .meta-line {
+  .wiki-top-tools {
     display: flex;
     gap: 1rem;
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    margin-bottom: 0.5rem;
     align-items: center;
   }
-  .article-meta-box .meta-tags {
-    display: flex;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-    margin-bottom: 0.75rem;
-  }
-  .article-meta-box .badge {
-    background: #21262d;
-    border: 1px solid #30363d;
-    color: #58a6ff;
-    padding: 0.15rem 0.5rem;
-    border-radius: 12px;
-    font-size: 0.75rem;
-  }
-  .article-meta-box .meta-summary {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #e6edf3;
-    background: #0d1117;
-    padding: 0.75rem 1rem;
-    border-radius: 6px;
-    border-left: 3px solid #3fb950;
-  }
-  .wikilink {
-    color: #58a6ff;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-  
-  #content .loading {
-    text-align: center;
-    padding: 3rem;
-    color: var(--text-dim);
-  }
-  #content .error {
-    text-align: center;
-    padding: 3rem;
-    color: #ff7b72;
-  }
-  footer {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
+  .wiki-top-tools button, .wiki-top-tools a {
+    background: none;
+    border: none;
+    color: var(--wiki-link);
+    text-decoration: none;
     font-size: 0.85rem;
-    color: var(--text-dim);
+    cursor: pointer;
+  }
+  .wiki-top-tools button:hover, .wiki-top-tools a:hover {
+    text-decoration: underline;
+  }
+
+  /* Main Container */
+  .wiki-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  /* Wikipedia Tab Bar (條目 / 討論 / 檢視歷史) */
+  .wiki-tabs-bar {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--wiki-border);
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+  }
+  .wiki-tabs-left, .wiki-tabs-right {
+    display: flex;
+    gap: 0.25rem;
+  }
+  .wiki-tab {
+    padding: 0.5rem 0.85rem;
+    text-decoration: none;
+    color: var(--wiki-link);
+    border: 1px solid transparent;
+    border-bottom: none;
+    margin-bottom: -1px;
+  }
+  .wiki-tab.active {
+    color: var(--wiki-text);
+    font-weight: 600;
+    border-color: var(--wiki-border);
+    border-top: 2px solid var(--wiki-tab-active-border);
+    background: var(--wiki-bg);
+  }
+
+  /* Article Header */
+  .wiki-first-heading {
+    font-family: 'Linux Libertine', 'Georgia', serif;
+    font-size: 2.1rem;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 0.25rem;
+    border-bottom: 1px solid var(--wiki-border);
+    padding-bottom: 0.5rem;
+  }
+  .wiki-tagline {
+    color: var(--wiki-text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+
+  /* Layout Body: Main Text + Infobox */
+  .wiki-body-wrapper {
+    position: relative;
+    display: flow-root; /* Clearfix for floated infobox */
+  }
+
+  /* Wikipedia Classic Infobox (右側資訊框) */
+  .wiki-infobox {
+    float: right;
+    width: 320px;
+    margin: 0 0 1.25rem 1.5rem;
+    background: var(--wiki-infobox-bg);
+    border: 1px solid var(--wiki-border);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .infobox-title {
+    background: var(--wiki-infobox-header);
+    padding: 0.6rem 0.75rem;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--wiki-border);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  .infobox-sub {
+    font-size: 0.75rem;
+    color: var(--wiki-text-muted);
+    text-align: center;
+    padding: 0.25rem 0.5rem;
+    border-bottom: 1px solid var(--wiki-border-subtle);
+  }
+  .infobox-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .infobox-table th, .infobox-table td {
+    padding: 0.4rem 0.6rem;
+    vertical-align: top;
+    line-height: 1.45;
+  }
+  .infobox-table th {
+    width: 35%;
+    text-align: left;
+    color: var(--wiki-text-muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--wiki-border-subtle);
+  }
+  .infobox-table td {
+    border-bottom: 1px solid var(--wiki-border-subtle);
+  }
+  .infobox-badge {
+    display: inline-block;
+    background: var(--wiki-surface);
+    border: 1px solid var(--wiki-border);
+    padding: 0.1rem 0.4rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    margin: 0.1rem;
+  }
+  .infobox-status-active {
+    color: #3fb950;
+    font-weight: bold;
+  }
+
+  /* Table of Contents (TOC / 目錄) */
+  .wiki-toc {
+    display: table;
+    background: var(--wiki-toc-bg);
+    border: 1px solid var(--wiki-border);
+    border-radius: 3px;
+    padding: 0.75rem 1.25rem;
+    margin: 1.25rem 0 1.5rem 0;
+    font-size: 0.85rem;
+    min-width: 260px;
+    max-width: 480px;
+  }
+  .wiki-toctitle {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--wiki-border-subtle);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .wiki-toctoggle {
+    font-weight: normal;
+    font-size: 0.8rem;
+    color: var(--wiki-link);
+    cursor: pointer;
+  }
+  .wiki-toc ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  .wiki-toc ul ul {
+    padding-left: 1.25rem;
+    margin-top: 0.25rem;
+  }
+  .wiki-toc li {
+    margin: 0.35rem 0;
+  }
+  .wiki-toc a {
+    color: var(--wiki-link);
+    text-decoration: none;
+  }
+  .wiki-toc a:hover {
+    text-decoration: underline;
+  }
+  .wiki-tocnumber {
+    color: var(--wiki-text-muted);
+    margin-right: 0.4rem;
+  }
+
+  /* Main Article Typography */
+  .wiki-content {
+    line-height: 1.75;
+  }
+  .wiki-content h2 {
+    font-family: 'Linux Libertine', 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    border-bottom: 1px solid var(--wiki-border);
+    padding-bottom: 0.3rem;
+    margin: 2rem 0 0.85rem 0;
+  }
+  .wiki-content h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.6rem 0;
+  }
+  .wiki-content h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1.2rem 0 0.4rem 0;
+  }
+  .wiki-content p {
+    margin: 0.75rem 0;
+  }
+  .wiki-content a {
+    color: var(--wiki-link);
+    text-decoration: none;
+  }
+  .wiki-content a:hover {
+    text-decoration: underline;
+  }
+  .wiki-content ul, .wiki-content ol {
+    margin: 0.75rem 0 0.75rem 1.8rem;
+  }
+  .wiki-content li {
+    margin: 0.3rem 0;
+  }
+  .wiki-content table {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  .wiki-content th, .wiki-content td {
+    border: 1px solid var(--wiki-border);
+    padding: 0.5rem 0.75rem;
+  }
+  .wiki-content th {
+    background: var(--wiki-surface);
+    font-weight: 600;
+  }
+  .wiki-content blockquote {
+    border-left: 4px solid var(--wiki-border);
+    background: var(--wiki-quote-bg);
+    padding: 0.6rem 1rem;
+    margin: 1rem 0;
+    color: var(--wiki-text-muted);
+  }
+  .wiki-content code {
+    background: var(--wiki-code-bg);
+    border: 1px solid var(--wiki-border-subtle);
+    padding: 0.15rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    font-family: 'Cascadia Code', Consolas, Monaco, monospace;
+  }
+  .wiki-content pre {
+    background: var(--wiki-code-bg);
+    border: 1px solid var(--wiki-border);
+    border-radius: 4px;
+    padding: 0.85rem 1rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+  .wiki-content pre code {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  /* Wikipedia References Section (參考文獻) */
+  .wiki-references {
+    border-top: 1px solid var(--wiki-border);
+    margin-top: 3rem;
+    padding-top: 1rem;
+    font-size: 0.85rem;
+  }
+  .wiki-references ol {
+    padding-left: 1.5rem;
+    color: var(--wiki-text-muted);
+  }
+  .wiki-references li {
+    margin-bottom: 0.35rem;
+  }
+
+  /* Footer */
+  .wiki-footer {
+    border-top: 1px solid var(--wiki-border);
+    margin-top: 4rem;
+    padding: 1.5rem 0;
+    font-size: 0.8rem;
+    color: var(--wiki-text-muted);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 1rem;
   }
-  footer a { color: var(--accent); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
+
+  /* Responsive Infobox */
+  @media (max-width: 768px) {
+    .wiki-infobox {
+      float: none;
+      width: 100%;
+      margin: 1rem 0 1.5rem 0;
+    }
+    .wiki-toc {
+      width: 100%;
+      max-width: none;
+    }
+    .wiki-container {
+      padding: 1rem 0.85rem;
+    }
+  }
 </style>
 </head>
 <body>
-<div class="container">
-<nav>
-  <a href="./">← 回 Wiki 首頁</a>
-  <span class="sep">/</span>
-  <span id="navTitle" style="color:var(--text-dim);font-size:0.9rem;"></span>
-</nav>
-<div id="content"><div class="loading">載入中…</div></div>
-<footer>
-  <span><a href="https://github.com/Jnocode/wiki">Jnocode/wiki</a> · GitHub Pages</span>
-  <span>Powered by ☕ &amp; Hermes</span>
-</footer>
+
+<!-- 頂部維基導航列 -->
+<div class="wiki-topbar">
+  <a href="./" class="wiki-logo-link">
+    <div class="wiki-logo-icon">W</div>
+    <span>Jun's Wiki</span>
+  </a>
+  <div class="wiki-top-tools">
+    <button onclick="toggleTheme()" id="themeBtn">🌓 經典白/深色</button>
+    <a href="./">🏠 返回首頁</a>
+    <a href="https://github.com/Jnocode/wiki" target="_blank">GitHub 倉庫</a>
+  </div>
 </div>
+
+<div class="wiki-container">
+
+  <!-- Wikipedia 經典條目標籤頁 -->
+  <div class="wiki-tabs-bar">
+    <div class="wiki-tabs-left">
+      <a href="javascript:void(0)" class="wiki-tab active">條目</a>
+      <a href="javascript:void(0)" class="wiki-tab" style="opacity:0.6;">討論</a>
+    </div>
+    <div class="wiki-tabs-right">
+      <a href="javascript:void(0)" class="wiki-tab active">閱讀</a>
+      <a href="javascript:void(0)" class="wiki-tab" onclick="viewSource()">檢視原始碼</a>
+      <a href="javascript:void(0)" class="wiki-tab" style="opacity:0.6;">歷史</a>
+    </div>
+  </div>
+
+  <!-- 標題 -->
+  <h1 class="wiki-first-heading" id="articleHeading">載入中…</h1>
+  <div class="wiki-tagline" id="articleTagline">出自 Jun's Wiki，AI × 量化交易 × 自媒體知識庫</div>
+
+  <!-- 內文與資訊框容器 -->
+  <div class="wiki-body-wrapper">
+    <!-- 右側資訊框 (Infobox) -->
+    <div id="infoboxContainer"></div>
+
+    <!-- 自動目錄 (TOC) -->
+    <div class="wiki-toc" id="tocBox" style="display:none;">
+      <div class="wiki-toctitle">
+        <span>目錄</span>
+        <span class="wiki-toctoggle" onclick="toggleToc()" id="tocToggle">[隱藏]</span>
+      </div>
+      <ul id="tocList"></ul>
+    </div>
+
+    <!-- 文章本體 -->
+    <div class="wiki-content" id="articleBody">
+      <p style="color:var(--wiki-text-muted);">正在載入知識庫內容…</p>
+    </div>
+  </div>
+
+  <!-- 參考文獻 / 來源鏈 -->
+  <div class="wiki-references" id="referencesSection" style="display:none;">
+    <h2>參考來源與佐證 (References)</h2>
+    <ol id="referencesList"></ol>
+  </div>
+
+  <!-- 頁尾 -->
+  <div class="wiki-footer">
+    <div>本頁面由 Jun's Wiki 自動維護 · 遵守 Data Source Integrity 最高原則</div>
+    <div>文字在 CC BY-SA 4.0 授權下提供 · 託管於 GitHub Pages & NAS 雙同步</div>
+  </div>
+
+</div>
+
 <script>
-async function loadPage() {
+// 主題切換
+function toggleTheme() {
+  document.body.classList.toggle('theme-classic');
+  const isClassic = document.body.classList.contains('theme-classic');
+  localStorage.setItem('wiki_theme', isClassic ? 'classic' : 'dark');
+}
+if (localStorage.getItem('wiki_theme') === 'classic') {
+  document.body.classList.add('theme-classic');
+}
+
+// 檢視原始碼
+function viewSource() {
+  const params = new URLSearchParams(window.location.search);
+  const file = params.get('file');
+  if (file) {
+    window.open(file, '_blank');
+  }
+}
+
+// 目錄折疊
+function toggleToc() {
+  const list = document.getElementById('tocList');
+  const btn = document.getElementById('tocToggle');
+  if (list.style.display === 'none') {
+    list.style.display = 'block';
+    btn.textContent = '[隱藏]';
+  } else {
+    list.style.display = 'none';
+    btn.textContent = '[顯示]';
+  }
+}
+
+// 核心載入與維基化渲染
+async function loadWikipediaArticle() {
   const params = new URLSearchParams(window.location.search);
   const file = params.get('file');
   if (!file) {
-    document.getElementById('content').innerHTML = '<div class="error">❌ 未指定檔案</div>';
+    document.getElementById('articleHeading').textContent = '未指定條目';
+    document.getElementById('articleBody').innerHTML = '<p>請從首頁選擇條目瀏覽。</p>';
     return;
   }
-  document.getElementById('navTitle').textContent = file;
-  const title = file.split('/').pop().replace('.md','');
-  document.getElementById('pageTitle').textContent = title + ' · Jun\'s Wiki';
+
   try {
     const res = await fetch(file);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const rawMd = await res.text();
+    const rawText = await res.text();
 
-    // 1. 解析並剝離 YAML Frontmatter，避免醜陋結構詞噴給人類看
-    let body = rawMd;
-    let meta = {};
-    if (rawMd.startsWith('---')) {
-      const parts = rawMd.split(/^---$/m);
+    // 1. 拆解 YAML Frontmatter
+    let markdownBody = rawText;
+    const meta = {};
+    if (rawText.startsWith('---')) {
+      const parts = rawText.split(/^---[ \t]*\r?$/m);
       if (parts.length >= 3) {
         const yaml = parts[1];
-        body = parts.slice(2).join('---').trim();
-        // 簡單解析重要欄位
+        markdownBody = parts.slice(2).join('---').trim();
+
+        // 逐行解析 YAML 欄位
+        let currentKey = null;
         yaml.split('\n').forEach(line => {
-          const idx = line.indexOf(':');
-          if (idx !== -1) {
-            const k = line.slice(0, idx).trim();
-            const v = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
-            if (k && v && !k.startsWith('-')) meta[k] = v;
+          const trimmed = line.trim();
+          if (!trimmed || trimmed.startsWith('#')) return;
+          if (trimmed.startsWith('-') && currentKey) {
+            if (!Array.isArray(meta[currentKey])) meta[currentKey] = [];
+            meta[currentKey].push(trimmed.replace(/^-\s*/, '').replace(/^["']|["']$/g, ''));
+            return;
+          }
+          const colonIdx = line.indexOf(':');
+          if (colonIdx !== -1) {
+            currentKey = line.slice(0, colonIdx).trim();
+            let val = line.slice(colonIdx + 1).trim().replace(/^["']|["']$/g, '');
+            if (val.startsWith('[') && val.endsWith(']')) {
+              meta[currentKey] = val.slice(1, -1).split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
+            } else if (val) {
+              meta[currentKey] = val;
+            }
           }
         });
       }
     }
 
-    // 2. 建立精美的文章導言與元數據徽章 (Badge Bar)
-    let metaHeader = '';
-    if (meta.title || meta.updated || meta.tags || meta.summary) {
-      const tagsList = meta.tags ? meta.tags.replace(/[[\]]/g, '').split(',').map(t => `<span class="badge">#${t.trim()}</span>`).join(' ') : '';
-      metaHeader = `
-        <div class="article-meta-box">
-          <div class="meta-line">
-            ${meta.updated ? `<span class="meta-item">🕒 更新：${meta.updated}</span>` : ''}
-            ${meta.status ? `<span class="meta-item status-${meta.status}">狀態：${meta.status}</span>` : ''}
-          </div>
-          ${tagsList ? `<div class="meta-tags">${tagsList}</div>` : ''}
-          ${meta.summary ? `<div class="meta-summary">💡 <b>摘要導讀：</b>${meta.summary}</div>` : ''}
-        </div>
+    // 2. 標題設定
+    const displayTitle = meta.title || file.split('/').pop().replace('.md', '');
+    document.getElementById('articleHeading').textContent = displayTitle;
+    document.getElementById('pageTitle').textContent = `${displayTitle} - Jun's Wiki`;
+
+    // 3. 建立維基百科右側資訊框 (Wikipedia Infobox)
+    if (Object.keys(meta).length > 0) {
+      let tagsHtml = '';
+      if (Array.isArray(meta.tags)) {
+        tagsHtml = meta.tags.map(t => `<span class="infobox-badge">#${t}</span>`).join(' ');
+      }
+
+      let infoboxHtml = `
+        <div class="wiki-infobox">
+          <div class="infobox-title">${displayTitle}</div>
+          <div class="infobox-sub">${meta.type || '條目'} · ${file}</div>
+          <table class="infobox-table">
       `;
+
+      if (meta.type) infoboxHtml += `<tr><th>條目類型</th><td>${meta.type}</td></tr>`;
+      if (meta.status) {
+        infoboxHtml += `<tr><th>目前狀態</th><td><span class="infobox-status-active">${meta.status}</span></td></tr>`;
+      }
+      if (meta.updated) infoboxHtml += `<tr><th>最後修訂</th><td>${meta.updated}</td></tr>`;
+      if (meta.date && meta.date !== meta.updated) infoboxHtml += `<tr><th>初版日期</th><td>${meta.date}</td></tr>`;
+      if (meta.confidence) infoboxHtml += `<tr><th>置信度</th><td>${meta.confidence}</td></tr>`;
+      if (tagsHtml) infoboxHtml += `<tr><th>分類標籤</th><td>${tagsHtml}</td></tr>`;
+      if (meta.summary) {
+        infoboxHtml += `<tr><th>快速概述</th><td><small>${meta.summary}</small></td></tr>`;
+      }
+
+      infoboxHtml += `</table></div>`;
+      document.getElementById('infoboxContainer').innerHTML = infoboxHtml;
     }
 
-    // 3. 渲染純淨 Markdown 本文
-    const html = marked.parse(body);
-    document.getElementById('content').innerHTML = metaHeader + html;
+    // 4. 解析 Markdown 本文
+    let parsedHtml = marked.parse(markdownBody);
 
-    // 修正內部 wikilinks [[...]] 轉為可點擊連結
-    document.getElementById('content').innerHTML = document.getElementById('content').innerHTML.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (match, target, alias) => {
+    // 5. 替換維基百科雙括號出鏈 [[目標|別名]]
+    parsedHtml = parsedHtml.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (match, target, alias) => {
       const label = alias || target;
-      const targetFile = target.endsWith('.md') ? target : target + '.md';
-      return `<a href="viewer.html?file=${targetFile}" class="wikilink">🔗 ${label}</a>`;
+      let targetFile = target.trim();
+      if (!targetFile.endsWith('.md')) targetFile += '.md';
+      return `<a href="viewer.html?file=${encodeURIComponent(targetFile)}" class="wiki-link">🔗 ${label}</a>`;
     });
 
-    // fix local file:// links — strip them
-    document.querySelectorAll('#content a[href^="file://"]').forEach(a => {
-      a.style.opacity = '0.4';
-      a.title = '本機檔案（需在本機瀏覽）';
-    });
-  } catch (e) {
-    document.getElementById('content').innerHTML =
-      `<div class="error">❌ 載入失敗: ${e.message}</div>`;
+    document.getElementById('articleBody').innerHTML = parsedHtml;
+
+    // 6. 動態建立維基百科目錄 (TOC) 並注入章節序號 (1, 1.1, 2...)
+    const headings = document.querySelectorAll('#articleBody h2, #articleBody h3');
+    if (headings.length >= 2) {
+      const tocList = document.getElementById('tocList');
+      tocList.innerHTML = '';
+      let h2Count = 0;
+      let h3Count = 0;
+      let currentH2Li = null;
+      let currentSubUl = null;
+
+      headings.forEach((h, idx) => {
+        const id = `section-${idx + 1}`;
+        h.id = id;
+
+        if (h.tagName.toLowerCase() === 'h2') {
+          h2Count++;
+          h3Count = 0;
+          h.innerHTML = `<span style="color:var(--wiki-text-muted);font-size:0.9em;margin-right:0.4rem;">${h2Count}</span>` + h.innerHTML;
+
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="#${id}"><span class="wiki-tocnumber">${h2Count}</span>${h.textContent.replace(/^\d+\s*/, '')}</a>`;
+          tocList.appendChild(li);
+          currentH2Li = li;
+          currentSubUl = null;
+        } else if (h.tagName.toLowerCase() === 'h3' && currentH2Li) {
+          h3Count++;
+          const subNumber = `${h2Count}.${h3Count}`;
+          h.innerHTML = `<span style="color:var(--wiki-text-muted);font-size:0.85em;margin-right:0.4rem;">${subNumber}</span>` + h.innerHTML;
+
+          if (!currentSubUl) {
+            currentSubUl = document.createElement('ul');
+            currentH2Li.appendChild(currentSubUl);
+          }
+          const subLi = document.createElement('li');
+          subLi.innerHTML = `<a href="#${id}"><span class="wiki-tocnumber">${subNumber}</span>${h.textContent.replace(/^\d+(\.\d+)?\s*/, '')}</a>`;
+          currentSubUl.appendChild(subLi);
+        }
+      });
+
+      document.getElementById('tocBox').style.display = 'table';
+    }
+
+    // 7. 建立參考資料 / 來源鏈 (References Section)
+    if (meta.source) {
+      const sources = Array.isArray(meta.source) ? meta.source : [meta.source];
+      const refList = document.getElementById('referencesList');
+      refList.innerHTML = '';
+      sources.forEach((s, i) => {
+        const li = document.createElement('li');
+        if (s.startsWith('http://') || s.startsWith('https://')) {
+          li.innerHTML = `^ <a href="${s}" target="_blank" rel="noopener">${s}</a>`;
+        } else {
+          li.innerHTML = `^ 本地正本檔案：<code>${s}</code>`;
+        }
+        refList.appendChild(li);
+      });
+      document.getElementById('referencesSection').style.display = 'block';
+    }
+
+  } catch (err) {
+    document.getElementById('articleHeading').textContent = '條目載入失敗';
+    document.getElementById('articleBody').innerHTML = `<p style="color:var(--wiki-link-red)">載入失敗: ${err.message}</p>`;
   }
 }
-loadPage();
+
+loadWikipediaArticle();
 </script>
 </body>
 </html>
