@@ -491,9 +491,13 @@
     </div>
   </div>
 
-  <!-- 即時條目搜尋過濾器 -->
-  <div class="wiki-search-box">
-    <input type="text" id="wikiSearchInput" class="wiki-search-input" placeholder="🔍 在此輸入關鍵字即時篩選知識庫條目（例如：Cron、記憶、履歷、Podcast、SMC、Momo）..." oninput="filterCards()">
+  <!-- 即時條目搜尋與排序工具列 -->
+  <div class="wiki-search-box" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+    <input type="text" id="wikiSearchInput" class="wiki-search-input" style="flex:1; min-width:260px;" placeholder="🔍 輸入關鍵字即時篩選（如：Cron、記憶、履歷、Podcast、SMC、Momo）..." oninput="filterCards()">
+    <div style="display:flex; gap:0.35rem; align-items:center;">
+      <button onclick="setSortMode('newest')" id="btnSortNewest" style="background:var(--wiki-surface); border:1px solid var(--wiki-border); color:var(--wiki-link); padding:0.6rem 0.85rem; border-radius:4px; font-size:0.85rem; cursor:pointer; font-weight:600;">🕒 最新排序</button>
+      <button onclick="setSortMode('popular')" id="btnSortPopular" style="background:var(--wiki-surface); border:1px solid var(--wiki-border); color:var(--wiki-text-muted); padding:0.6rem 0.85rem; border-radius:4px; font-size:0.85rem; cursor:pointer;">🔥 最熱門</button>
+    </div>
   </div>
 
   <!-- 維基百科經典雙欄版面 -->
@@ -828,7 +832,7 @@ function switchHomeTab(tab) {
       script.setAttribute('data-strict', '0');
       script.setAttribute('data-reactions-enabled', '1');
       script.setAttribute('data-emit-metadata', '0');
-      script.setAttribute('data-input-position', 'bottom');
+      script.setAttribute('data-input-position', 'top');
       script.setAttribute('data-theme', document.body.classList.contains('theme-classic') ? 'light' : 'dark_dimmed');
       script.setAttribute('data-lang', 'zh-TW');
       script.crossOrigin = 'anonymous';
@@ -841,6 +845,64 @@ function switchHomeTab(tab) {
     commSection.style.display = 'none';
     mainContent.style.display = 'block';
   }
+}
+
+// 排序模式切換 (最新排序 vs 最熱門)
+let currentSortMode = 'newest';
+
+function setSortMode(mode) {
+  currentSortMode = mode;
+  const btnNewest = document.getElementById('btnSortNewest');
+  const btnPopular = document.getElementById('btnSortPopular');
+
+  if (mode === 'popular') {
+    btnPopular.style.color = 'var(--wiki-accent-orange)';
+    btnPopular.style.fontWeight = '600';
+    btnPopular.style.borderColor = 'var(--wiki-accent-orange)';
+    btnNewest.style.color = 'var(--wiki-text-muted)';
+    btnNewest.style.fontWeight = 'normal';
+    btnNewest.style.borderColor = 'var(--wiki-border)';
+  } else {
+    btnNewest.style.color = 'var(--wiki-link)';
+    btnNewest.style.fontWeight = '600';
+    btnNewest.style.borderColor = 'var(--wiki-link)';
+    btnPopular.style.color = 'var(--wiki-text-muted)';
+    btnPopular.style.fontWeight = 'normal';
+    btnPopular.style.borderColor = 'var(--wiki-border)';
+  }
+
+  // 排序各分類容器內的卡片
+  ['gridConcepts', 'gridProjects', 'gridResearch'].forEach(gridId => {
+    const grid = document.getElementById(gridId);
+    if (!grid) return;
+    const cards = Array.from(grid.children);
+    cards.sort((a, b) => {
+      if (mode === 'popular') {
+        // 熱門排序：包含熱門關鍵字、核心架構與高頻標籤權重最高
+        const aText = a.textContent.toLowerCase();
+        const bText = b.textContent.toLowerCase();
+        const getScore = (txt) => {
+          let score = 0;
+          if (txt.includes('concurrency') || txt.includes('watcher') || txt.includes('搶購')) score += 10;
+          if (txt.includes('memory') || txt.includes('記憶')) score += 9;
+          if (txt.includes('履歷') || txt.includes('resume') || txt.includes('job')) score += 8;
+          if (txt.includes('smc') || txt.includes('quant')) score += 7;
+          if (txt.includes('podcast') || txt.includes('agent')) score += 6;
+          return score;
+        };
+        return getScore(bText) - getScore(aText);
+      } else {
+        // 預設最新排序（按照檔案更新順序與日期標籤）
+        const aDateMatch = a.textContent.match(/2026-\d{2}-\d{2}/);
+        const bDateMatch = b.textContent.match(/2026-\d{2}-\d{2}/);
+        if (aDateMatch && bDateMatch) {
+          return bDateMatch[0].localeCompare(aDateMatch[0]);
+        }
+        return 0;
+      }
+    });
+    cards.forEach(c => grid.appendChild(c));
+  });
 }
 
 // 門戶分類快速點擊過濾
