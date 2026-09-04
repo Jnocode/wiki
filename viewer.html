@@ -121,6 +121,52 @@
   #content strong { color: var(--accent3); }
   #content em { color: var(--purple); }
   #content img { max-width: 100%; border-radius: 6px; margin: 1rem 0; }
+  
+  /* Article Meta Box (人類友善導讀卡片) */
+  .article-meta-box {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .article-meta-box .meta-line {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+    align-items: center;
+  }
+  .article-meta-box .meta-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+  .article-meta-box .badge {
+    background: #21262d;
+    border: 1px solid #30363d;
+    color: #58a6ff;
+    padding: 0.15rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+  }
+  .article-meta-box .meta-summary {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #e6edf3;
+    background: #0d1117;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    border-left: 3px solid #3fb950;
+  }
+  .wikilink {
+    color: #58a6ff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  
   #content .loading {
     text-align: center;
     padding: 3rem;
@@ -173,9 +219,55 @@ async function loadPage() {
   try {
     const res = await fetch(file);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const md = await res.text();
-    const html = marked.parse(md);
-    document.getElementById('content').innerHTML = html;
+    const rawMd = await res.text();
+
+    // 1. 解析並剝離 YAML Frontmatter，避免醜陋結構詞噴給人類看
+    let body = rawMd;
+    let meta = {};
+    if (rawMd.startsWith('---')) {
+      const parts = rawMd.split(/^---$/m);
+      if (parts.length >= 3) {
+        const yaml = parts[1];
+        body = parts.slice(2).join('---').trim();
+        // 簡單解析重要欄位
+        yaml.split('\n').forEach(line => {
+          const idx = line.indexOf(':');
+          if (idx !== -1) {
+            const k = line.slice(0, idx).trim();
+            const v = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
+            if (k && v && !k.startsWith('-')) meta[k] = v;
+          }
+        });
+      }
+    }
+
+    // 2. 建立精美的文章導言與元數據徽章 (Badge Bar)
+    let metaHeader = '';
+    if (meta.title || meta.updated || meta.tags || meta.summary) {
+      const tagsList = meta.tags ? meta.tags.replace(/[[\]]/g, '').split(',').map(t => `<span class="badge">#${t.trim()}</span>`).join(' ') : '';
+      metaHeader = `
+        <div class="article-meta-box">
+          <div class="meta-line">
+            ${meta.updated ? `<span class="meta-item">🕒 更新：${meta.updated}</span>` : ''}
+            ${meta.status ? `<span class="meta-item status-${meta.status}">狀態：${meta.status}</span>` : ''}
+          </div>
+          ${tagsList ? `<div class="meta-tags">${tagsList}</div>` : ''}
+          ${meta.summary ? `<div class="meta-summary">💡 <b>摘要導讀：</b>${meta.summary}</div>` : ''}
+        </div>
+      `;
+    }
+
+    // 3. 渲染純淨 Markdown 本文
+    const html = marked.parse(body);
+    document.getElementById('content').innerHTML = metaHeader + html;
+
+    // 修正內部 wikilinks [[...]] 轉為可點擊連結
+    document.getElementById('content').innerHTML = document.getElementById('content').innerHTML.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (match, target, alias) => {
+      const label = alias || target;
+      const targetFile = target.endsWith('.md') ? target : target + '.md';
+      return `<a href="viewer.html?file=${targetFile}" class="wikilink">🔗 ${label}</a>`;
+    });
+
     // fix local file:// links — strip them
     document.querySelectorAll('#content a[href^="file://"]').forEach(a => {
       a.style.opacity = '0.4';
