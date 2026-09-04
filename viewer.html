@@ -419,15 +419,37 @@
   <!-- Wikipedia 經典條目標籤頁 -->
   <div class="wiki-tabs-bar">
     <div class="wiki-tabs-left">
-      <a href="javascript:void(0)" class="wiki-tab active">條目</a>
-      <a href="javascript:void(0)" class="wiki-tab" style="opacity:0.6;">討論</a>
+      <a href="javascript:void(0)" class="wiki-tab active" id="articleTabMain" onclick="switchArticleTab('main')">條目</a>
+      <a href="javascript:void(0)" class="wiki-tab" id="articleTabTalk" onclick="switchArticleTab('talk')">💬 討論 (Talk)</a>
     </div>
     <div class="wiki-tabs-right">
       <a href="javascript:void(0)" class="wiki-tab active">閱讀</a>
       <a href="javascript:void(0)" class="wiki-tab" onclick="viewSource()">檢視原始碼</a>
-      <a href="javascript:void(0)" class="wiki-tab" style="opacity:0.6;">歷史</a>
+      <a href="javascript:void(0)" class="wiki-tab" id="tabHistoryLink" target="_blank">歷史修訂</a>
     </div>
   </div>
+
+  <!-- 條目專屬討論區塊 (Talk Page) -->
+  <div id="articleTalkSection" style="display:none; margin-bottom:2rem;">
+    <div class="wiki-box">
+      <div class="wiki-box-header">
+        <div class="wiki-box-header-title">
+          <span>💬</span>
+          <span id="talkPageTitle">本條目之社群討論與評註 (Discussion)</span>
+        </div>
+        <span style="font-size:0.75rem;color:var(--wiki-text-muted);">支援 GitHub 帳號留言與表情反饋</span>
+      </div>
+      <div class="wiki-box-body" style="padding:1.5rem;">
+        <p style="margin-bottom:1.25rem;color:var(--wiki-text-muted);">
+          這是該條目的專屬討論區，歡迎在此提出補充、反證、提問或更正建議：
+        </p>
+        <div class="giscus-article"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 條目內容容器 -->
+  <div id="articleMainContent">
 
   <!-- 標題 -->
   <h1 class="wiki-first-heading" id="articleHeading">載入中…</h1>
@@ -459,6 +481,8 @@
     <ol id="referencesList"></ol>
   </div>
 
+  </div> <!-- end articleMainContent -->
+
   <!-- 頁尾 -->
   <div class="wiki-footer">
     <div>本頁面由 Jun's Wiki 自動維護 · 遵守 Data Source Integrity 最高原則</div>
@@ -478,12 +502,54 @@ if (localStorage.getItem('wiki_theme') === 'classic') {
   document.body.classList.add('theme-classic');
 }
 
+// 切換條目正文與討論頁
+function switchArticleTab(tab) {
+  const mainTab = document.getElementById('articleTabMain');
+  const talkTab = document.getElementById('articleTabTalk');
+  const mainContent = document.getElementById('articleMainContent');
+  const talkSection = document.getElementById('articleTalkSection');
+
+  if (tab === 'talk') {
+    mainTab.classList.remove('active');
+    talkTab.classList.add('active');
+    mainContent.style.display = 'none';
+    talkSection.style.display = 'block';
+
+    // 動態載入該條目的專屬 Giscus 討論串
+    if (!document.getElementById('giscusArticleScript')) {
+      const script = document.createElement('script');
+      script.id = 'giscusArticleScript';
+      script.src = 'https://giscus.app/client.js';
+      script.setAttribute('data-repo', 'Jnocode/wiki');
+      script.setAttribute('data-repo-id', 'R_kgDON-zB_A');
+      script.setAttribute('data-category', 'General');
+      script.setAttribute('data-category-id', 'DIC_kwDON-zB_M4CnhxP');
+      script.setAttribute('data-mapping', 'title');
+      script.setAttribute('data-strict', '0');
+      script.setAttribute('data-reactions-enabled', '1');
+      script.setAttribute('data-emit-metadata', '0');
+      script.setAttribute('data-input-position', 'bottom');
+      script.setAttribute('data-theme', document.body.classList.contains('theme-classic') ? 'light' : 'dark_dimmed');
+      script.setAttribute('data-lang', 'zh-TW');
+      script.crossOrigin = 'anonymous';
+      script.async = true;
+      document.querySelector('.giscus-article').appendChild(script);
+    }
+  } else {
+    talkTab.classList.remove('active');
+    mainTab.classList.add('active');
+    talkSection.style.display = 'none';
+    mainContent.style.display = 'block';
+  }
+}
+
+
 // 檢視原始碼
 function viewSource() {
   const params = new URLSearchParams(window.location.search);
   const file = params.get('file');
   if (file) {
-    window.open(file, '_blank');
+    window.open(`https://raw.githubusercontent.com/Jnocode/wiki/main/${file}`, '_blank');
   }
 }
 
@@ -654,6 +720,15 @@ async function loadWikipediaArticle() {
       });
       document.getElementById('referencesSection').style.display = 'block';
     }
+
+    // 8. 綁定 GitHub 歷史修訂按鈕直達
+    const historyBtn = document.getElementById('tabHistoryLink');
+    if (historyBtn) {
+      historyBtn.href = `https://github.com/Jnocode/wiki/commits/main/${file}`;
+    }
+
+    // 9. 更新討論頁標題
+    document.getElementById('talkPageTitle').textContent = `條目討論：${displayTitle}`;
 
   } catch (err) {
     document.getElementById('articleHeading').textContent = '條目載入失敗';

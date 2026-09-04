@@ -437,15 +437,38 @@
   <!-- Wikipedia 經典標籤列 -->
   <div class="wiki-tabs-bar">
     <div class="wiki-tabs-left">
-      <a href="javascript:void(0)" class="wiki-tab active">首頁</a>
-      <a href="javascript:void(0)" class="wiki-tab" style="opacity:0.6;">社群討論</a>
+      <a href="javascript:void(0)" class="wiki-tab active" id="tabHome" onclick="switchHomeTab('home')">首頁</a>
+      <a href="javascript:void(0)" class="wiki-tab" id="tabCommunity" onclick="switchHomeTab('community')">💬 社群討論 (Discussions)</a>
     </div>
     <div class="wiki-tabs-right">
       <a href="javascript:void(0)" class="wiki-tab active">閱讀</a>
       <a href="https://github.com/Jnocode/wiki/tree/main" target="_blank" class="wiki-tab">檢視原始碼</a>
-      <a href="https://github.com/Jnocode/wiki/commits/main" target="_blank" class="wiki-tab">歷史</a>
+      <a href="https://github.com/Jnocode/wiki/commits/main" target="_blank" class="wiki-tab">歷史修訂</a>
     </div>
   </div>
+
+  <!-- 社群討論專用區塊 (預設隱藏) -->
+  <div id="homeCommunitySection" style="display:none; margin-bottom:2rem;">
+    <div class="wiki-box">
+      <div class="wiki-box-header">
+        <div class="wiki-box-header-title">
+          <span>💬</span>
+          <span>Jun's Wiki 社群圓桌討論 (Community Discussions)</span>
+        </div>
+        <span style="font-size:0.75rem;color:var(--wiki-text-muted);">支援 GitHub 帳號即時互動</span>
+      </div>
+      <div class="wiki-box-body" style="padding:1.5rem;">
+        <p style="margin-bottom:1.25rem;color:var(--wiki-text-muted);">
+          歡迎在下方提出對架構、知識庫條目、或 Podcast 選題的建議。評論將即時與 GitHub Discussions 同步：
+        </p>
+        <!-- Giscus 評論容器 -->
+        <div class="giscus"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 首頁主體區塊 -->
+  <div id="homeMainContent">
 
   <!-- 首頁迎賓橫幅 -->
   <div class="wiki-banner">
@@ -453,11 +476,12 @@
       <h1>歡迎來到 Jun's Wiki</h1>
       <p>自由的個人知識庫 · AI 記憶架構 × 量化交易 × 自媒體調研</p>
       <div class="wiki-portals">
-        <a href="#sec-concepts" class="portal-tag">🧠 核心概念</a>
-        <a href="#sec-projects" class="portal-tag">💼 專案演進</a>
-        <a href="#sec-research" class="portal-tag">🎙 每日調研</a>
-        <a href="#sec-entities" class="portal-tag">👤 實體畫像</a>
+        <a href="javascript:void(0)" onclick="filterCategory('concepts')" class="portal-tag">🧠 核心概念</a>
+        <a href="javascript:void(0)" onclick="filterCategory('projects')" class="portal-tag">💼 專案演進</a>
+        <a href="javascript:void(0)" onclick="filterCategory('raw')" class="portal-tag">🎙 每日調研</a>
+        <a href="javascript:void(0)" onclick="filterCategory('entities')" class="portal-tag">👤 實體畫像</a>
         <a href="viewer.html?file=hot.md" class="portal-tag" style="color:var(--wiki-accent-orange);border-color:var(--wiki-accent-orange);">🔥 動態焦點</a>
+        <a href="javascript:void(0)" onclick="openRandomArticle()" class="portal-tag" style="color:var(--wiki-accent-purple);border-color:var(--wiki-accent-purple);font-weight:600;">🎲 隨機條目 (Random)</a>
       </div>
     </div>
     <div class="wiki-banner-stats">
@@ -750,6 +774,8 @@
     </a>
   </div>
 
+  </div> <!-- end homeMainContent -->
+
   <!-- 頁尾 -->
   <div class="wiki-footer">
     <div>
@@ -776,6 +802,64 @@ if (localStorage.getItem('wiki_theme') === 'classic') {
   document.body.classList.add('theme-classic');
 }
 
+// 切換首頁與社群討論
+function switchHomeTab(tab) {
+  const homeTab = document.getElementById('tabHome');
+  const commTab = document.getElementById('tabCommunity');
+  const mainContent = document.getElementById('homeMainContent');
+  const commSection = document.getElementById('homeCommunitySection');
+
+  if (tab === 'community') {
+    homeTab.classList.remove('active');
+    commTab.classList.add('active');
+    mainContent.style.display = 'none';
+    commSection.style.display = 'block';
+
+    // 動態載入 Giscus 腳本 (避免首頁一開始載入多餘外部資源)
+    if (!document.getElementById('giscusScript')) {
+      const script = document.createElement('script');
+      script.id = 'giscusScript';
+      script.src = 'https://giscus.app/client.js';
+      script.setAttribute('data-repo', 'Jnocode/wiki');
+      script.setAttribute('data-repo-id', 'R_kgDON-zB_A');
+      script.setAttribute('data-category', 'General');
+      script.setAttribute('data-category-id', 'DIC_kwDON-zB_M4CnhxP');
+      script.setAttribute('data-mapping', 'pathname');
+      script.setAttribute('data-strict', '0');
+      script.setAttribute('data-reactions-enabled', '1');
+      script.setAttribute('data-emit-metadata', '0');
+      script.setAttribute('data-input-position', 'bottom');
+      script.setAttribute('data-theme', document.body.classList.contains('theme-classic') ? 'light' : 'dark_dimmed');
+      script.setAttribute('data-lang', 'zh-TW');
+      script.crossOrigin = 'anonymous';
+      script.async = true;
+      document.querySelector('.giscus').appendChild(script);
+    }
+  } else {
+    commTab.classList.remove('active');
+    homeTab.classList.add('active');
+    commSection.style.display = 'none';
+    mainContent.style.display = 'block';
+  }
+}
+
+// 門戶分類快速點擊過濾
+function filterCategory(cat) {
+  const input = document.getElementById('wikiSearchInput');
+  input.value = cat;
+  filterCards();
+  input.scrollIntoView({ behavior: 'smooth' });
+}
+
+// 🎲 隨機條目跳轉 (Special:Random)
+function openRandomArticle() {
+  const cards = Array.from(document.querySelectorAll('.catalog-card'));
+  if (cards.length > 0) {
+    const randomCard = cards[Math.floor(Math.random() * cards.length)];
+    window.location.href = randomCard.href;
+  }
+}
+
 // 即時條目卡片搜尋過濾
 function filterCards() {
   const query = document.getElementById('wikiSearchInput').value.toLowerCase().trim();
@@ -789,6 +873,8 @@ function filterCards() {
     }
   });
 }
+
+
 </script>
 </body>
 </html>
