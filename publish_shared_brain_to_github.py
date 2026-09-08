@@ -17,6 +17,7 @@ REPO = Path(__file__).resolve().parent
 SYNC = REPO / "sync_shared_brain_to_github.py"
 ASKPASS = REPO / "git_askpass_env.sh"
 TARGETS = [
+    "index.html",
     "concepts/agent-collaboration-contract.md",
     "concepts/codex-context-management.md",
     "concepts/data-source-integrity-and-fallback.md",
