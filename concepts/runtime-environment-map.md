@@ -50,6 +50,7 @@ experimental_mode = true
 - 排程：每日 02:15，時區 `Asia/Taipei`。
 - 執行器：`publish_shared_brain_to_github.py`，只同步限定 Wiki projection，push 後做公開 URL read-back。
 - `delivery.mode=none`：這是背景同步，不應把 Git 輸出刷到 Discord。
+- GitHub 認證由 OpenClaw protected runtime secret 注入；不寫入 Git remote、repo 或公開頁面。
 
 ## 未完成事項
 
