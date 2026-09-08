@@ -34,18 +34,24 @@ def run(*args: str, check: bool = True) -> subprocess.CompletedProcess[str]:
 def main() -> int:
     sync = run(sys.executable, str(SYNC))
     changed = [line.removeprefix("UPDATED ") for line in sync.stdout.splitlines() if line.startswith("UPDATED ")]
-    if not changed:
+
+    # Always stage only the allow-listed projection. This also recovers a staged
+    # change left behind by a previous failed commit.
+    run("git", "add", *TARGETS)
+    staged = [x for x in run("git", "diff", "--cached", "--name-only").stdout.splitlines() if x]
+    if any(x not in TARGETS for x in staged):
+        print("PUBLISH_BLOCKED staged_scope_violation=true", file=sys.stderr)
+        return 2
+    if not staged:
         print("PUBLISH_NOOP shared_brain_unchanged=true")
         return 0
 
-    run("git", "add", *TARGETS)
-    staged = run("git", "diff", "--cached", "--name-only").stdout.splitlines()
-    if sorted(staged) != sorted(changed):
-        print("PUBLISH_BLOCKED staged_scope_mismatch=true", file=sys.stderr)
-        return 2
-
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    commit = run("git", "commit", "-m", f"docs: sync shared brain to GitHub Pages ({stamp})", check=False)
+    commit = run(
+        "git", "-c", "user.name=jnocode", "-c",
+        "user.email=78481666+Jnocode@users.noreply.github.com",
+        "commit", "-m", f"docs: sync shared brain to GitHub Pages ({stamp})", check=False,
+    )
     if commit.returncode != 0:
         print("PUBLISH_BLOCKED commit_failed=true", file=sys.stderr)
         return 3
@@ -56,10 +62,11 @@ def main() -> int:
 
     with urlopen(PROBE + "?sync=" + stamp, timeout=30) as response:
         body = response.read().decode("utf-8", "replace")
-    if response.status != 200 or MARKER not in body:
+        status = response.status
+    if status != 200 or MARKER not in body:
         print("PUBLISH_BLOCKED public_readback_failed=true", file=sys.stderr)
         return 5
-    print(f"PUBLISH_OK changed={len(changed)} public_readback=true")
+    print(f"PUBLISH_OK changed={len(changed)} committed={len(staged)} public_readback=true")
     return 0
 
 
