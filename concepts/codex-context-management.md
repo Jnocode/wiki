@@ -2,12 +2,12 @@
 title: "Codex 上下文管理與跨 Agent 帳本"
 type: concept
 date: 2026-09-08
-updated: 2026-09-08
+updated: 2026-09-09
 tags: [Codex, 上下文, Hermes, OpenClaw, 任務管理]
 summary: "將 Codex 的長工作階段上下文與團隊共用 Markdown 任務帳本分層，避免把模型歷史誤當成驗收證據。"
 source: ["agent_office/shared/brain/01_tech/codex-context-management.md"]
 confidence: high
-review_after: 2026-10-08
+review_after: 2026-10-09
 status: active
 ---
 # Codex 上下文管理與跨 Agent 帳本
