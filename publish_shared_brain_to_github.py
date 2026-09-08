@@ -44,19 +44,22 @@ def main() -> int:
     if any(x not in TARGETS for x in staged):
         print("PUBLISH_BLOCKED staged_scope_violation=true", file=sys.stderr)
         return 2
-    if not staged:
+
+    pending = run("git", "rev-list", "--count", "origin/main..HEAD").stdout.strip()
+    if not staged and pending == "0":
         print("PUBLISH_NOOP shared_brain_unchanged=true")
         return 0
 
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    commit = run(
-        "git", "-c", "user.name=jnocode", "-c",
-        "user.email=78481666+Jnocode@users.noreply.github.com",
-        "commit", "-m", f"docs: sync shared brain to GitHub Pages ({stamp})", check=False,
-    )
-    if commit.returncode != 0:
-        print("PUBLISH_BLOCKED commit_failed=true", file=sys.stderr)
-        return 3
+    if staged:
+        commit = run(
+            "git", "-c", "user.name=jnocode", "-c",
+            "user.email=78481666+Jnocode@users.noreply.github.com",
+            "commit", "-m", f"docs: sync shared brain to GitHub Pages ({stamp})", check=False,
+        )
+        if commit.returncode != 0:
+            print("PUBLISH_BLOCKED commit_failed=true", file=sys.stderr)
+            return 3
     push_env = os.environ.copy()
     if os.name != "nt":
         if not push_env.get("GITHUB_TOKEN"):
