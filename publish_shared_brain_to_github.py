@@ -15,9 +15,11 @@ from urllib.request import urlopen
 
 REPO = Path(__file__).resolve().parent
 SYNC = REPO / "sync_shared_brain_to_github.py"
+COMPILER = REPO / "compile_hot_cache.py"
 ASKPASS = REPO / "git_askpass_env.sh"
 TARGETS = [
     "index.html",
+    "hot.md",
     "concepts/agent-collaboration-contract.md",
     "concepts/codex-context-management.md",
     "concepts/data-source-integrity-and-fallback.md",
@@ -35,6 +37,10 @@ def run(*args: str, check: bool = True, env: dict[str, str] | None = None) -> su
 
 
 def main() -> int:
+    compiled = run(sys.executable, str(COMPILER), check=False)
+    if compiled.returncode != 0:
+        print("PUBLISH_BLOCKED hot_cache_compile_failed=true", file=sys.stderr)
+        return 1
     sync = run(sys.executable, str(SYNC))
     changed = [line.removeprefix("UPDATED ") for line in sync.stdout.splitlines() if line.startswith("UPDATED ")]
 
