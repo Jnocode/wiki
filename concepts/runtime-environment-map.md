@@ -41,6 +41,16 @@ experimental_mode = true
 - shared brain 只保存 Markdown 知識與索引，不放二進位檔。
 - 常駐服務不得使用 Hermes 應用 venv；需使用服務自己的 runtime。
 
+## GitHub Pages 發布鏈
+
+- Canonical source：`D:/Workspace/03_Dev_Projects/agent_office/shared/brain/`。
+- GitHub Pages repo：`D:/Workspace/03_Dev_Projects/wiki/`，遠端 `Jnocode/wiki`。
+- 小克 OpenClaw cron：`xiaoke-wiki-github-pages-publish`。
+- Job ID：`908219e2-4a15-468e-b080-643ab52f5ef6`。
+- 排程：每日 02:15，時區 `Asia/Taipei`。
+- 執行器：`publish_shared_brain_to_github.py`，只同步限定 Wiki projection，push 後做公開 URL read-back。
+- `delivery.mode=none`：這是背景同步，不應把 Git 輸出刷到 Discord。
+
 ## 未完成事項
 
 - `D:/Workspace/agent_office` 與 `D:/Workspace/03_Dev_Projects/agent_office` 的引用、排程與服務依賴仍需完整盤點。
