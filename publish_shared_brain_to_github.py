@@ -27,6 +27,7 @@ TARGETS = [
     "concepts/podcast-current-production-contract.md",
     "concepts/runtime-environment-map.md",
     "concepts/workspace-architecture.md",
+    "concepts/public_apis_free_data_source_index.md",
 ]
 PROBE = "https://jnocode.github.io/wiki/concepts/codex-context-management.md"
 MARKER = "Codex 上下文管理與跨 Agent 帳本"
@@ -37,12 +38,18 @@ def run(*args: str, check: bool = True, env: dict[str, str] | None = None) -> su
 
 
 def main() -> int:
+    sync = run(sys.executable, str(SYNC), check=False)
+    if sync.returncode != 0:
+        print("PUBLISH_BLOCKED shared_brain_sync_failed=true", file=sys.stderr)
+        return 1
+    changed = [line.removeprefix("UPDATED ") for line in sync.stdout.splitlines() if line.startswith("UPDATED ")]
+
+    # Compile only after projection sync so a newly added canonical page is
+    # included in the same publication's Hot Cache.
     compiled = run(sys.executable, str(COMPILER), check=False)
     if compiled.returncode != 0:
         print("PUBLISH_BLOCKED hot_cache_compile_failed=true", file=sys.stderr)
         return 1
-    sync = run(sys.executable, str(SYNC))
-    changed = [line.removeprefix("UPDATED ") for line in sync.stdout.splitlines() if line.startswith("UPDATED ")]
 
     # Always stage only the allow-listed projection. This also recovers a staged
     # change left behind by a previous failed commit.

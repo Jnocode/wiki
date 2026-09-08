@@ -23,6 +23,7 @@ MAPPINGS = {
     "90_system/runtime-environment-map.md": "concepts/runtime-environment-map.md",
     "04_media/podcast-current-production-contract.md": "concepts/podcast-current-production-contract.md",
     "04_media/discord-ai-digest-presentation.md": "concepts/discord-ai-digest-presentation.md",
+    "01_tech/public_apis_free_data_source_index.md": "concepts/public_apis_free_data_source_index.md",
 }
 RELATED = {
     "concepts/agent-collaboration-contract.md": [
@@ -52,6 +53,10 @@ RELATED = {
     "concepts/discord-ai-digest-presentation.md": [
         ("concepts/data-source-integrity-and-fallback.md", "資料來源完整性"),
         ("concepts/agent-collaboration-contract.md", "Agent 協作契約"),
+    ],
+    "concepts/public_apis_free_data_source_index.md": [
+        ("concepts/data-source-integrity-and-fallback.md", "資料來源完整性"),
+        ("concepts/workspace-architecture.md", "Workspace 架構"),
     ],
 }
 
