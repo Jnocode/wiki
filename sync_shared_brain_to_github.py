@@ -6,12 +6,14 @@ This is the GitHub Pages lane. NAS synchronization remains separate.
 from __future__ import annotations
 
 import argparse
+import os
 import re
 import sys
 from datetime import date, timedelta
 from pathlib import Path
 
-CANONICAL = Path("D:/Workspace/03_Dev_Projects/agent_office/shared/brain")
+WORKSPACE = Path(os.environ.get("WORKSPACE_ROOT") or ("D:/Workspace" if os.name == "nt" else "/mnt/d/Workspace"))
+CANONICAL = WORKSPACE / "03_Dev_Projects/agent_office/shared/brain"
 REPO = Path(__file__).resolve().parent
 MAPPINGS = {
     "01_tech/agent-collaboration-contract.md": "concepts/agent-collaboration-contract.md",
