@@ -6,6 +6,7 @@ when push or public read-back fails.
 """
 from __future__ import annotations
 
+import os
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -14,6 +15,7 @@ from urllib.request import urlopen
 
 REPO = Path(__file__).resolve().parent
 SYNC = REPO / "sync_shared_brain_to_github.py"
+ASKPASS = REPO / "git_askpass_env.sh"
 TARGETS = [
     "concepts/agent-collaboration-contract.md",
     "concepts/codex-context-management.md",
@@ -27,8 +29,8 @@ PROBE = "https://jnocode.github.io/wiki/concepts/codex-context-management.md"
 MARKER = "Codex 上下文管理與跨 Agent 帳本"
 
 
-def run(*args: str, check: bool = True) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(args, cwd=REPO, text=True, capture_output=True, check=check)
+def run(*args: str, check: bool = True, env: dict[str, str] | None = None) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(args, cwd=REPO, text=True, capture_output=True, check=check, env=env)
 
 
 def main() -> int:
@@ -55,7 +57,19 @@ def main() -> int:
     if commit.returncode != 0:
         print("PUBLISH_BLOCKED commit_failed=true", file=sys.stderr)
         return 3
-    push = run("git", "push", "origin", "main", check=False)
+    push_env = os.environ.copy()
+    if os.name != "nt":
+        if not push_env.get("GITHUB_TOKEN"):
+            print("PUBLISH_BLOCKED github_token_missing=true", file=sys.stderr)
+            return 4
+        push_env.update({
+            "GIT_ASKPASS": str(ASKPASS),
+            "GIT_TERMINAL_PROMPT": "0",
+            "GIT_CONFIG_COUNT": "1",
+            "GIT_CONFIG_KEY_0": "credential.helper",
+            "GIT_CONFIG_VALUE_0": "",
+        })
+    push = run("git", "push", "origin", "main", check=False, env=push_env)
     if push.returncode != 0:
         print("PUBLISH_BLOCKED push_failed=true", file=sys.stderr)
         return 4
