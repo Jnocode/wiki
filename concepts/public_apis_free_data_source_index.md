@@ -2,12 +2,12 @@
 title: "Public APIs 免費 API 資源庫 — 資料源目錄索引"
 type: concept
 date: 2026-09-08
-updated: 2026-09-09
+updated: 2026-09-10
 tags: [api, resource_index, github, data_source, development]
 summary: "GitHub public-apis/public-apis 免費 API 目錄；工具缺外部資料源時先查分類與官方文件，再決定是否接入。"
 source: ["agent_office/shared/brain/01_tech/public_apis_free_data_source_index.md"]
 confidence: high
-review_after: 2026-10-09
+review_after: 2026-10-10
 status: active
 ---
 # Public APIs 免費 API 資源庫 — 資料源目錄索引

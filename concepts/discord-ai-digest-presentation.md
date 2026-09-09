@@ -2,12 +2,12 @@
 title: "Discord AI 日報卡片與安全發布"
 type: concept
 date: 2026-09-08
-updated: 2026-09-09
+updated: 2026-09-10
 tags: [Discord, AI 日報, OpenClaw, 發布, QA]
 summary: "定義 Discord AI 日報的資料誠信、卡片版型、錯誤隔離與發布 read-back 規則。"
 source: ["agent_office/shared/brain/04_media/discord-ai-digest-presentation.md"]
 confidence: high
-review_after: 2026-10-09
+review_after: 2026-10-10
 status: active
 ---
 # Discord AI 日報卡片與安全發布
