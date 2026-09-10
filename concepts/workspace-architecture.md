@@ -2,12 +2,12 @@
 title: "Workspace 工作區架構與整理規則"
 type: concept
 date: 2026-09-08
-updated: 2026-09-10
+updated: 2026-09-11
 tags: [Workspace, 架構, 檔案管理, Agent, 維運]
 summary: "定義 D:\\Workspace 的資料邊界、正本判定、搬移驗證與 artifacts 生命週期。"
 source: ["agent_office/shared/brain/90_system/workspace-architecture.md"]
 confidence: high
-review_after: 2026-10-10
+review_after: 2026-10-11
 status: active
 ---
 # Workspace 工作區架構與整理規則
