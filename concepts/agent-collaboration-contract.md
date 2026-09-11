@@ -2,12 +2,12 @@
 title: "Agent 團隊協作契約"
 type: concept
 date: 2026-09-08
-updated: 2026-09-11
+updated: 2026-09-12
 tags: [Agent, Hermes, OpenClaw, Codex, 協作, QA]
 summary: "定義小衡、小克與 Codex 的分工、交接、驗收與對外發布邊界。"
 source: ["agent_office/shared/brain/01_tech/agent-collaboration-contract.md"]
 confidence: high
-review_after: 2026-10-11
+review_after: 2026-10-12
 status: active
 ---
 # Agent 團隊協作契約

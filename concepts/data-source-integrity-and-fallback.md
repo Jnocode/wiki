@@ -2,12 +2,12 @@
 title: "資料來源完整性與 Provider 備援"
 type: concept
 date: 2026-09-08
-updated: 2026-09-11
+updated: 2026-09-12
 tags: [資料誠信, API, Provider, Fallback, QA]
 summary: "統一即時資料查證、API 失敗處理、Quota Pool 熔斷與未驗證資訊標示規則。"
 source: ["agent_office/shared/brain/01_tech/data-source-integrity-and-fallback.md"]
 confidence: high
-review_after: 2026-10-11
+review_after: 2026-10-12
 status: active
 ---
 # 資料來源完整性與 Provider 備援

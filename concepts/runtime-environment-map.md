@@ -2,12 +2,12 @@
 title: "WSL Windows 與 Codex 現行環境圖"
 type: concept
 date: 2026-09-08
-updated: 2026-09-11
+updated: 2026-09-12
 tags: [Windows, WSL, Codex, Runtime, 環境]
 summary: "記錄目前可驗證的 Windows、Workspace、Codex 與 OpenClaw 邊界；不把歷史配置當現行路徑。"
 source: ["agent_office/shared/brain/90_system/runtime-environment-map.md"]
 confidence: high
-review_after: 2026-10-11
+review_after: 2026-10-12
 status: active
 ---
 # WSL Windows 與 Codex 現行環境圖
