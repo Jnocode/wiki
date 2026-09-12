@@ -2,12 +2,12 @@
 title: "Podcast 現行產線契約"
 type: concept
 date: 2026-09-08
-updated: 2026-09-12
+updated: 2026-09-13
 tags: [Podcast, 音訊, QA, 發布, 產線]
 summary: "定義目前三人主持、音訊製作、品質閘門與 SoundOn 發布的現行規則。"
 source: ["agent_office/shared/brain/04_media/podcast-current-production-contract.md"]
 confidence: high
-review_after: 2026-10-12
+review_after: 2026-10-13
 status: active
 ---
 # Podcast 現行產線契約
