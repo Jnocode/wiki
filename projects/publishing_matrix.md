@@ -22,6 +22,7 @@ status: "active"
 | **Wiki 知識庫** | GitHub Pages / 全球公開 | [Jun's Wiki 首頁](https://jnocode.github.io/wiki/index.html) | ✅ 活躍 | 集中所有架構設計、踩坑復盤與生活筆記 |
 | **即時神經看板** | Tailscale Funnel / 活體資料 | [即時任務看板](https://desktop-03u5bpq.tail557387.ts.net/) | ✅ 活躍 | 毫秒級直連 `kanban.db`，手機隨時看進度 |
 | **專業工程師履歷** | Web 互動履歷 | [AI 工程師旗艦作品履歷](https://jnocode.github.io/wiki/static/resume.html) | ✅ 活躍 | 針對 80~95 萬年薪定位，Google XYZ 量化實績 |
+| **電商營運工具箱** | Web 獨立應用 | [全功能 186 款電商工具箱](https://jnocode.github.io/wiki/static/ecom_tools.html) | ✅ 活躍 | 100% 離線純前端運算、零 Token 成本之電商微型 SaaS 復刻成品 |
 | **GitHub 開源作品集** | GitHub Profile | [github.com/Jnocode](https://github.com/Jnocode) | ✅ 活躍 | 包含 `wiki`、`recall`、`jojo_trading` 等專案 |
 
 ---

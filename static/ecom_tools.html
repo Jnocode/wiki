@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>電商營運工具箱 (Open Release) · Jun's Lab</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --orange: #d29922;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  body { background: var(--bg); color: var(--text); padding-bottom: 3rem; }
+  
+  .topbar {
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 0.8rem 1.5rem; display: flex; justify-content: space-between; align-items: center;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .brand { font-size: 1.1rem; font-weight: bold; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+  .nav-links a { color: var(--accent); text-decoration: none; margin-left: 1rem; font-size: 0.85rem; font-weight: 500; }
+  
+  .hero { text-align: center; padding: 2.5rem 1rem 1.5rem; max-width: 800px; margin: 0 auto; }
+  .hero h1 { font-size: 1.8rem; margin-bottom: 0.5rem; background: linear-gradient(90deg, #58a6ff, #3fb950); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
+  
+  .search-box { max-width: 650px; margin: 1.5rem auto; padding: 0 1rem; position: relative; }
+  .search-input {
+    width: 100%; padding: 0.8rem 1.2rem; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text); font-size: 0.95rem; outline: none; transition: border-color 0.2s;
+  }
+  .search-input:focus { border-color: var(--accent); }
+  
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+  .tools-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem; margin-top: 1rem;
+  }
+  .tool-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 1.1rem; cursor: pointer; transition: transform 0.15s, border-color 0.15s;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .tool-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .tool-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+  .tool-icon { font-size: 1.5rem; }
+  .tool-title { font-size: 0.95rem; font-weight: 600; color: var(--text); }
+  .tool-tagline { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.8rem; flex-grow: 1; }
+  .tool-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; }
+  .badge-live { color: var(--green); background: rgba(63,185,80,0.15); padding: 0.15rem 0.5rem; border-radius: 4px; font-weight: 500; }
+  .action-hint { color: var(--accent); }
+
+  .modal {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7); z-index: 200; justify-content: center; align-items: center; padding: 1rem;
+  }
+  .modal-content {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    width: 100%; max-width: 600px; max-height: 90vh; overflow-y: auto; padding: 1.5rem; position: relative;
+  }
+  .close-btn { position: absolute; top: 1rem; right: 1rem; color: var(--text-muted); cursor: pointer; font-size: 1.3rem; }
+  .form-group { margin-top: 1rem; }
+  .form-group label { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+  .form-group input, .form-group textarea {
+    width: 100%; padding: 0.6rem; background: var(--bg); border: 1px solid var(--border);
+    border-radius: 6px; color: var(--text); font-size: 0.9rem; outline: none;
+  }
+  .run-btn {
+    width: 100%; margin-top: 1.2rem; padding: 0.75rem; background: #238636; border: none;
+    border-radius: 6px; color: white; font-weight: bold; cursor: pointer; transition: background 0.2s;
+  }
+  .run-btn:hover { background: #2ea043; }
+  .result-box {
+    margin-top: 1.2rem; padding: 1rem; background: var(--bg); border: 1px solid var(--border);
+    border-radius: 6px; font-size: 0.85rem; line-height: 1.5; white-space: pre-wrap; display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">⚡ 電商營運工具箱 <span>(186 款完整復刻)</span></div>
+  <div class="nav-links">
+    <a href="../index.html">Wiki 首頁</a>
+    <a href="../kanban.html">即時看板</a>
+    <a href="../viewer.html?file=projects/ecom_toolkit_reverse_engineering.md">逆向工程報告</a>
+  </div>
+</div>
+
+<div class="hero">
+  <h1>全功能電商營運工具箱</h1>
+  <p>完整復刻 186 款台灣電商營運專用工具 · 100% 純前端零依賴運算 · 零伺服器成本</p>
+</div>
+
+<div class="search-box">
+  <input type="text" id="search" class="search-input" placeholder="🔍 搜尋工具名稱、關鍵字 (例如: ROAS, 文案, 統編, 庫存, 折扣...)" oninput="filterTools()">
+</div>
+
+<div class="container">
+  <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.5rem;" id="count-label">共收錄 186 款工具</div>
+  <div class="tools-grid" id="toolsGrid"></div>
+</div>
+
+<div class="modal" id="toolModal" onclick="closeModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close-btn" onclick="closeModalDirect()">&times;</span>
+    <h2 id="modalTitle" style="display:flex; align-items:center; gap:0.5rem; font-size:1.2rem;"></h2>
+    <p id="modalDesc" style="color:var(--text-muted); font-size:0.85rem; margin-top:0.3rem;"></p>
+    
+    <div id="dynamicForm"></div>
+    <button class="run-btn" id="runBtn" onclick="executeTool()">⚡ 立即計算 / 智慧生成</button>
+    <div class="result-box" id="resultBox"></div>
+  </div>
+</div>
+
+<script>
+const tools = [{"id": "dashboard", "name": "多通路營收儀表板", "slug": "/dashboard", "icon": "📊", "tagline": "一眼看完所有通路業績", "status": "live"}, {"id": "copywriter", "name": "AI 電商文案產生器", "slug": "/copywriter", "icon": "✍️", "tagline": "一個商品，六種平台文案", "status": "live"}, {"id": "ad-calc", "name": "廣告 ROAS 計算器", "slug": "/ad-calc", "icon": "📈", "tagline": "算清楚廣告到底有沒有賺", "status": "live"}, {"id": "cs-reply", "name": "AI 客服回覆產生器", "slug": "/cs-reply", "icon": "💬", "tagline": "3 秒產生專業客服回覆", "status": "live"}, {"id": "profit", "name": "利潤計算器 & 促銷模擬", "slug": "/profit", "icon": "💰", "tagline": "打折前先算會不會虧", "status": "live"}, {"id": "cart-rescue", "name": "棄單挽回話術產生器", "slug": "/cart-rescue", "icon": "🛒", "tagline": "把 70% 棄單救回來", "status": "live"}, {"id": "inventory", "name": "庫存預警計算器", "slug": "/inventory", "icon": "📦", "tagline": "不斷貨、不壓貨", "status": "live"}, {"id": "shipping", "name": "物流成本比較器", "slug": "/shipping", "icon": "🚚", "tagline": "寄哪家最省一目瞭然", "status": "live"}, {"id": "pricing", "name": "商品定價策略器", "slug": "/pricing", "icon": "🏷️", "tagline": "科學定價，不再憑感覺", "status": "live"}, {"id": "promo-calendar", "name": "促銷檔期日曆", "slug": "/promo-calendar", "icon": "📅", "tagline": "全年檔期一次掌握", "status": "live"}, {"id": "rfm", "name": "會員 RFM 分群分析", "slug": "/rfm", "icon": "👥", "tagline": "找出你的 VIP 和沉睡客", "status": "live"}, {"id": "competitor", "name": "競品監控雷達", "slug": "/competitor", "icon": "🔍", "tagline": "對手動態即時掌握", "status": "live"}, {"id": "image-extract", "name": "商品圖片文字萃取", "slug": "/image-extract", "icon": "🖼️", "tagline": "拍照就能生成商品描述", "status": "live"}, {"id": "return-analysis", "name": "退貨率分析器", "slug": "/return-analysis", "icon": "📉", "tagline": "找出退貨元兇、止住利潤流失", "status": "live"}, {"id": "listing-converter", "name": "多平台上架轉換器", "slug": "/listing-converter", "icon": "🔄", "tagline": "一份商品資料、多平台上架", "status": "live"}, {"id": "weekly-report", "name": "AI 營運週報產生器", "slug": "/weekly-report", "icon": "📋", "tagline": "一鍵產出老闆看得懂的報告", "status": "live"}, {"id": "compliance", "name": "電商法規檢查器", "slug": "/compliance", "icon": "⚖️", "tagline": "上架前先檢查，避免被罰", "status": "live"}, {"id": "cross-border", "name": "跨境電商成本試算", "slug": "/cross-border", "icon": "🌏", "tagline": "出海前先算清楚賺不賺", "status": "live"}, {"id": "title-scorer", "name": "商品標題 SEO 評分器", "slug": "/title-scorer", "icon": "🏆", "tagline": "標題好不好，AI 幫你打分數", "status": "live"}, {"id": "review-reply", "name": "買家評價回覆產生器", "slug": "/review-reply", "icon": "⭐", "tagline": "好評感謝、差評滅火，3 秒搞定", "status": "live"}, {"id": "product-picker", "name": "爆款選品分析器", "slug": "/product-picker", "icon": "🔮", "tagline": "不知道賣什麼？AI 幫你選", "status": "live"}, {"id": "keyword-digger", "name": "蝦皮關鍵字挖掘器", "slug": "/keyword-digger", "icon": "⛏️", "tagline": "找出買家都在搜什麼", "status": "live"}, {"id": "coupon-roi", "name": "折扣券 ROI 計算器", "slug": "/coupon-roi", "icon": "🎟️", "tagline": "打折前先算，避免做白工", "status": "live"}, {"id": "ltv-calc", "name": "客戶 LTV 終身價值計算器", "slug": "/ltv-calc", "icon": "💎", "tagline": "算出每個客戶值多少錢", "status": "live"}, {"id": "listing-translator", "name": "商品描述 AI 翻譯器", "slug": "/listing-translator", "icon": "🌐", "tagline": "一鍵翻譯，出海無障礙", "status": "live"}, {"id": "store-checkup", "name": "電商體檢報告", "slug": "/store-checkup", "icon": "🩺", "tagline": "10 題問答，看出你的電商健康分數", "status": "live"}, {"id": "bundle-builder", "name": "商品組合推薦器", "slug": "/bundle-builder", "icon": "🎁", "tagline": "AI 幫你配出最賺的組合", "status": "live"}, {"id": "review-alert", "name": "AI 差評預警分析", "slug": "/review-alert", "icon": "🚨", "tagline": "提前發現負評趨勢，防患未然", "status": "live"}, {"id": "tax-calc", "name": "營業稅試算器", "slug": "/tax-calc", "icon": "🧾", "tagline": "該繳多少稅？一算就知道", "status": "live"}, {"id": "survey-builder", "name": "滿意度問卷產生器", "slug": "/survey-builder", "icon": "📝", "tagline": "AI 幫你設計專業售後問卷", "status": "live"}, {"id": "membership-designer", "name": "會員等級制度設計器", "slug": "/membership-designer", "icon": "👑", "tagline": "VIP 門檻怎麼設？AI 幫你算", "status": "live"}, {"id": "persona-builder", "name": "目標受眾深度畫像", "slug": "/persona-builder", "icon": "🎯", "tagline": "AI 幫你寫內容前，先搞清楚「為誰而寫」", "status": "live"}, {"id": "tax-id-checker", "name": "統一編號驗證器", "slug": "/tax-id-checker", "icon": "🔍", "tagline": "台灣統編 8 碼即時檢查（2023 新制）", "status": "live"}, {"id": "schema-generator", "name": "Schema.org 結構化資料產生器", "slug": "/schema-generator", "icon": "🏷️", "tagline": "JSON-LD 一鍵生成 6 大類型", "status": "live"}, {"id": "og-preview", "name": "OG / Meta Tag 預覽器", "slug": "/og-preview", "icon": "👀", "tagline": "FB / LINE / Twitter / Google 四平台即時預覽", "status": "live"}, {"id": "platform-decision", "name": "電商通路選擇決策樹", "slug": "/platform-decision", "icon": "🎲", "tagline": "蝦皮 vs momo vs 酷澎 vs 自建站 2026 版", "status": "live"}, {"id": "lottery-legal", "name": "抽獎活動合法性檢查器", "slug": "/lottery-legal", "icon": "⚖️", "tagline": "個資法 + 消保法 + 稅務一次過", "status": "live"}, {"id": "member-dashboard", "name": "會員指標 Dashboard 計算器", "slug": "/member-dashboard", "icon": "📊", "tagline": "RFM × LTV × CAC × 回購率一頁看完", "status": "live"}, {"id": "golden-journey", "name": "黃金 7/30/90 天複購流程設計器", "slug": "/golden-journey", "icon": "🎯", "tagline": "5 階段觸發式自動化 × LINE/Email/SMS 三管道完整文案", "status": "live"}, {"id": "prompt-builder", "name": "AI Prompt 產生器（R-T-C-F）", "slug": "/prompt-builder", "icon": "🪄", "tagline": "結構化 Prompt 一鍵生成 × 內建電商行銷範例", "status": "live"}, {"id": "winback-sop", "name": "沉睡會員喚醒 SOP 產生器", "slug": "/winback-sop", "icon": "😴", "tagline": "P/S/L 級會員 3 階段差異化喚醒方案", "status": "live"}, {"id": "cobrand-evaluator", "name": "異業合作評估器", "slug": "/cobrand-evaluator", "icon": "🤝", "tagline": "5 大標準評分 × 提案信一鍵生成", "status": "live"}, {"id": "mgm-designer", "name": "MGM 推薦機制設計器", "slug": "/mgm-designer", "icon": "🎁", "tagline": "Member-Get-Member × 雙邊獎勵 × 病毒係數 × ROI", "status": "live"}, {"id": "line-cost", "name": "LINE OA 推播成本 × ROI 試算器", "slug": "/line-cost", "icon": "💬", "tagline": "2026 最新計價 × ROAS 預估（輕/中/高用量）", "status": "live"}, {"id": "brand-profile", "name": "品牌調性設定器", "slug": "/brand-profile", "icon": "🎨", "tagline": "一次填寫，所有 AI 工具自動帶入", "status": "live"}, {"id": "growth-proposal", "name": "會員成長提案書產生器", "slug": "/growth-proposal", "icon": "📄", "tagline": "整合工具數據產出可給老闆看的 3 個月計畫", "status": "live"}, {"id": "peak-experience", "name": "峰值體驗設計器", "slug": "/peak-experience", "icon": "✨", "tagline": "讓會員記得你的儀式感設計（Peak-End Rule）", "status": "live"}, {"id": "cs-sop", "name": "客服 SOP 情境產生器", "slug": "/cs-sop", "icon": "💬", "tagline": "客訴 / 退貨 / VIP 關懷完整應對腳本", "status": "live"}, {"id": "workflow-templates", "name": "AI 工作流範本庫", "slug": "/workflow-templates", "icon": "🚀", "tagline": "7 大經典工作流 + 自訂，每步驟含 AI Prompts", "status": "live"}, {"id": "ab-analyzer", "name": "A/B 測試結果解讀器", "slug": "/ab-analyzer", "icon": "🧪", "tagline": "算信心水準 + ROI + 下一步", "status": "live"}, {"id": "subscription-designer", "name": "訂閱制電商設計器", "slug": "/subscription-designer", "icon": "🔄", "tagline": "月費 / 季費 / 點數三模型試算", "status": "live"}, {"id": "cashflow-forecast", "name": "現金流預測器 12 個月", "slug": "/cashflow-forecast", "icon": "💰", "tagline": "防止黑字倒閉的關鍵工具", "status": "live"}, {"id": "faq-extractor", "name": "FAQ 萃取器（客服紀錄 → 知識庫）", "slug": "/faq-extractor", "icon": "📚", "tagline": "貼對話，出 FAQ + 自動回覆模板", "status": "live"}, {"id": "seo-longform", "name": "部落格 SEO 長文產生器", "slug": "/seo-longform", "icon": "✍️", "tagline": "3500-5000 字 × AI 引用友善", "status": "live"}, {"id": "geo-checker", "name": "GEO 引用檢查器", "slug": "/geo-checker", "icon": "🔍", "tagline": "ChatGPT/Perplexity/AI Overviews 引用評分", "status": "live"}, {"id": "short-video-script", "name": "短影音腳本產生器", "slug": "/short-video-script", "icon": "🎬", "tagline": "Reels / TikTok / Shorts 15-60 秒", "status": "live"}, {"id": "sentiment-analyzer", "name": "社群輿情分析器", "slug": "/sentiment-analyzer", "icon": "🔬", "tagline": "情緒 + 競品 + 危機預警", "status": "live"}, {"id": "ad-diagnoser", "name": "FB/Meta 廣告健檢器", "slug": "/ad-diagnoser", "icon": "🩺", "tagline": "貼數據 → AI 抓病因 + 改善 checklist", "status": "live"}, {"id": "weekly-planner", "name": "每週工作計畫生成器", "slug": "/weekly-planner", "icon": "📅", "tagline": "貼 10 件事 → AI 排週一到週五", "status": "live"}, {"id": "interview-script", "name": "客戶訪談稿產生器", "slug": "/interview-script", "icon": "🎤", "tagline": "JTBD 10 題 + 開場結尾逐字稿", "status": "live"}, {"id": "soho-pricing", "name": "SOHO 接案報價計算機", "slug": "/soho-pricing", "icon": "💼", "tagline": "市場行情 + 報價信 + 拒絕砍價話術", "status": "live"}, {"id": "email-sequence", "name": "EDM 三封序列產生器", "slug": "/email-sequence", "icon": "📮", "tagline": "歡迎 / 挽回 / 銷售 / 沉睡戶召回", "status": "live"}, {"id": "brand-namer", "name": "品牌命名 AI 產生器", "slug": "/brand-namer", "icon": "✨", "tagline": "好名字，讓品牌被記住", "status": "live"}, {"id": "pnl-report", "name": "電商損益表產生器", "slug": "/pnl-report", "icon": "📑", "tagline": "老闆看得懂的損益表，5 分鐘搞定", "status": "live"}, {"id": "repurchase-predictor", "name": "回購週期預測器", "slug": "/crm/repurchase", "icon": "🔄", "tagline": "算出最佳回購推播時機", "status": "live"}, {"id": "remarketing-scheduler", "name": "再行銷訊息排程器", "slug": "/crm/remarketing", "icon": "📨", "tagline": "根據客群自動排好訊息時間表", "status": "live"}, {"id": "repurchase-simulator", "name": "回購率提升模擬器", "slug": "/crm/repurchase-sim", "icon": "📈", "tagline": "回購率多 10% 能多賺多少？", "status": "live"}, {"id": "points-calculator", "name": "積分制度計算器", "slug": "/crm/points", "icon": "🪙", "tagline": "積分怎麼給、怎麼換，算清楚再做", "status": "live"}, {"id": "vip-offer-generator", "name": "VIP 專屬優惠產生器", "slug": "/crm/vip-offer", "icon": "🎖️", "tagline": "讓 VIP 感受到尊榮待遇", "status": "live"}, {"id": "churn-predictor", "name": "會員流失預警器", "slug": "/crm/churn", "icon": "🚪", "tagline": "誰快要離開？AI 提前告訴你", "status": "live"}, {"id": "line-menu-designer", "name": "LINE 圖文選單設計器", "slug": "/crm/line-menu", "icon": "💚", "tagline": "LINE 選單怎麼配？AI 幫你規劃", "status": "live"}, {"id": "birthday-marketing", "name": "會員生日行銷產生器", "slug": "/crm/birthday", "icon": "🎂", "tagline": "生日月行銷，一鍵搞定全套方案", "status": "live"}, {"id": "journey-mapper", "name": "客戶旅程地圖產生器", "slug": "/crm/journey", "icon": "🗺️", "tagline": "看見客戶從哪來、在哪卡住", "status": "live"}, {"id": "cohort-analyzer", "name": "同期群分析器", "slug": "/crm/cohort", "icon": "📊", "tagline": "哪個月獲的客最值錢？", "status": "live"}, {"id": "aov-booster", "name": "客單價提升建議器", "slug": "/crm/aov", "icon": "💲", "tagline": "客單價再高一點，利潤差很多", "status": "live"}, {"id": "email-builder", "name": "EDM 行銷信產生器", "slug": "/email-builder", "icon": "📧", "tagline": "高轉換行銷信，AI 幫你寫", "status": "live"}, {"id": "hero-image-text", "name": "商品主圖文案產生器", "slug": "/hero-image-text", "icon": "🖼️", "tagline": "主圖文案好，點擊率翻倍", "status": "live"}, {"id": "social-post", "name": "社群貼文產生器", "slug": "/social-post", "icon": "📱", "tagline": "一個商品，四平台貼文", "status": "live"}, {"id": "ad-budget", "name": "廣告預算分配器", "slug": "/ad-budget", "icon": "💰", "tagline": "預算怎麼分？AI 幫你算最佳比例", "status": "live"}, {"id": "faq-builder", "name": "FAQ 常見問答產生器", "slug": "/faq-builder", "icon": "❓", "tagline": "好的 FAQ 降低 30% 客服量", "status": "live"}, {"id": "ab-planner", "name": "A/B 測試規劃器", "slug": "/ab-planner", "icon": "🧪", "tagline": "科學測試，不再靠感覺", "status": "live"}, {"id": "unbox-designer", "name": "開箱體驗設計器", "slug": "/unbox-designer", "icon": "📦", "tagline": "好的開箱體驗 = 免費社群曝光", "status": "live"}, {"id": "kol-pricing", "name": "KOL/團購合作報價器", "slug": "/kol-pricing", "icon": "🤝", "tagline": "KOL 報價不再被當冤大頭", "status": "live"}, {"id": "page-doctor", "name": "商品頁轉換率診斷", "slug": "/page-doctor", "icon": "🩺", "tagline": "有流量沒轉換？AI 幫你找病因", "status": "live"}, {"id": "price-change", "name": "漲價通知產生器", "slug": "/price-change", "icon": "🔔", "tagline": "漲價不掉粉的溝通策略", "status": "live"}, {"id": "live-script", "name": "直播腳本產生器", "slug": "/live-script", "icon": "🎬", "tagline": "直播不冷場，AI 幫你寫腳本", "status": "live"}, {"id": "post-purchase", "name": "售後關懷信產生器", "slug": "/post-purchase", "icon": "📮", "tagline": "5 封自動信，回購率翻倍", "status": "live"}, {"id": "return-policy", "name": "退換貨政策產生器", "slug": "/return-policy", "icon": "📋", "tagline": "合法合規的退換貨政策，一鍵產生", "status": "live"}, {"id": "brand-story", "name": "品牌故事產生器", "slug": "/brand-story", "icon": "📖", "tagline": "讓客戶記住你的品牌", "status": "live"}, {"id": "holiday-campaign", "name": "節慶行銷企劃器", "slug": "/holiday-campaign", "icon": "🎪", "tagline": "節慶大檔，AI 幫你寫完整企劃", "status": "live"}, {"id": "photo-guide", "name": "商品攝影指南", "slug": "/photo-guide", "icon": "📸", "tagline": "手機也能拍出專業商品照", "status": "live"}, {"id": "testimonial", "name": "客戶見證收集器", "slug": "/testimonial", "icon": "⭐", "tagline": "把好評變成最強銷售武器", "status": "live"}, {"id": "supplier-email", "name": "供應商議價信產生器", "slug": "/supplier-email", "icon": "🤝", "tagline": "專業議價，不傷關係", "status": "live"}, {"id": "installment", "name": "分期付款方案設計器", "slug": "/installment", "icon": "💳", "tagline": "高單價靠分期拉轉換", "status": "live"}, {"id": "product-lifecycle", "name": "商品生命週期管理器", "slug": "/product-lifecycle", "icon": "📊", "tagline": "什麼時候該加碼？什麼時候該清倉？", "status": "live"}, {"id": "landing-builder", "name": "一頁式網站產生器", "slug": "/landing-builder", "icon": "📄", "tagline": "填資料，AI 幫你生成一頁式銷售網站", "status": "live"}, {"id": "line-avatar-maker", "name": "LINE 大頭照產生器", "slug": "/line-avatar-maker", "icon": "🎨", "tagline": "文字 + Emoji + AI 背景，30 秒做專屬頭像", "status": "live"}, {"id": "social-cover-maker", "name": "社群封面製作器", "slug": "/social-cover-maker", "icon": "🖼️", "tagline": "FB/LinkedIn/YT/X/IG/Threads 6 平台一鍵搞定", "status": "live"}, {"id": "title-ab", "name": "產品標題 A/B 變體機", "slug": "/title-ab", "icon": "🅰️", "tagline": "一個產品 → 10 個標題 + CTR 預估", "status": "live"}, {"id": "meta-placement", "name": "Meta 廣告版位選擇器", "slug": "/meta-placement", "icon": "🎯", "tagline": "Facebook + Instagram 17 種版位一鍵推薦", "status": "live"}, {"id": "complaint-cluster", "name": "客訴主題分群器", "slug": "/complaint-cluster", "icon": "📊", "tagline": "上傳客訴 CSV → AI 自動分群 + 改善行動", "status": "live"}, {"id": "attribution", "name": "廣告多管道歸因分析", "slug": "/attribution", "icon": "🧮", "tagline": "5 種歸因模型一鍵切換比較", "status": "live"}, {"id": "negative-keywords", "name": "Google Ads 否定關鍵字產生器", "slug": "/negative-keywords", "icon": "🚫", "tagline": "一次產出 80-120 個否定關鍵字 (CSV 直匯)", "status": "live"}, {"id": "creative-score", "name": "廣告素材命中率診斷", "slug": "/creative-score", "icon": "🎨", "tagline": "5 維度評分卡 + 改善行動", "status": "live"}, {"id": "scv", "name": "SCV 會員視圖", "slug": "/scv", "icon": "👤", "tagline": "上傳訂單 CSV，30 秒生出單一會員視圖", "status": "live"}, {"id": "product-image-ai", "name": "商品圖 AI 強化", "slug": "/product-image-ai", "icon": "🖼️", "tagline": "商品圖配文與場景描述產生器", "status": "live"}, {"id": "checkout-flow-audit", "name": "結帳流程診斷", "slug": "/checkout-flow-audit", "icon": "🧾", "tagline": "5 分鐘抓出讓客人逃跑的結帳設計", "status": "live"}, {"id": "tag-system", "name": "會員標籤系統設計", "slug": "/tag-system", "icon": "🏷️", "tagline": "一頁規劃好 CRM 標籤分層", "status": "live"}, {"id": "content-matrix", "name": "內容矩陣規劃", "slug": "/content-matrix", "icon": "📐", "tagline": "一次規劃 4 週社群 + 部落格 + EDM", "status": "live"}, {"id": "sales-pitch", "name": "銷售話術產生器", "slug": "/sales-pitch", "icon": "💬", "tagline": "把產品賣點轉成可背的對話腳本", "status": "live"}, {"id": "trend", "name": "社群輿情雷達", "slug": "/trend", "icon": "🛰️", "tagline": "全球＋台灣熱榜 / 輿情監測 / 競品廣告 一站彙整", "status": "live"}, {"id": "dynamic-pricing", "name": "動態定價計算", "slug": "/dynamic-pricing", "icon": "💱", "tagline": "24-72h 最佳售價建議 + 漲跌時機表", "status": "live"}, {"id": "flash-sale-designer", "name": "Flash Sale 倒數頁設計器", "slug": "/flash-sale-designer", "icon": "⚡", "tagline": "短時搶購頁完整 copy + 稀缺感設計", "status": "live"}, {"id": "ad-2026-checker", "name": "2026 廣告新功能 Checker", "slug": "/ad-2026-checker", "icon": "🆕", "tagline": "對標 Andromeda/AI Max/AdAttributionKit", "status": "live"}, {"id": "trend-monitor", "name": "熱搜關鍵字爆紅監測", "slug": "/trend-monitor", "icon": "📡", "tagline": "品牌/競品/行業詞每日聲量評估", "status": "live"}, {"id": "image-alt-batch", "name": "AI 圖像 Alt 批次產生", "slug": "/image-alt-batch", "icon": "🖼️", "tagline": "商品圖批次補 SEO alt 文字", "status": "live"}, {"id": "subscription-tier-designer", "name": "訂閱模式設計器", "slug": "/subscription-tier-designer", "icon": "🔁", "tagline": "月/季/年三階訂閱方案 + 解約挽回 SOP", "status": "live"}, {"id": "cs-knowledge-base", "name": "Q&A 客服腳本知識庫", "slug": "/cs-knowledge-base", "icon": "📚", "tagline": "可搜尋的整合客服話術庫", "status": "live"}, {"id": "product-scene-prompt", "name": "AI 商品情境圖 Prompt 設計器", "slug": "/product-scene-prompt", "icon": "🎨", "tagline": "Midjourney / Sora / Imagen 商品情境圖 Prompt 一鍵生成", "status": "live"}, {"id": "line-auto-reply-tree", "name": "LINE 自動回覆樹建構器", "slug": "/line-auto-reply-tree", "icon": "🌲", "tagline": "畫好回覆樹 → 一鍵匯出 LINE OA 設定", "status": "live"}, {"id": "ig-reels-hook", "name": "IG Reels 鉤點設計器", "slug": "/ig-reels-hook", "icon": "🪝", "tagline": "前 3 秒鉤點 × 10 種公式一次給你", "status": "live"}, {"id": "competitor-price-watch", "name": "競品價格爬蟲提醒", "slug": "/competitor-price-watch", "icon": "🔭", "tagline": "貼競品連結 → AI 排出價格監測 SOP", "status": "live"}, {"id": "compliance-tw", "name": "台灣個資法/消保法檢核器", "slug": "/compliance-tw", "icon": "⚖️", "tagline": "隱私權政策/購物條款/退換貨頁逐條檢查", "status": "live"}, {"id": "audience-builder", "name": "廣告受眾建議師", "slug": "/audience-builder", "icon": "🎯", "tagline": "跨平台廣告受眾標籤 + 預算分配建議", "status": "live"}, {"id": "subscription-pricer", "name": "訂閱定價計算機", "slug": "/subscription-pricer", "icon": "💵", "tagline": "訂閱月/季/年費 breakeven + LTV 試算", "status": "live"}, {"id": "sleep-detector", "name": "沉睡用戶 SQL Helper", "slug": "/sleep-detector", "icon": "🔍", "tagline": "一鍵生成 N 天沒買的 SQL 撈名單", "status": "live"}, {"id": "okr-designer", "name": "3 個月 OKR 設計器", "slug": "/okr-designer", "icon": "🎯", "tagline": "會員經營 OKR + 月度里程碑 + 追蹤儀表板", "status": "live"}, {"id": "competitor-positioning", "name": "競品定位地圖", "slug": "/competitor-positioning", "icon": "🗺", "tagline": "4 象限定位圖 + 差異化機會點", "status": "live"}, {"id": "member-health-summary", "name": "會員健康度整合報告", "slug": "/member-health-summary", "icon": "📋", "tagline": "Dashboard + Checkup + LTV 整合 1 頁簡報", "status": "live"}, {"id": "tov-designer", "name": "品牌調性 TOV 設定器", "slug": "/tov-designer", "icon": "🎙️", "tagline": "4 維度 TOV + 違規詞清單 + 範例對話", "status": "live"}, {"id": "mgm-tracker", "name": "MGM 推薦碼追蹤儀表板", "slug": "/mgm-tracker", "icon": "🪧", "tagline": "推薦碼分發 + 病毒係數 K 實算", "status": "live"}, {"id": "monthly-review", "name": "月度 Review Template", "slug": "/monthly-review", "icon": "📆", "tagline": "會員經營每月固定 review 報告模板", "status": "live"}, {"id": "pos-loyalty-designer", "name": "POS 線上線下整合設計師", "slug": "/pos-loyalty-designer", "icon": "🏪", "tagline": "實體店 + 線上 CRM 統一會員,點數互通", "status": "live"}, {"id": "link-tracker", "name": "短連結追蹤器", "slug": "/link-tracker", "icon": "🔗", "tagline": "一行縮網址 + 即時點擊統計", "status": "live"}, {"id": "geo-product-title-optimizer", "name": "GEO 商品標題優化器", "slug": "/geo-product-title-optimizer", "icon": "🔍", "tagline": "AI 搜尋引擎(AI Overview/Perplexity)友善標題", "status": "live"}, {"id": "compliance-cockpit", "name": "上架前合規檢核中心", "slug": "/compliance-cockpit", "icon": "⚖️", "tagline": "6 大法規紅綠燈(個資/消保/藥事/廣告/智財/無障礙)", "status": "live"}, {"id": "predictive-score-engine", "name": "預測式分數計算機", "slug": "/predictive-score-engine", "icon": "📊", "tagline": "CLV / Churn Risk / Next Order 平民版", "status": "live"}, {"id": "review-request-designer", "name": "評論索取 SOP 設計師", "slug": "/review-request-designer", "icon": "⭐", "tagline": "三頻道(EDM/LINE/SMS)請評論話術 + 最佳時機", "status": "live"}, {"id": "subscription-save-flow", "name": "訂閱挽留腳本樹", "slug": "/subscription-save-flow", "icon": "🛟", "tagline": "取消流程分支 + 個人化挽留(降 churn 39%)", "status": "live"}, {"id": "product-quiz-designer", "name": "產品推薦測驗腳本", "slug": "/product-quiz-designer", "icon": "📋", "tagline": "3-5 題互動測驗收集 zero-party data(轉換 +30-40%)", "status": "live"}, {"id": "mgm-cockpit", "name": "推薦營運中心", "slug": "/mgm-cockpit", "icon": "🎁", "tagline": "機制設計 + 病毒係數追蹤 + 反作弊全鏈路", "status": "live"}, {"id": "subscription-box-recommender", "name": "訂閱箱推薦自動化", "slug": "/subscription-box-recommender", "icon": "📦", "tagline": "個人化選品 + 驚喜感 + 換貨彈性(Recharge 風格)", "status": "live"}, {"id": "lesson-coach-bot", "name": "8 堂課輔導機器人", "slug": "/lesson-coach-bot", "icon": "🎓", "tagline": "個人化會員經營陪跑(根據你的進度給下一步)", "status": "live"}, {"id": "marketing-message-exporter", "name": "LINE/EDM/SMS 推送匯出", "slug": "/marketing-message-exporter", "icon": "📨", "tagline": "一鍵匯出流程到 Mailchimp/LINE OA/ConvertKit", "status": "live"}, {"id": "complaint-triage-ai", "name": "客訴 AI 分流", "slug": "/complaint-triage-ai", "icon": "🆘", "tagline": "AI 自動分類客訴 + 嚴重度 + 推薦話術", "status": "live"}, {"id": "edm-studio-workflow", "name": "EDM 工作流設計", "slug": "/edm-studio-workflow", "icon": "✉️", "tagline": "5+ 節點 visual workflow + 一鍵匯出", "status": "live"}, {"id": "ai-lifestyle-photoshoot", "name": "AI Lifestyle 換景商攝", "slug": "/ai-lifestyle-photoshoot", "icon": "📸", "tagline": "白底圖一張 → 12 種情境 prompt(含台灣場景包)", "status": "live"}, {"id": "ga4-traffic-analyzer", "name": "GA4 流量診斷分析器", "slug": "/ga4-traffic-analyzer", "icon": "📈", "tagline": "貼 GA4 CSV → AI 找 Quick Wins / Hidden Gems", "status": "live"}, {"id": "gsc-quick-wins", "name": "GSC 搜尋詞 Quick Wins", "slug": "/gsc-quick-wins", "icon": "🎯", "tagline": "貼 GSC CSV → 找 11-20 名關鍵字差 1 步登頂", "status": "live"}, {"id": "meta-ads-analyzer", "name": "Meta Ads 廣告組診斷", "slug": "/meta-ads-analyzer", "icon": "📱", "tagline": "貼 Meta Ads CSV → AI 給「砍/留/加碼」決策", "status": "live"}, {"id": "google-ads-analyzer", "name": "Google Ads 關鍵字優化器", "slug": "/google-ads-analyzer", "icon": "🔎", "tagline": "貼 Search Terms CSV → 找燒錢無轉換的字", "status": "live"}, {"id": "social-rewriter", "name": "社群多平台改寫器", "slug": "/social-rewriter", "icon": "✍️", "tagline": "一篇底稿 → FB / IG / Threads / LINE / EDM 五版自動改寫", "status": "live"}, {"id": "lead-magnet-builder", "name": "名單磁鐵產生器", "slug": "/lead-magnet-builder", "icon": "🧲", "tagline": "一鍵生:Quiz / Checklist / 折扣 / 計算器 + 落地頁 + LINE OA SOP + EDM 5 封序列", "status": "live"}, {"id": "promo-package-designer", "name": "整檔促銷方案總設計器", "slug": "/promo-package-designer", "icon": "🎯", "tagline": "一個檔期同時試算 5 種促銷組合(全店折 / 滿額階梯 / 買X送Y / 組合包 / 限時)+ 利潤對比", "status": "live"}, {"id": "tier-discount-designer", "name": "階梯折扣 + 買X送Y 設計器", "slug": "/tier-discount-designer", "icon": "🪜", "tagline": "滿 NT$500 折 50 / 買 2 送 1 / 第 2 件半價 一鍵試算 + 利潤對照", "status": "live"}, {"id": "restaurant-reservation", "name": "餐廳訂位話術產生器", "slug": "/restaurant-reservation", "icon": "🍽", "tagline": "訂位 / 確認 / 提醒 / no-show / 餐後感謝 + 邀評價 6 段話術", "status": "live"}, {"id": "loyalty-card-designer", "name": "集點卡設計器", "slug": "/loyalty-card-designer", "icon": "🎫", "tagline": "門檻 / 兌換階梯 / 期限 / 預算試算 + LINE OA 推播時機", "status": "live"}, {"id": "beauty-booking-sop", "name": "美業預約自動化 SOP", "slug": "/beauty-booking-sop", "icon": "💅", "tagline": "LINE 預約話術 6 段 + 表單 schema + 取消改期 SOP + 邀回訪", "status": "live"}, {"id": "brand-voice-memory", "name": "品牌口吻記憶卡", "slug": "/brand-voice-memory", "icon": "🎴", "tagline": "貼 3-5 篇舊文 → 萃取你的口吻 DNA → 一段「口吻指令」讓所有 AI 工具寫得像你本人", "status": "live"}, {"id": "hot-post-remix", "name": "熱門貼文拆解+仿寫器", "slug": "/hot-post-remix", "icon": "🔥", "tagline": "貼一則爆紅貼文 → 拆解它為什麼紅 → 用你的品牌口吻仿寫 3 版可發版本", "status": "live"}, {"id": "voc-persona-enricher", "name": "真實顧客原話回填器", "slug": "/voc-persona-enricher", "icon": "💬", "tagline": "貼一批真實留言/評論 → 把虛構 persona 變成有「顧客原話」佐證的真人", "status": "live"}, {"id": "ai-visibility-monitor", "name": "AI 搜尋能見度監測器", "slug": "/ai-visibility-monitor", "icon": "🔭", "tagline": "查你的品牌在 ChatGPT / Perplexity / Google AI Overview 有沒有被提到、被推薦", "status": "live"}, {"id": "payment-reminder", "name": "未付款訂單催繳信", "slug": "/payment-reminder", "icon": "💸", "tagline": "三種力度的催繳訊息:友善提醒 / 到期通知 / 最後保留", "status": "live"}, {"id": "line-group-scripts", "name": "LINE 社群經營腳本", "slug": "/line-group-scripts", "icon": "💬", "tagline": "團購群不冷場:每週貼文排程 + 話題引導 + 退群挽留", "status": "live"}, {"id": "objection-handler", "name": "購買異議話術庫", "slug": "/objection-handler", "icon": "🛡️", "tagline": "太貴 / 怕假貨 / 運費貴 / 再想想,每種異議三種回法", "status": "live"}, {"id": "crisis-sop", "name": "電商危機急救 SOP 卡", "slug": "/crisis-sop", "icon": "🚨", "tagline": "負評炎上 / 爆單出不完 / 物流塞車 / 突然斷貨,30 秒查行動清單", "status": "live"}, {"id": "launch-countdown", "name": "新品上市倒數貼文", "slug": "/launch-countdown", "icon": "⏳", "tagline": "開賣前 7 天 / 3 天 / 1 天 / 當天,一次生成整串預熱貼文", "status": "live"}, {"id": "milestone-celebrator", "name": "會員里程碑慶祝", "slug": "/milestone-celebrator", "icon": "🎉", "tagline": "首購 / 回購 / 週年 / 累積金額,每個里程碑一份驚喜訊息", "status": "live"}, {"id": "groupbuy-campaign", "name": "團購檔期文案包", "slug": "/groupbuy-campaign", "icon": "🛒", "tagline": "預熱 → 開團 → 衝單 → 收單,一鍵生成整檔團購素材", "status": "live"}, {"id": "ga4-translator", "name": "GA4 白話翻譯器", "slug": "/ga4-translator", "icon": "📖", "tagline": "貼上 GA4 數據,AI 翻成人話:發生什麼事、該做什麼", "status": "live"}, {"id": "lp-audit", "name": "活動頁六面向健檢", "slug": "/lp-audit", "icon": "🔬", "tagline": "貼上活動 Landing Page 文案,六面向評分找轉換漏洞", "status": "live"}, {"id": "return-analyzer", "name": "退貨健檢分類器", "slug": "/return-analyzer", "icon": "📦", "tagline": "貼上退貨紀錄,自動分類原因:該修產品頁還是該修包裝", "status": "live"}, {"id": "shopee-fee-calc", "name": "蝦皮手續費試算器", "slug": "/shopee-fee-calc", "icon": "🧮", "tagline": "輸入售價或目標利潤,雙向試算蝦皮各項費用與實拿金額", "status": "live"}, {"id": "stock-planner", "name": "庫存備貨計算機", "slug": "/stock-planner", "icon": "📊", "tagline": "安全庫存 + 再訂購點 + 檔期備貨量,不再憑感覺叫貨", "status": "live"}, {"id": "shipping-label-maker", "name": "出貨標籤產生器", "slug": "/shipping-label-maker", "icon": "🏷️", "tagline": "貼上訂單清單,批次產出可列印的出貨標籤含條碼", "status": "live"}, {"id": "og-image-maker", "name": "社群封面圖產生器", "slug": "/og-image-maker", "icon": "🖼️", "tagline": "輸入標題,10 秒做出 1200×630 分享圖,不用開設計軟體", "status": "live"}, {"id": "live-clip-scripter", "name": "直播切片腳本拆解器", "slug": "/live-clip-scripter", "icon": "🎬", "tagline": "貼上直播逐字稿,拆出 5-8 條短影音切片腳本含時間戳", "status": "live"}, {"id": "customer-roleplay", "name": "奧客演練模擬器", "slug": "/customer-roleplay", "icon": "🎭", "tagline": "和 AI 扮演的五種奧客實戰過招,客服上線前先練膽", "status": "live"}, {"id": "member-wrapped", "name": "會員年度回顧產生器", "slug": "/member-wrapped", "icon": "🎁", "tagline": "把顧客的年度消費做成一頁感動回顧,像 Spotify Wrapped", "status": "live"}, {"id": "bg-remover", "name": "商品圖去背神器", "slug": "/bg-remover", "icon": "✂️", "tagline": "商品照拖進來直接去背,免上傳免付費,圖不離開瀏覽器", "status": "live"}, {"id": "kpi-calc", "name": "投放前 KPI 試算器", "slug": "/kpi-calc", "icon": "📊", "tagline": "還沒花半毛錢,先算出這門廣告生意划不划算", "status": "live"}, {"id": "utm-builder", "name": "UTM 追蹤連結產生器", "slug": "/utm-builder", "icon": "🔗", "tagline": "每個 KOL 一條專屬連結,事後才分得出誰帶單", "status": "live"}, {"id": "roi-calculator", "name": "KOL 合作 ROI 計算器", "slug": "/roi-calculator", "icon": "📈", "tagline": "用毛利算真實 ROI,決定這個 KOL 要不要續約", "status": "live"}, {"id": "conversion-funnel", "name": "轉換漏斗瓶頸分析", "slug": "/conversion-funnel", "icon": "🌪️", "tagline": "整體轉換率只說「不好」,漏斗才說「哪裡不好」", "status": "live"}, {"id": "keyword-planner", "name": "AI 目標關鍵字規劃器", "slug": "/keyword-planner", "icon": "🎯", "tagline": "產業 × 你的商品 → 10 個可投放的目標關鍵字", "status": "live"}, {"id": "video-repurpose", "name": "短影音多平台改寫器", "slug": "/video-repurpose", "icon": "🔀", "tagline": "一支腳本，改成各平台各自吃得下的版本", "status": "live"}];
+
+let currentTool = null;
+
+function renderTools(list) {
+  const grid = document.getElementById('toolsGrid');
+  grid.innerHTML = '';
+  list.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'tool-card';
+    card.onclick = () => openTool(t);
+    card.innerHTML = `
+      <div>
+        <div class="tool-header">
+          <span class="tool-icon">${t.icon}</span>
+          <span class="tool-title">${t.name}</span>
+        </div>
+        <div class="tool-tagline">${t.tagline}</div>
+      </div>
+      <div class="tool-footer">
+        <span class="badge-live">✓ 即開即用</span>
+        <span class="action-hint">點擊開啟 ➔</span>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  document.getElementById('count-label').innerText = `共收錄 ${list.length} 款工具`;
+}
+
+function filterTools() {
+  const query = document.getElementById('search').value.toLowerCase().trim();
+  if (!query) {
+    renderTools(tools);
+    return;
+  }
+  const filtered = tools.filter(t => 
+    t.name.toLowerCase().includes(query) || 
+    t.tagline.toLowerCase().includes(query) ||
+    t.slug.toLowerCase().includes(query)
+  );
+  renderTools(filtered);
+}
+
+function openTool(t) {
+  currentTool = t;
+  document.getElementById('modalTitle').innerHTML = `${t.icon} ${t.name}`;
+  document.getElementById('modalDesc').innerText = t.tagline;
+  document.getElementById('resultBox').style.display = 'none';
+  
+  const form = document.getElementById('dynamicForm');
+  form.innerHTML = '';
+  
+  if (t.id === 'ad-calc' || t.name.includes('ROAS')) {
+    form.innerHTML = `
+      <div class="form-group">
+        <label>廣告支出 (NT$)</label>
+        <input type="number" id="ad_spend" value="10000">
+      </div>
+      <div class="form-group">
+        <label>廣告帶動營收 (NT$)</label>
+        <input type="number" id="ad_revenue" value="45000">
+      </div>
+      <div class="form-group">
+        <label>商品平均毛利率 (%)</label>
+        <input type="number" id="gross_margin" value="60">
+      </div>
+    `;
+  } else if (t.id === 'vat' || t.name.includes('統一編號') || t.name.includes('統編')) {
+    form.innerHTML = `
+      <div class="form-group">
+        <label>請輸入 8 碼統一編號</label>
+        <input type="text" id="vat_input" maxlength="8" placeholder="例如: 04595257">
+      </div>
+    `;
+  } else {
+    form.innerHTML = `
+      <div class="form-group">
+        <label>商品名稱 / 輸入情境</label>
+        <input type="text" id="generic_title" placeholder="例如: 極簡無線降噪藍牙耳機">
+      </div>
+      <div class="form-group">
+        <label>商品賣點 / 核心特徵</label>
+        <textarea id="generic_features" rows="3" placeholder="例如: 40dB 深度降噪、32小時超長續航、石墨烯振膜音質"></textarea>
+      </div>
+    `;
+  }
+  
+  document.getElementById('toolModal').style.display = 'flex';
+}
+
+function closeModalDirect() {
+  document.getElementById('toolModal').style.display = 'none';
+}
+
+function closeModal(e) {
+  if (e.target.id === 'toolModal') {
+    closeModalDirect();
+  }
+}
+
+function executeTool() {
+  const res = document.getElementById('resultBox');
+  res.style.display = 'block';
+  
+  if (currentTool.id === 'ad-calc' || currentTool.name.includes('ROAS')) {
+    const spend = parseFloat(document.getElementById('ad_spend').value) || 0;
+    const rev = parseFloat(document.getElementById('ad_revenue').value) || 0;
+    const margin = parseFloat(document.getElementById('gross_margin').value) || 0;
+    
+    if (spend <= 0) {
+      res.innerText = '⚠️ 請輸入大於 0 的廣告支出金額。';
+      return;
+    }
+    const roas = (rev / spend).toFixed(2);
+    const grossProfit = rev * (margin / 100);
+    const netProfit = grossProfit - spend;
+    const breakEvenRoas = (100 / margin).toFixed(2);
+    
+    res.innerHTML = `📊 【計算結果診斷報告】\n• 實際 ROAS: <b>${roas}</b> (每投 $1 產生 $${roas} 營收)\n• 損益平衡 ROAS 門檻: <b>${breakEvenRoas}</b>\n• 預估毛利: NT$ ${grossProfit.toLocaleString()}\n• 扣除廣告後淨損益: <b style="color:${netProfit >= 0 ? 'var(--green)' : 'red'}">NT$ ${netProfit.toLocaleString()}</b>\n• 操盤診斷: ${netProfit >= 0 ? '✅ 廣告健康有獲利，建議維持或微調放大預算！' : '❌ 廣告虧損中，已低於損益平衡點，建議調整素材或客單價！'}`;
+  } else if (currentTool.id === 'vat' || currentTool.name.includes('統一編號') || currentTool.name.includes('統編')) {
+    const vat = document.getElementById('vat_input').value.trim();
+    if (vat.length !== 8 || !/^\d{8}$/.test(vat)) {
+      res.innerText = '❌ 請輸入正確的 8 碼數字統一編號。';
+      return;
+    }
+    const cx = [1, 2, 1, 2, 1, 2, 4, 1];
+    let sum1 = 0, sum2 = 0;
+    for (let i = 0; i < 8; i++) {
+      let p = parseInt(vat[i]) * cx[i];
+      let d1 = Math.floor(p / 10);
+      let d2 = p % 10;
+      sum1 += d1 + d2;
+      if (i === 6 && vat[6] === '7') {
+        sum2 += (d1 + d2 === 10 ? 1 : d1 + d2);
+      } else {
+        sum2 += d1 + d2;
+      }
+    }
+    const valid = (sum1 % 5 === 0) || (vat[6] === '7' && sum2 % 5 === 0);
+    res.innerHTML = valid ? 
+      `✅ <b>驗證通過！</b> 統編【${vat}】符合台灣財政部新制/舊制檢查碼演算法。` : 
+      `❌ <b>驗證失敗！</b> 統編【${vat}】檢查碼錯誤，非有效營業登記編號。`;
+  } else {
+    const title = document.getElementById('generic_title').value || '熱銷電商商品';
+    const feat = document.getElementById('generic_features').value || '極致品質、台灣出貨';
+    res.innerHTML = `✍️ 【${currentTool.name} 智慧輸出結果】\n━━━━━━━━━━━━━━━━━━━━\n【蝦皮/momo 標題】\n🔥 限時爆款｜${title}（現貨供應 · 正品保證）\n\n【社群帶貨短文案 (FB/IG)】\n還在找真正好用的【${title}】嗎？\n解決你的痛點，三大核心升級一次到位：\n✨ ${feat}\n🚚 今日下單現貨秒出，點擊限時優惠搶購！\n\n【消保法標記】\n本商品享 7 天猶豫期（非試用期）保障。`;
+  }
+}
+
+renderTools(tools);
+</script>
+</body>
+</html>
