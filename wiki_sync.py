@@ -122,6 +122,17 @@ def build_sync_tarball():
         if os.path.exists(local_viewer):
             tar.add(local_viewer, arcname="viewer.html")
             print("✓ 已將閱讀器 viewer.html 加入同步打包中")
+
+        # 打包看板頁 kanban.html 與資料快照 kanban_status.json
+        local_kanban = r"D:\Workspace\03_Dev_Projects\wiki\kanban.html"
+        if os.path.exists(local_kanban):
+            tar.add(local_kanban, arcname="kanban.html")
+            print("✓ 已將看板頁 kanban.html 加入同步打包中")
+
+        local_kanban_json = r"D:\Workspace\03_Dev_Projects\wiki\kanban_status.json"
+        if os.path.exists(local_kanban_json):
+            tar.add(local_kanban_json, arcname="kanban_status.json")
+            print("✓ 已將看板資料快照 kanban_status.json 加入同步打包中")
                     
     return out_buf.getvalue(), count
 

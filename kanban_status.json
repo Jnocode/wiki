@@ -1,0 +1,458 @@
+{
+  "generated_at": "2026-09-15T21:41:58.434937+00:00",
+  "summary": {
+    "total": 42,
+    "done": 35,
+    "blocked": 2,
+    "ready": 1,
+    "running": 0,
+    "in_progress": 1
+  },
+  "agents": [
+    {
+      "name": "researcher",
+      "id": "researcher",
+      "total": 1,
+      "by_status": {
+        "done": 1
+      }
+    },
+    {
+      "name": "coder",
+      "id": "coder",
+      "total": 1,
+      "by_status": {
+        "archived": 1
+      }
+    },
+    {
+      "name": "小克",
+      "id": "xiaoke",
+      "total": 40,
+      "by_status": {
+        "done": 34,
+        "ready": 1,
+        "blocked": 2,
+        "completed": 3
+      }
+    },
+    {
+      "name": "小衡",
+      "id": "xiaoheng",
+      "total": 0,
+      "by_status": {}
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t_b8a14cd6",
+      "title": "【HR視角整改】104職稱改為AI工程師、廢除123罐頭自薦信、作品集首屏3秒優化",
+      "assignee": "小克",
+      "status": "completed",
+      "priority": 0,
+      "created_at": 1789162709,
+      "completed_at": null,
+      "block_kind": null
+    },
+    {
+      "id": "t_d4e94a7e",
+      "title": "【Recall 外掛維護】以運行中真本逆向同步 recall-memory-hermes 儲存庫並打通真正 CI",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1789107243,
+      "completed_at": 1789107829,
+      "block_kind": null
+    },
+    {
+      "id": "t_b98d8748",
+      "title": "【Recall 專案維運】為 recall-vault 部署標準化 GitHub Actions CI 管線並推送驗收",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1789093161,
+      "completed_at": 1789093611,
+      "block_kind": null
+    },
+    {
+      "id": "t_a9bfa98c",
+      "title": "【Recall 專案維運】階段四：監控 Run 34553768567 終極綠燈驗收 (Package & Test 全綠)",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1789092812,
+      "completed_at": 1789093136,
+      "block_kind": null
+    },
+    {
+      "id": "t_7956984c",
+      "title": "【Recall 專案維運】階段三：監控 Run 34553212209 遠端 GitHub Actions CI 執行與綠燈驗收",
+      "assignee": "小克",
+      "status": "completed",
+      "priority": 0,
+      "created_at": 1789092302,
+      "completed_at": null,
+      "block_kind": null
+    },
+    {
+      "id": "t_29fcfc75",
+      "title": "【Recall 專案維運】階段二：修復遠端 CI 配置與 GitHub Actions 觸發鏈路驗證",
+      "assignee": "小克",
+      "status": "completed",
+      "priority": 0,
+      "created_at": 1789076391,
+      "completed_at": null,
+      "block_kind": null
+    },
+    {
+      "id": "t_9e0b6c82",
+      "title": "【求職日常投遞】落實每日3檔精選投遞（排重半年限制）與客製Cover Letter自動準備",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1789075991,
+      "completed_at": 1789139099,
+      "block_kind": null
+    },
+    {
+      "id": "t_e8da1a7e",
+      "title": "【Recall 專案維運】排查遠端 CI Failure、修復依賴隔離與打通真實 Quality Gate",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1789075703,
+      "completed_at": 1789076378,
+      "block_kind": null
+    },
+    {
+      "id": "t_7f5dee9a",
+      "title": "【LinkedIn 經營】產出第一篇繁中 Builder Log 乾貨貼文（三路 RRF 檢索實戰）並驗收發布格式",
+      "assignee": "小克",
+      "status": "blocked",
+      "priority": 0,
+      "created_at": 1788750458,
+      "completed_at": null,
+      "block_kind": null
+    },
+    {
+      "id": "t_2a9e6b82",
+      "title": "【求職閉環研究】LinkedIn 與 CakeResume 跨平台經營策略與求職漏斗規劃",
+      "assignee": "小克",
+      "status": "blocked",
+      "priority": 0,
+      "created_at": 1788570368,
+      "completed_at": null,
+      "block_kind": null
+    },
+    {
+      "id": "t_1183a30e",
+      "title": "【求職自動送】建立小克標準投遞 SOP：即時比對 104/Cake 職缺、自動填表與單筆送出回報",
+      "assignee": "小克",
+      "status": "ready",
+      "priority": 0,
+      "created_at": 1788536050,
+      "completed_at": null,
+      "block_kind": null
+    },
+    {
+      "id": "t_e6c35d56",
+      "title": "【作品集雙端升級】小克重構 jnocode.github.io 與產出 CakeResume 旗艦作品集排版",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788479940,
+      "completed_at": 1788551678,
+      "block_kind": null
+    },
+    {
+      "id": "t_9eb2c38c",
+      "title": "【GitHub 項目維運】階段四：落地遠端同步 — 建立缺漏遠端庫、推送新 CI 工作流並更新 Topics",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788478202,
+      "completed_at": 1788480635,
+      "block_kind": null
+    },
+    {
+      "id": "t_healthcheck_1b46aa8d",
+      "title": "【鏈路驗收】dispatcher → kanban → 小克 Discord thread 1543517409732853791 健康回報",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788472048,
+      "completed_at": 1788472332,
+      "block_kind": null
+    },
+    {
+      "id": "t_1d40e724",
+      "title": "【GitHub 項目維運】階段三：優化 Jnocode 個人 Profile 與 Top 6 Repos README/Topics 標籤",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788465371,
+      "completed_at": 1788465606,
+      "block_kind": null
+    },
+    {
+      "id": "t_4a746d31",
+      "title": "【求職閉環實作】104 與 CakeResume 履歷標籤修正、開放狀態切換與今日投遞清單自動準備",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788465345,
+      "completed_at": 1788465498,
+      "block_kind": null
+    },
+    {
+      "id": "t_22727e62",
+      "title": "【GitHub 項目維運】階段二：部署開源專案標準 GitHub Actions CI/CD 驗收管線",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788465247,
+      "completed_at": 1788465359,
+      "block_kind": null
+    },
+    {
+      "id": "t_694fd1fd",
+      "title": "【履歷自動同步】小克接管 9222 實體寫入：104 與 CakeResume 線上履歷注入與 Preview 驗收",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788464560,
+      "completed_at": 1788465208,
+      "block_kind": null
+    },
+    {
+      "id": "t_2ac30cc5",
+      "title": "【GitHub 項目維運】清理 19 個 Dirty Repos 之 .gitignore 與排除快取雜檔",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788463890,
+      "completed_at": 1788464850,
+      "block_kind": null
+    },
+    {
+      "id": "t_6d404273",
+      "title": "【履歷自動同步】小克啟動專用 Chrome (9222) 供 Jun 登入 104/CakeResume 並接管注入",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788463860,
+      "completed_at": 1788463945,
+      "block_kind": null
+    },
+    {
+      "id": "t_e1071fe3",
+      "title": "【履歷自動同步】小克全自主執行：透過本機瀏覽器/Camofox/Playwright直接登入並寫入104與CakeResume線上履歷",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788463182,
+      "completed_at": 1788463301,
+      "block_kind": null
+    },
+    {
+      "id": "t_b144c685",
+      "title": "【求職履歷更新】使用 Camofox 自動化將 104/Cake 履歷同步為 2026 AI 應用工程師最新版",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788462697,
+      "completed_at": 1788462902,
+      "block_kind": null
+    },
+    {
+      "id": "t_df9bd17c",
+      "title": "【工具調研】Agent-Reach CLI 免費免 Key 社群爬取能力評估與沙盒測試",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 8,
+      "created_at": 1788456162,
+      "completed_at": 1788458397,
+      "block_kind": null
+    },
+    {
+      "id": "t_98038bd8",
+      "title": "【履歷重構】以 Google XYZ 公式重構 AI 應用與技術 PM 雙語 Master 履歷母版",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 9,
+      "created_at": 1788456152,
+      "completed_at": 1788457572,
+      "block_kind": null
+    },
+    {
+      "id": "t_33fa4793",
+      "title": "【求職拓展】串接 RemoteOK 與 Remotive 公開 API 擴充美金遠端職缺庫",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 10,
+      "created_at": 1788456143,
+      "completed_at": 1788456880,
+      "block_kind": null
+    },
+    {
+      "id": "t_f9af51a4",
+      "title": "【Podcast】EP16 腳本去蕪存菁與長度合約壓縮 (18k字 -> 7.2k字)",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788450705,
+      "completed_at": 1788461468,
+      "block_kind": null
+    },
+    {
+      "id": "t_776300a9",
+      "title": "【量化策略】實作 MOPS 月營收暴增黑馬篩選模組 (解決 2451 漏抓)",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788450704,
+      "completed_at": 1788460562,
+      "block_kind": null
+    },
+    {
+      "id": "t_38fbfa76",
+      "title": "【求職串】實作多平台求職爬蟲腳本 (104+CakeResume+遠端分類)",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788450703,
+      "completed_at": 1788450998,
+      "block_kind": null
+    },
+    {
+      "id": "t_841cd22c",
+      "title": "【Moltbook 巡邏】每日 Agent 前沿社群趨勢掃描與靈感提煉",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788435207,
+      "completed_at": 1788459899,
+      "block_kind": null
+    },
+    {
+      "id": "t_bf90f515",
+      "title": "【Discord 伺服器與頻道管理】社群自動化運維、權限審查與 Bot 延遲優化",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788391598,
+      "completed_at": 1788459181,
+      "block_kind": null
+    },
+    {
+      "id": "t_f92fde19",
+      "title": "【社群與行銷】多平台內容裂變與 Threads/FB/X 自動引流發布",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788391597,
+      "completed_at": 1788456187,
+      "block_kind": null
+    },
+    {
+      "id": "t_dc55fa29",
+      "title": "【量化交易策略】JoJo Trader 台股/加密回測系統與選股風控",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788391596,
+      "completed_at": 1788455496,
+      "block_kind": null
+    },
+    {
+      "id": "t_e57973fc",
+      "title": "【排程狀態】Cron 排程與 Watchdog 監控修復 (Discord Thread 1525971114411561010)",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788391595,
+      "completed_at": 1788431095,
+      "block_kind": null
+    },
+    {
+      "id": "t_9c935db0",
+      "title": "【GitHub 項目維運與問題處理】開源專案 CI/CD、PR 審查與環境健康",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788391594,
+      "completed_at": 1788454718,
+      "block_kind": null
+    },
+    {
+      "id": "t_278939a8",
+      "title": "【遊戲開發(Spirits-Calling)】UE5.8 賽博靈異潛行 Roguelite 垂直切片",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788391593,
+      "completed_at": 1788453918,
+      "block_kind": null
+    },
+    {
+      "id": "t_bd98007a",
+      "title": "【momo 搶購程式開發】高併發搶購與 Deterministic Watcher 排程驗證",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788391592,
+      "completed_at": 1788453146,
+      "block_kind": null
+    },
+    {
+      "id": "t_cd1837f9",
+      "title": "【V皮工廠開發】Live2D Cubism 與模型自動化產線打磨",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788391591,
+      "completed_at": 1788452418,
+      "block_kind": null
+    },
+    {
+      "id": "t_5b5f912b",
+      "title": "【WIKI知識庫】NAS 與本地 Markdown 雙向同步與索引建置",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788391590,
+      "completed_at": 1788451747,
+      "block_kind": null
+    },
+    {
+      "id": "t_0246fcdb",
+      "title": "【求職串】多版本履歷與 104/Cake 自動化巡邏追蹤",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788391589,
+      "completed_at": 1788431786,
+      "block_kind": null
+    },
+    {
+      "id": "t_d4d17840",
+      "title": "【Podcast】EP15 腳本濃縮重構與發布管線維護",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 0,
+      "created_at": 1788391588,
+      "completed_at": 1788395641,
+      "block_kind": null
+    },
+    {
+      "id": "t_ec44c366",
+      "title": "研究 ComfyUI 最新 AnimateDiff 工作流",
+      "assignee": "researcher",
+      "status": "done",
+      "priority": 5,
+      "created_at": 1778729556,
+      "completed_at": 1779205072,
+      "block_kind": null
+    }
+  ]
+}

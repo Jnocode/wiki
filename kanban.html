@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小衡小克看板總覽 · Jun's Wiki</title>
+<style>
+  :root {
+    --wiki-bg: #0d1117;
+    --wiki-surface: #161b22;
+    --wiki-border: #30363d;
+    --wiki-text: #e6edf3;
+    --wiki-text-muted: #8b949e;
+    --wiki-link: #58a6ff;
+    --wiki-link-visited: #bc8cff;
+    --wiki-infobox-bg: #161b22;
+    --wiki-border-subtle: #21262d;
+    --badge-ready: #388bfd;
+    --badge-running: #d29922;
+    --badge-blocked: #f85149;
+    --badge-todo: #a371f7;
+    --badge-done: #3fb950;
+  }
+
+  body.theme-classic {
+    --wiki-bg: #ffffff;
+    --wiki-surface: #f8f9fa;
+    --wiki-border: #a2a9b1;
+    --wiki-text: #202122;
+    --wiki-text-muted: #54595d;
+    --wiki-link: #3366cc;
+    --wiki-link-visited: #6b4ba1;
+    --wiki-infobox-bg: #f8f9fa;
+    --wiki-border-subtle: #c8ccd1;
+    --badge-ready: #0969da;
+    --badge-running: #9a6700;
+    --badge-blocked: #cf222e;
+    --badge-todo: #8250df;
+    --badge-done: #1a7f37;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Liberation Sans", "Noto Sans TC", sans-serif;
+    background: var(--wiki-bg);
+    color: var(--wiki-text);
+    line-height: 1.6;
+    font-size: 14px;
+    min-height: 100vh;
+  }
+
+  .wiki-topbar {
+    background: var(--wiki-surface);
+    border-bottom: 1px solid var(--wiki-border);
+    padding: 0.6rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .wiki-logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--wiki-text);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .wiki-logo-icon {
+    width: 24px;
+    height: 24px;
+    background: #3366cc;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: serif;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .wiki-top-tools {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .wiki-top-tools button, .wiki-top-tools a {
+    background: none;
+    border: none;
+    color: var(--wiki-link);
+    text-decoration: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  .wiki-top-tools button:hover, .wiki-top-tools a:hover {
+    text-decoration: underline;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid var(--wiki-border);
+    padding-bottom: 0.8rem;
+  }
+  .header-title h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .meta-info {
+    color: var(--wiki-text-muted);
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+  }
+  .refresh-btn {
+    background: var(--wiki-surface);
+    color: var(--wiki-text);
+    border: 1px solid var(--wiki-border);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+  }
+  .refresh-btn:hover {
+    background: var(--wiki-border-subtle);
+  }
+
+  .summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .card {
+    background: var(--wiki-surface);
+    border: 1px solid var(--wiki-border);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .card .val {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 0.3rem;
+  }
+  .card .lbl {
+    color: var(--wiki-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .tab-section {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid var(--wiki-border);
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--wiki-text-muted);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  .tab-btn.active {
+    color: var(--wiki-link);
+    border-bottom-color: var(--wiki-link);
+  }
+
+  .board-columns {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(240px, 1fr));
+    gap: 1rem;
+    align-items: start;
+    overflow-x: auto;
+  }
+  @media (max-width: 1200px) {
+    .board-columns {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+  }
+
+  .column {
+    background: var(--wiki-surface);
+    border: 1px solid var(--wiki-border);
+    border-radius: 8px;
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 280px);
+  }
+  .column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.6rem;
+    border-bottom: 1px solid var(--wiki-border);
+    font-weight: 600;
+  }
+  .column-title {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .count-badge {
+    background: var(--wiki-border);
+    color: var(--wiki-text);
+    border-radius: 12px;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .task-list {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding-right: 0.2rem;
+  }
+
+  .task-card {
+    background: var(--wiki-bg);
+    border: 1px solid var(--wiki-border);
+    border-radius: 6px;
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .task-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+  .task-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--wiki-text-muted);
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  .task-tags {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .tag {
+    border-radius: 4px;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+  }
+  .tag-assignee {
+    background: var(--wiki-border-subtle);
+    color: var(--wiki-text);
+    border: 1px solid var(--wiki-border);
+  }
+  .tag-block {
+    background: rgba(248, 81, 73, 0.15);
+    color: #f85149;
+    border: 1px solid rgba(248, 81, 73, 0.3);
+  }
+
+  .collapsible-toggle {
+    background: none;
+    border: none;
+    color: var(--wiki-link);
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 0.2rem 0;
+    margin-bottom: 0.4rem;
+    text-align: left;
+  }
+
+  #error-msg {
+    background: rgba(248, 81, 73, 0.1);
+    border: 1px solid #f85149;
+    color: #f85149;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="wiki-topbar">
+  <a href="index.html" class="wiki-logo-link">
+    <div class="wiki-logo-icon">W</div>
+    <span>Jun's Wiki</span>
+  </a>
+  <div class="wiki-top-tools">
+    <a href="index.html">首頁</a>
+    <a href="kanban.html" style="font-weight: bold;">看板動態</a>
+    <button id="themeToggleBtn" onclick="toggleTheme()">切換主題</button>
+  </div>
+</div>
+
+<div class="container">
+  <div id="error-msg"></div>
+
+  <div class="header-section">
+    <div class="header-title">
+      <h1>📋 看板總覽</h1>
+      <div class="meta-info">
+        最後更新時間：<span id="gen-time">-</span> | 
+        下一次自動更新倒數：<span id="countdown">60</span> 秒
+      </div>
+    </div>
+    <button class="refresh-btn" onclick="fetchData()">🔄 重新整理</button>
+  </div>
+
+  <div class="summary-cards">
+    <div class="card"><div class="lbl">總任務數</div><div class="val" id="sum-total">0</div></div>
+    <div class="card"><div class="lbl">進行中</div><div class="val" id="sum-in-progress" style="color:var(--badge-ready)">0</div></div>
+    <div class="card"><div class="lbl">阻塞</div><div class="val" id="sum-blocked" style="color:var(--badge-blocked)">0</div></div>
+    <div class="card"><div class="lbl">待辦 (Triage/Todo)</div><div class="val" id="sum-todo" style="color:var(--badge-todo)">0</div></div>
+    <div class="card"><div class="lbl">完成</div><div class="val" id="sum-done" style="color:var(--badge-done)">0</div></div>
+  </div>
+
+  <div class="tab-section">
+    <button class="tab-btn active" id="tab-all" onclick="setTab('all')">全部</button>
+    <button class="tab-btn" id="tab-xiaoheng" onclick="setTab('xiaoheng')">小衡</button>
+    <button class="tab-btn" id="tab-xiaoke" onclick="setTab('xiaoke')">小克</button>
+  </div>
+
+  <div class="board-columns">
+    <!-- Ready -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title"><span>⚡ 就緒 (Ready)</span></div>
+        <span class="count-badge" id="count-ready">0</span>
+      </div>
+      <div class="task-list" id="list-ready"></div>
+    </div>
+
+    <!-- Running -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title"><span>🚀 執行中 (Running)</span></div>
+        <span class="count-badge" id="count-running">0</span>
+      </div>
+      <div class="task-list" id="list-running"></div>
+    </div>
+
+    <!-- Blocked -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title"><span>🛑 阻塞 (Blocked)</span></div>
+        <span class="count-badge" id="count-blocked">0</span>
+      </div>
+      <div class="task-list" id="list-blocked"></div>
+    </div>
+
+    <!-- Todo -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title"><span>📌 待辦 (Todo/Triage/Scheduled)</span></div>
+        <span class="count-badge" id="count-todo">0</span>
+      </div>
+      <div class="task-list" id="list-todo"></div>
+    </div>
+
+    <!-- Done -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title"><span>✅ 完成 (Done)</span></div>
+        <span class="count-badge" id="count-done">0</span>
+      </div>
+      <button class="collapsible-toggle" id="done-toggle-btn" onclick="toggleDoneCollapse()">[ 展開 / 折疊已完成任務 ]</button>
+      <div class="task-list" id="list-done"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentData = null;
+  let activeTab = 'all';
+  let isDoneCollapsed = true;
+  let countdownVal = 60;
+  let timerId = null;
+
+  // 主題切換
+  function initTheme() {
+    const saved = localStorage.getItem('wiki-theme');
+    if (saved === 'classic') {
+      document.body.classList.add('theme-classic');
+    }
+  }
+  function toggleTheme() {
+    document.body.classList.toggle('theme-classic');
+    const isClassic = document.body.classList.contains('theme-classic');
+    localStorage.setItem('wiki-theme', isClassic ? 'classic' : 'dark');
+  }
+
+  function formatTime(ts) {
+    if (!ts) return '-';
+    const d = new Date(typeof ts === 'number' ? ts * 1000 : ts);
+    if (isNaN(d.getTime())) return '-';
+    return d.toLocaleString('zh-TW', { hour12: false });
+  }
+
+  function setTab(tab) {
+    activeTab = tab;
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    render();
+  }
+
+  function toggleDoneCollapse() {
+    isDoneCollapsed = !isDoneCollapsed;
+    renderList('done', document.getElementById('list-done'));
+  }
+
+  function fetchData() {
+    const errorEl = document.getElementById('error-msg');
+    fetch('kanban_status.json?ts=' + Date.now())
+      .then(res => {
+        if (!res.ok) throw new Error('HTTP status ' + res.status);
+        return res.json();
+      })
+      .then(data => {
+        currentData = data;
+        errorEl.style.display = 'none';
+        countdownVal = 60;
+        render();
+      })
+      .catch(err => {
+        console.error('Fetch kanban_status.json error:', err);
+        errorEl.innerText = '⚠️ 無法讀取看板狀態資料：' + err.message;
+        errorEl.style.display = 'block';
+      });
+  }
+
+  function renderCard(task) {
+    const card = document.createElement('div');
+    card.className = 'task-card';
+
+    const title = document.createElement('div');
+    title.className = 'task-title';
+    title.innerText = task.title;
+
+    const meta = document.createElement('div');
+    meta.className = 'task-meta';
+
+    const tags = document.createElement('div');
+    tags.className = 'task-tags';
+
+    const assigneeTag = document.createElement('span');
+    assigneeTag.className = 'tag tag-assignee';
+    assigneeTag.innerText = task.assignee || '未指派';
+    tags.appendChild(assigneeTag);
+
+    if (task.block_kind) {
+      const blockTag = document.createElement('span');
+      blockTag.className = 'tag tag-block';
+      blockTag.innerText = '🚫 ' + task.block_kind;
+      tags.appendChild(blockTag);
+    }
+
+    const timeSpan = document.createElement('span');
+    timeSpan.innerText = formatTime(task.created_at);
+
+    meta.appendChild(tags);
+    meta.appendChild(timeSpan);
+
+    const idSpan = document.createElement('div');
+    idSpan.style.fontSize = '0.7rem';
+    idSpan.style.color = 'var(--wiki-text-muted)';
+    idSpan.innerText = '#' + task.id + (task.priority ? ' (P' + task.priority + ')' : '');
+
+    card.appendChild(title);
+    card.appendChild(meta);
+    card.appendChild(idSpan);
+
+    return card;
+  }
+
+  function getFilteredTasks() {
+    if (!currentData || !currentData.tasks) return [];
+    return currentData.tasks.filter(t => {
+      if (activeTab === 'xiaoheng') {
+        return t.assignee === '小衡';
+      } else if (activeTab === 'xiaoke') {
+        return t.assignee === '小克';
+      }
+      return true;
+    });
+  }
+
+  function renderList(statusKey, container) {
+    container.innerHTML = '';
+    const tasks = getFilteredTasks();
+    let filtered = [];
+
+    if (statusKey === 'todo') {
+      filtered = tasks.filter(t => ['todo', 'triage', 'scheduled'].includes(t.status));
+    } else {
+      filtered = tasks.filter(t => t.status === statusKey);
+    }
+
+    document.getElementById('count-' + statusKey).innerText = filtered.length;
+
+    if (statusKey === 'done' && isDoneCollapsed) {
+      // 預設折疊，只顯示前 5 筆
+      const notice = document.createElement('div');
+      notice.style.fontSize = '0.75rem';
+      notice.style.color = 'var(--wiki-text-muted)';
+      notice.style.marginBottom = '0.4rem';
+      notice.innerText = `已折疊，顯示最新 5 / ${filtered.length} 筆項目：`;
+      container.appendChild(notice);
+      filtered.slice(0, 5).forEach(task => {
+        container.appendChild(renderCard(task));
+      });
+    } else {
+      filtered.forEach(task => {
+        container.appendChild(renderCard(task));
+      });
+    }
+  }
+
+  function render() {
+    if (!currentData) return;
+
+    // Header & Summary
+    document.getElementById('gen-time').innerText = formatTime(currentData.generated_at);
+    
+    const sum = currentData.summary || {};
+    document.getElementById('sum-total').innerText = sum.total || 0;
+    document.getElementById('sum-in-progress').innerText = sum.in_progress || 0;
+    document.getElementById('sum-blocked').innerText = sum.blocked || 0;
+
+    const tasks = getFilteredTasks();
+    const todoCount = tasks.filter(t => ['todo', 'triage', 'scheduled'].includes(t.status)).length;
+    const doneCount = tasks.filter(t => t.status === 'done').length;
+
+    document.getElementById('sum-todo').innerText = todoCount;
+    document.getElementById('sum-done').innerText = doneCount;
+
+    // Columns
+    renderList('ready', document.getElementById('list-ready'));
+    renderList('running', document.getElementById('list-running'));
+    renderList('blocked', document.getElementById('list-blocked'));
+    renderList('todo', document.getElementById('list-todo'));
+    renderList('done', document.getElementById('list-done'));
+  }
+
+  // Timer倒數
+  setInterval(() => {
+    countdownVal--;
+    if (countdownVal <= 0) {
+      fetchData();
+    } else {
+      document.getElementById('countdown').innerText = countdownVal;
+    }
+  }, 1000);
+
+  // 初始化
+  initTheme();
+  fetchData();
+</script>
+</body>
+</html>
