@@ -1,19 +1,23 @@
 #!/usr/bin/env python3
 """
-build_resume.py — 讀取 resume.json，動態編譯生成 HTML 履歷 (static/resume.html)
+build_resume.py — 動態編譯頂級企業級 HR/獵頭認可之專業履歷 (static/resume.html)
+標準：依據 Laszlo Bock《Work Rules!》與 Google XYZ 成果量化公式。
+具備：
+1. 雙模式（商用極簡白底標準版 + 現代深色科技版）
+2. 完美相容 A4 紙本列印與另存 PDF (@media print 最佳化)
+3. 嚴格商業對位：AI 應用架構師 & 技術專案經理 (年薪 80~95 萬定位)
+4. 零自嗨詞彙（全面抹除 Persona, hobbyist 標籤）
 """
 import json
 import os
 from pathlib import Path
 
-# 定義路徑
 WIKI_DIR = Path(__file__).resolve().parent.parent
 JSON_PATH = WIKI_DIR.parent / "_non_github_local" / "Resume_Agent" / "resume.json"
 HTML_OUT_PATH = WIKI_DIR / "static" / "resume.html"
 
 def load_data():
     if not JSON_PATH.exists():
-        # 備用路徑
         alt_path = WIKI_DIR / "resume.json"
         if alt_path.exists():
             with alt_path.open(encoding="utf-8") as f:
@@ -23,345 +27,495 @@ def load_data():
         return json.load(f)
 
 def generate_html(data):
-    # 提取欄位
     basics = data["basics"]
     skills = data["skills"]
     experience = data["experience"]
     education = data["education"]
     projects = data["projects"]
     
-    # 渲染經歷 (Timeline)
+    # 經歷渲染
     exp_html = ""
     for exp in experience:
         exp_html += f"""
-    <div class="tl-item">
-      <div class="tl-year">{exp["period"]}</div>
-      <div class="tl-title">{exp["company"]} · {exp["title"]}</div>
-      <div class="tl-desc">{exp["description"]}</div>
-    </div>"""
+        <div class="timeline-item">
+          <div class="item-header">
+            <div class="company-role">
+              <span class="role-title">{exp["title"]}</span>
+              <span class="company-name">{exp["company"]}</span>
+            </div>
+            <span class="period">{exp["period"]}</span>
+          </div>
+          <p class="description">{exp["description"]}</p>
+        </div>"""
 
-    # 渲染學歷 (Education)
+    # 學歷證照渲染
     edu_html = ""
     for edu in education:
         edu_html += f"""
-    <div class="tl-item">
-      <div class="tl-title">{edu}</div>
-    </div>"""
+        <div class="edu-item">
+          <div class="edu-bullet"></div>
+          <div class="edu-text">{edu}</div>
+        </div>"""
 
-    # 渲染精選亮點 (Home Highlights)
-    highlights_html = ""
-    icons = ["🧠", "🎙", "📈", "🎮", "🛠️"]
-    for i, proj in enumerate(projects[:4]):
-        icon = icons[i % len(icons)]
-        highlights_html += f"""
-    <div class="proj-card" style="cursor:pointer" onclick="switchSection('projects')">
-      <div class="p-icon">{icon}</div>
-      <div class="p-title">{proj["name"]}</div>
-      <div class="p-desc">{proj["description"][:130]}...</div>
-      <div class="p-meta"><span class="p-status status-done">✅ active</span></div>
-    </div>"""
+    # 核心技能分組
+    skill_groups = {
+        "🤖 AI 架構與檢索增強 (RAG)": [s for s in skills if any(k in s for k in ["AI", "RAG", "Vector", "Embedding", "檢索", "Local AI"])],
+        "🐍 軟體工程與自動化開發": [s for s in skills if any(k in s for k in ["Python", "FastAPI", "AsyncIO", "Browser", "Playwright", "Camoufox"])],
+        "🐳 系統運維、CI/CD 與防禦性架構": [s for s in skills if any(k in s for k in ["DevOps", "Docker", "Actions", "Cron", "架構", "熔斷", "防禦"])],
+        "📊 專案管理、流程工程與敏捷交付": [s for s in skills if any(k in s for k in ["APMP", "專案管理", "Agile", "Scrum", "SOP", "XYZ", "流程"])]
+    }
+    
+    skills_cards_html = ""
+    for group_name, s_list in skill_groups.items():
+        tags = "".join(f'<span class="skill-tag">{s}</span>' for s in s_list)
+        skills_cards_html += f"""
+        <div class="skill-group-card">
+          <h4 class="skill-group-title">{group_name}</h4>
+          <div class="skill-tags-wrapper">{tags}</div>
+        </div>"""
 
-    # 渲染作品集頁面 (Projects detail)
-    proj_detail_html = ""
-    for i, proj in enumerate(projects):
-        icon = icons[i % len(icons)]
-        proj_detail_html += f"""
-    <div class="proj-card">
-      <div class="p-icon">{icon}</div>
-      <div class="p-title">{proj["name"]}</div>
-      <div class="p-desc">{proj["description"]}</div>
-      <div class="p-meta">
-        <span class="p-status status-done">{proj["role"]}</span>
-      </div>
-    </div>"""
+    # 旗艦專案渲染 (Google XYZ 嚴格拆解)
+    proj_html = ""
+    for proj in projects:
+        proj_html += f"""
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-title">{proj["name"]}</div>
+            <span class="project-role">{proj["role"]}</span>
+          </div>
+          <div class="project-body">{proj["description"]}</div>
+        </div>"""
 
-    # 渲染技術棧卡片
-    # 我們將 skills 分類成幾組以利卡片化呈現
-    skills_chunk = ""
-    for skill in skills:
-        skills_chunk += f"<span>{skill}</span>"
-        
-    skills_html = f"""
-    <div class="card">
-      <div class="ctitle">🛠️ 專業核心能力 (Core Skills)</div>
-      <div class="ctags" style="margin-top:0.4rem">
-        {skills_chunk}
-      </div>
-    </div>"""
-
-    # 完整單頁 SPA 範本
-    html_template = f"""<!DOCTYPE html>
+    return f"""<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{basics["name"]} Persona — AI Agent & RAG Specialist</title>
-<meta name="description" content="{basics["summary"][:150]}...">
-<!-- Open Graph -->
-<meta property="og:title" content="{basics["name"]} — {basics["title"]}">
-<meta property="og:description" content="{basics["summary"][:120]}...">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="zh_TW">
-
+<title>{basics["name"]} — {basics["title"]}</title>
+<meta name="description" content="{basics["summary"][:160]}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* =========== SYSTEM =========== */
-*,*::before,*::after{{margin:0;padding:0;box-sizing:border-box}}
-:root{{
-  --bg:#08090a;
-  --surface:#0f1011;
-  --card:#161b22;
-  --card-hover:#1c2333;
-  --border:rgba(255,255,255,0.06);
-  --border-strong:rgba(255,255,255,0.10);
-  --text-primary:#f0f2f5;
-  --text-secondary:#b0b8c4;
-  --text-tertiary:#8a8f98;
-  --text-muted:#62666d;
-  --accent-blue:#58a6ff;
-  --accent-purple:#bc8cff;
-  --accent-green:#3fb950;
-  --accent-pink:#ff7b72;
-  --accent-orange:#d29922;
-  --accent-cyan:#79c0ff;
-  --brand:#5e6ad2;
-  --brand-hover:#7170ff;
-  --radius:8px;
-  --radius-lg:12px;
-  --shadow-card:0 0 0 1px var(--border),0 4px 12px rgba(0,0,0,0.15);
-  --transition:all 0.2s cubic-bezier(0.4,0,0.2,1);
-}}
-html{{scroll-behavior:smooth;scroll-padding-top:64px}}
-body{{
-  font-family:'Inter','Noto Sans TC',-apple-system,BlinkMacSystemFont,sans-serif;
-  background:var(--bg);
-  color:var(--text-primary);
-  line-height:1.7;
-  -webkit-font-smoothing:antialiased;
-}}
-a{{color:var(--accent-blue);text-decoration:none;transition:var(--transition)}}
-a:hover{{color:var(--accent-cyan)}}
+  :root {{
+    --bg: #ffffff;
+    --surface: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --border-strong: #cbd5e1;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --text-light: #64748b;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --accent: #059669;
+    --tag-bg: #f1f5f9;
+    --tag-text: #334155;
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }}
 
-/* =========== NAVBAR =========== */
-.navbar{{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  background:rgba(8,9,10,0.85);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-  height:56px;display:flex;align-items:center;
-  padding:0 1.5rem;
-}}
-.nav-inner{{
-  max-width:1100px;margin:0 auto;width:100%;
-  display:flex;align-items:center;justify-content:space-between;
-}}
-.nav-logo{{
-  font-size:1.1rem;font-weight:600;
-  background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  cursor:pointer;
-}}
-.nav-links{{display:flex;gap:0.5rem;align-items:center}}
-.nav-links a{{
-  color:var(--text-tertiary);font-size:0.82rem;font-weight:500;
-  padding:0.35rem 0.7rem;border-radius:6px;cursor:pointer;
-  transition:var(--transition);
-}}
-.nav-links a:hover, .nav-links a.active{{
-  color:var(--text-primary);background:rgba(255,255,255,0.04);
-}}
+  body.dark-mode {{
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --card: #1e293b;
+    --border: #334155;
+    --border-strong: #475569;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-light: #cbd5e1;
+    --primary: #38bdf8;
+    --primary-dark: #0284c7;
+    --accent: #34d399;
+    --tag-bg: #334155;
+    --tag-text: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+  }}
 
-/* =========== MAIN =========== */
-main{{max-width:1100px;margin:0 auto;padding:72px 1.5rem 3rem}}
-.section{{display:none;animation:fadeIn 0.3s ease}}
-.section.active{{display:block}}
-@keyframes fadeIn{{from{{opacity:0;transform:translateY(8px)}}to{{opacity:1;transform:translateY(0)}}}}
+  * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+  body {{
+    font-family: 'Inter', 'Noto Sans TC', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.2s, color 0.2s;
+  }}
 
-/* =========== HERO =========== */
-.hero{{padding:4rem 0 3rem}}
-.hero-badge{{
-  display:inline-flex;align-items:center;gap:0.4rem;
-  font-size:0.72rem;font-weight:500;color:var(--accent-blue);
-  background:rgba(88,166,255,0.08);border:1px solid rgba(88,166,255,0.15);
-  padding:0.25rem 0.65rem;border-radius:20px;margin-bottom:1.5rem;
-}}
-.hero h1{{
-  font-size:3rem;font-weight:700;line-height:1.15;
-  margin-bottom:1rem;
-}}
-.hero h1 .g1{{color:var(--accent-blue)}}
-.hero h1 .g3{{color:var(--accent-purple)}}
-.hero h1 .g4{{color:var(--accent-green)}}
-.hero .subtitle{{
-  font-size:1.05rem;color:var(--text-tertiary);max-width:800px;
-  line-height:1.7;margin-bottom:2rem;
-}}
-.hero-cta{{display:flex;gap:0.75rem;flex-wrap:wrap}}
-.hero-cta .btn{{
-  display:inline-flex;align-items:center;
-  padding:0.6rem 1.2rem;border-radius:var(--radius);font-size:0.88rem;font-weight:500;
-  cursor:pointer;transition:var(--transition);border:none;
-}}
-.btn-primary{{background:var(--brand);color:#fff}}
-.btn-primary:hover{{background:var(--brand-hover);transform:translateY(-1px)}}
-.btn-ghost{{background:rgba(255,255,255,0.03);color:var(--text-secondary);border:1px solid var(--border-strong)}}
-.btn-ghost:hover{{background:rgba(255,255,255,0.06);color:var(--text-primary)}}
+  /* 控制工具列 */
+  .action-bar {{
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }}
+  .action-links a {{
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-right: 1.2rem;
+  }}
+  .action-btns {{ display: flex; gap: 0.6rem; }}
+  .btn {{
+    padding: 0.45rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--border-strong);
+    background: var(--card);
+    color: var(--text-main);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }}
+  .btn-primary {{
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+  }}
+  .btn-primary:hover {{ background: var(--primary-dark); }}
 
-.hero-tags{{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem}}
-.hero-tags span{{
-  font-size:0.78rem;font-weight:500;padding:0.25rem 0.75rem;
-  border-radius:20px;border:1px solid var(--border-strong);
-  color:var(--text-secondary);background:rgba(255,255,255,0.02);
-}}
+  /* A4 版型容器 */
+  .resume-container {{
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+  }}
 
-/* =========== TIMELINE & CARDS =========== */
-.section-header{{margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}}
-.section-header h2{{font-size:1.5rem;font-weight:600}}
-.section-header p{{color:var(--text-tertiary);font-size:0.9rem;margin-top:0.3rem}}
+  /* 表頭與聯絡資訊 */
+  .header-card {{
+    border-bottom: 2px solid var(--border-strong);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }}
+  .name-block {{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }}
+  .candidate-name {{
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+  }}
+  .candidate-title {{
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-top: 0.2rem;
+  }}
+  .contact-grid {{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-top: 0.8rem;
+  }}
+  .contact-item {{ display: flex; align-items: center; gap: 0.35rem; }}
+  .contact-item a {{ color: var(--primary); text-decoration: none; }}
 
-.card-grid-2{{display:grid;gap:0.75rem;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}}
-.card{{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem}}
-.ctags{{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.4rem}}
-.ctags span{{
-  font-size:0.75rem;padding:0.2rem 0.6rem;border-radius:4px;
-  background:rgba(255,255,255,0.04);border:1px solid var(--border);
-  color:var(--text-secondary);
-}}
+  /* 個人簡介 */
+  .summary-box {{
+    background: var(--surface);
+    border-left: 4px solid var(--primary);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin-bottom: 2.2rem;
+  }}
 
-.timeline{{position:relative;padding-left:2rem}}
-.timeline::before{{
-  content:'';position:absolute;left:7px;top:8px;bottom:8px;
-  width:1px;background:var(--border-strong);
-}}
-.tl-item{{position:relative;margin-bottom:1.5rem;padding-left:1.5rem}}
-.tl-item::before{{
-  content:'';position:absolute;left:-1.65rem;top:0.5rem;
-  width:9px;height:9px;border-radius:50%;
-  background:var(--accent-blue);border:2px solid var(--bg);
-}}
-.tl-year{{font-size:0.72rem;font-weight:600;color:var(--accent-blue);margin-bottom:0.2rem}}
-.tl-title{{font-size:0.95rem;font-weight:600}}
-.tl-desc{{font-size:0.85rem;color:var(--text-tertiary);margin-top:0.2rem}}
+  /* 區塊標題 */
+  .section {{
+    margin-bottom: 2.2rem;
+  }}
+  .section-title {{
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }}
 
-.proj-card{{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;transition:var(--transition)}}
-.proj-card:hover{{border-color:var(--border-strong);background:var(--card-hover)}}
-.proj-card .p-icon{{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:0.75rem;background:rgba(255,255,255,0.04);border:1px solid var(--border)}}
-.proj-card .p-title{{font-size:1rem;font-weight:600;margin-bottom:0.25rem}}
-.proj-card .p-desc{{font-size:0.82rem;color:var(--text-tertiary);margin-bottom:0.6rem;line-height:1.5}}
-.proj-card .p-meta{{display:flex;gap:0.5rem;align-items:center}}
-.proj-card .p-status{{font-size:0.68rem;font-weight:500;padding:0.1rem 0.5rem;border-radius:4px;background:rgba(88,166,255,0.12);color:var(--accent-blue)}}
+  /* 專業技能組件 */
+  .skills-grid {{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }}
+  .skill-group-card {{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+  }}
+  .skill-group-title {{
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: var(--text-main);
+  }}
+  .skill-tags-wrapper {{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }}
+  .skill-tag {{
+    font-size: 0.76rem;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    font-weight: 500;
+  }}
 
-footer{{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);display:flex;justify-content:between}}
+  /* 經歷時間線 */
+  .timeline {{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }}
+  .timeline-item {{
+    border-left: 2px solid var(--border-strong);
+    padding-left: 1.2rem;
+    position: relative;
+  }}
+  .timeline-item::before {{
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+  }}
+  .item-header {{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin-bottom: 0.35rem;
+  }}
+  .role-title {{
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-right: 0.5rem;
+  }}
+  .company-name {{
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+  }}
+  .period {{
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--primary);
+    font-family: 'JetBrains Mono', monospace;
+  }}
+  .description {{
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-top: 0.3rem;
+  }}
+
+  /* 專案卡片 */
+  .projects-container {{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }}
+  .project-card {{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.1rem 1.25rem;
+  }}
+  .project-header {{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }}
+  .project-title {{
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+  }}
+  .project-role {{
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: var(--tag-bg);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }}
+  .project-body {{
+    font-size: 0.86rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }}
+
+  /* 學歷與證照 */
+  .edu-grid {{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem;
+  }}
+  .edu-item {{
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--surface);
+    padding: 0.6rem 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }}
+  .edu-bullet {{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }}
+  .edu-text {{
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-main);
+  }}
+
+  /* 列印專用 CSS (@media print) */
+  @media print {{
+    .action-bar {{ display: none !important; }}
+    body {{ background: #ffffff !important; color: #000000 !important; font-size: 12px !important; }}
+    .resume-container {{ max-width: 100% !important; margin: 0 !important; padding: 0 !important; }}
+    .header-card {{ border-bottom: 2px solid #000000 !important; margin-bottom: 1rem !important; padding-bottom: 0.5rem !important; }}
+    .candidate-name {{ font-size: 1.8rem !important; color: #000000 !important; }}
+    .candidate-title {{ color: #1d4ed8 !important; font-size: 1.1rem !important; }}
+    .summary-box {{ background: #f8fafc !important; border-left: 3px solid #1d4ed8 !important; color: #1e293b !important; padding: 0.6rem !important; margin-bottom: 1rem !important; }}
+    .section {{ margin-bottom: 1.2rem !important; page-break-inside: avoid; }}
+    .section-title {{ border-bottom: 1px solid #94a3b8 !important; font-size: 1rem !important; margin-bottom: 0.6rem !important; }}
+    .skill-group-card, .project-card, .edu-item {{ background: #ffffff !important; border: 1px solid #cbd5e1 !important; padding: 0.6rem !important; }}
+    .skill-tag {{ background: #f1f5f9 !important; color: #0f172a !important; border: 1px solid #cbd5e1 !important; }}
+    .timeline-item {{ border-left: 2px solid #000000 !important; padding-left: 0.8rem !important; }}
+    .timeline-item::before {{ background: #000000 !important; }}
+  }}
 </style>
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="nav-inner">
-    <div class="nav-logo" onclick="switchSection('home')">{basics["name"]}<span>.profile</span></div>
-    <div class="nav-links">
-      <a class="active" data-section="home" onclick="switchSection('home')">🏠 首頁</a>
-      <a data-section="resume" onclick="switchSection('resume')">📄 履歷</a>
-      <a data-section="projects" onclick="switchSection('projects')">📂 作品集</a>
+<div class="action-bar">
+  <div class="action-links">
+    <a href="../index.html">Wiki 首頁</a>
+    <a href="../kanban.html">即時看板</a>
+    <a href="ecom_tools.html">⚡ 電商工具箱</a>
+  </div>
+  <div class="action-btns">
+    <button class="btn" onclick="toggleTheme()">🌓 切換深淺模式</button>
+    <button class="btn btn-primary" onclick="window.print()">🖨️ 列印 / 另存 PDF</button>
+  </div>
+</div>
+
+<div class="resume-container">
+
+  <!-- 表頭與核心定位 -->
+  <header class="header-card">
+    <div class="name-block">
+      <div>
+        <h1 class="candidate-name">{basics["name"]}</h1>
+        <div class="candidate-title">{basics["title"]}</div>
+      </div>
     </div>
-  </div>
-</nav>
-
-<main>
-
-<!-- ========== HOME ========== -->
-<section id="home" class="section active">
-  <div class="hero">
-    <div class="hero-badge">⚡ AI Agent & RAG Developer · Python Expert</div>
-    <h1>
-      <span class="g1">{basics["name"].split()[0]}</span> <span class="g3">{basics["name"].split()[-1] if len(basics["name"].split())>1 else ""}</span><br>
-      <span class="g4">AI Agent</span><span style="color:var(--text-tertiary)"> × </span><span class="g1">RAG</span>
-    </h1>
-    <div class="subtitle">{basics["summary"]}</div>
-    <div class="hero-tags">
-      <span>🐍 Python (AsyncIO)</span>
-      <span>🤖 AI Agent</span>
-      <span>🧠 RAG (ANN+FTS5)</span>
-      <span>🎙 Podcast Automation</span>
-      <span>🔧 CDP Browser Automation</span>
-      <span>🐳 Docker Compose</span>
+    
+    <div class="contact-grid">
+      <div class="contact-item">📍 {basics["location"]}</div>
+      <div class="contact-item">📞 <a href="tel:{basics["phone"]}">{basics["phone"]}</a></div>
+      <div class="contact-item">✉️ <a href="mailto:{basics["email"]}">{basics["email"]}</a></div>
+      <div class="contact-item">🔗 <a href="https://github.com/Jnocode" target="_blank">GitHub: Jnocode</a></div>
+      <div class="contact-item">💼 <a href="https://linkedin.com/in/jun-jiang-tw" target="_blank">LinkedIn Profile</a></div>
     </div>
-    <div class="hero-cta">
-      <button class="btn btn-primary" onclick="switchSection('resume')">📄 看履歷</button>
-      <button class="btn btn-ghost" onclick="switchSection('projects')">📂 看作品集</button>
+  </header>
+
+  <!-- 執行摘要 (Elevator Pitch) -->
+  <div class="summary-box">
+    {basics["summary"]}
+  </div>
+
+  <!-- 專業核心技能矩陣 -->
+  <section class="section">
+    <h3 class="section-title">🛠️ 專業核心能力矩陣 (Core Competencies)</h3>
+    <div class="skills-grid">
+      {skills_cards_html}
     </div>
-  </div>
+  </section>
 
-  <div class="section-header"><h2>🔥 精選研案亮點</h2><p>自主研發代表作</p></div>
-  <div class="card-grid-2">
-    {highlights_html}
-  </div>
-</section>
+  <!-- 專業經歷 -->
+  <section class="section">
+    <h3 class="section-title">💼 專業工作經歷 (Professional Experience)</h3>
+    <div class="timeline">
+      {exp_html}
+    </div>
+  </section>
 
-<!-- ========== RESUME ========== -->
-<section id="resume" class="section">
-  <div class="section-header">
-    <h2>📄 經歷與技術棧</h2>
-    <p>{basics["title"]} · 聯絡方式：{basics["email"]}</p>
-  </div>
+  <!-- 旗艦專案實績 (Google XYZ 量化) -->
+  <section class="section">
+    <h3 class="section-title">🚀 旗艦研發專案實績 (Selected Projects & Impact)</h3>
+    <div class="projects-container">
+      {proj_html}
+    </div>
+  </section>
 
-  <div class="section-header" style="border-bottom-color:transparent;margin-bottom:1rem"><h3 style="font-size:1.1rem">💼 工作經歷</h3></div>
-  <div class="timeline" style="margin-bottom:2.5rem">
-    {exp_html}
-  </div>
+  <!-- 學歷與專業認證 -->
+  <section class="section">
+    <h3 class="section-title">🎓 學歷背景與國際專業證照 (Education & Certifications)</h3>
+    <div class="edu-grid">
+      {edu_html}
+    </div>
+  </section>
 
-  <div class="section-header" style="border-bottom-color:transparent;margin-bottom:1rem"><h3 style="font-size:1.1rem">🎓 教育與證照</h3></div>
-  <div class="timeline" style="margin-bottom:2.5rem">
-    {edu_html}
-  </div>
-
-  <div class="section-header" style="border-bottom-color:transparent;margin-bottom:1rem"><h3 style="font-size:1.1rem">🛠️ 技術實力</h3></div>
-  {skills_html}
-</section>
-
-<!-- ========== PROJECTS ========== -->
-<section id="projects" class="section">
-  <div class="section-header">
-    <h2>📂 所有開發專案</h2>
-    <p>從 0 到 1 的實踐</p>
-  </div>
-  <div class="card-grid-2">
-    {proj_detail_html}
-  </div>
-</section>
-
-<footer>
-  <span>Jnocode/wiki · 個人 NAS 靜態託管</span>
-  <span>Powered by Python Build Engine &amp; Hermes</span>
-</footer>
-
-</main>
+</div>
 
 <script>
-function switchSection(name) {{
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  const section = document.getElementById(name);
-  if (section) section.classList.add('active');
-  const link = document.querySelector(`.nav-links a[data-section="${{name}}"]`);
-  if (link) link.classList.add('active');
-  window.scrollTo({{top: 0, behavior: 'smooth'}});
+function toggleTheme() {{
+  document.body.classList.toggle('dark-mode');
+  localStorage.setItem('resume_theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+}}
+if (localStorage.getItem('resume_theme') === 'dark') {{
+  document.body.classList.add('dark-mode');
 }}
 </script>
 </body>
 </html>
 """
-    return html_template
 
 def main():
     print("⏳ 讀取 resume.json 資料...")
     data = load_data()
-    print("⚙️ 開始編譯 HTML 履歷...")
+    print("⚙️ 開始編譯正式 HR-Grade HTML 履歷...")
     html = generate_html(data)
     print(f"💾 寫入 HTML 至：{HTML_OUT_PATH}")
     HTML_OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     HTML_OUT_PATH.write_text(html, encoding="utf-8")
-    print("✓ HTML 履歷編譯成功！")
+    print("✓ 正式企業級履歷編譯成功！")
 
 if __name__ == "__main__":
     main()
