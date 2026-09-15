@@ -37,7 +37,7 @@ def main():
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
 
-        cursor.execute("SELECT id, title, assignee, status, priority, created_at, completed_at, block_kind FROM tasks")
+        cursor.execute("SELECT id, title, body, assignee, status, priority, created_at, completed_at, block_kind, project_id FROM tasks")
         all_rows = cursor.fetchall()
     except Exception as e:
         print(f"Error accessing DB: {e}", file=sys.stderr)
@@ -115,6 +115,8 @@ def main():
         tasks.append({
             "id": r["id"],
             "title": r["title"],
+            "body": r["body"],
+            "project_id": r["project_id"] or "general",
             "assignee": map_assignee(r["assignee"]),
             "status": r["status"],
             "priority": r["priority"],

@@ -338,10 +338,16 @@
     <div class="card"><div class="lbl">完成</div><div class="val" id="sum-done" style="color:var(--badge-done)">0</div></div>
   </div>
 
-  <div class="tab-section">
+  <div class="tab-section" style="display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center;">
+    <span style="font-size:0.8rem; color:var(--wiki-text-muted); font-weight:600; margin-right:0.2rem;">專案軌道：</span>
     <button class="tab-btn active" id="tab-all" onclick="setTab('all')">全部</button>
-    <button class="tab-btn" id="tab-xiaoheng" onclick="setTab('xiaoheng')">小衡</button>
-    <button class="tab-btn" id="tab-xiaoke" onclick="setTab('xiaoke')">小克</button>
+    <button class="tab-btn" id="tab-proj-job" onclick="setTab('proj-job')">🎯 求職主線</button>
+    <button class="tab-btn" id="tab-proj-quant" onclick="setTab('proj-quant')">📈 JoJo量化</button>
+    <button class="tab-btn" id="tab-proj-podcast" onclick="setTab('proj-podcast')">🎙️ 代碼縫隙</button>
+    <button class="tab-btn" id="tab-proj-brain" onclick="setTab('proj-brain')">🧠 大腦架構</button>
+    <span style="font-size:0.8rem; color:var(--wiki-text-muted); font-weight:600; margin-left:0.8rem; margin-right:0.2rem;">負責人：</span>
+    <button class="tab-btn" id="tab-xiaoheng" onclick="setTab('xiaoheng')">小衡 (Lead)</button>
+    <button class="tab-btn" id="tab-xiaoke" onclick="setTab('xiaoke')">小克 (Maker)</button>
   </div>
 
   <div class="board-columns">
@@ -484,10 +490,20 @@
     meta.appendChild(tags);
     meta.appendChild(timeSpan);
 
+    if (task.body) {
+      const desc = document.createElement('div');
+      desc.style.fontSize = '0.75rem';
+      desc.style.color = 'var(--wiki-text-muted)';
+      desc.style.margin = '0.4rem 0';
+      desc.style.lineHeight = '1.4';
+      desc.innerText = task.body.length > 90 ? task.body.substring(0, 90) + '...' : task.body;
+      card.appendChild(desc);
+    }
+
     const idSpan = document.createElement('div');
     idSpan.style.fontSize = '0.7rem';
     idSpan.style.color = 'var(--wiki-text-muted)';
-    idSpan.innerText = '#' + task.id + (task.priority ? ' (P' + task.priority + ')' : '');
+    idSpan.innerText = '#' + task.id + (task.priority ? ' (P' + task.priority + ')' : '') + (task.project_id ? ' · ' + task.project_id : '');
 
     card.appendChild(title);
     card.appendChild(meta);
@@ -503,6 +519,14 @@
         return t.assignee === '小衡';
       } else if (activeTab === 'xiaoke') {
         return t.assignee === '小克';
+      } else if (activeTab === 'proj-job') {
+        return (t.project_id && t.project_id.includes('Job')) || (t.title && (t.title.includes('求職') || t.title.includes('履歷') || t.title.includes('104') || t.title.includes('LinkedIn')));
+      } else if (activeTab === 'proj-quant') {
+        return (t.project_id && t.project_id.includes('jojo')) || (t.title && (t.title.includes('JoJo') || t.title.includes('量化') || t.title.includes('台股') || t.title.includes('BTC')));
+      } else if (activeTab === 'proj-podcast') {
+        return (t.project_id && t.project_id.includes('Creative')) || (t.title && (t.title.includes('Podcast') || t.title.includes('音訊') || t.title.includes('EP')));
+      } else if (activeTab === 'proj-brain') {
+        return (t.project_id && t.project_id.includes('agent_office')) || (t.title && (t.title.includes('大腦') || t.title.includes('WIKI') || t.title.includes('架構') || t.title.includes('Recall')));
       }
       return true;
     });

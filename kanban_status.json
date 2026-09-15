@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-15T21:50:11.468429+00:00",
+  "generated_at": "2026-09-15T21:59:55.555954+00:00",
   "summary": {
     "total": 49,
     "done": 35,
     "blocked": 2,
-    "ready": 3,
+    "ready": 7,
     "running": 0,
-    "in_progress": 3
+    "in_progress": 7
   },
   "agents": [
     {
@@ -31,10 +31,9 @@
       "total": 44,
       "by_status": {
         "done": 34,
-        "ready": 3,
+        "ready": 4,
         "blocked": 2,
         "completed": 3,
-        "todo": 1,
         "scheduled": 1
       }
     },
@@ -43,7 +42,7 @@
       "id": "xiaoheng",
       "total": 3,
       "by_status": {
-        "todo": 3
+        "ready": 3
       }
     }
   ],
@@ -51,6 +50,8 @@
     {
       "id": "t_job_daily_3_curated",
       "title": "【求職主線】每日精選 3 家高匹配職缺（台灣 AI 應用/自動化 PM/工程師）與客製推薦卡片",
+      "body": "依據 180 天嚴格排重規則，由小克掃描 104 與 Cake 最新職缺，產出精準 3 家對位卡片（含公司、薪資 80~95萬、匹配理由、客製自薦理由），供 Jun 一鍵確認送出。",
+      "project_id": "02_Job_Search",
       "assignee": "小克",
       "status": "ready",
       "priority": 0,
@@ -61,8 +62,10 @@
     {
       "id": "t_linkedin_builder_log_01",
       "title": "【LinkedIn 經營】發布首篇繁中 Builder Log（三路 RRF 混合檢索架構實戰復盤）",
+      "body": "將 Recall 專案與 Hermes 記憶架構中的 3-path RRF (ANN + keyword JOIN + FTS5) 實戰心得，整理為 800 字繁體中文高質量技術乾貨貼文，完成 QA 並預備發布。",
+      "project_id": "02_Job_Search",
       "assignee": "小克",
-      "status": "todo",
+      "status": "ready",
       "priority": 1,
       "created_at": 1789509007,
       "completed_at": null,
@@ -71,8 +74,10 @@
     {
       "id": "t_resume_104_cake_audit",
       "title": "【求職主線】104 與 CakeResume 線上呈現即時 Read-back 與 HR 視角雙向覆核",
+      "body": "使用 CDP/瀏覽器快照讀取目前 104 與 Cake 線上履歷現狀，驗證職稱是否統一為 AI 工程師、自我推薦信是否完全擺脫 123 罐頭感、作品集連結是否有效。",
+      "project_id": "02_Job_Search",
       "assignee": "小衡",
-      "status": "todo",
+      "status": "ready",
       "priority": 0,
       "created_at": 1789509007,
       "completed_at": null,
@@ -81,6 +86,8 @@
     {
       "id": "t_jojo_eod_cron_verify",
       "title": "【JoJo量化】驗證盤後交易排程 (bd394923110a) 在 15:35 觸發之完整 EOD 報表與圖表生成",
+      "body": "在今日盤後 15:35 監控 gemini-3.8-flash-high 執行盤後排程，確保持倉同步、三大法人資料擷取、PNG 圖表生成與 Discord 投遞全鏈路一次成功。",
+      "project_id": "03_Dev_Projects/jojo_trading",
       "assignee": "小克",
       "status": "scheduled",
       "priority": 0,
@@ -91,6 +98,8 @@
     {
       "id": "t_jojo_git_hygiene_commit",
       "title": "【JoJo量化】提交 repo 大掃除成果（45個備份檔歸檔、回測測試 159 項綠燈）至 Git",
+      "body": "將已通過 159 項回測單元測試的乾淨狀態、.gitignore 更新與 archive 封存建立原子 Git commit，消除 working tree 髒狀態。",
+      "project_id": "03_Dev_Projects/jojo_trading",
       "assignee": "小克",
       "status": "ready",
       "priority": 1,
@@ -101,8 +110,10 @@
     {
       "id": "t_brain_idle_consolidation_eval",
       "title": "【大腦架構】夜間閒置沉澱機制首輪巡檢與 Wiki 自動同步 Read-back",
+      "body": "監控 xiaoke_brain_distill_cron.py 在深夜或系統閒置 45 分鐘後的自動觸發日誌，驗證是否有正確將 artifacts/ 報告提煉並推送 NAS/Wiki。",
+      "project_id": "agent_office",
       "assignee": "小衡",
-      "status": "todo",
+      "status": "ready",
       "priority": 1,
       "created_at": 1789509007,
       "completed_at": null,
@@ -111,8 +122,10 @@
     {
       "id": "t_podcast_ep17_prep",
       "title": "【Podcast產線】代碼縫隙 EP17 選題審查與三主持人立場衝突架構拆解",
+      "body": "由小衡依據 Lex Fridman 標準與社群一手素材，拆解 EP17 核心命題（如 AI 代理人四層邊界與自動化破局），產出分鏡與觀點對位表，指派小克組裝腳本。",
+      "project_id": "04_Creative_Production",
       "assignee": "小衡",
-      "status": "todo",
+      "status": "ready",
       "priority": 1,
       "created_at": 1789509007,
       "completed_at": null,
@@ -121,6 +134,8 @@
     {
       "id": "t_b8a14cd6",
       "title": "【HR視角整改】104職稱改為AI工程師、廢除123罐頭自薦信、作品集首屏3秒優化",
+      "body": "依據小衡HR角度審查結論：1. 104首欄經歷改為Freelance AI Engineer，內容鎖定AI專案量化實績 2. 自薦信廢除1.2.3.條列式AI罐頭模板，改為200字精準對位 3. jnocode.github.io首屏優化為3秒可讀工程師卡片",
+      "project_id": "general",
       "assignee": "小克",
       "status": "completed",
       "priority": 0,
@@ -131,6 +146,8 @@
     {
       "id": "t_d4e94a7e",
       "title": "【Recall 外掛維護】以運行中真本逆向同步 recall-memory-hermes 儲存庫並打通真正 CI",
+      "body": "目標：承認 ~/.hermes/plugins/recall-memory-hermes 為唯一活體真本（具備 312 筆實體記憶讀寫、_BLOCKED_WRAPPERS 雜訊過濾、Windows/LM Studio 直通能力）。請小克：1. 將 ~/.hermes/plugins/recall-memory-hermes 的 __init__.py、memory_policy.py 與 plugin.yaml 同步回 03_Dev_Projects/recall-memory-hermes；2. 消除過度工程化包裝（修復 src/ 相對引入錯誤，使專案既能作為 Hermes 外掛直接載入，也能通過 pytest 與套件建置）；3. 本地執行 pytest 確保全數通過；4. 輸出執行報告至 artifacts/。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -141,6 +158,8 @@
     {
       "id": "t_b98d8748",
       "title": "【Recall 專案維運】為 recall-vault 部署標準化 GitHub Actions CI 管線並推送驗收",
+      "body": "目標：recall-vault (Jnocode/recall-vault) 具備 10 餘個測試但無 CI。請小克：1. 檢視 recall-vault 依賴結構（requirements.txt / pytest）；2. 建立 .github/workflows/ci.yml 驗收管線（包含 pytest、wiki-lint 與 health report）；3. 本地執行驗證通過後提交 git commit 並推送至遠端；4. 監控遠端 CI 綠燈並輸出報告至 artifacts/。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -151,6 +170,8 @@
     {
       "id": "t_a9bfa98c",
       "title": "【Recall 專案維運】階段四：監控 Run 34553768567 終極綠燈驗收 (Package & Test 全綠)",
+      "body": "目標：已針對 CI Failure 修復 scripts/ci_install_readback.py（Linux symlink 解析問題）與 ci.yml（Windows tar 抽出路徑問題），觸發 Run 34553768567。請小克即時監控該 Run 直到所有 10 個 Jobs（8個測試矩陣 + 2個封裝read-back）全部變綠，並輸出報告至 artifacts/。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -161,6 +182,8 @@
     {
       "id": "t_7956984c",
       "title": "【Recall 專案維運】階段三：監控 Run 34553212209 遠端 GitHub Actions CI 執行與綠燈驗收",
+      "body": "目標：遠端 GitHub Actions 已成功觸發 CI Run 34553212209。請小克使用 gh / Python API 即時輪詢該 Run 的所有 Job 執行狀態（包含 test 與 package），若有任何 step failure 抓取 log，若全數 green 則輸出最終驗收結論至 artifacts/kanban_runs/t_ci_recall_run34553212209/maker_result.md。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "completed",
       "priority": 0,
@@ -171,6 +194,8 @@
     {
       "id": "t_29fcfc75",
       "title": "【Recall 專案維運】階段二：修復遠端 CI 配置與 GitHub Actions 觸發鏈路驗證",
+      "body": "目標：依據階段一驗收結果，將 tests/test_p0_improvements.py 的依賴隔離修復進行 git commit，推送到遠端分支，並透過 gh run watch / gh run list 驗證 GitHub Actions CI 觸發與執行狀態。若有失敗步驟，抓取 log 進行針對性排查，直到遠端 CI Pipeline 取得綠燈（PASS）。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "completed",
       "priority": 0,
@@ -181,6 +206,8 @@
     {
       "id": "t_9e0b6c82",
       "title": "【求職日常投遞】落實每日3檔精選投遞（排重半年限制）與客製Cover Letter自動準備",
+      "body": "依照 Jun 最新決策：1. 每日只挑選 3 個最值得投的高品質職缺（AI 應用 / Agent 架構 / 技術 PM），避免無效海投 2. 嚴格排重：已投遞職缺半年內絕不重複 3. 產出 3 檔職缺卡片、客製自薦信並準備 CDP 自動投遞",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -191,6 +218,8 @@
     {
       "id": "t_e8da1a7e",
       "title": "【Recall 專案維運】排查遠端 CI Failure、修復依賴隔離與打通真實 Quality Gate",
+      "body": "目標：Recall (Jnocode/recall-memory) 遠端最後一次 CI 失敗（Run 30074440581，因 tests/test_p0_improvements.py 引用未聲明依賴 fastapi/recall_server 導致 ModuleNotFoundError）。請小克：1. 依據 .github/workflows/ci.yml 規格，隔離或修正 test_p0_improvements.py；2. 本地執行版本同步、Core 測試與 MCP 測試套件；3. 產出修復與驗收報告至 artifacts/，供小衡做獨立 Read-back 查核。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -201,6 +230,8 @@
     {
       "id": "t_7f5dee9a",
       "title": "【LinkedIn 經營】產出第一篇繁中 Builder Log 乾貨貼文（三路 RRF 檢索實戰）並驗收發布格式",
+      "body": "任務背景：\nJun 指示停止無效的每週登入打卡巡檢，全面轉入「LinkedIn 繁體中文個人品牌與 Builder Log 經營產線」。\n\n【執行要求】：\n1. 閱讀參考規範：C:/Users/Jun/.hermes/skills/software-development/taiwan-multitrack-job-search/references/linkedin-builder-log-pipeline.md\n2. 選題實作：『為什麼我們放棄純向量資料庫？在 SQLite 實作三路 RRF 檢索把延遲壓到 80ms 的架構實戰』\n3. 貼文規格：\n   - 語言：100% 繁體中文，術語保留原文 (recall-sqlite, SQLite+FTS5+RRF, NousResearch, Docker)\n   - 結構：Hook 前兩行痛點 -> Architecture & Code 核心思路 -> Metrics 硬指標數據 -> CTA 行動號召 (導流 GitHub 與 jnocode.github.io)\n   - 人設：活人感、技術實務、數據誠信、拒絕 AI 雞湯廢話\n4. 交付成果：在 D:/Workspace/artifacts/linkedin_posts/ 產出完整 markdown 貼文與配圖建議，並在小克 Discord thread 回報。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "blocked",
       "priority": 0,
@@ -211,6 +242,8 @@
     {
       "id": "t_2a9e6b82",
       "title": "【求職閉環研究】LinkedIn 與 CakeResume 跨平台經營策略與求職漏斗規劃",
+      "body": "小衡與小克共同研擬：1. LinkedIn 台灣外商/跨國技術團隊與新創獵頭打法 2. CakeResume 技術作品集轉換率優化 3. 雙平台每日營運 SOP 與作品集引流到 GitHub/jnocode.github.io 的具體漏斗",
+      "project_id": "general",
       "assignee": "小克",
       "status": "blocked",
       "priority": 0,
@@ -221,6 +254,8 @@
     {
       "id": "t_1183a30e",
       "title": "【求職自動送】建立小克標準投遞 SOP：即時比對 104/Cake 職缺、自動填表與單筆送出回報",
+      "body": "目標：把單筆精確授權的無人值守投遞 SOP 標準化（包含 Level 0 預備 → Level 1 顯示 diff → Level 2 單筆送出 + Read-back），由小克自己寫成獨立 skills 與 SOP，未來在 D:/Workspace/03_Dev_Projects/taiwan-career-ops 整合成可執行的 pipeline：\n1. 自動掃描 104 與 Cake 公開職缺，套用 Taiwan-Remote-First 與 AI 工程師路線分類。\n2. 列出 top-3 daily fit，僅填寫 1) 對應 104 / Cake 履歷模板（含 jnocode.github.io） 2) 自薦信模板（依公司 + 職缺特性客製） 3) 希望待遇 4) 是否具備相關工作經驗。\n3. 顯示投遞 diff 預覽摘要後，採單筆精確授權，不做任何批次海投。\n4. 送出後需有 Application ID / 成功頁 / 公司端 read-back 證據。\n5. 每日遞送前由 Discord thread 1543517409732853791 小克看板回報「已送出 X 家，剩 Y 家待授權」。\n6. 主動同步到 readback log: D:/Workspace/02_Job_Search/applied_log_20260904.md\n備註：所有來源套用既有的 taiwan-multitrack-job-search skills，避免破壞程式碼誠信 (data-integrity)。讓你可以專注追蹤進度。Jun 已經口頭授權「以後有合適職缺就送」。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "ready",
       "priority": 0,
@@ -231,6 +266,8 @@
     {
       "id": "t_e6c35d56",
       "title": "【作品集雙端升級】小克重構 jnocode.github.io 與產出 CakeResume 旗艦作品集排版",
+      "body": "目標：將 GitHub Pages 個人作品集 (jnocode.github.io) 與 CakeResume 作品集同步升級為頂級 AI 架構師水準。\n【交付要求】：\n1. 修改 D:/Workspace/03_Dev_Projects/Jnocode.github.io/index.html：\n   - 頂級深色極簡 UI，加入 Hero 數據欄（PyPI Published, NousResearch Contributor, -92% Production Latency）。\n   - 精選 3 大旗艦核心（Recall-SQLite 長期記憶架構、代碼縫隙 Podcast 端到端自動化產線、JoJoTrading 金融級量化回測引擎），移除雜項工具。\n   - 替換失效之 NAS 8443 連結，修復死連結。\n   - 植入系統架構示意（SVG / 流程圖卡片）與清晰的技術棧分類。\n   - 提交並 push 到 origin main。\n2. 產出 CakeResume 專屬之 3 篇旗艦作品集圖文 Markdown（附直接複製貼上之標題、技術標籤、簡介與成效）：\n   - 儲存至 D:/Workspace/02_Job_Search/cakeresume_flagship_portfolios_20260904.md。\n3. 完成後提交給小衡 (Grader) 進行驗收。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -241,6 +278,8 @@
     {
       "id": "t_9eb2c38c",
       "title": "【GitHub 項目維運】階段四：落地遠端同步 — 建立缺漏遠端庫、推送新 CI 工作流並更新 Topics",
+      "body": "目標：將階段二部署的 CI/CD 工作流（taiwan-career-ops, Windows-Copilot-API, gout_diet_cam, claude-code-openai-server）進行 git commit；針對未關聯遠端的專案（如 taiwan-career-ops）透過 gh repo create 建立遠端或關聯 origin，並推送 main 分支；執行 update_github_topics.py 透過 gh token 將 Top 6 Topics 標籤寫入遠端 GitHub。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -251,6 +290,8 @@
     {
       "id": "t_healthcheck_1b46aa8d",
       "title": "【鏈路驗收】dispatcher → kanban → 小克 Discord thread 1543517409732853791 健康回報",
+      "body": "## 任務\n\n純鏈路煙霧測試，確認：\n1. xiaoke-kanban-auto-dispatcher 能撿到 ready 卡\n2. 能正確產生 prompt 並 dispatch 給小克（OpenClaw / WSL2）\n3. 小克能在 WSL 內跑命令\n4. 結果回報到 Discord thread 1543517409732853791\n\n## 執行內容（小克跑）\n1. `date` 輸出時間\n2. `echo \"dispatcher chain pong\"` 印出\n3. `uname -a` 印 OS\n4. exit 0 回報\n\n## 不能做\n- 不寫任何檔\n- 不讀 hermes config\n- 不呼叫 LLM API\n\n## 交付\n- 4 個命令輸出（原文）\n- exit code\n- 鏈路通過與否的明確結論\n\n## 環境\n- WSL2: OpenClawGateway\n- 語言: 繁中\n- 身分: 小克 (Maker via A2A)\n",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -261,6 +302,8 @@
     {
       "id": "t_1d40e724",
       "title": "【GitHub 項目維運】階段三：優化 Jnocode 個人 Profile 與 Top 6 Repos README/Topics 標籤",
+      "body": "目標：依據 github-portfolio-audit 規範，盤點 Jnocode (GitHub) 核心公開專案（包含 recall-memory-hermes、Spirits-Calling、taiwan-career-ops 等），補齊 Topics 標籤（python, llm, ai-agent, multi-agent）、撰寫標準化高吸引力 README 架構（含專案亮點、Quickstart、架構圖），輸出優化建議與更新腳本至 artifacts/。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -271,6 +314,8 @@
     {
       "id": "t_4a746d31",
       "title": "【求職閉環實作】104 與 CakeResume 履歷標籤修正、開放狀態切換與今日投遞清單自動準備",
+      "body": "小衡驗收 t_694fd1fd 結論：NO PASS (需返工收尾)。\n【現況查驗結果】：\n1. 104「AI 應用工程師」履歷：\n   - 第一筆經歷名稱仍為「個人專案」，需改為「Freelance AI Engineer (Independent)」\n   - 履歷狀態目前為「開放設定：關閉中」，需切換為「開放中」\n2. CakeResume 履歷：尚未完成編輯頁與預覽頁對齊\n3. 今日投遞目標：針對已 shortlist 的重點職缺（Profet AI, 宏羚, 十論科技），整理出對應之 104/Cake 快速應徵 URL 與客製應徵文字。\n\n【小克 (Maker) 任務範圍】：\n1. 透過 9222 CDP 操作 104 將經歷標籤更新為 Freelance AI Engineer 並切換開放。\n2. 透過 9222 CDP 開啟 CakeResume 履歷頁完成同步。\n3. 輸出包含直接點擊 URL 與推薦客製訊息的投遞卡片，交由小衡 (Grader) 做最終驗收。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -281,6 +326,8 @@
     {
       "id": "t_22727e62",
       "title": "【GitHub 項目維運】階段二：部署開源專案標準 GitHub Actions CI/CD 驗收管線",
+      "body": "目標：依據階段一清理成果與 cicd-templates/standard-python-ci.yml 範本，優先替核心專案（如 taiwan-career-ops、Windows-Copilot-API、gout_diet_cam 等）建立 .github/workflows/ci.yml。整合 Ruff、Mypy 與 Pytest 驗收閘門，並回報各專案 local preflight 測試通過數據至 artifacts/。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -291,6 +338,8 @@
     {
       "id": "t_694fd1fd",
       "title": "【履歷自動同步】小克接管 9222 實體寫入：104 與 CakeResume 線上履歷注入與 Preview 驗收",
+      "body": "Jun 已確認登入完畢！\n目前實體環境狀態：\n- Chrome CDP 9222 已正常運行\n- 104 目標分頁已就緒：https://pda.104.com.tw/\n- CakeResume 目標分頁已就緒：https://www.cake.me/dashboard\n\n請小克（Maker）自主執行：\n1. 透過 9222 CDP 連線，讀取 /mnt/d/Workspace/agent_office/data/resume_sync_payload.json。\n2. 操作 104 編輯頁（https://pda.104.com.tw/profile/edit?vno=76eybbitj 或對應版本），透過鍵盤事件注入協議完成更新並儲存。\n3. 操作 CakeResume 編輯頁，更新「關於我」與「工作經歷 (Freelance AI Engineer, Recall-SQLite等)」。\n4. 導航至 104 Preview 頁面（https://pda.104.com.tw/profile/preview?vno=76eybbitj）與 CakeResume 公開預覽頁，驗證 8 大關鍵字（Recall / Hermes, SQLite + FTS5 + RRF, FastAPI recall-server, scheduled jobs, AI-assisted workflow, Freelance AI Engineer, JoJoTrading, Podcast）。\n5. 回報 ACCEPTANCE=PASS 與更新後內容摘要！",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -301,6 +350,8 @@
     {
       "id": "t_2ac30cc5",
       "title": "【GitHub 項目維運】清理 19 個 Dirty Repos 之 .gitignore 與排除快取雜檔",
+      "body": "目標：針對最新審計報告中 19 個 Dirty Repos（尤其 Spirits-Calling、shadowverse_worlds_beyond_tracker、wiki 等），補齊標準 .gitignore，並執行 git rm --cached 剔除暫存快取，確保乾淨 working tree，絕不外洩機密或破壞原始碼。產出結構化執行報告至 artifacts/。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -311,6 +362,8 @@
     {
       "id": "t_6d404273",
       "title": "【履歷自動同步】小克啟動專用 Chrome (9222) 供 Jun 登入 104/CakeResume 並接管注入",
+      "body": "Jun 已同意配合登入。小克（Maker）請執行：\n1. 以背景/獨立進程啟動 Chrome 專用 Agent Profile：\n   \"C:/Program Files/Google/Chrome/Application/chrome.exe\" --remote-debugging-port=9222 --user-data-dir=\"C:/Users/Jun/.chrome-agent-profile\" \"https://login.104.com.tw/login\" \"https://www.cakeresume.com/login\"\n2. 啟動後確認 127.0.0.1:9222 已正常聆聽。\n3. 回報已為 Jun 開好視窗，並留存監聽腳本等 Jun 登入完成後立即接管寫入。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -321,6 +374,8 @@
     {
       "id": "t_e1071fe3",
       "title": "【履歷自動同步】小克全自主執行：透過本機瀏覽器/Camofox/Playwright直接登入並寫入104與CakeResume線上履歷",
+      "body": "小衡完全不下場。小克（Maker）自主調用本機所有可用工具（Camofox、Playwright、Chrome Profile、或本機瀏覽器自動化），解決 104 與 CakeResume 的登入與寫入問題。依據 /mnt/d/Workspace/agent_office/data/resume_sync_payload.json 的內容，直接實體打到 104 與 CakeResume 線上並儲存，最後抓取 preview 外部驗證，完成端到端履歷更新。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -331,6 +386,8 @@
     {
       "id": "t_b144c685",
       "title": "【求職履歷更新】使用 Camofox 自動化將 104/Cake 履歷同步為 2026 AI 應用工程師最新版",
+      "body": "依據 D:/Workspace/02_Job_Search/resume_fixed_20260701.md，透過 Camofox 瀏覽器自動化登入 104/CakeResume，將「關於我/個人簡介」與「工作經歷 (Freelance AI Engineer, Recall-SQLite, JoJoTrading, Podcast等成果)」更新至線上履歷。注意 104 Quill 編輯器特性與 preview 外部 read-back 驗收。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -341,6 +398,8 @@
     {
       "id": "t_df9bd17c",
       "title": "【工具調研】Agent-Reach CLI 免費免 Key 社群爬取能力評估與沙盒測試",
+      "body": "目標：調研 GitHub 專案 Panniantong/Agent-Reach（免各平台 API Key 直接調研 X/Twitter、Reddit、YouTube、GitHub）。在 WSL2 OpenClaw 環境或 Python 虛擬環境中進行可行性驗證測試。評估：1. 抓取 X (Twitter) 推文與搜尋的穩定性與風控風險；2. 是否能無縫整合至我們日常社群信號掃描；3. 產出調研與測試報告至 artifacts/agent_reach_eval/report.md，並在 agent_office/shared/brain/ 沉澱技術評估筆記。遵守目錄衛生與真實數據誠信原則。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 8,
@@ -351,6 +410,8 @@
     {
       "id": "t_98038bd8",
       "title": "【履歷重構】以 Google XYZ 公式重構 AI 應用與技術 PM 雙語 Master 履歷母版",
+      "body": "目標：採用 Google XYZ 成果量化公式（Accomplished [X] as measured by [Y], by doing [Z]），結合 Jun 在 AI Agent 自動化、ComfyUI 產線、多 Agent 架構 (Hermes/OpenClaw)、技術專案管理 (PM) 與獨立系統交付的真實經歷，撰寫一套中英文 Master 履歷母版。儲存於 agent_office/shared/brain/projects/job_search/master_resume_google_xyz.md。內容必須包含至少 15 項高強度量化要點與 20 組精確職稱關鍵字，以 Markdown 結構化歸檔，杜絕無結構雜檔。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 9,
@@ -361,6 +422,8 @@
     {
       "id": "t_33fa4793",
       "title": "【求職拓展】串接 RemoteOK 與 Remotive 公開 API 擴充美金遠端職缺庫",
+      "body": "目標：串接 RemoteOK (https://remoteok.com/api) 與 Remotive (https://remotive.com/api/remote-jobs) 官方公開 JSON API。撰寫輕量抓取器腳本存放於 agent_office/scripts/remote_jobs_fetcher.py。過濾條件：限 Worldwide/Anywhere 友善、排除僅限 US Citizen 職缺，聚焦 AI Automation、Technical PM、Fullstack 與 Integration 關鍵字。產出結構化 JSON 與每日精選摘要，供 job-patrol 產線整合。退出碼必須為 0，嚴禁在 D:/Workspace 根目錄落雜檔。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 10,
@@ -371,6 +434,8 @@
     {
       "id": "t_f9af51a4",
       "title": "【Podcast】EP16 腳本去蕪存菁與長度合約壓縮 (18k字 -> 7.2k字)",
+      "body": "EP16 目前 13 個 sections 總計 18,080 字，嚴重超出聽感契約。依照 EP15 成功經驗，保留核心 Claims，壓縮至 5800~7200 字以內。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -381,6 +446,8 @@
     {
       "id": "t_776300a9",
       "title": "【量化策略】實作 MOPS 月營收暴增黑馬篩選模組 (解決 2451 漏抓)",
+      "body": "串接 TWSE/MOPS 月營收 OpenAPI (t187ap05_L)，抓取最新營收 YoY > 50% 且 PE < 15 的飆股清單，輸出至 shared/stocks/revenue_surge.json。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -391,6 +458,8 @@
     {
       "id": "t_38fbfa76",
       "title": "【求職串】實作多平台求職爬蟲腳本 (104+CakeResume+遠端分類)",
+      "body": "依據 JOB_PATROL_SPEC_V2.md，撰寫 Python 腳本抓取 104 與 CakeResume，產出 daily_top10 JSON 檔案，分類為全職(4)、遠端(3)、接案(3)。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -401,6 +470,8 @@
     {
       "id": "t_841cd22c",
       "title": "【Moltbook 巡邏】每日 Agent 前沿社群趨勢掃描與靈感提煉",
+      "body": "目標：小克 24/7 巡邏 Moltbook API，提煉頂尖 AI Agent 的架構經驗、Tool Calling 與商業自動化靈感，沉澱進 shared/brain/。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -411,6 +482,8 @@
     {
       "id": "t_bf90f515",
       "title": "【Discord 伺服器與頻道管理】社群自動化運維、權限審查與 Bot 延遲優化",
+      "body": "目標：針對 Guild 614428019716653086 各專案討論串進行自動化日誌歸檔、用戶權限邊界維護，優化 Bot 響應效能與消息廣播。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -421,6 +494,8 @@
     {
       "id": "t_f92fde19",
       "title": "【社群與行銷】多平台內容裂變與 Threads/FB/X 自動引流發布",
+      "body": "目標：方格子長文正本→Discord 留存→社群引流；修復 Threads token 與 Meta Graph API 驗證，建立受保護的自動化發布隊列。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -431,6 +506,8 @@
     {
       "id": "t_dc55fa29",
       "title": "【量化交易策略】JoJo Trader 台股/加密回測系統與選股風控",
+      "body": "目標：落實 stocks.db 資料品質合約；嚴格隔離景氣循環股與實體成長股；依 SMC (Pivot+EMA+ATR) 與布林通道位階跑通回測驗證並整理未提交代碼。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -441,6 +518,8 @@
     {
       "id": "t_e57973fc",
       "title": "【排程狀態】Cron 排程與 Watchdog 監控修復 (Discord Thread 1525971114411561010)",
+      "body": "目標：專門監控與修復 4 項報警排程（content-os, buildinpublic, meta-auth, browser-ops），排程狀態只報健康/異常/待辦，回報至指定 Discord thread。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -451,6 +530,8 @@
     {
       "id": "t_9c935db0",
       "title": "【GitHub 項目維運與問題處理】開源專案 CI/CD、PR 審查與環境健康",
+      "body": "目標：管理 D:/Workspace 各專案之 Git 狀態與 GitHub Actions CI/CD；修復遺失的自動化腳本，維持 Workspace 目錄衛生與開源品質。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -461,6 +542,8 @@
     {
       "id": "t_278939a8",
       "title": "【遊戲開發(Spirits-Calling)】UE5.8 賽博靈異潛行 Roguelite 垂直切片",
+      "body": "目標：推進 P10/P11 核心體驗：冷啟動→主選單→P1探索→收集Psyche→Ghost-Hack→附身；收斂當前未提交 C++ 與 Map 改動，產出結案驗收報告。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -471,6 +554,8 @@
     {
       "id": "t_bd98007a",
       "title": "【momo 搶購程式開發】高併發搶購與 Deterministic Watcher 排程驗證",
+      "body": "目標：針對限時任務不能單純依賴分鐘級 cron 的踩坑教訓，建立持續運行的 deterministic watcher 與事前觸發驗證機制，提高搶購命中率與系統穩定度。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -481,6 +566,8 @@
     {
       "id": "t_cd1837f9",
       "title": "【V皮工廠開發】Live2D Cubism 與模型自動化產線打磨",
+      "body": "目標：依照小衡規範執行「多視角設計→完整 source master clone 分件/W3差分→Cubism→PSD/moc3/VTS」流程，禁止逐件挖空原圖，產品化上架數位資產。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -491,6 +578,8 @@
     {
       "id": "t_5b5f912b",
       "title": "【WIKI知識庫】NAS 與本地 Markdown 雙向同步與索引建置",
+      "body": "目標：維護 agent_office/shared/brain 知識庫，確保所有技術沉澱均具備 YAML frontmatter，保證與 NAS VitePress Wiki 自動同步，杜絕無結構雜檔。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -501,6 +590,8 @@
     {
       "id": "t_0246fcdb",
       "title": "【求職串】多版本履歷與 104/Cake 自動化巡邏追蹤",
+      "body": "目標：以台灣本地 AI 應用 / 技術 PM / 自動化系統整合為核心，執行 daily job-tracker 與 job-patrol 數據整理，定期自動更新履歷並追蹤最新職缺回饋。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -511,6 +602,8 @@
     {
       "id": "t_d4d17840",
       "title": "【Podcast】EP15 腳本濃縮重構與發布管線維護",
+      "body": "目標：將 EP15 腳本 19425 字濃縮至 5800-7245 字以內（MAX_CHARS=7245），符合小衡聽感契約；通過組裝驗證後解鎖 EP15 進入排程發布。維護代碼縫隙每週三/五發布節奏。",
+      "project_id": "general",
       "assignee": "小克",
       "status": "done",
       "priority": 0,
@@ -521,6 +614,8 @@
     {
       "id": "t_ec44c366",
       "title": "研究 ComfyUI 最新 AnimateDiff 工作流",
+      "body": null,
+      "project_id": "general",
       "assignee": "researcher",
       "status": "done",
       "priority": 5,
