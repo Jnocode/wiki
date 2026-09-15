@@ -652,13 +652,22 @@ async function loadWikipediaArticle() {
     // 4. 解析 Markdown 本文
     let parsedHtml = marked.parse(markdownBody);
 
-    // 5. 替換維基百科雙括號出鏈 [[目標|別名]]
+    // 5. 替換維基百科雙括號出鏈 [[目標|別名]] 與標準 .md 相對鏈接
     parsedHtml = parsedHtml.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (match, target, alias) => {
       const label = alias || target;
       let targetFile = target.trim();
       if (!targetFile.endsWith('.md')) targetFile += '.md';
       return `<a href="viewer.html?file=${encodeURIComponent(targetFile)}" class="wiki-link">🔗 ${label}</a>`;
     });
+
+    // 將所有指向 .md 檔案的普通鏈接自動攔截重定向至 viewer.html?file=...
+    parsedHtml = parsedHtml.replace(/href="([^":#]+\.md(?:#[^"]*)?)"/g, (match, targetPath) => {
+      const parts = targetPath.split('#');
+      const mdFile = parts[0];
+      const hash = parts[1] ? '#' + parts[1] : '';
+      return `href="viewer.html?file=${encodeURIComponent(mdFile)}${hash}" class="wiki-link"`;
+    });
+
 
     document.getElementById('articleBody').innerHTML = parsedHtml;
 

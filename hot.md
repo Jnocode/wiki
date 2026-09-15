@@ -4,7 +4,7 @@ type: log
 date: 2026-09-16
 updated: 2026-09-16
 tags: [hot, summary, digest]
-summary: "依 Wiki 條目 frontmatter 編譯近 7 天活躍條目，共 11 項。"
+summary: "依 Wiki 條目 frontmatter 編譯近 7 天活躍條目，共 12 項。"
 status: active
 ---
 
@@ -14,6 +14,7 @@ status: active
 
 ## 近期活躍焦點 (Active Threads)
 
+- 2026-09-16 — [Jun's 公開發布矩陣與發布資產管理](projects/publishing_matrix.md)
 - 2026-09-16 — [Workspace 工作區架構與整理規則](concepts/workspace-architecture.md)
 - 2026-09-16 — [WSL Windows 與 Codex 現行環境圖](concepts/runtime-environment-map.md)
 - 2026-09-16 — [Public APIs 免費 API 資源庫 — 資料源目錄索引](concepts/public_apis_free_data_source_index.md)
@@ -28,6 +29,7 @@ status: active
 
 ## 條目摘要 (Verified Metadata)
 
+- **Jun's 公開發布矩陣與發布資產管理**：管理 Jun 所有對外公開發布的內容正本、平台連結、發布狀態與反向追蹤驗證。（2026-09-16）
 - **Workspace 工作區架構與整理規則**：定義 D:\\Workspace 的資料邊界、正本判定、搬移驗證與 artifacts 生命週期。（2026-09-16）
 - **WSL Windows 與 Codex 現行環境圖**：記錄目前可驗證的 Windows、Workspace、Codex 與 OpenClaw 邊界；不把歷史配置當現行路徑。（2026-09-16）
 - **Public APIs 免費 API 資源庫 — 資料源目錄索引**：GitHub public-apis/public-apis 免費 API 目錄；工具缺外部資料源時先查分類與官方文件，再決定是否接入。（2026-09-16）
