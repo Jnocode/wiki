@@ -15,6 +15,7 @@ status: active
 ## 近期活躍焦點 (Active Threads)
 
 - 2026-09-16 — [Jun's 公開發布矩陣與發布資產管理](projects/publishing_matrix.md)
+- 2026-09-16 — [電商營運工具箱 (ecom.atmarketing.tw) 逆向工程與架構復刻分析報告](projects/ecom_toolkit_reverse_engineering.md)
 - 2026-09-16 — [Workspace 工作區架構與整理規則](concepts/workspace-architecture.md)
 - 2026-09-16 — [WSL Windows 與 Codex 現行環境圖](concepts/runtime-environment-map.md)
 - 2026-09-16 — [Public APIs 免費 API 資源庫 — 資料源目錄索引](concepts/public_apis_free_data_source_index.md)
@@ -25,11 +26,11 @@ status: active
 - 2026-09-16 — [Agent 團隊協作契約](concepts/agent-collaboration-contract.md)
 - 2026-09-15 — [OpenClaw 雙 Agent CLI 調度器排查與排程健康診斷](concepts/openclaw-agent-cli-health-diagnosis.md)
 - 2026-09-14 — [MoneyPrinterTurbo 本地化模型配置與短影音渲染除錯](concepts/video-automation-moneyprinterturbo-debug.md)
-- 2026-09-11 — [外部工程檢查與交付紀錄 — 2026-09-09](projects/chief_20260909_s1/chief_20260909_s1_engineering_report.md)
 
 ## 條目摘要 (Verified Metadata)
 
 - **Jun's 公開發布矩陣與發布資產管理**：管理 Jun 所有對外公開發布的內容正本、平台連結、發布狀態與反向追蹤驗證。（2026-09-16）
+- **電商營運工具箱 (ecom.atmarketing.tw) 逆向工程與架構復刻分析報告**：完整拆解圭話行銷『電商營運工具箱』201+款工具前端Next.js架構、資料結構、純前端vs雙軌運算與商業閉環。（2026-09-16）
 - **Workspace 工作區架構與整理規則**：定義 D:\\Workspace 的資料邊界、正本判定、搬移驗證與 artifacts 生命週期。（2026-09-16）
 - **WSL Windows 與 Codex 現行環境圖**：記錄目前可驗證的 Windows、Workspace、Codex 與 OpenClaw 邊界；不把歷史配置當現行路徑。（2026-09-16）
 - **Public APIs 免費 API 資源庫 — 資料源目錄索引**：GitHub public-apis/public-apis 免費 API 目錄；工具缺外部資料源時先查分類與官方文件，再決定是否接入。（2026-09-16）
@@ -40,4 +41,3 @@ status: active
 - **Agent 團隊協作契約**：定義小衡、小克與 Codex 的分工、交接、驗收與對外發布邊界。（2026-09-16）
 - **OpenClaw 雙 Agent CLI 調度器排查與排程健康診斷**：記錄 2026-09-15 診斷後台 CLI 調度器、小克 Discord 響應鏈路與 Cron 故障排查。（2026-09-15）
 - **MoneyPrinterTurbo 本地化模型配置與短影音渲染除錯**：記錄 2026-09-14 於本機配置 MoneyPrinterTurbo 本地模型、歌詞畫面修正與 render_mv.sh 執行流程踩坑。（2026-09-14）
-- **外部工程檢查與交付紀錄 — 2026-09-09**：**Verdict：BLOCKED。** 可執行 S1 已接通並實機驗證；一張人物圖到可販售 V 皮的完整產線尚未完成。G0 未核准，G1–G5 均未前進。（2026-09-11）
