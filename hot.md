@@ -23,9 +23,9 @@ status: active
 - 2026-09-16 — [資料來源完整性與 Provider 備援](concepts/data-source-integrity-and-fallback.md)
 - 2026-09-16 — [Codex 上下文管理與跨 Agent 帳本](concepts/codex-context-management.md)
 - 2026-09-16 — [Agent 團隊協作契約](concepts/agent-collaboration-contract.md)
+- 2026-09-15 — [OpenClaw 雙 Agent CLI 調度器排查與排程健康診斷](concepts/openclaw-agent-cli-health-diagnosis.md)
+- 2026-09-14 — [MoneyPrinterTurbo 本地化模型配置與短影音渲染除錯](concepts/video-automation-moneyprinterturbo-debug.md)
 - 2026-09-11 — [外部工程檢查與交付紀錄 — 2026-09-09](projects/chief_20260909_s1/chief_20260909_s1_engineering_report.md)
-- 2026-09-11 — [AI／GameDev 前沿技術嗅探日報 — 2026-09-10](projects/2026_09_10/2026_09_10_tech_scout_report.md)
-- 2026-09-11 — [AI／GameDev 前沿技術嗅探日報 — 2026-09-09](projects/2026_09_09/2026_09_09_tech_scout_report.md)
 
 ## 條目摘要 (Verified Metadata)
 
@@ -38,6 +38,6 @@ status: active
 - **資料來源完整性與 Provider 備援**：統一即時資料查證、API 失敗處理、Quota Pool 熔斷與未驗證資訊標示規則。（2026-09-16）
 - **Codex 上下文管理與跨 Agent 帳本**：將 Codex 的長工作階段上下文與團隊共用 Markdown 任務帳本分層，避免把模型歷史誤當成驗收證據。（2026-09-16）
 - **Agent 團隊協作契約**：定義小衡、小克與 Codex 的分工、交接、驗收與對外發布邊界。（2026-09-16）
+- **OpenClaw 雙 Agent CLI 調度器排查與排程健康診斷**：記錄 2026-09-15 診斷後台 CLI 調度器、小克 Discord 響應鏈路與 Cron 故障排查。（2026-09-15）
+- **MoneyPrinterTurbo 本地化模型配置與短影音渲染除錯**：記錄 2026-09-14 於本機配置 MoneyPrinterTurbo 本地模型、歌詞畫面修正與 render_mv.sh 執行流程踩坑。（2026-09-14）
 - **外部工程檢查與交付紀錄 — 2026-09-09**：**Verdict：BLOCKED。** 可執行 S1 已接通並實機驗證；一張人物圖到可販售 V 皮的完整產線尚未完成。G0 未核准，G1–G5 均未前進。（2026-09-11）
-- **AI／GameDev 前沿技術嗅探日報 — 2026-09-10**：- **查證時間**：2026-09-10 07:00（UTC+8）（2026-09-11）
-- **AI／GameDev 前沿技術嗅探日報 — 2026-09-09**：- **查證時間**：2026-09-09 08:00（UTC+8）（2026-09-11）
