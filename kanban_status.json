@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-15T21:41:58.434937+00:00",
+  "generated_at": "2026-09-15T21:50:11.468429+00:00",
   "summary": {
-    "total": 42,
+    "total": 49,
     "done": 35,
     "blocked": 2,
-    "ready": 1,
+    "ready": 3,
     "running": 0,
-    "in_progress": 1
+    "in_progress": 3
   },
   "agents": [
     {
@@ -28,22 +28,96 @@
     {
       "name": "小克",
       "id": "xiaoke",
-      "total": 40,
+      "total": 44,
       "by_status": {
         "done": 34,
-        "ready": 1,
+        "ready": 3,
         "blocked": 2,
-        "completed": 3
+        "completed": 3,
+        "todo": 1,
+        "scheduled": 1
       }
     },
     {
       "name": "小衡",
       "id": "xiaoheng",
-      "total": 0,
-      "by_status": {}
+      "total": 3,
+      "by_status": {
+        "todo": 3
+      }
     }
   ],
   "tasks": [
+    {
+      "id": "t_job_daily_3_curated",
+      "title": "【求職主線】每日精選 3 家高匹配職缺（台灣 AI 應用/自動化 PM/工程師）與客製推薦卡片",
+      "assignee": "小克",
+      "status": "ready",
+      "priority": 0,
+      "created_at": 1789509007,
+      "completed_at": null,
+      "block_kind": null
+    },
+    {
+      "id": "t_linkedin_builder_log_01",
+      "title": "【LinkedIn 經營】發布首篇繁中 Builder Log（三路 RRF 混合檢索架構實戰復盤）",
+      "assignee": "小克",
+      "status": "todo",
+      "priority": 1,
+      "created_at": 1789509007,
+      "completed_at": null,
+      "block_kind": null
+    },
+    {
+      "id": "t_resume_104_cake_audit",
+      "title": "【求職主線】104 與 CakeResume 線上呈現即時 Read-back 與 HR 視角雙向覆核",
+      "assignee": "小衡",
+      "status": "todo",
+      "priority": 0,
+      "created_at": 1789509007,
+      "completed_at": null,
+      "block_kind": null
+    },
+    {
+      "id": "t_jojo_eod_cron_verify",
+      "title": "【JoJo量化】驗證盤後交易排程 (bd394923110a) 在 15:35 觸發之完整 EOD 報表與圖表生成",
+      "assignee": "小克",
+      "status": "scheduled",
+      "priority": 0,
+      "created_at": 1789509007,
+      "completed_at": null,
+      "block_kind": null
+    },
+    {
+      "id": "t_jojo_git_hygiene_commit",
+      "title": "【JoJo量化】提交 repo 大掃除成果（45個備份檔歸檔、回測測試 159 項綠燈）至 Git",
+      "assignee": "小克",
+      "status": "ready",
+      "priority": 1,
+      "created_at": 1789509007,
+      "completed_at": null,
+      "block_kind": null
+    },
+    {
+      "id": "t_brain_idle_consolidation_eval",
+      "title": "【大腦架構】夜間閒置沉澱機制首輪巡檢與 Wiki 自動同步 Read-back",
+      "assignee": "小衡",
+      "status": "todo",
+      "priority": 1,
+      "created_at": 1789509007,
+      "completed_at": null,
+      "block_kind": null
+    },
+    {
+      "id": "t_podcast_ep17_prep",
+      "title": "【Podcast產線】代碼縫隙 EP17 選題審查與三主持人立場衝突架構拆解",
+      "assignee": "小衡",
+      "status": "todo",
+      "priority": 1,
+      "created_at": 1789509007,
+      "completed_at": null,
+      "block_kind": null
+    },
     {
       "id": "t_b8a14cd6",
       "title": "【HR視角整改】104職稱改為AI工程師、廢除123罐頭自薦信、作品集首屏3秒優化",
