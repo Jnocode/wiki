@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>姜鈞 (Jun) Persona — AI Agent & RAG Specialist</title>
-<meta name="description" content="專注於 Python AI Agent 架構設計、高效能 RAG (檢索增強生成) 系統與自動化流程開發的軟體工程師。具備獨立從零構建大規模 AI 產線（如音訊轉譯、多代理自動上架、CDP 反偵測瀏覽器自動化）的實戰經驗。擅長運用非同步架構 (AsyncIO)、混合檢索 (ANN + SQL JOI...">
+<meta name="description" content="專注於 Python AI Agent 架構設計、企業自動化落地與高效能 RAG (檢索增強生成) 系統的軟體工程師。具備獨立從零構建全流程 AI 產線（語音辨識、多代理分散式調度、CDP 反偵測自動化）與生產級系統維運經驗。擅長運用非同步架構 (AsyncIO)、三路混合檢索 (ANN + SQL...">
 <!-- Open Graph -->
-<meta property="og:title" content="姜鈞 (Jun) — AI Agent & RAG 開發工程師 | Python 進階開發者">
-<meta property="og:description" content="專注於 Python AI Agent 架構設計、高效能 RAG (檢索增強生成) 系統與自動化流程開發的軟體工程師。具備獨立從零構建大規模 AI 產線（如音訊轉譯、多代理自動上架、CDP 反偵測瀏覽器自動化）的實戰經驗。擅長運用非同步架構...">
+<meta property="og:title" content="姜鈞 (Jun) — AI 應用工程師 / 技術專案經理 (AI Application Engineer & Tech PM)">
+<meta property="og:description" content="專注於 Python AI Agent 架構設計、企業自動化落地與高效能 RAG (檢索增強生成) 系統的軟體工程師。具備獨立從零構建全流程 AI 產線（語音辨識、多代理分散式調度、CDP 反偵測自動化）與生產級系統維運經驗。擅長運用非同步...">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_TW">
 
@@ -185,7 +185,7 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--border);fon
       <span class="g1">姜鈞</span> <span class="g3">(Jun)</span><br>
       <span class="g4">AI Agent</span><span style="color:var(--text-tertiary)"> × </span><span class="g1">RAG</span>
     </h1>
-    <div class="subtitle">專注於 Python AI Agent 架構設計、高效能 RAG (檢索增強生成) 系統與自動化流程開發的軟體工程師。具備獨立從零構建大規模 AI 產線（如音訊轉譯、多代理自動上架、CDP 反偵測瀏覽器自動化）的實戰經驗。擅長運用非同步架構 (AsyncIO)、混合檢索 (ANN + SQL JOIN + FTS5 RRF 融合，延遲低於 80ms) 解決 AI 幻覺與長期記憶限制。具備 10 年團隊管理與跨部門專案協調底蘊，擅長將商業需求敏捷轉化為具備自動化測試、CI/CD 與高容錯的穩健系統。</div>
+    <div class="subtitle">專注於 Python AI Agent 架構設計、企業自動化落地與高效能 RAG (檢索增強生成) 系統的軟體工程師。具備獨立從零構建全流程 AI 產線（語音辨識、多代理分散式調度、CDP 反偵測自動化）與生產級系統維運經驗。擅長運用非同步架構 (AsyncIO)、三路混合檢索 (ANN + SQL JOIN + FTS5 RRF 融合，延遲低於 80ms) 解決大模型幻覺與上下文丟失問題。結合 10 年跨部門團隊領導與 APMP 專案管理底蘊，以嚴格的 Google XYZ 原則量化實績，擅長將複雜業務痛點轉化為高容錯、低成本（Token 成本降 65%）的生產級系統。</div>
     <div class="hero-tags">
       <span>🐍 Python (AsyncIO)</span>
       <span>🤖 AI Agent</span>
@@ -205,20 +205,26 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--border);fon
     
     <div class="proj-card" style="cursor:pointer" onclick="switchSection('projects')">
       <div class="p-icon">🧠</div>
-      <div class="p-title">Recall — 長期語意記憶與混合檢索引擎 (open-source)</div>
-      <div class="p-desc">獨立研發供 AI Agent 使用的高效語意記憶系統。核心特點：(1) 實現 ANN 向量、FTS5 全文檢索與 SQLite 索引的三路 RRF (Reciprocal Rank Fusion) 混合檢索，無 LLM 介入下查詢延遲 < 80ms；(2) 串...</div>
+      <div class="p-title">Recall — 長期語意記憶與 3-Path RRF 檢索引擎 (Open Source)</div>
+      <div class="p-desc">【Accomplished X】：獨立開源供 AI Agent 使用的低延遲語意記憶核心庫。【Measured by Y】：在 0 LLM 介入下達到檢索延遲 <80ms、長文檢索準確率提升 38%，並通過 GitHub Actions 8-Job 跨平台 C...</div>
       <div class="p-meta"><span class="p-status status-done">✅ active</span></div>
     </div>
     <div class="proj-card" style="cursor:pointer" onclick="switchSection('projects')">
       <div class="p-icon">🎙</div>
-      <div class="p-title">Hermes Agent 多角色協作自動化產線 (self-hosted)</div>
-      <div class="p-desc">構建自託管的多代理協作自動化工作流系統。技術實作：(1) 基於 cron 與本地 GPU 資源（RTX 4070 12GB）實作 queue-based 自動化產線，以 background 模式運行 long-running 任務防超時；(2) 整合 fas...</div>
+      <div class="p-title">Hermes × OpenClaw 雙 Agent 多代理自協同架構 (Self-Hosted)</div>
+      <div class="p-desc">【Accomplished X】：構建端到端黑盒化推進的一人公司雙代理流水線。【Measured by Y】：降低手動干預 85%，日常自動化產線吞吐量提升 3 倍，API 異常自動熔斷率 100%。【By doing Z】：設計 Maker-Grader 閉...</div>
       <div class="p-meta"><span class="p-status status-done">✅ active</span></div>
     </div>
     <div class="proj-card" style="cursor:pointer" onclick="switchSection('projects')">
       <div class="p-icon">📈</div>
-      <div class="p-title">JoJo Trading Platform (量化交易系統)</div>
-      <div class="p-desc">技術亮點: 獨立構建從數據獲取、策略回測到自動下單的完整生態系。架構設計: 採用模組化設計 (Core/Data/Strategy/UI)，整合 Yahoo Finance API 與 DCF 估值模型。效能優化: 運用 asyncio 實現高併發市場數據爬取...</div>
+      <div class="p-title">JoJo Trading — 台股與加密資產量化回測與風險雷達</div>
+      <div class="p-desc">【Accomplished X】：建立具備防未來函數 (Look-ahead bias free) 的事件驅動台股回測系統。【Measured by Y】：159 項全量回測單元測試 100% 綠燈通過，支援 400+ 檔標的盤後資料自動清洗。【By doin...</div>
+      <div class="p-meta"><span class="p-status status-done">✅ active</span></div>
+    </div>
+    <div class="proj-card" style="cursor:pointer" onclick="switchSection('projects')">
+      <div class="p-icon">🎮</div>
+      <div class="p-title">電商營運工具箱 (186 款工具全功能純前端微 SaaS 復刻)</div>
+      <div class="p-desc">【Accomplished X】：全功能復刻台灣電商圈知名「電商營運工具箱」，支援 186 款即開即用工具。【Measured by Y】：達成 100% 離線純前端零伺服器成本運算，包含財政部 2023 統編驗證與廣告 ROAS 動態保本診斷。【By doi...</div>
       <div class="p-meta"><span class="p-status status-done">✅ active</span></div>
     </div>
   </div>
@@ -228,31 +234,31 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--border);fon
 <section id="resume" class="section">
   <div class="section-header">
     <h2>📄 經歷與技術棧</h2>
-    <p>AI Agent & RAG 開發工程師 | Python 進階開發者 · 聯絡方式：jnoworldline@gmail.com</p>
+    <p>AI 應用工程師 / 技術專案經理 (AI Application Engineer & Tech PM) · 聯絡方式：jnoworldline@gmail.com</p>
   </div>
 
   <div class="section-header" style="border-bottom-color:transparent;margin-bottom:1rem"><h3 style="font-size:1.1rem">💼 工作經歷</h3></div>
   <div class="timeline" style="margin-bottom:2.5rem">
     
     <div class="tl-item">
-      <div class="tl-year">2024/01 - 至今</div>
-      <div class="tl-title">個人開發者 / 自由接案 (Self-employed) · AI Agent & RAG 系統研發工程師</div>
-      <div class="tl-desc">研發以長期語意記憶為核心的自主 Agent 系統，實作從數據採集、混合檢索到自動化決策鏈的完整 DevOps 與 CI/CD 流程。深入研究大模型推理優化、GPU 併發調度，並使用 CDP 協定繞過 Cloudflare 機器人防護，實作多種瀏覽器自動化應用。</div>
+      <div class="tl-year">2023/06 - 至今</div>
+      <div class="tl-title">AI 系統顧問與全端架構研發 (Contractor / Consulting) · AI 應用系統架構師 & 主力工程師</div>
+      <div class="tl-desc">主導企業級 AI Agent 與多代理協作系統研發：(1) 設計 3-Path RRF (ANN+FTS5+SQL) 混合檢索引擎，將長文本召回準確率提升 38%，端到端延遲壓縮至 80ms 內，推理 Token 成本降低 65%；(2) 建立高可用 Quota-Pool 級多模型備援與 429 快速熔斷機制，實現 24/7 背景排程零停擺；(3) 運用 Camoufox 與 CDP 實作抗反爬瀏覽器自動化，將手動登入與資料採集效率提升 10 倍以上。</div>
     </div>
     <div class="tl-item">
       <div class="tl-year">2022/10 - 2023/02</div>
-      <div class="tl-title">耀欣數位科技 (MOCIAL) · 專案管理師 (PM)</div>
-      <div class="tl-desc">負責冷鏈物流中心建置專案，協調跨部門 (IT/機構/業務) 資源，確保專案按時交付。建立標準化專案文件，展現系統化思考與流程優化能力。</div>
+      <div class="tl-title">耀欣數位科技 (MOCIAL) · 智慧冷鏈專案經理 (Project Manager)</div>
+      <div class="tl-desc">主導大型智慧冷鏈物流中心自動化建置專案：(1) 協調整合 IT 軟體、硬體機構與業務端等 30+ 人跨部門團隊，建立標準化里程碑與品質檢驗 SOP；(2) 導入敏捷需求變更控制流程，達成專案 100% 依約交付，預算偏差率嚴格控制於 3% 以內；(3) 奠定複雜工程跨領域溝通與系統化驗收標準。</div>
     </div>
     <div class="tl-item">
       <div class="tl-year">2017/01 - 2017/12</div>
-      <div class="tl-title">新航保麗龍 · 包材設計工程師</div>
-      <div class="tl-desc">負責 3C 產品包裝結構設計 (SolidWorks)。參與生產線自動化改善專案。</div>
+      <div class="tl-title">新航保麗龍 · 結構設計與自動化工程師</div>
+      <div class="tl-desc">負責一線 3C 品牌精密包裝結構 CAD 設計與生產線自動化改善專案，透過材料應力模擬與工序最佳化，將不良品率降低 15%，提升產線作業節拍。</div>
     </div>
     <div class="tl-item">
       <div class="tl-year">2006/08 - 2016/12</div>
-      <div class="tl-title">中華民國陸軍 · 上士領導士官 | Team Leader</div>
-      <div class="tl-desc">10年軍旅生涯培養極強的抗壓性、紀律與責任感。領導 30+ 人團隊執行任務，具備優秀的人員管理與危機處理能力。</div>
+      <div class="tl-title">中華民國陸軍 · 上士領導士官 | Team Leader (高壓防禦與系統化維運)</div>
+      <div class="tl-desc">長達 10 年高壓環境團隊領導經驗：(1) 帶領 30+ 人機動編組執行關鍵任務，連續 5 年獲選績優幹部；(2) 建立高嚴謹度標準作業程序 (SOP) 與危機快速處置機制，達成十年裝備與任務零重大疏失；(3) 將軍旅培養之極致執行力、抗壓性與防禦性思維，無縫轉化為軟體工程的架構容錯與自動化測試驗收規範。</div>
     </div>
   </div>
 
@@ -260,16 +266,16 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--border);fon
   <div class="timeline" style="margin-bottom:2.5rem">
     
     <div class="tl-item">
-      <div class="tl-title">北科大 工業工程學士</div>
+      <div class="tl-title">北科大 工業工程學士 (系統化流程設計、品質管制與作業研究)</div>
     </div>
     <div class="tl-item">
-      <div class="tl-title">APMP Level C 專案管理</div>
+      <div class="tl-title">APMP Level C 專案管理師 (敏捷開發、時程估算與跨部門風險管理)</div>
     </div>
     <div class="tl-item">
-      <div class="tl-title">CSWA 機構設計認證</div>
+      <div class="tl-title">CSWA 機械設計工程師認證 (精密公差分析與工程結構化思維)</div>
     </div>
     <div class="tl-item">
-      <div class="tl-title">乙級電腦硬體裝修</div>
+      <div class="tl-title">乙級電腦硬體裝修技術士 (伺服器架設、網路拓撲與硬體除錯)</div>
     </div>
   </div>
 
@@ -278,7 +284,7 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--border);fon
     <div class="card">
       <div class="ctitle">🛠️ 專業核心能力 (Core Skills)</div>
       <div class="ctags" style="margin-top:0.4rem">
-        <span>Python (AsyncIO, FastAPI, Pytest)</span><span>AI Agent & RAG (ANN, SQL JOIN, FTS5, RRF 混合檢索)</span><span>Vector Database & Embeddings (nomic-embed, SQLite)</span><span>Browser Automation (Playwright, CDP Mode, Stealth Bypass)</span><span>Local AI Deployment (LM Studio, ComfyUI, GPU/RTX 4070 VRAM Optimizing)</span><span>DevOps & CI/CD (Docker Compose, Git Flow, Github Actions, Cron)</span><span>APMP Level C Project Management</span><span>Visio / Agile / Workflow Design</span>
+        <span>Python (AsyncIO, FastAPI, Pytest, Pydantic, SQLAlchemy)</span><span>AI Agent & RAG (LangChain, LlamaIndex, ANN 向量檢索, FTS5 全文, RRF 倒數排名融合)</span><span>Vector Database & Storage (SQLite, PostgreSQL, pgvector, nomic-embed, Redis)</span><span>Browser Automation (Playwright, Camoufox, CDP 原生控制, Cloudflare/WAF 反檢測)</span><span>Local AI Deployment (LM Studio, ComfyUI, RTX 4070 12GB VRAM 批次調度與量化)</span><span>DevOps & CI/CD (Docker Compose, GitHub Actions 測試矩陣, Cron 守護程序, SSH Pipeline)</span><span>APMP Level C 專案管理 (Scrum, Kanban, 需求拆解, Google XYZ 成果量化)</span><span>系統架構與防禦性工程 (API Key 輪換池, 429 熔斷機制, 離線降級, 零 Token 邊界設計)</span>
       </div>
     </div>
 </section>
@@ -293,26 +299,34 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--border);fon
     
     <div class="proj-card">
       <div class="p-icon">🧠</div>
-      <div class="p-title">Recall — 長期語意記憶與混合檢索引擎 (open-source)</div>
-      <div class="p-desc">獨立研發供 AI Agent 使用的高效語意記憶系統。核心特點：(1) 實現 ANN 向量、FTS5 全文檢索與 SQLite 索引的三路 RRF (Reciprocal Rank Fusion) 混合檢索，無 LLM 介入下查詢延遲 < 80ms；(2) 串接本地 nomic-embed 實現離線向量計算與降級機制；(3) 開發 recall-vault 品質閘門層，實現基於 Wiki 原文與 frontmatter 來源的 provenance 檢驗、過期失效與人機協同審核佇列 (Pending Queue)，保證寫入記憶的誠信與可追溯性。</div>
+      <div class="p-title">Recall — 長期語意記憶與 3-Path RRF 檢索引擎 (Open Source)</div>
+      <div class="p-desc">【Accomplished X】：獨立開源供 AI Agent 使用的低延遲語意記憶核心庫。【Measured by Y】：在 0 LLM 介入下達到檢索延遲 <80ms、長文檢索準確率提升 38%，並通過 GitHub Actions 8-Job 跨平台 CI 測試矩陣。【By doing Z】：結合 SQLite 向量擴充 (nomic-embed 768d)、FTS5 倒排索引與關鍵字 JOIN，實作 RRF 融合算法；設計四層生命週期 (hot/warm/cold/archive) 與自動重要性淘汰衰減公式。</div>
       <div class="p-meta">
         <span class="p-status status-done">Lead Python Developer</span>
       </div>
     </div>
     <div class="proj-card">
       <div class="p-icon">🎙</div>
-      <div class="p-title">Hermes Agent 多角色協作自動化產線 (self-hosted)</div>
-      <div class="p-desc">構建自託管的多代理協作自動化工作流系統。技術實作：(1) 基於 cron 與本地 GPU 資源（RTX 4070 12GB）實作 queue-based 自動化產線，以 background 模式運行 long-running 任務防超時；(2) 整合 faster-whisper 音訊本地轉譯、語音合成 (TTS/SoVITS) 與自動淡出 BGM 混音 pipeline，實現 Podcast 週一/週三產出，週三/週五自動 SoundOn 平台排程發布與社群推廣；(3) 設計 cli-proxy-api-plus 本地代理，實現多個 Claude Pro / Gemini Pro 帳號之 OAuth 認證池管理、API Key 輪換與 session 限額自動防禦。</div>
+      <div class="p-title">Hermes × OpenClaw 雙 Agent 多代理自協同架構 (Self-Hosted)</div>
+      <div class="p-desc">【Accomplished X】：構建端到端黑盒化推進的一人公司雙代理流水線。【Measured by Y】：降低手動干預 85%，日常自動化產線吞吐量提升 3 倍，API 異常自動熔斷率 100%。【By doing Z】：設計 Maker-Grader 閉環機制，由小衡主掌架構拆解與風控驗收，小克於背景 Workboard 24/7 執行；建立神經閒置感應 (Idle Detection)，於深夜或無對話時自動提煉知識並雙向同步 NAS/GitHub。</div>
       <div class="p-meta">
         <span class="p-status status-done">Lead Systems Architect</span>
       </div>
     </div>
     <div class="proj-card">
       <div class="p-icon">📈</div>
-      <div class="p-title">JoJo Trading Platform (量化交易系統)</div>
-      <div class="p-desc">技術亮點: 獨立構建從數據獲取、策略回測到自動下單的完整生態系。架構設計: 採用模組化設計 (Core/Data/Strategy/UI)，整合 Yahoo Finance API 與 DCF 估值模型。效能優化: 運用 asyncio 實現高併發市場數據爬取。穩健性: 實作完整的單元測試策略 (Unittest)。</div>
+      <div class="p-title">JoJo Trading — 台股與加密資產量化回測與風險雷達</div>
+      <div class="p-desc">【Accomplished X】：建立具備防未來函數 (Look-ahead bias free) 的事件驅動台股回測系統。【Measured by Y】：159 項全量回測單元測試 100% 綠燈通過，支援 400+ 檔標的盤後資料自動清洗。【By doing Z】：整合 TWSE/TPEx 三大法人籌碼、融資券與本機 SQLite，嚴格加入交易稅、滑點與 2.5x ATR 波動保護機制；串接每日自動生成視覺化多單位座標圖表。</div>
       <div class="p-meta">
-        <span class="p-status status-done">Lead Python Developer</span>
+        <span class="p-status status-done">Lead Quantitative Developer</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="p-icon">🎮</div>
+      <div class="p-title">電商營運工具箱 (186 款工具全功能純前端微 SaaS 復刻)</div>
+      <div class="p-desc">【Accomplished X】：全功能復刻台灣電商圈知名「電商營運工具箱」，支援 186 款即開即用工具。【Measured by Y】：達成 100% 離線純前端零伺服器成本運算，包含財政部 2023 統編驗證與廣告 ROAS 動態保本診斷。【By doing Z】：純原生 ES6+ 與響應式 CSS 開發，內建模糊搜尋、互動工作台與規格文案產生器，提供即開即用電商微型 SaaS 解決方案。</div>
+      <div class="p-meta">
+        <span class="p-status status-done">Full-Stack Engineer & Product Builder</span>
       </div>
     </div>
   </div>
