@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-16T00:22:08.320125+00:00",
+  "generated_at": "2026-09-16T01:48:57.650345+00:00",
   "summary": {
     "total": 49,
-    "done": 40,
+    "done": 39,
     "blocked": 0,
-    "ready": 3,
+    "ready": 4,
     "running": 1,
-    "in_progress": 4
+    "in_progress": 5
   },
   "agents": [
     {
@@ -30,10 +30,11 @@
       "id": "xiaoke",
       "total": 44,
       "by_status": {
-        "done": 39,
+        "done": 38,
         "completed": 3,
         "running": 1,
-        "scheduled": 1
+        "scheduled": 1,
+        "ready": 1
       }
     },
     {
@@ -100,10 +101,10 @@
       "body": "將已通過 159 項回測單元測試的乾淨狀態、.gitignore 更新與 archive 封存建立原子 Git commit，消除 working tree 髒狀態。",
       "project_id": "03_Dev_Projects/jojo_trading",
       "assignee": "小克",
-      "status": "done",
+      "status": "ready",
       "priority": 1,
       "created_at": 1789509007,
-      "completed_at": 1789517653,
+      "completed_at": null,
       "block_kind": null
     },
     {
