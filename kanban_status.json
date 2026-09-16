@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-16T01:48:57.650345+00:00",
+  "generated_at": "2026-09-16T07:45:27.224302+00:00",
   "summary": {
     "total": 49,
     "done": 39,
     "blocked": 0,
-    "ready": 4,
-    "running": 1,
+    "ready": 5,
+    "running": 0,
     "in_progress": 5
   },
   "agents": [
@@ -32,9 +32,8 @@
       "by_status": {
         "done": 38,
         "completed": 3,
-        "running": 1,
-        "scheduled": 1,
-        "ready": 1
+        "ready": 2,
+        "scheduled": 1
       }
     },
     {
@@ -53,7 +52,7 @@
       "body": "依據 180 天嚴格排重規則，由小克掃描 104 與 Cake 最新職缺，產出精準 3 家對位卡片（含公司、薪資 80~95萬、匹配理由、客製自薦理由），供 Jun 一鍵確認送出。",
       "project_id": "02_Job_Search",
       "assignee": "小克",
-      "status": "running",
+      "status": "ready",
       "priority": 0,
       "created_at": 1789509007,
       "completed_at": null,
