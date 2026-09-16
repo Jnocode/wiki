@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-16T00:04:35.707087+00:00",
+  "generated_at": "2026-09-16T00:14:19.680010+00:00",
   "summary": {
     "total": 49,
-    "done": 37,
+    "done": 40,
     "blocked": 0,
     "ready": 4,
-    "running": 3,
-    "in_progress": 7
+    "running": 0,
+    "in_progress": 4
   },
   "agents": [
     {
@@ -30,8 +30,7 @@
       "id": "xiaoke",
       "total": 44,
       "by_status": {
-        "done": 36,
-        "running": 3,
+        "done": 39,
         "completed": 3,
         "ready": 1,
         "scheduled": 1
@@ -65,10 +64,10 @@
       "body": "將 Recall 專案與 Hermes 記憶架構中的 3-path RRF (ANN + keyword JOIN + FTS5) 實戰心得，整理為 800 字繁體中文高質量技術乾貨貼文，完成 QA 並預備發布。",
       "project_id": "02_Job_Search",
       "assignee": "小克",
-      "status": "running",
+      "status": "done",
       "priority": 1,
       "created_at": 1789509007,
-      "completed_at": null,
+      "completed_at": 1789517425,
       "block_kind": null
     },
     {
@@ -101,10 +100,10 @@
       "body": "將已通過 159 項回測單元測試的乾淨狀態、.gitignore 更新與 archive 封存建立原子 Git commit，消除 working tree 髒狀態。",
       "project_id": "03_Dev_Projects/jojo_trading",
       "assignee": "小克",
-      "status": "running",
+      "status": "done",
       "priority": 1,
       "created_at": 1789509007,
-      "completed_at": null,
+      "completed_at": 1789517653,
       "block_kind": null
     },
     {
@@ -257,10 +256,10 @@
       "body": "目標：把單筆精確授權的無人值守投遞 SOP 標準化（包含 Level 0 預備 → Level 1 顯示 diff → Level 2 單筆送出 + Read-back），由小克自己寫成獨立 skills 與 SOP，未來在 D:/Workspace/03_Dev_Projects/taiwan-career-ops 整合成可執行的 pipeline：\n1. 自動掃描 104 與 Cake 公開職缺，套用 Taiwan-Remote-First 與 AI 工程師路線分類。\n2. 列出 top-3 daily fit，僅填寫 1) 對應 104 / Cake 履歷模板（含 jnocode.github.io） 2) 自薦信模板（依公司 + 職缺特性客製） 3) 希望待遇 4) 是否具備相關工作經驗。\n3. 顯示投遞 diff 預覽摘要後，採單筆精確授權，不做任何批次海投。\n4. 送出後需有 Application ID / 成功頁 / 公司端 read-back 證據。\n5. 每日遞送前由 Discord thread 1543517409732853791 小克看板回報「已送出 X 家，剩 Y 家待授權」。\n6. 主動同步到 readback log: D:/Workspace/02_Job_Search/applied_log_20260904.md\n備註：所有來源套用既有的 taiwan-multitrack-job-search skills，避免破壞程式碼誠信 (data-integrity)。讓你可以專注追蹤進度。Jun 已經口頭授權「以後有合適職缺就送」。",
       "project_id": "general",
       "assignee": "小克",
-      "status": "running",
+      "status": "done",
       "priority": 1,
       "created_at": 1788536050,
-      "completed_at": null,
+      "completed_at": 1789517624,
       "block_kind": null
     },
     {
