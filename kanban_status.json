@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-16T07:45:27.224302+00:00",
+  "generated_at": "2026-09-16T08:08:28.840813+00:00",
   "summary": {
-    "total": 49,
+    "total": 50,
     "done": 39,
     "blocked": 0,
-    "ready": 5,
+    "ready": 6,
     "running": 0,
-    "in_progress": 5
+    "in_progress": 6
   },
   "agents": [
     {
@@ -28,11 +28,11 @@
     {
       "name": "小克",
       "id": "xiaoke",
-      "total": 44,
+      "total": 45,
       "by_status": {
         "done": 38,
         "completed": 3,
-        "ready": 2,
+        "ready": 3,
         "scheduled": 1
       }
     },
@@ -46,6 +46,18 @@
     }
   ],
   "tasks": [
+    {
+      "id": "t_cbdc823c",
+      "title": "【開源主線】依據 SPEC-OSS-001 啟動 Recall Core 每日長期維運管線",
+      "body": "規格正本：D:/Workspace/agent_office/shared/brain/projects/job_search/recall_oss_daily_maintenance_spec.md\n目標：落實 Recall Core 每日自動維護 SOP，包含離線測試套件健全化（修復 test_embed 離線 skip 判斷）、cross-client MCP 一致性打磨、原子 Commit 建立與遠端 CI 綠燈監控，產出首份維護日誌至 D:/Workspace/artifacts/recall_daily_maintenance/2026-09-16.md。",
+      "project_id": "general",
+      "assignee": "小克",
+      "status": "ready",
+      "priority": 0,
+      "created_at": 1789546097,
+      "completed_at": null,
+      "block_kind": null
+    },
     {
       "id": "t_job_daily_3_curated",
       "title": "【求職主線】每日精選 3 家高匹配職缺（台灣 AI 應用/自動化 PM/工程師）與客製推薦卡片",
