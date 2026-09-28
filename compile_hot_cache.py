@@ -150,6 +150,12 @@ def main() -> int:
         if START in text and END in text:
             pattern = re.compile(rf"{re.escape(START)}.*?{re.escape(END)}", re.DOTALL)
             updated = pattern.sub(render_preview(grouped).strip(), text)
+            # 首頁「最後修訂」改為發布時自動刷新，禁止再硬編碼日期。
+            updated = re.sub(
+                r"最後修訂：\d{4}-\d{2}-\d{2}",
+                f"最後修訂：{today.isoformat()}",
+                updated,
+            )
             INDEX.write_text(updated, encoding="utf-8")
             
     print(f"HOT_CACHE_OK 7-day timeline compiled for {today}")
