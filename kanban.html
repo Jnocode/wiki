@@ -3,193 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>小衡小克看板總覽 · Jun's Wiki</title>
+<title>成果與進度看板 — Jun's Wiki</title>
 <style>
   :root {
     --wiki-bg: #0d1117;
     --wiki-surface: #161b22;
     --wiki-border: #30363d;
+    --wiki-border-subtle: #21262d;
     --wiki-text: #e6edf3;
     --wiki-text-muted: #8b949e;
     --wiki-link: #58a6ff;
-    --wiki-link-visited: #bc8cff;
-    --wiki-infobox-bg: #161b22;
-    --wiki-border-subtle: #21262d;
-    --badge-ready: #388bfd;
+    --badge-ready: #58a6ff;
     --badge-running: #d29922;
+    --badge-review: #bc8cff;
     --badge-blocked: #f85149;
-    --badge-todo: #a371f7;
     --badge-done: #3fb950;
+    --badge-other: #8b949e;
   }
 
   body.theme-classic {
     --wiki-bg: #ffffff;
     --wiki-surface: #f8f9fa;
     --wiki-border: #a2a9b1;
+    --wiki-border-subtle: #c8ccd1;
     --wiki-text: #202122;
     --wiki-text-muted: #54595d;
     --wiki-link: #3366cc;
-    --wiki-link-visited: #6b4ba1;
-    --wiki-infobox-bg: #f8f9fa;
-    --wiki-border-subtle: #c8ccd1;
     --badge-ready: #0969da;
     --badge-running: #9a6700;
+    --badge-review: #8250df;
     --badge-blocked: #cf222e;
-    --badge-todo: #8250df;
     --badge-done: #1a7f37;
+    --badge-other: #57606a;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Liberation Sans", "Noto Sans TC", sans-serif;
     background: var(--wiki-bg);
     color: var(--wiki-text);
-    line-height: 1.6;
+    line-height: 1.5;
+    padding: 1rem;
     font-size: 14px;
-    min-height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
-  .wiki-topbar {
-    background: var(--wiki-surface);
-    border-bottom: 1px solid var(--wiki-border);
-    padding: 0.6rem 1.5rem;
+  /* Top Navigation */
+  .top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--wiki-border);
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
-  .wiki-logo-link {
+  .nav-left {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    text-decoration: none;
-    color: var(--wiki-text);
-    font-weight: 700;
-    font-size: 1.1rem;
+    gap: 0.8rem;
   }
-  .wiki-logo-icon {
-    width: 24px;
-    height: 24px;
-    background: #3366cc;
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: serif;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  .wiki-top-tools {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  }
-  .wiki-top-tools button, .wiki-top-tools a {
-    background: none;
-    border: none;
+  .nav-link {
     color: var(--wiki-link);
     text-decoration: none;
-    font-size: 0.85rem;
-    cursor: pointer;
+    font-size: 0.9rem;
   }
-  .wiki-top-tools button:hover, .wiki-top-tools a:hover {
+  .nav-link:hover {
     text-decoration: underline;
   }
-
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1.5rem;
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--wiki-border);
+    color: var(--wiki-text);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
   }
 
+  /* Cadence & Warning Banners */
+  .info-banner {
+    background: rgba(88, 166, 255, 0.12);
+    border: 1px solid rgba(88, 166, 255, 0.3);
+    color: var(--wiki-text);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+  .stale-banner {
+    display: none;
+    background: rgba(248, 81, 73, 0.15);
+    border: 1px solid rgba(248, 81, 73, 0.4);
+    color: #ff7b72;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+  .stale-banner.visible {
+    display: block;
+  }
+  .error-banner {
+    display: none;
+    background: rgba(248, 81, 73, 0.2);
+    border: 1px solid #f85149;
+    color: #ff7b72;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  /* Header */
   .header-section {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 1.2rem;
-    border-bottom: 1px solid var(--wiki-border);
-    padding-bottom: 0.8rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
   }
   .header-title h1 {
-    font-size: 1.6rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
   }
   .meta-info {
+    font-size: 0.8rem;
     color: var(--wiki-text-muted);
-    font-size: 0.85rem;
-    margin-top: 0.3rem;
   }
   .refresh-btn {
     background: var(--wiki-surface);
-    color: var(--wiki-text);
     border: 1px solid var(--wiki-border);
+    color: var(--wiki-text);
     padding: 0.4rem 0.8rem;
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.85rem;
-    transition: background 0.2s;
+    font-weight: 500;
   }
   .refresh-btn:hover {
-    background: var(--wiki-border-subtle);
+    background: var(--wiki-border);
   }
 
+  /* Summary Cards */
   .summary-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
   }
   .card {
     background: var(--wiki-surface);
     border: 1px solid var(--wiki-border);
-    border-radius: 8px;
-    padding: 1rem;
+    border-radius: 6px;
+    padding: 0.6rem 0.8rem;
     text-align: center;
   }
-  .card .val {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-top: 0.3rem;
-  }
   .card .lbl {
+    font-size: 0.75rem;
     color: var(--wiki-text-muted);
-    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+  }
+  .card .val {
+    font-size: 1.25rem;
+    font-weight: 700;
   }
 
+  /* Track / Filter Tabs */
   .tab-section {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.4rem;
     margin-bottom: 1.2rem;
-    border-bottom: 1px solid var(--wiki-border);
+    flex-wrap: wrap;
+    align-items: center;
   }
   .tab-btn {
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
+    background: var(--wiki-surface);
+    border: 1px solid var(--wiki-border);
     color: var(--wiki-text-muted);
-    padding: 0.5rem 1rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
     cursor: pointer;
-    font-weight: 500;
-    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.15s ease;
   }
-  .tab-btn.active {
-    color: var(--wiki-link);
-    border-bottom-color: var(--wiki-link);
+  .tab-btn.active, .tab-btn:hover {
+    background: var(--wiki-border);
+    color: var(--wiki-text);
+    border-color: var(--wiki-text-muted);
   }
 
+  /* Board Columns (Responsive Flex / Grid) */
   .board-columns {
     display: grid;
-    grid-template-columns: repeat(5, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1rem;
-    align-items: start;
-    overflow-x: auto;
+    align-items: flex-start;
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 600px) {
     .board-columns {
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: 1fr;
     }
   }
 
@@ -200,21 +220,17 @@
     padding: 0.8rem;
     display: flex;
     flex-direction: column;
-    max-height: calc(100vh - 280px);
+    min-height: 180px;
   }
   .column-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 0.6rem;
+    padding-bottom: 0.5rem;
     margin-bottom: 0.6rem;
     border-bottom: 1px solid var(--wiki-border);
     font-weight: 600;
-  }
-  .column-title {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
+    font-size: 0.9rem;
   }
   .count-badge {
     background: var(--wiki-border);
@@ -225,27 +241,25 @@
   }
 
   .task-list {
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
-    padding-right: 0.2rem;
   }
 
   .task-card {
     background: var(--wiki-bg);
     border: 1px solid var(--wiki-border);
     border-radius: 6px;
-    padding: 0.8rem;
+    padding: 0.75rem;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    word-break: break-word;
   }
   .task-title {
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     line-height: 1.4;
-    word-break: break-word;
   }
   .task-meta {
     display: flex;
@@ -258,7 +272,7 @@
   }
   .task-tags {
     display: flex;
-    gap: 0.4rem;
+    gap: 0.3rem;
     align-items: center;
     flex-wrap: wrap;
   }
@@ -267,6 +281,7 @@
     padding: 0.1rem 0.4rem;
     font-size: 0.7rem;
     font-weight: 500;
+    display: inline-block;
   }
   .tag-assignee {
     background: var(--wiki-border-subtle);
@@ -279,135 +294,172 @@
     border: 1px solid rgba(248, 81, 73, 0.3);
   }
 
-  .collapsible-toggle {
-    background: none;
-    border: none;
+  /* Safe Outcome Box */
+  .delivery-box {
+    margin-top: 0.3rem;
+    padding: 0.4rem 0.5rem;
+    background: rgba(88, 166, 255, 0.08);
+    border-left: 3px solid var(--wiki-link);
+    border-radius: 3px;
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .delivery-box a {
     color: var(--wiki-link);
-    cursor: pointer;
-    font-size: 0.8rem;
-    padding: 0.2rem 0;
-    margin-bottom: 0.4rem;
-    text-align: left;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .delivery-box a:hover {
+    text-decoration: underline;
+  }
+  .delivery-none {
+    color: var(--wiki-text-muted);
+    font-style: italic;
+  }
+  .qa-verdict {
+    color: #e3b341;
+    font-weight: 600;
   }
 
-  #error-msg {
-    background: rgba(248, 81, 73, 0.1);
-    border: 1px solid #f85149;
-    color: #f85149;
-    padding: 1rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    display: none;
+  .collapse-toggle {
+    margin-top: 0.4rem;
+    font-size: 0.75rem;
+    color: var(--wiki-link);
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 0;
+  }
+  .collapse-toggle:hover {
+    text-decoration: underline;
   }
 </style>
 </head>
 <body>
 
-<div class="wiki-topbar">
-  <a href="index.html" class="wiki-logo-link">
-    <div class="wiki-logo-icon">W</div>
-    <span>Jun's Wiki</span>
-  </a>
-  <div class="wiki-top-tools">
-    <a href="index.html">Wiki 首頁</a>
-    <a href="kanban.html" style="font-weight: bold; color: var(--wiki-link);">即時看板</a>
-    <a href="viewer.html?file=projects/publishing_matrix.md" style="font-weight: bold; color: var(--badge-done);">發布管理</a>
-    <a href="static/resume.html" target="_blank">個人履歷</a>
-    <button id="themeToggleBtn" onclick="toggleTheme()">切換主題</button>
+  <div class="top-nav">
+    <div class="nav-left">
+      <a href="index.html" class="nav-link">← 回首頁</a>
+      <a href="projects/publishing_matrix.md" class="nav-link">📊 發布矩陣</a>
+      <a href="hot.md" class="nav-link">🔥 動態焦點</a>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓 切換模式</button>
   </div>
-</div>
 
-<div class="container">
-  <div id="error-msg"></div>
+  <!-- Cadence Information Banner -->
+  <div class="info-banner">
+    ℹ️ <strong>發布節奏說明：</strong>本頁資料為自動化定期發布之靜態快照（既有排程為每日台北時間 02:15 執行發布推送）。下方 60 秒倒數為瀏覽器「重新讀取已發布快照檔」，非即時連線資料庫之更新頻率。
+  </div>
+
+  <!-- Staleness Warning Banner -->
+  <div id="stale-banner" class="stale-banner">
+    ⚠️ <strong>注意：看板快照資料可能已超過 30 小時未更新。</strong><br>
+    此快照產生時間已逾 30 小時，若需檢視最新成果，請等待每日台北 02:15 排程自動更新或手動產出新快照。
+  </div>
+
+  <!-- HTTP / Schema Drift Error Banner -->
+  <div id="error-msg" class="error-banner"></div>
 
   <div class="header-section">
     <div class="header-title">
-      <h1>📋 看板總覽</h1>
+      <h1>📋 成果與進度看板</h1>
       <div class="meta-info">
-        最後更新時間：<span id="gen-time">-</span> | 
-        下一次自動更新倒數：<span id="countdown">60</span> 秒
+        快照產出時間：<span id="gen-time">-</span> | 
+        來源事件最新時間：<span id="source-event-time">-</span><br>
+        <small>倒數 <span id="countdown">60</span> 秒重新讀取前端快照檔（非後端資料庫更新頻率）</small>
       </div>
     </div>
-    <button class="refresh-btn" onclick="fetchData()">🔄 重新整理</button>
+    <button class="refresh-btn" onclick="fetchData()">🔄 立即讀取最新快照</button>
   </div>
 
   <div class="summary-cards">
-    <div class="card"><div class="lbl">總任務數</div><div class="val" id="sum-total">0</div></div>
-    <div class="card"><div class="lbl">進行中</div><div class="val" id="sum-in-progress" style="color:var(--badge-ready)">0</div></div>
-    <div class="card"><div class="lbl">阻塞</div><div class="val" id="sum-blocked" style="color:var(--badge-blocked)">0</div></div>
-    <div class="card"><div class="lbl">待辦 (Triage/Todo)</div><div class="val" id="sum-todo" style="color:var(--badge-todo)">0</div></div>
-    <div class="card"><div class="lbl">完成</div><div class="val" id="sum-done" style="color:var(--badge-done)">0</div></div>
+    <div class="card"><div class="lbl">全部任務</div><div class="val" id="sum-total">0</div></div>
+    <div class="card"><div class="lbl">待整理／待辦</div><div class="val" id="sum-todo" style="color:var(--badge-other)">0</div></div>
+    <div class="card"><div class="lbl">就緒</div><div class="val" id="sum-ready" style="color:var(--badge-ready)">0</div></div>
+    <div class="card"><div class="lbl">執行中</div><div class="val" id="sum-running" style="color:var(--badge-running)">0</div></div>
+    <div class="card"><div class="lbl">待交付驗收</div><div class="val" id="sum-review" style="color:var(--badge-review)">0</div></div>
+    <div class="card"><div class="lbl">已受阻</div><div class="val" id="sum-blocked" style="color:var(--badge-blocked)">0</div></div>
+    <div class="card"><div class="lbl">已完成紀錄</div><div class="val" id="sum-done" style="color:var(--badge-done)">0</div></div>
   </div>
 
-  <div class="tab-section" style="display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center;">
-    <span style="font-size:0.8rem; color:var(--wiki-text-muted); font-weight:600; margin-right:0.2rem;">專案軌道：</span>
+  <div class="tab-section">
+    <span style="font-size:0.8rem; color:var(--wiki-text-muted); font-weight:600;">任務軌道：</span>
     <button class="tab-btn active" id="tab-all" onclick="setTab('all')">全部</button>
     <button class="tab-btn" id="tab-proj-job" onclick="setTab('proj-job')">🎯 求職主線</button>
     <button class="tab-btn" id="tab-proj-quant" onclick="setTab('proj-quant')">📈 JoJo量化</button>
     <button class="tab-btn" id="tab-proj-podcast" onclick="setTab('proj-podcast')">🎙️ 代碼縫隙</button>
     <button class="tab-btn" id="tab-proj-brain" onclick="setTab('proj-brain')">🧠 大腦架構</button>
-    <span style="font-size:0.8rem; color:var(--wiki-text-muted); font-weight:600; margin-left:0.8rem; margin-right:0.2rem;">負責人：</span>
-    <button class="tab-btn" id="tab-xiaoheng" onclick="setTab('xiaoheng')">小衡 (Lead)</button>
-    <button class="tab-btn" id="tab-xiaoke" onclick="setTab('xiaoke')">小克 (Maker)</button>
+    <span style="font-size:0.8rem; color:var(--wiki-text-muted); font-weight:600; margin-left:0.5rem;">成員負責：</span>
+    <button class="tab-btn" id="tab-xiaoheng" onclick="setTab('xiaoheng')">小衡 (負責人)</button>
+    <button class="tab-btn" id="tab-xiaoke" onclick="setTab('xiaoke')">小克 (執行者)</button>
   </div>
 
   <div class="board-columns">
-    <!-- Ready -->
+    <!-- 待整理 / 待辦 (Triage, Todo, Waiting Approval, Unknown) -->
     <div class="column">
       <div class="column-header">
-        <div class="column-title"><span>⚡ 就緒 (Ready)</span></div>
-        <span class="count-badge" id="count-ready">0</span>
-      </div>
-      <div class="task-list" id="list-ready"></div>
-    </div>
-
-    <!-- Running -->
-    <div class="column">
-      <div class="column-header">
-        <div class="column-title"><span>🚀 執行中 (Running)</span></div>
-        <span class="count-badge" id="count-running">0</span>
-      </div>
-      <div class="task-list" id="list-running"></div>
-    </div>
-
-    <!-- Blocked -->
-    <div class="column">
-      <div class="column-header">
-        <div class="column-title"><span>🛑 阻塞 (Blocked)</span></div>
-        <span class="count-badge" id="count-blocked">0</span>
-      </div>
-      <div class="task-list" id="list-blocked"></div>
-    </div>
-
-    <!-- Todo -->
-    <div class="column">
-      <div class="column-header">
-        <div class="column-title"><span>📌 待辦 (Todo/Triage/Scheduled)</span></div>
+        <div class="column-title"><span>📝 待整理／待辦</span></div>
         <span class="count-badge" id="count-todo">0</span>
       </div>
       <div class="task-list" id="list-todo"></div>
     </div>
 
-    <!-- Done -->
+    <!-- 就緒 (Ready, Scheduled) -->
     <div class="column">
       <div class="column-header">
-        <div class="column-title"><span>✅ 完成 (Done)</span></div>
+        <div class="column-title"><span>⚡ 就緒</span></div>
+        <span class="count-badge" id="count-ready">0</span>
+      </div>
+      <div class="task-list" id="list-ready"></div>
+    </div>
+
+    <!-- 執行中 (Running) -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title"><span>🚀 執行中</span></div>
+        <span class="count-badge" id="count-running">0</span>
+      </div>
+      <div class="task-list" id="list-running"></div>
+    </div>
+
+    <!-- 待驗收 (Review) -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title"><span>🔍 待驗收審查</span></div>
+        <span class="count-badge" id="count-review">0</span>
+      </div>
+      <div class="task-list" id="list-review"></div>
+    </div>
+
+    <!-- 阻塞 (Blocked) -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title"><span>🚫 已受阻</span></div>
+        <span class="count-badge" id="count-blocked">0</span>
+      </div>
+      <div class="task-list" id="list-blocked"></div>
+    </div>
+
+    <!-- 完成紀錄 (Done, Completed) -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title"><span>✅ 完成紀錄</span></div>
         <span class="count-badge" id="count-done">0</span>
       </div>
-      <button class="collapsible-toggle" id="done-toggle-btn" onclick="toggleDoneCollapse()">[ 展開 / 折疊已完成任務 ]</button>
       <div class="task-list" id="list-done"></div>
+      <button class="collapse-toggle" id="btn-collapse" onclick="toggleDoneCollapse()">展開全部紀錄</button>
     </div>
   </div>
-</div>
 
 <script>
   let currentData = null;
+  let countdownVal = 60;
   let activeTab = 'all';
   let isDoneCollapsed = true;
-  let countdownVal = 60;
-  let timerId = null;
 
-  // 主題切換
   function initTheme() {
     const saved = localStorage.getItem('wiki-theme');
     if (saved === 'classic') {
@@ -422,7 +474,12 @@
 
   function formatTime(ts) {
     if (!ts) return '-';
-    const d = new Date(typeof ts === 'number' ? ts * 1000 : ts);
+    let d;
+    if (typeof ts === 'number') {
+      d = new Date(ts > 1e11 ? ts : ts * 1000);
+    } else {
+      d = new Date(ts);
+    }
     if (isNaN(d.getTime())) return '-';
     return d.toLocaleString('zh-TW', { hour12: false });
   }
@@ -430,12 +487,361 @@
   function setTab(tab) {
     activeTab = tab;
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.getElementById('tab-' + tab).classList.add('active');
+    const el = document.getElementById('tab-' + tab);
+    if (el) el.classList.add('active');
     render();
   }
 
   function toggleDoneCollapse() {
     isDoneCollapsed = !isDoneCollapsed;
+    const btn = document.getElementById('btn-collapse');
+    if (btn) btn.textContent = isDoneCollapsed ? '展開全部紀錄' : '折疊過往紀錄';
+    renderList('done', document.getElementById('list-done'));
+  }
+
+  function checkStaleness(generatedAt) {
+    const banner = document.getElementById('stale-banner');
+    if (!generatedAt) {
+      banner.classList.remove('visible');
+      return;
+    }
+    const genTime = new Date(generatedAt).getTime();
+    if (isNaN(genTime)) {
+      banner.classList.remove('visible');
+      return;
+    }
+    const now = Date.now();
+    // Staleness and future timestamp check
+    if (genTime > now + 60 * 1000) {
+      // Future timestamp is invalid/stale
+      banner.textContent = '⚠️ 快照異常：產出時間戳晚於當前時間（未來時戳），快照無效。';
+      banner.classList.add('visible');
+    } else if (now - genTime > 30 * 60 * 60 * 1000) {
+      banner.textContent = '⚠️ 警示：此快照已超過 30 小時未更新，資料可能已過期。排程發布頻率為每日 02:15。';
+      banner.classList.add('visible');
+    } else {
+      banner.classList.remove('visible');
+    }
+  }
+
+  // Strict URL gate: fail-closed, rejects javascript/data/vbscript/file, userinfo, non-allowlisted host, traversal, and sensitive tokens
+  function sanitizeSafeUrl(rawUrl) {
+    if (!rawUrl || typeof rawUrl !== 'string') return null;
+    const url = rawUrl.trim();
+    const lower = url.toLowerCase();
+
+    if (lower.startsWith('javascript:') || lower.startsWith('data:') || lower.startsWith('vbscript:') || lower.startsWith('file:')) {
+      return null;
+    }
+
+    let decodedLower = lower;
+    try {
+      decodedLower = decodeURIComponent(lower);
+    } catch (e) {}
+
+    const sensitiveWords = ['token', 'secret', 'bearer', 'auth', 'api_key', 'key', 'password'];
+
+    // Reject path traversal (including double / triple percent-encoding)
+    let curDecode = url;
+    for (let i = 0; i < 3; i++) {
+      try {
+        const nextDecode = decodeURIComponent(curDecode);
+        if (nextDecode === curDecode) break;
+        curDecode = nextDecode;
+      } catch (e) {
+        break;
+      }
+    }
+    if (curDecode.includes('..') || curDecode.includes('\\') || url.includes('..')) {
+      return null;
+    }
+
+    // Relative safe repository paths
+    if (url.startsWith('static/') || url.startsWith('projects/') || url.startsWith('concepts/') || url === 'kanban.html' || url === 'index.html') {
+      if (sensitiveWords.some(w => decodedLower.includes(w))) {
+        return null;
+      }
+      if (/[<>\s"'\\]/.test(url)) {
+        return null;
+      }
+      return url;
+    }
+
+    // Absolute http/https URLs
+    if (lower.startsWith('http://') || lower.startsWith('https://')) {
+      try {
+        const parsed = new URL(url);
+        if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+          return null;
+        }
+        if (parsed.username || parsed.password) {
+          return null;
+        }
+        // Strict allowlisted host
+        const host = parsed.hostname.toLowerCase();
+        if (host !== 'jnocode.github.io' && host !== 'github.com' && host !== 'raw.githubusercontent.com') {
+          return null;
+        }
+
+        let tail = (parsed.search || '') + ' ' + (parsed.hash || '');
+        let decodedTail = tail.toLowerCase();
+        try {
+          decodedTail = decodeURIComponent(decodedTail);
+        } catch (e) {}
+
+        if (sensitiveWords.some(w => decodedTail.includes(w))) {
+          return null;
+        }
+        return parsed.href;
+      } catch (e) {
+        return null;
+      }
+    }
+    return null;
+  }
+
+  function renderCard(task) {
+    const card = document.createElement('div');
+    card.className = 'task-card';
+
+    const title = document.createElement('div');
+    title.className = 'task-title';
+    title.textContent = task.title || '(無標題)';
+
+    const meta = document.createElement('div');
+    meta.className = 'task-meta';
+
+    const tags = document.createElement('div');
+    tags.className = 'task-tags';
+
+    const assigneeTag = document.createElement('span');
+    assigneeTag.className = 'tag tag-assignee';
+    assigneeTag.textContent = task.assignee || '未指派';
+    tags.appendChild(assigneeTag);
+
+    if (task.block_kind) {
+      const blockTag = document.createElement('span');
+      blockTag.className = 'tag tag-block';
+      const blockMap = {
+        'credential_unverified': '憑證未驗證',
+        'dependency': '相依阻塞',
+        'upstream': '上游阻塞',
+        'resource': '資源受限',
+        'review_pending': '待審查',
+        'external': '外部因素'
+      };
+      const dispBlock = blockMap[task.block_kind] || '未分類';
+      blockTag.textContent = '🚫 ' + dispBlock;
+      tags.appendChild(blockTag);
+    }
+
+    const timeSpan = document.createElement('span');
+    if (task.status === 'done' || task.status === 'completed') {
+      timeSpan.textContent = task.completed_at ? ('完成: ' + formatTime(task.completed_at)) : ('建立: ' + formatTime(task.created_at));
+    } else {
+      timeSpan.textContent = formatTime(task.created_at);
+    }
+
+    meta.appendChild(tags);
+    meta.appendChild(timeSpan);
+
+    // Delivery / Outcome info box
+    const delBox = document.createElement('div');
+    delBox.className = 'delivery-box';
+
+    const del = task.delivery || {};
+    const safeUrl = sanitizeSafeUrl(del.artifact_url);
+
+    const artifactLine = document.createElement('div');
+    if (safeUrl) {
+      const link = document.createElement('a');
+      link.href = safeUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = '🔗 ' + (del.note || '查看核實成品');
+      artifactLine.appendChild(link);
+    } else {
+      artifactLine.className = 'delivery-none';
+      artifactLine.textContent = '📦 ' + (del.note || '未登記成品');
+    }
+    delBox.appendChild(artifactLine);
+
+    const qaVerdict = document.createElement('div');
+    qaVerdict.className = 'qa-verdict';
+    // Strict distinction: Done / completed does NOT mean QA PASS
+    if (task.status === 'done' || task.status === 'completed') {
+      qaVerdict.textContent = '🛡️ 驗收狀態：未獨立驗收 (小衡 QA 尚未 PASS)';
+    } else if (task.status === 'review') {
+      qaVerdict.textContent = '🔍 驗收狀態：待交付驗收審查';
+    } else {
+      qaVerdict.textContent = '⏳ 驗收狀態：未獨立驗收';
+    }
+    delBox.appendChild(qaVerdict);
+
+    const idSpan = document.createElement('div');
+    idSpan.style.fontSize = '0.7rem';
+    idSpan.style.color = 'var(--wiki-text-muted)';
+    idSpan.textContent = '#' + task.id + (task.priority ? ' (P' + task.priority + ')' : '');
+
+    card.appendChild(title);
+    card.appendChild(meta);
+    card.appendChild(delBox);
+    card.appendChild(idSpan);
+
+    return card;
+  }
+
+  function getFilteredTasks() {
+    if (!currentData || !Array.isArray(currentData.tasks)) return [];
+    return currentData.tasks.filter(t => {
+      if (activeTab === 'xiaoheng') {
+        return t.assignee === '小衡';
+      } else if (activeTab === 'xiaoke') {
+        return t.assignee === '小克';
+      } else if (activeTab === 'proj-job') {
+        return (t.project_id && t.project_id.toLowerCase().includes('job')) || (t.title && (t.title.includes('求職') || t.title.includes('履歷') || t.title.includes('104') || t.title.includes('Cake') || t.title.includes('LinkedIn')));
+      } else if (activeTab === 'proj-quant') {
+        return (t.project_id && t.project_id.toLowerCase().includes('jojo')) || (t.title && (t.title.includes('JoJo') || t.title.includes('量化') || t.title.includes('台股') || t.title.includes('BTC')));
+      } else if (activeTab === 'proj-podcast') {
+        return (t.project_id && t.project_id.toLowerCase().includes('creative')) || (t.title && (t.title.includes('Podcast') || t.title.includes('音訊') || t.title.includes('EP') || t.title.includes('代碼縫隙')));
+      } else if (activeTab === 'proj-brain') {
+        return (t.project_id && t.project_id.toLowerCase().includes('agent_office')) || (t.title && (t.title.includes('大腦') || t.title.includes('WIKI') || t.title.includes('Wiki') || t.title.includes('架構') || t.title.includes('Recall')));
+      }
+      return true;
+    });
+  }
+
+  function renderList(categoryKey, container) {
+    if (!container) return;
+    container.innerHTML = '';
+    const tasks = getFilteredTasks();
+    let filtered = [];
+
+    if (categoryKey === 'todo') {
+      // Catch triage, todo, waiting_approval, and any other/unknown statuses
+      filtered = tasks.filter(t => {
+        const s = t.status || 'unknown';
+        return s === 'triage' || s === 'todo' || s === 'waiting_approval' || (
+          s !== 'ready' && s !== 'scheduled' && s !== 'running' && s !== 'review' && s !== 'blocked' && s !== 'done' && s !== 'completed'
+        );
+      });
+    } else if (categoryKey === 'ready') {
+      filtered = tasks.filter(t => t.status === 'ready' || t.status === 'scheduled');
+    } else if (categoryKey === 'running') {
+      filtered = tasks.filter(t => t.status === 'running');
+    } else if (categoryKey === 'review') {
+      filtered = tasks.filter(t => t.status === 'review');
+    } else if (categoryKey === 'blocked') {
+      filtered = tasks.filter(t => t.status === 'blocked');
+    } else if (categoryKey === 'done') {
+      filtered = tasks.filter(t => t.status === 'done' || t.status === 'completed');
+      filtered.sort((a, b) => (b.completed_at || b.created_at || 0) - (a.completed_at || a.created_at || 0));
+    }
+
+    const countEl = document.getElementById('count-' + categoryKey);
+    if (countEl) countEl.textContent = filtered.length;
+
+    if (categoryKey === 'done' && isDoneCollapsed) {
+      if (filtered.length === 0) {
+        const emptyDiv = document.createElement('div');
+        emptyDiv.style.fontSize = '0.8rem';
+        emptyDiv.style.color = 'var(--wiki-text-muted)';
+        emptyDiv.style.fontStyle = 'italic';
+        emptyDiv.textContent = '（目前無完成紀錄）';
+        container.appendChild(emptyDiv);
+      } else {
+        const notice = document.createElement('div');
+        notice.style.fontSize = '0.75rem';
+        notice.style.color = 'var(--wiki-text-muted)';
+        notice.style.marginBottom = '0.4rem';
+        notice.textContent = `已折疊顯示最新 ${Math.min(6, filtered.length)} / ${filtered.length} 筆已完成成果紀錄：`;
+        container.appendChild(notice);
+        filtered.slice(0, 6).forEach(task => {
+          container.appendChild(renderCard(task));
+        });
+      }
+    } else {
+      if (filtered.length === 0) {
+        const emptyDiv = document.createElement('div');
+        emptyDiv.style.fontSize = '0.8rem';
+        emptyDiv.style.color = 'var(--wiki-text-muted)';
+        emptyDiv.style.fontStyle = 'italic';
+        emptyDiv.textContent = '（目前無任務）';
+        container.appendChild(emptyDiv);
+      } else {
+        filtered.forEach(task => {
+          container.appendChild(renderCard(task));
+        });
+      }
+    }
+  }
+
+  function render() {
+    const errorEl = document.getElementById('error-msg');
+    if (!currentData || typeof currentData !== 'object' || Array.isArray(currentData) || Object.keys(currentData).length === 0) {
+      errorEl.textContent = '⚠️ 資料格式錯誤：快照非有效 JSON 物件。';
+      errorEl.style.display = 'block';
+      document.getElementById('sum-total').textContent = '0';
+      return;
+    }
+
+    // Fail closed on missing schema fields or wrong tasks type
+    if (!('summary' in currentData) || !('tasks' in currentData) || !Array.isArray(currentData.tasks) || typeof currentData.summary !== 'object' || Object.keys(currentData.summary).length === 0) {
+      errorEl.textContent = '⚠️ 看板結構錯誤 (Schema drift)：缺少 summary 或 tasks 結構，或 tasks 非陣列。';
+      errorEl.style.display = 'block';
+      document.getElementById('sum-total').textContent = '0';
+      return;
+    }
+
+    // Contradictory total check: if tasks present but summary.total is 0 or mismatch
+    const sum = currentData.summary || {};
+    if (Array.isArray(currentData.tasks) && currentData.tasks.length > 0 && sum.total === 0) {
+      errorEl.textContent = '⚠️ 資料矛盾：看板任務清單非空，但總計 (total) 為 0。';
+      errorEl.style.display = 'block';
+    }
+
+    // Time validation
+    const genAt = currentData.generated_at;
+    const genDate = genAt ? new Date(genAt) : null;
+    const isGenValid = genDate && !isNaN(genDate.getTime());
+
+    if (!isGenValid) {
+      document.getElementById('gen-time').textContent = '無有效時戳 (資料損壞)';
+      errorEl.textContent = '⚠️ 快照警告：缺少有效之產出時戳 (generated_at)，資料可能不完整。';
+      errorEl.style.display = 'block';
+    } else {
+      document.getElementById('gen-time').textContent = formatTime(genAt);
+    }
+
+    document.getElementById('source-event-time').textContent = formatTime(currentData.source_latest_event_at);
+    
+    checkStaleness(genAt);
+
+    // Summary counts (sum already declared above)
+    const allSt = sum.all_statuses || {};
+    const knownStandard = new Set(['ready', 'scheduled', 'running', 'review', 'blocked', 'done', 'completed', 'archived']);
+    let calculatedTodo = 0;
+    for (const [st, cnt] of Object.entries(allSt)) {
+      if (!knownStandard.has(st)) {
+        calculatedTodo += (cnt || 0);
+      }
+    }
+    const todoCount = calculatedTodo;
+
+    document.getElementById('sum-total').textContent = sum.total !== undefined ? sum.total : 0;
+    document.getElementById('sum-todo').textContent = todoCount;
+    document.getElementById('sum-ready').textContent = (sum.ready || 0) + (allSt.scheduled || 0);
+    document.getElementById('sum-running').textContent = sum.running || 0;
+    document.getElementById('sum-review').textContent = sum.review || 0;
+    document.getElementById('sum-blocked').textContent = sum.blocked || 0;
+    document.getElementById('sum-done').textContent = (sum.done || 0) + (sum.completed || 0);
+
+    // Render 6 columns covering all states
+    renderList('todo', document.getElementById('list-todo'));
+    renderList('ready', document.getElementById('list-ready'));
+    renderList('running', document.getElementById('list-running'));
+    renderList('review', document.getElementById('list-review'));
+    renderList('blocked', document.getElementById('list-blocked'));
     renderList('done', document.getElementById('list-done'));
   }
 
@@ -454,153 +860,21 @@
       })
       .catch(err => {
         console.error('Fetch kanban_status.json error:', err);
-        errorEl.innerText = '⚠️ 無法讀取看板狀態資料：' + err.message;
+        errorEl.textContent = '⚠️ 無法讀取看板狀態資料快照：' + err.message;
         errorEl.style.display = 'block';
       });
   }
 
-  function renderCard(task) {
-    const card = document.createElement('div');
-    card.className = 'task-card';
-
-    const title = document.createElement('div');
-    title.className = 'task-title';
-    title.innerText = task.title;
-
-    const meta = document.createElement('div');
-    meta.className = 'task-meta';
-
-    const tags = document.createElement('div');
-    tags.className = 'task-tags';
-
-    const assigneeTag = document.createElement('span');
-    assigneeTag.className = 'tag tag-assignee';
-    assigneeTag.innerText = task.assignee || '未指派';
-    tags.appendChild(assigneeTag);
-
-    if (task.block_kind) {
-      const blockTag = document.createElement('span');
-      blockTag.className = 'tag tag-block';
-      blockTag.innerText = '🚫 ' + task.block_kind;
-      tags.appendChild(blockTag);
-    }
-
-    const timeSpan = document.createElement('span');
-    timeSpan.innerText = formatTime(task.created_at);
-
-    meta.appendChild(tags);
-    meta.appendChild(timeSpan);
-
-    if (task.body) {
-      const desc = document.createElement('div');
-      desc.style.fontSize = '0.75rem';
-      desc.style.color = 'var(--wiki-text-muted)';
-      desc.style.margin = '0.4rem 0';
-      desc.style.lineHeight = '1.4';
-      desc.innerText = task.body.length > 90 ? task.body.substring(0, 90) + '...' : task.body;
-      card.appendChild(desc);
-    }
-
-    const idSpan = document.createElement('div');
-    idSpan.style.fontSize = '0.7rem';
-    idSpan.style.color = 'var(--wiki-text-muted)';
-    idSpan.innerText = '#' + task.id + (task.priority ? ' (P' + task.priority + ')' : '') + (task.project_id ? ' · ' + task.project_id : '');
-
-    card.appendChild(title);
-    card.appendChild(meta);
-    card.appendChild(idSpan);
-
-    return card;
-  }
-
-  function getFilteredTasks() {
-    if (!currentData || !currentData.tasks) return [];
-    return currentData.tasks.filter(t => {
-      if (activeTab === 'xiaoheng') {
-        return t.assignee === '小衡';
-      } else if (activeTab === 'xiaoke') {
-        return t.assignee === '小克';
-      } else if (activeTab === 'proj-job') {
-        return (t.project_id && t.project_id.includes('Job')) || (t.title && (t.title.includes('求職') || t.title.includes('履歷') || t.title.includes('104') || t.title.includes('LinkedIn')));
-      } else if (activeTab === 'proj-quant') {
-        return (t.project_id && t.project_id.includes('jojo')) || (t.title && (t.title.includes('JoJo') || t.title.includes('量化') || t.title.includes('台股') || t.title.includes('BTC')));
-      } else if (activeTab === 'proj-podcast') {
-        return (t.project_id && t.project_id.includes('Creative')) || (t.title && (t.title.includes('Podcast') || t.title.includes('音訊') || t.title.includes('EP')));
-      } else if (activeTab === 'proj-brain') {
-        return (t.project_id && t.project_id.includes('agent_office')) || (t.title && (t.title.includes('大腦') || t.title.includes('WIKI') || t.title.includes('架構') || t.title.includes('Recall')));
-      }
-      return true;
-    });
-  }
-
-  function renderList(statusKey, container) {
-    container.innerHTML = '';
-    const tasks = getFilteredTasks();
-    let filtered = [];
-
-    if (statusKey === 'todo') {
-      filtered = tasks.filter(t => ['todo', 'triage', 'scheduled'].includes(t.status));
-    } else {
-      filtered = tasks.filter(t => t.status === statusKey);
-    }
-
-    document.getElementById('count-' + statusKey).innerText = filtered.length;
-
-    if (statusKey === 'done' && isDoneCollapsed) {
-      // 預設折疊，只顯示前 5 筆
-      const notice = document.createElement('div');
-      notice.style.fontSize = '0.75rem';
-      notice.style.color = 'var(--wiki-text-muted)';
-      notice.style.marginBottom = '0.4rem';
-      notice.innerText = `已折疊，顯示最新 5 / ${filtered.length} 筆項目：`;
-      container.appendChild(notice);
-      filtered.slice(0, 5).forEach(task => {
-        container.appendChild(renderCard(task));
-      });
-    } else {
-      filtered.forEach(task => {
-        container.appendChild(renderCard(task));
-      });
-    }
-  }
-
-  function render() {
-    if (!currentData) return;
-
-    // Header & Summary
-    document.getElementById('gen-time').innerText = formatTime(currentData.generated_at);
-    
-    const sum = currentData.summary || {};
-    document.getElementById('sum-total').innerText = sum.total || 0;
-    document.getElementById('sum-in-progress').innerText = sum.in_progress || 0;
-    document.getElementById('sum-blocked').innerText = sum.blocked || 0;
-
-    const tasks = getFilteredTasks();
-    const todoCount = tasks.filter(t => ['todo', 'triage', 'scheduled'].includes(t.status)).length;
-    const doneCount = tasks.filter(t => t.status === 'done').length;
-
-    document.getElementById('sum-todo').innerText = todoCount;
-    document.getElementById('sum-done').innerText = doneCount;
-
-    // Columns
-    renderList('ready', document.getElementById('list-ready'));
-    renderList('running', document.getElementById('list-running'));
-    renderList('blocked', document.getElementById('list-blocked'));
-    renderList('todo', document.getElementById('list-todo'));
-    renderList('done', document.getElementById('list-done'));
-  }
-
-  // Timer倒數
   setInterval(() => {
     countdownVal--;
     if (countdownVal <= 0) {
       fetchData();
     } else {
-      document.getElementById('countdown').innerText = countdownVal;
+      const cdEl = document.getElementById('countdown');
+      if (cdEl) cdEl.textContent = countdownVal;
     }
   }, 1000);
 
-  // 初始化
   initTheme();
   fetchData();
 </script>
