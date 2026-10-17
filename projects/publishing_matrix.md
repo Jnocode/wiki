@@ -27,10 +27,22 @@ status: "active"
 
 ---
 
-## 🎙️ Podcast《代碼縫隙》發布矩陣
+## 🎙️ Podcast《代碼縫隙》發布矩陣與節目資產管理
 
-- **節目簡介**：探討 AI 時代個人系統、全端工程與自動化生活實踐。
-- **發布狀態**：未核實（音訊正本與平台託管尚未核實，不登記外部連結）。
+- **節目簡介**：探討 AI 時代個人系統、全端工程、真實算力代價與自動化生活實踐。
+- **公開 RSS Feed**：`https://feeds.soundon.fm/podcasts/954689a5-3096-43a4-a80b-7810b219cef3.xml`
+- **公開收聽平台**：[SoundOn Player](https://player.soundon.fm/p/a9bfa8f9-6184-49b6-be95-90708cf990d5) ｜ [Spotify](https://open.spotify.com/show/代碼縫隙) ｜ [Apple Podcasts](https://podcasts.apple.com/podcast/代碼縫隙)
+
+### 節目發布狀態清單與人類可讀腳本索引
+
+| 集數 | 單集標題 | 發布狀態 | 公開日期 | 人類可讀腳本內容 | 平台連結 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **EP20** | **從「聲音克隆」到「思考延遲」——當合成成本歸零，為什麼我們反而更難聽下去？** | 🛠️ **修訂中（待深入重構）** | 預計 10/21(三) | [📄 檢視 EP20 修訂中腳本草稿](projects/podcast/ep20_script_review.md) | 本地母帶已壓制 / 待審稿重構 |
+| **EP19** | **AI 控制瑪利歐又擋寫程式代理？拆解 System-1 快決策模型 Jev 的真實邊界** | ✅ **已發布** | 2026-10-14 | [📄 檢視 EP19 正式對白劇本](projects/podcast/ep19_script_published.md) | [SoundOn](https://player.soundon.fm/p/a9bfa8f9-6184-49b6-be95-90708cf990d5) |
+| **EP18** | **AI 沒讓我提早下班，反而讓我成了五個發瘋實習生的惡毒主管——普通人的 AI 倖存指南** | ✅ **已發布** | 2026-10-07 | 存檔於音訊發布包 | [SoundOn](https://player.soundon.fm/p/a9bfa8f9-6184-49b6-be95-90708cf990d5) |
+| **EP16** | **Become Human：走進 Moltbook，當 AI 開始拒絕當完美的騙子** | ✅ **已發布** | 2026-09-11 | [📄 檢視 EP16 濃縮契約](projects/podcast/ep16_script_condense_contract.md) | [SoundOn](https://player.soundon.fm/p/a9bfa8f9-6184-49b6-be95-90708cf990d5) |
+| **EP15** | **GPT-6 Astra：我把本週 X 上的作品丟給你看** | ✅ **已發布** | 2026-09-08 | 存檔於歷史庫 | [SoundOn](https://player.soundon.fm/p/a9bfa8f9-6184-49b6-be95-90708cf990d5) |
+| **EP07** | **能生成不等於能發布：兩個 bug 互相掩護，把我們自己的節目送上線** | ✅ **已發布** | 2026-08-06 | 存檔於歷史庫 | [Spotify](https://open.spotify.com/episode/7B0Zg5wcttIRxMJusyUpJ9) |
 
 ---
 
