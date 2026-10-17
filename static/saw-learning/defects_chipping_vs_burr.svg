@@ -47,7 +47,7 @@
     <text x="25" y="200" class="card-desc">• 視覺特徵：切口邊緣呈現貝殼狀或不規則碎裂凹坑。</text>
     <text x="25" y="230" class="card-desc">• 材料行為：硬脆性環氧樹脂在刀刃衝擊下之脆性斷裂。</text>
     <text x="25" y="260" class="card-desc">• 觀察要點：需以光學顯微鏡量測崩裂深度與延伸尺寸。</text>
-    <text x="25" y="295" class="card-warn">※ 現場注意：此為幾何外觀描述，真確成因請依廠內規範排查。</text>
+    <text x="25" y="295" class="card-warn">※ 僅外觀描述，成因依廠內規範排查。</text>
   </g>
 
   <!-- 下半部：毛邊與拉絲 (Burr & Smearing) 外觀特徵 -->
@@ -67,7 +67,7 @@
 
       <!-- 標示文字 -->
       <line x1="280" y1="25" x2="330" y2="25" stroke="#e3b341" stroke-width="2" />
-      <text x="340" y="31" fill="#e3b341" font-size="20" font-weight="bold">金屬延性毛邊 (Burr)</text>
+      <text x="330" y="31" fill="#e3b341" font-size="20" font-weight="bold">銅毛邊 (Burr)</text>
 
       <line x1="285" y1="80" x2="330" y2="80" stroke="#e3b341" stroke-width="2" />
       <text x="340" y="86" fill="#e3b341" font-size="20" font-weight="bold">橫向拉絲短路風險</text>
@@ -77,6 +77,6 @@
     <text x="25" y="200" class="card-desc">• 視覺特徵：切口銅面邊緣向上翹起或向兩側橫向延展。</text>
     <text x="25" y="230" class="card-desc">• 材料行為：延性銅受切削擠壓產生塑性流動與金屬拉絲。</text>
     <text x="25" y="260" class="card-desc">• 觀察要點：毛邊若跨越相鄰引腳絕緣間隙，具短路風險。</text>
-    <text x="25" y="300" class="card-warn">※ 現場注意：請勿依外觀推斷機台故障，依標準程序回報導師。</text>
+    <text x="25" y="300" class="card-warn">※ 勿依外觀推斷故障，依標準程序回報導師。</text>
   </g>
 </svg>

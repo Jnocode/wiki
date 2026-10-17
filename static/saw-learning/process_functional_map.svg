@@ -84,6 +84,6 @@
   <text x="430" y="360" class="feedback-text">切痕偏移補償</text>
 
   <!-- 底部說明 -->
-  <text x="25" y="760" class="note-text">※ 提示：現場機台各站由傳送手臂串聯，因果關係為動態閉環。</text>
-  <text x="25" y="790" class="note-text">※ 操作對照卡重點在於記錄每一動之「前置條件」與「完成證據」。</text>
+  <text x="25" y="760" class="note-text">※ 現場各站由手臂串聯，因果為動態閉環。</text>
+  <text x="25" y="790" class="note-text">※ 對照卡重點：每個動作的「前置條件」與「完成證據」。</text>
 </svg>

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 840" width="100%" height="100%" style="background:#161b22; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 875" width="100%" height="100%" style="background:#161b22; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;">
   <style>
     .title { fill: #58a6ff; font-size: 26px; font-weight: bold; }
     .subtitle { fill: #8b949e; font-size: 20px; }
@@ -46,25 +46,25 @@
 
     <!-- 標記文字與引導線 -->
     <!-- 1. 街道 (Street) -->
-    <line x1="225" y1="75" x2="60" y2="75" stroke="#58a6ff" stroke-width="1.5" />
-    <text x="50" y="80" class="label-blue" text-anchor="end">街道 (Street)</text>
+    <line x1="225" y1="80" x2="155" y2="80" stroke="#58a6ff" stroke-width="1.5" />
+    <text x="8" y="76" class="label-blue">街道 (Street)</text>
 
     <!-- 2. 軟體十字線 (Hairline) -->
-    <line x1="265" y1="140" x2="460" y2="100" stroke="#3fb950" stroke-width="1.5" />
-    <text x="470" y="105" class="label-green">軟體十字線 (Hairline)</text>
+    <line x1="265" y1="140" x2="295" y2="112" stroke="#3fb950" stroke-width="1.5" />
+    <text x="300" y="105" class="label-green">十字線 Hairline</text>
 
     <!-- 3. 實際切痕 (Kerf) -->
-    <line x1="285" y1="280" x2="460" y2="280" stroke="#ff7b72" stroke-width="1.5" />
-    <text x="470" y="285" class="label-red">實際切痕 (Kerf)</text>
+    <line x1="285" y1="280" x2="335" y2="285" stroke="#ff7b72" stroke-width="1.5" />
+    <text x="340" y="291" class="label-red">切痕 Kerf</text>
 
     <!-- 4. θ軸角度旋轉示意 -->
     <path d="M 170 310 A 120 120 0 0 0 250 335" fill="none" stroke="#d29922" stroke-width="3" />
-    <text x="150" y="345" class="label-orange">θ 軸旋轉校正</text>
+    <text x="285" y="352" class="label-orange">θ 軸旋轉校正</text>
   </g>
 
   <!-- 概念說明卡片區 (重點辨析條列) -->
   <g transform="translate(25, 545)">
-    <rect width="530" height="265" class="card-bg" />
+    <rect width="530" height="300" class="card-bg" />
     <text x="25" y="35" class="card-title">四個概念核心辨析重點：</text>
     
     <text x="25" y="70" class="label-blue">1. 街道 (Street / Avenue)：</text>
