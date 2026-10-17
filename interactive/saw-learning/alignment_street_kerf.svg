@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 875" width="100%" height="100%" style="background:#161b22; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;">
+  <style>
+    .title { fill: #58a6ff; font-size: 26px; font-weight: bold; }
+    .subtitle { fill: #8b949e; font-size: 20px; }
+    .banner-bg { fill: #b62324; rx: 6px; }
+    .banner-text { fill: #ffffff; font-size: 20px; font-weight: bold; text-anchor: middle; }
+    .card-bg { fill: #0d1117; stroke: #30363d; stroke-width: 2px; rx: 8px; }
+    .card-title { fill: #e3b341; font-size: 22px; font-weight: bold; }
+    .card-desc { fill: #c9d1d9; font-size: 20px; }
+    .label-blue { fill: #58a6ff; font-size: 20px; font-weight: bold; }
+    .label-green { fill: #3fb950; font-size: 20px; font-weight: bold; }
+    .label-orange { fill: #d29922; font-size: 20px; font-weight: bold; }
+    .label-red { fill: #ff7b72; font-size: 20px; font-weight: bold; }
+  </style>
+
+  <!-- 標題區 -->
+  <text x="25" y="42" class="title">街道、參考線、θ軸與切痕幾何關係</text>
+  <text x="25" y="72" class="subtitle">顯微對位畫面與切割特徵概念辨析（非特定機型）</text>
+
+  <!-- 警示橫幅 -->
+  <rect x="25" y="90" width="530" height="36" class="banner-bg" />
+  <text x="290" y="115" class="banner-text">【AI 整理示意／非機台實測／非缺陷判定標準】</text>
+
+  <!-- 圖解主視圖區 (顯微鏡視野模擬) -->
+  <g transform="translate(25, 145)">
+    <rect width="530" height="380" class="card-bg" stroke="#1f6feb" />
+    
+    <!-- 圓形顯微視野背景 -->
+    <circle cx="265" cy="190" r="160" fill="#111820" stroke="#30363d" stroke-width="2" />
+
+    <!-- 封裝導線架/晶粒本體 (左側與右側) -->
+    <rect x="135" y="60" width="90" height="260" fill="#21262d" stroke="#8b949e" stroke-width="2" rx="4" />
+    <rect x="305" y="60" width="90" height="260" fill="#21262d" stroke="#8b949e" stroke-width="2" rx="4" />
+    <text x="180" y="195" fill="#8b949e" font-size="20" font-weight="bold" text-anchor="middle">工件 A</text>
+    <text x="350" y="195" fill="#8b949e" font-size="20" font-weight="bold" text-anchor="middle">工件 B</text>
+
+    <!-- 街道 (Street)：兩側本體之間的保留通道 -->
+    <rect x="225" y="50" width="80" height="280" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="4,4" class="street" data-tooltip="街道 (Street)：預留切割走廊，內無功能電路。" />
+    
+    <!-- 刀痕 / 切痕 (Kerf)：刀片切出的實際槽道 -->
+    <rect x="245" y="50" width="40" height="280" fill="#ff7b72" fill-opacity="0.25" stroke="#ff7b72" stroke-width="2" class="kerf" data-tooltip="切痕 (Kerf)：刀片切出的實際槽道。" />
+
+    <!-- 軟體十字參考線 (Hairline / Crosshair) -->
+    <line x1="105" y1="190" x2="425" y2="190" stroke="#3fb950" stroke-width="2" stroke-dasharray="8,4" class="hairline-h" data-tooltip="十字參考線 (Hairline)：光學對位軟體虛擬線，供操作者判定中心與偏位。" />
+    <line x1="265" y1="30" x2="265" y2="350" stroke="#3fb950" stroke-width="2" stroke-dasharray="8,4" class="hairline-v" data-tooltip="十字參考線 (Hairline)：光學對位軟體虛擬線，供操作者判定中心與偏位。" />
+
+    <!-- 標記文字與引導線 -->
+    <!-- 1. 街道 (Street) -->
+    <line x1="225" y1="80" x2="155" y2="80" stroke="#58a6ff" stroke-width="1.5" />
+    <text x="8" y="76" class="label-blue">街道 (Street)</text>
+
+    <!-- 2. 軟體十字線 (Hairline) -->
+    <line x1="265" y1="140" x2="295" y2="112" stroke="#3fb950" stroke-width="1.5" />
+    <text x="300" y="105" class="label-green">十字線 Hairline</text>
+
+    <!-- 3. 實際切痕 (Kerf) -->
+    <line x1="285" y1="280" x2="335" y2="285" stroke="#ff7b72" stroke-width="1.5" />
+    <text x="340" y="291" class="label-red">切痕 Kerf</text>
+
+    <!-- 4. θ軸角度旋轉示意 -->
+    <path d="M 170 310 A 120 120 0 0 0 250 335" fill="none" stroke="#d29922" stroke-width="3" class="theta" data-tooltip="θ 軸旋轉校正：旋轉工件承載台，使實體街道與切割軸完全平行。" />
+    <text x="285" y="352" class="label-orange">θ 軸旋轉校正</text>
+  </g>
+
+  <!-- 概念說明卡片區 (重點辨析條列) -->
+  <g transform="translate(25, 545)">
+    <rect width="530" height="300" class="card-bg" />
+    <text x="25" y="35" class="card-title">四個概念核心辨析重點：</text>
+    
+    <text x="25" y="70" class="label-blue">1. 街道 (Street / Avenue)：</text>
+    <text x="25" y="96" class="card-desc">工件設計預留之切割走廊，內無功能電路。</text>
+
+    <text x="25" y="130" class="label-green">2. 十字參考線 (Hairline / Crosshair)：</text>
+    <text x="25" y="156" class="card-desc">光學對位軟體虛擬線，供操作者判定中心與偏位。</text>
+
+    <text x="25" y="190" class="label-orange">3. θ 軸校正 (Theta Rotation)：</text>
+    <text x="25" y="216" class="card-desc">旋轉工件承載台，使實體街道與切割軸完全平行。</text>
+
+    <text x="25" y="250" class="label-red">4. 切痕檢驗 (Kerf Check)：</text>
+    <text x="25" y="276" class="card-desc">試切後檢驗中心偏移量 (Hairline Offset) 與切痕寬度。</text>
+  </g>
+</svg>

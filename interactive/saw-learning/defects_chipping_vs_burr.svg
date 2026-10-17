@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 860" width="100%" height="100%" style="background:#161b22; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;">
+  <style>
+    .title { fill: #58a6ff; font-size: 26px; font-weight: bold; }
+    .subtitle { fill: #8b949e; font-size: 20px; }
+    .banner-bg { fill: #b62324; rx: 6px; }
+    .banner-text { fill: #ffffff; font-size: 20px; font-weight: bold; text-anchor: middle; }
+    .card-bg { fill: #0d1117; stroke: #30363d; stroke-width: 2px; rx: 8px; }
+    .card-title-chipping { fill: #ff7b72; font-size: 22px; font-weight: bold; }
+    .card-title-burr { fill: #d29922; font-size: 22px; font-weight: bold; }
+    .card-desc { fill: #c9d1d9; font-size: 20px; }
+    .card-warn { fill: #f85149; font-size: 20px; font-weight: bold; }
+    .part-label { fill: #8b949e; font-size: 20px; font-weight: bold; }
+  </style>
+
+  <!-- 標題區 -->
+  <text x="25" y="42" class="title">切削外觀表徵：崩角 vs. 毛邊/拉絲</text>
+  <text x="25" y="72" class="subtitle">顯微宏觀特徵形態對照（非遠端成因診斷）</text>
+
+  <!-- 警示橫幅 -->
+  <rect x="25" y="90" width="530" height="36" class="banner-bg" />
+  <text x="290" y="115" class="banner-text">【AI 整理示意／非機台實測／非缺陷判定標準】</text>
+
+  <!-- 上半部：崩角 (Chipping) 外觀特徵 -->
+  <g transform="translate(25, 145)">
+    <rect width="530" height="330" class="card-bg" stroke="#da3633" />
+    <text x="25" y="38" class="card-title-chipping">1. 樹脂／材料崩角 (Mold / Top Chipping)</text>
+    
+    <!-- 圖解區：工件邊緣破碎缺角 -->
+    <g transform="translate(25, 55)">
+      <!-- 正常封裝體本體 (環氧樹脂) -->
+      <path d="M 0 0 L 260 0 L 260 110 L 0 110 Z" fill="#21262d" stroke="#8b949e" stroke-width="2" />
+      <text x="130" y="60" class="part-label" text-anchor="middle">封裝膠體 (Mold Compound)</text>
+
+      <!-- 鋸齒缺口破碎形態 (示意崩角) -->
+      <path d="M 230 0 L 260 0 L 260 50 L 245 40 L 255 25 L 235 20 Z" fill="#da3633" />
+      <path d="M 260 70 L 240 85 L 260 100 Z" fill="#da3633" />
+      
+      <!-- 標示文字 -->
+      <line x1="245" y1="20" x2="310" y2="30" stroke="#f85149" stroke-width="2" />
+      <text x="320" y="36" fill="#f85149" font-size="20" font-weight="bold">不規則缺角 / 凹坑</text>
+
+      <line x1="245" y1="85" x2="310" y2="85" stroke="#f85149" stroke-width="2" />
+      <text x="320" y="91" fill="#f85149" font-size="20" font-weight="bold">邊緣脆性碎裂</text>
+    </g>
+
+    <!-- 特徵描述條列 -->
+    <text x="25" y="200" class="card-desc">• 視覺特徵：切口邊緣呈現貝殼狀或不規則碎裂凹坑。</text>
+    <text x="25" y="230" class="card-desc">• 材料行為：硬脆性環氧樹脂在刀刃衝擊下之脆性斷裂。</text>
+    <text x="25" y="260" class="card-desc">• 觀察要點：需以光學顯微鏡量測崩裂深度與延伸尺寸。</text>
+    <text x="25" y="295" class="card-warn" data-tooltip="此為幾何外觀描述，真確成因請依廠內規範排查。">※ 僅外觀描述，成因依廠內規範排查。</text>
+  </g>
+
+  <!-- 下半部：毛邊與拉絲 (Burr & Smearing) 外觀特徵 -->
+  <g transform="translate(25, 495)">
+    <rect width="530" height="340" class="card-bg" stroke="#d29922" />
+    <text x="25" y="38" class="card-title-burr">2. 銅引腳毛邊與拉絲 (Burr &amp; Smearing)</text>
+    
+    <!-- 圖解區：銅導線邊緣毛邊凸起與延性拉伸 -->
+    <g transform="translate(25, 55)">
+      <!-- 銅引腳截面 (銅材質) -->
+      <path d="M 0 0 L 260 0 L 260 110 L 0 110 Z" fill="#302217" stroke="#d29922" stroke-width="2" />
+      <text x="130" y="60" fill="#e3b341" font-size="20" font-weight="bold" text-anchor="middle">銅導線 / 接腳 (Copper Lead)</text>
+
+      <!-- 延展毛邊與拉絲 (示意凸出) -->
+      <path d="M 260 15 C 285 10, 295 25, 275 35 C 265 40, 260 30, 260 25 Z" fill="#d29922" stroke="#e3b341" />
+      <path d="M 260 65 C 290 60, 305 85, 270 95 C 262 98, 260 85, 260 80 Z" fill="#d29922" stroke="#e3b341" />
+
+      <!-- 標示文字 -->
+      <line x1="280" y1="25" x2="330" y2="25" stroke="#e3b341" stroke-width="2" />
+      <text x="330" y="31" fill="#e3b341" font-size="20" font-weight="bold">銅毛邊 (Burr)</text>
+
+      <line x1="285" y1="80" x2="330" y2="80" stroke="#e3b341" stroke-width="2" />
+      <text x="340" y="86" fill="#e3b341" font-size="20" font-weight="bold">橫向拉絲短路風險</text>
+    </g>
+
+    <!-- 特徵描述條列 -->
+    <text x="25" y="200" class="card-desc">• 視覺特徵：切口銅面邊緣向上翹起或向兩側橫向延展。</text>
+    <text x="25" y="230" class="card-desc">• 材料行為：延性銅受切削擠壓產生塑性流動與金屬拉絲。</text>
+    <text x="25" y="260" class="card-desc">• 觀察要點：毛邊若跨越相鄰引腳絕緣間隙，具短路風險。</text>
+    <text x="25" y="300" class="card-warn" data-tooltip="請勿依外觀推斷機台故障，依標準程序回報導師。">※ 勿依外觀推斷故障，依標準程序回報導師。</text>
+  </g>
+</svg>

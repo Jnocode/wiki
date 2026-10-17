@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>SAW 互動學習頁 – 封裝切割站</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif; background:#161b22; color:#c9d1d9; margin:0; padding:1rem;}
+  h1 {color:#58a6ff; text-align:center;}
+  .container {max-width:900px; margin:auto;}
+  .section {margin:2rem 0;}
+  .svg-container {background:#0d1117; padding:1rem; border-radius:8px; margin:1rem 0; overflow:auto;}
+  .tooltip {position:absolute; background:#0d1117; color:#fff; border:1px solid #58a6ff; border-radius:4px; padding:4px 8px; font-size:0.9rem; pointer-events:none; opacity:0; transition:opacity 0.2s; z-index:1000;}
+  .tooltip.show {opacity:1;}
+  .slider-wrapper {margin:1.5rem 0;}
+  .slider-wrapper label {display:block; margin-bottom:0.3rem; font-weight:bold;}
+  input[type=range] {width:100%;}
+  #speedValue {font-weight:bold; color:#58a6ff;}
+  .spindle-indicator {display:inline-block; width:12px; height:12px; border-radius:50%; margin-left:0.5rem; vertical-align:middle;}
+  .details {background:#0d1117; border:1px solid #30363d; border-radius:6px; margin:0.5rem 0;}
+  .details summary {padding:0.8rem; cursor:pointer; font-weight:bold; color:#58a6ff;}
+  .details summary::-webkit-summary-marker {display:none;}
+  .details[open] {background:#010409;}
+  .details p {padding:0 0.8rem 0.8rem; line-height:1.5;}
+  .footer {text-align:center; font-size:0.85rem; color:#8b949e; margin-top:2rem;}
+  a {color:#58a6ff;}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>SAW 封裝切割站 – 互動學習頁</h1>
+<p>此頁面僅用於概念對齊與教學示意，實際操作請參考內部 SOP。</p>
+
+<div class="section">
+<h2>功能單元關係圖</h2>
+<div class="svg-container">
+<object type="image/svg+xml" data="interactive/saw-learning/process_functional_map.svg" class="svg-graphic"></object>
+</div>
+</div>
+
+<div class="section">
+<h2>幾何關係概念圖</h2>
+<div class="svg-container">
+<object type="image/svg+xml" data="interactive/saw-learning/alignment_street_kerf.svg" class="svg-graphic"></object>
+</div>
+</div>
+
+<div class="section">
+<h2>切削外觀特徵對照圖</h2>
+<div class="svg-container">
+<object type="image/svg+xml" data="interactive/saw-learning/defects_chipping_vs_burr.svg" class="svg-graphic"></object>
+</div>
+</div>
+
+<div class="section">
+<h2>主軸轉速（正規化）示意</h2>
+<div class="slider-wrapper">
+  <label>主軸轉速（相對標準） <span id="speedValue">100%</span> <span class="spindle-indicator" id="spindleColor"></span></label>
+  <input type="range" min="50" max="150" value="100" id="speedSlider">
+</div>
+<p>此滑桿僅示意相對轉速變化，實際參數請參考內部 SOP。</p>
+</div>
+
+<div class="section">
+<h2>操作對照卡（範例）</h2>
+<details>
+  <summary>步驟 1：對位與步進運算 (Alignment & Index)</summary>
+  <p><strong>前置條件：</strong>機台就緒、真空治具或膠帶已載入封裝體、光學系統已校準。</p>
+  <p><strong>動作：</strong>啟動對位演算法，讀取導線架/基板特徵，計算 θ 軸旋轉與步進補償。</p>
+  <p><strong>完成證據：</strong>對位誤差容許範圍內（例如 ≤ 1 μm），θ 軸校正完成，顯示對位 OK。</p>
+</details>
+<details>
+  <summary>步驟 2：高速刀軸切割 (Spindle & Dicing)</summary>
+  <p><strong>前置條件：</strong>對位完成、刀具狀態正常、冷卻水流量正常。</p>
+  <p><strong>動作：</strong>啟動主軸至設定轉速，開始切割，同時監控破刀檢知器 (BBD)。</p>
+  <p><strong>完成證據：</strong>切割完成、BBD 無異常、切痕寬度在規範內。</p>
+</details>
+<details>
+  <summary>步驟 3：切痕檢驗與即時補償 (Kerf Check & Feedback)</summary>
+  <p><strong>前置條件：</strong>切割結束、影像系統就緒。</p>
+  <p><strong>動作：</strong>檢測切痕寬度與中心偏移量，將偏移量反饋給對位單元進行下一輪校正。</p>
+  <p><strong>完成證據：</strong>切痕寬度在規範、偏移量已補償至容許範圍。</p>
+</details>
+<details>
+  <summary>步驟 4：清洗分選收料單元 (Cleaning & Handler)</summary>
+  <p><strong>前置條件：</strong>切割完成、工件仍固定於治具。</p>
+  <p><strong>動作：</strong>高壓水洗去毛屑，真空吸嘴取放至料盤，依良品/不良品分類。</p>
+  <p><strong>完成證據：</strong>表面無可見毛屑，良品計數正常。</p>
+</details>
+</div>
+
+<div class="footer">
+  資料來源：公開文件（DISCO、TOWA、EPFL、Stanford、Utah 等）<br>
+  <a href="https://jnocode.github.io/wiki/viewer.html?file=concepts/semiconductor-saw-learning.md">返回靜態學習地圖</a>
+</div>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+const tooltip = document.getElementById('tooltip');
+const svgObjects = document.querySelectorAll('object.svg-graphic');
+let svgDocs = []; // will hold SVG documents after load
+
+function showTooltip(evt, content) {
+  tooltip.textContent = content;
+  tooltip.style.left = (evt.pageX + 8) + 'px';
+  tooltip.style.top = (evt.pageY + 8) + 'px';
+  tooltip.classList.add('show');
+}
+function hideTooltip() {
+  tooltip.classList.remove('show');
+}
+
+// Wait for each object to load, then attach listeners to elements with data-tooltip
+svgObjects.forEach(obj => {
+  obj.addEventListener('load', () => {
+    try {
+      const svgDoc = obj.contentDocument;
+      svgDocs.push(svgDoc);
+      const elems = svgDoc.querySelectorAll('[data-tooltip]');
+      elems.forEach(el => {
+        el.addEventListener('mouseenter', e => showTooltip(e, el.dataset.tooltip));
+        el.addEventListener('mouseleave', hideTooltip);
+        el.addEventListener('touchstart', e => { e.preventDefault(); showTooltip(e, el.dataset.tooltip); });
+        el.addEventListener('touchend', hideTooltip);
+      });
+    } catch (e) {
+      console.warn('Could not access SVG DOM (maybe cross‑origin)', e);
+    }
+  });
+});
+
+// Spindle speed slider interaction
+const slider = document.getElementById('speedSlider');
+const valueSpan = document.getElementById('speedValue');
+const spindleColor = document.getElementById('spindleColor');
+
+function updateSpindleDisplay() {
+  const pct = slider.value;
+  valueSpan.textContent = pct + '%';
+  // Color mapping: green 80-120, amber outside, red extreme
+  if (pct < 70) { spindleColor.style.background = '#ffd166'; } // amber low
+  else if (pct > 130) { spindleColor.style.background = '#ff6b6b'; } // red high
+  else { spindleColor.style.background = '#3fb950'; } // green normal
+}
+slider.addEventListener('input', updateSpindleDisplay);
+slider.addEventListener('change', updateSpindleDisplay);
+// Initialize
+updateSpindleDisplay();
+</script>
+</body>
+</html>
