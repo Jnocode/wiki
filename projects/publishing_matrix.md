@@ -37,7 +37,7 @@ status: "active"
 
 | 集數 | 單集標題 | 發布狀態 | 公開日期 | 人類可讀腳本內容 | 平台連結 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **EP20** | **從「聲音克隆」到「思考延遲」——當合成成本歸零，為什麼我們反而更難聽下去？** | 🛠️ **修訂中（待深入重構）** | 預計 10/21(三) | [📄 檢視 EP20 修訂中腳本草稿](projects/podcast/ep20_script_review.md) | 本地母帶已壓制 / 待審稿重構 |
+| **EP20** | **從「聲音克隆」到「思考延遲」——當合成成本歸零，為什麼我們反而更難聽下去？** | 🛠️ **修訂中（草稿退件待補證 / 全片未聽審）** | 預計 10/21(三) | [📄 檢視 EP20 腳本審核與待修草稿](projects/podcast/ep20_script_review.md) | 舊母帶未達標 / 新版待重錄 |
 | **EP19** | **AI 控制瑪利歐又擋寫程式代理？拆解 System-1 快決策模型 Jev 的真實邊界** | ✅ **已發布** | 2026-10-14 | [📄 檢視 EP19 正式對白劇本](projects/podcast/ep19_script_published.md) | [SoundOn](https://player.soundon.fm/p/a9bfa8f9-6184-49b6-be95-90708cf990d5) |
 | **EP18** | **AI 沒讓我提早下班，反而讓我成了五個發瘋實習生的惡毒主管——普通人的 AI 倖存指南** | ✅ **已發布** | 2026-10-07 | 存檔於音訊發布包 | [SoundOn](https://player.soundon.fm/p/a9bfa8f9-6184-49b6-be95-90708cf990d5) |
 | **EP16** | **Become Human：走進 Moltbook，當 AI 開始拒絕當完美的騙子** | ✅ **已發布** | 2026-09-11 | [📄 檢視 EP16 濃縮契約](projects/podcast/ep16_script_condense_contract.md) | [SoundOn](https://player.soundon.fm/p/a9bfa8f9-6184-49b6-be95-90708cf990d5) |
