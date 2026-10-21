@@ -30,25 +30,284 @@
 <div class="container">
 <h1>SAW 封裝切割站 – 互動學習頁</h1>
 <p>此頁面僅用於概念對齊與教學示意，實際操作請參考內部 SOP。</p>
+<div style="background: #1c2128; border: 1px solid #388bfd; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center;">
+  <div>
+    <strong style="color: #58a6ff;">🔗 相關學習資源導航：</strong>
+    <a href="https://jnocode.github.io/wiki/viewer.html?file=concepts/semiconductor-saw-learning.md" style="color: #58a6ff; text-decoration: underline; margin-right: 1rem;">📖 靜態學習地圖（完整概念文檔）</a>
+    <a href="https://desktop-03u5bpq.tail557387.ts.net/" target="_blank" rel="noopener noreferrer" style="color: #bc8cff; font-weight: bold; text-decoration: underline;">🔒 日月光學習路徑（需 Tailscale 私網與登入）</a>
+  </div>
+  <a href="https://jnocode.github.io/wiki/" style="color: #8b949e; text-decoration: none; font-size: 0.9rem;">🏠 回 Wiki 首頁</a>
+</div>
+
 
 <div class="section">
 <h2>功能單元關係圖</h2>
 <div class="svg-container">
-<object type="image/svg+xml" data="interactive/saw-learning/process_functional_map.svg" class="svg-graphic"></object>
+<div class="inline-svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 820" width="100%" height="100%" style="background:#161b22; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;">
+  <style>
+    .title { fill: #58a6ff; font-size: 26px; font-weight: bold; }
+    .subtitle { fill: #8b949e; font-size: 20px; }
+    .banner-bg { fill: #b62324; rx: 6px; }
+    .banner-text { fill: #ffffff; font-size: 20px; font-weight: bold; text-anchor: middle; }
+    .box-bg { fill: #0d1117; stroke: #30363d; stroke-width: 2px; rx: 10px; }
+    .box-title { fill: #79c0ff; font-size: 22px; font-weight: bold; }
+    .box-desc { fill: #c9d1d9; font-size: 20px; }
+    .arrow { stroke: #58a6ff; stroke-width: 3; marker-end: url(#blue-arrow); fill: none; }
+    .feedback-arrow { stroke: #d29922; stroke-width: 2.5; stroke-dasharray: 6,4; marker-end: url(#orange-arrow); fill: none; }
+    .feedback-text { fill: #e3b341; font-size: 20px; }
+    .note-text { fill: #8b949e; font-size: 20px; }
+  </style>
+
+  <defs>
+    <marker id="blue-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#58a6ff" />
+    </marker>
+    <marker id="orange-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#d29922" />
+    </marker>
+  </defs>
+
+  <!-- 標題區 -->
+  <text x="25" y="42" class="title">SAW 封裝切割站：功能單元關係圖</text>
+  <text x="25" y="72" class="subtitle">封裝切割核心功能架構與補償回饋（非單向現場SOP）</text>
+
+  <!-- 警示橫幅 -->
+  <rect x="25" y="90" width="530" height="36" class="banner-bg" />
+  <text x="290" y="115" class="banner-text">【AI 整理示意／非機台實測／非缺陷判定標準】</text>
+
+  <!-- 單元 1: 對位與路徑運算 -->
+  <g transform="translate(25, 145)">
+    <rect width="530" height="120" class="box-bg" stroke="#1f6feb" data-tooltip="對位與步進運算單元 (Alignment & Index)：光學鏡頭擷取導線架或基板特徵；角度旋轉校正與熱膨脹／翹曲補償計算。" />
+    <circle cx="35" cy="35" r="16" fill="#1f6feb" />
+    <text x="35" y="42" fill="#fff" font-size="20" font-weight="bold" text-anchor="middle">1</text>
+    <text x="65" y="40" class="box-title">對位與步進運算單元 (Alignment &amp; Index)</text>
+    <text x="35" y="75" class="box-desc">• 光學鏡頭擷取導線架或基板特徵 (Fiducial / Lead)</text>
+    <text x="35" y="102" class="box-desc">• 角度旋轉校正 (θ) 與基板熱膨脹 / 翹曲補償計算</text>
+  </g>
+
+  <!-- 連接箭頭 1 -> 2 -->
+  <path d="M 290 265 L 290 295" class="arrow" />
+
+  <!-- 單元 2: 主軸切削 -->
+  <g transform="translate(25, 300)">
+    <rect width="530" height="120" class="box-bg" stroke="#238636" data-tooltip="高速刀軸切割單元 (Spindle & Dicing)：真空治具或膠帶固定封裝體；刀具旋轉切削＋冷卻水噴淋＋破刀檢知器 (BBD)。" />
+    <circle cx="35" cy="35" r="16" fill="#238636" />
+    <text x="35" y="42" fill="#fff" font-size="20" font-weight="bold" text-anchor="middle">2</text>
+    <text x="65" y="40" class="box-title">高速刀軸切割單元 (Spindle &amp; Dicing)</text>
+    <text x="35" y="75" class="box-desc">• 真空治具 (Jig Chuck) 或膠帶固定封裝體</text>
+    <text x="35" y="102" class="box-desc">• 刀具旋轉切削＋冷卻水噴淋＋破刀檢知器 (BBD)</text>
+  </g>
+
+  <!-- 連接箭頭 2 -> 3 -->
+  <path d="M 290 420 L 290 450" class="arrow" />
+
+  <!-- 單元 3: 切痕檢驗與即時補償 -->
+  <g transform="translate(25, 455)">
+    <rect width="530" height="120" class="box-bg" stroke="#8957e5" data-tooltip="切痕檢驗單元 (Kerf Check & Feedback)：檢驗切痕寬度與切割中心偏位；監控刀具側面磨耗與異常破刃。" />
+    <circle cx="35" cy="35" r="16" fill="#8957e5" />
+    <text x="35" y="42" fill="#fff" font-size="20" font-weight="bold" text-anchor="middle">3</text>
+    <text x="65" y="40" class="box-title">切痕檢驗單元 (Kerf Check &amp; Feedback)</text>
+    <text x="35" y="75" class="box-desc">• 檢驗切痕寬度 (Kerf Width) 與切割中心偏位</text>
+    <text x="35" y="102" class="box-desc">• 監控刀具側面磨耗 (Side Wear) 與異常破刃</text>
+  </g>
+
+  <!-- 連接箭頭 3 -> 4 -->
+  <path d="M 290 575 L 290 605" class="arrow" />
+
+  <!-- 單元 4: 清洗、收料與分選 -->
+  <g transform="translate(25, 610)">
+    <rect width="530" height="110" class="box-bg" stroke="#388bfd" data-tooltip="清洗分選收料單元 (Cleaning & Handler)：高壓水洗去毛屑、真空吸嘴取放至料盤；依良品／不良品分類收料。" />
+    <circle cx="35" cy="35" r="16" fill="#388bfd" />
+    <text x="35" y="42" fill="#fff" font-size="20" font-weight="bold" text-anchor="middle">4</text>
+    <text x="65" y="40" class="box-title">清洗分選收料單元 (Cleaning &amp; Handler)</text>
+    <text x="35" y="75" class="box-desc">• 高壓水洗去毛屑、真空吸嘴取放至料盤 (Tray)</text>
+    <text x="35" y="98" class="box-desc">• 依良品/不良品分類收料 (Spinner / Dry)</text>
+  </g>
+
+  <!-- 回饋控制虛線：切痕補償至對位運算 -->
+  <path d="M 520 515 C 560 515, 560 205, 520 205" class="feedback-arrow" />
+  <text x="430" y="360" class="feedback-text">切痕偏移補償</text>
+
+  <!-- 底部說明 -->
+  <text x="25" y="760" class="note-text">※ 現場各站由手臂串聯，因果為動態閉環。</text>
+  <text x="25" y="790" class="note-text">※ 對照卡重點：每個動作的「前置條件」與「完成證據」。</text>
+</svg></div>
 </div>
 </div>
 
 <div class="section">
 <h2>幾何關係概念圖</h2>
 <div class="svg-container">
-<object type="image/svg+xml" data="interactive/saw-learning/alignment_street_kerf.svg" class="svg-graphic"></object>
+<div class="inline-svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 875" width="100%" height="100%" style="background:#161b22; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;">
+  <style>
+    .title { fill: #58a6ff; font-size: 26px; font-weight: bold; }
+    .subtitle { fill: #8b949e; font-size: 20px; }
+    .banner-bg { fill: #b62324; rx: 6px; }
+    .banner-text { fill: #ffffff; font-size: 20px; font-weight: bold; text-anchor: middle; }
+    .card-bg { fill: #0d1117; stroke: #30363d; stroke-width: 2px; rx: 8px; }
+    .card-title { fill: #e3b341; font-size: 22px; font-weight: bold; }
+    .card-desc { fill: #c9d1d9; font-size: 20px; }
+    .label-blue { fill: #58a6ff; font-size: 20px; font-weight: bold; }
+    .label-green { fill: #3fb950; font-size: 20px; font-weight: bold; }
+    .label-orange { fill: #d29922; font-size: 20px; font-weight: bold; }
+    .label-red { fill: #ff7b72; font-size: 20px; font-weight: bold; }
+  </style>
+
+  <!-- 標題區 -->
+  <text x="25" y="42" class="title">街道、參考線、θ軸與切痕幾何關係</text>
+  <text x="25" y="72" class="subtitle">顯微對位畫面與切割特徵概念辨析（非特定機型）</text>
+
+  <!-- 警示橫幅 -->
+  <rect x="25" y="90" width="530" height="36" class="banner-bg" />
+  <text x="290" y="115" class="banner-text">【AI 整理示意／非機台實測／非缺陷判定標準】</text>
+
+  <!-- 圖解主視圖區 (顯微鏡視野模擬) -->
+  <g transform="translate(25, 145)">
+    <rect width="530" height="380" class="card-bg" stroke="#1f6feb" />
+    
+    <!-- 圓形顯微視野背景 -->
+    <circle cx="265" cy="190" r="160" fill="#111820" stroke="#30363d" stroke-width="2" />
+
+    <!-- 封裝導線架/晶粒本體 (左側與右側) -->
+    <rect x="135" y="60" width="90" height="260" fill="#21262d" stroke="#8b949e" stroke-width="2" rx="4" />
+    <rect x="305" y="60" width="90" height="260" fill="#21262d" stroke="#8b949e" stroke-width="2" rx="4" />
+    <text x="180" y="195" fill="#8b949e" font-size="20" font-weight="bold" text-anchor="middle">工件 A</text>
+    <text x="350" y="195" fill="#8b949e" font-size="20" font-weight="bold" text-anchor="middle">工件 B</text>
+
+    <!-- 街道 (Street)：兩側本體之間的保留通道 -->
+    <rect x="225" y="50" width="80" height="280" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="4,4" class="street" data-tooltip="街道 (Street)：預留切割走廊，內無功能電路。" />
+    
+    <!-- 刀痕 / 切痕 (Kerf)：刀片切出的實際槽道 -->
+    <rect x="245" y="50" width="40" height="280" fill="#ff7b72" fill-opacity="0.25" stroke="#ff7b72" stroke-width="2" class="kerf" data-tooltip="切痕 (Kerf)：刀片切出的實際槽道。" />
+
+    <!-- 軟體十字參考線 (Hairline / Crosshair) -->
+    <line x1="105" y1="190" x2="425" y2="190" stroke="#3fb950" stroke-width="2" stroke-dasharray="8,4" class="hairline-h" data-tooltip="十字參考線 (Hairline)：光學對位軟體虛擬線，供操作者判定中心與偏位。" />
+    <line x1="265" y1="30" x2="265" y2="350" stroke="#3fb950" stroke-width="2" stroke-dasharray="8,4" class="hairline-v" data-tooltip="十字參考線 (Hairline)：光學對位軟體虛擬線，供操作者判定中心與偏位。" />
+
+    <!-- 標記文字與引導線 -->
+    <!-- 1. 街道 (Street) -->
+    <line x1="225" y1="80" x2="155" y2="80" stroke="#58a6ff" stroke-width="1.5" />
+    <text x="8" y="76" class="label-blue">街道 (Street)</text>
+
+    <!-- 2. 軟體十字線 (Hairline) -->
+    <line x1="265" y1="140" x2="295" y2="112" stroke="#3fb950" stroke-width="1.5" />
+    <text x="300" y="105" class="label-green">十字線 Hairline</text>
+
+    <!-- 3. 實際切痕 (Kerf) -->
+    <line x1="285" y1="280" x2="335" y2="285" stroke="#ff7b72" stroke-width="1.5" />
+    <text x="340" y="291" class="label-red">切痕 Kerf</text>
+
+    <!-- 4. θ軸角度旋轉示意 -->
+    <path d="M 170 310 A 120 120 0 0 0 250 335" fill="none" stroke="#d29922" stroke-width="3" class="theta" data-tooltip="θ 軸旋轉校正：旋轉工件承載台，使實體街道與切割軸完全平行。" />
+    <text x="285" y="352" class="label-orange">θ 軸旋轉校正</text>
+  </g>
+
+  <!-- 概念說明卡片區 (重點辨析條列) -->
+  <g transform="translate(25, 545)">
+    <rect width="530" height="300" class="card-bg" />
+    <text x="25" y="35" class="card-title">四個概念核心辨析重點：</text>
+    
+    <text x="25" y="70" class="label-blue">1. 街道 (Street / Avenue)：</text>
+    <text x="25" y="96" class="card-desc">工件設計預留之切割走廊，內無功能電路。</text>
+
+    <text x="25" y="130" class="label-green">2. 十字參考線 (Hairline / Crosshair)：</text>
+    <text x="25" y="156" class="card-desc">光學對位軟體虛擬線，供操作者判定中心與偏位。</text>
+
+    <text x="25" y="190" class="label-orange">3. θ 軸校正 (Theta Rotation)：</text>
+    <text x="25" y="216" class="card-desc">旋轉工件承載台，使實體街道與切割軸完全平行。</text>
+
+    <text x="25" y="250" class="label-red">4. 切痕檢驗 (Kerf Check)：</text>
+    <text x="25" y="276" class="card-desc">試切後檢驗中心偏移量 (Hairline Offset) 與切痕寬度。</text>
+  </g>
+</svg></div>
 </div>
 </div>
 
 <div class="section">
 <h2>切削外觀特徵對照圖</h2>
 <div class="svg-container">
-<object type="image/svg+xml" data="interactive/saw-learning/defects_chipping_vs_burr.svg" class="svg-graphic"></object>
+<div class="inline-svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 860" width="100%" height="100%" style="background:#161b22; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;">
+  <style>
+    .title { fill: #58a6ff; font-size: 26px; font-weight: bold; }
+    .subtitle { fill: #8b949e; font-size: 20px; }
+    .banner-bg { fill: #b62324; rx: 6px; }
+    .banner-text { fill: #ffffff; font-size: 20px; font-weight: bold; text-anchor: middle; }
+    .card-bg { fill: #0d1117; stroke: #30363d; stroke-width: 2px; rx: 8px; }
+    .card-title-chipping { fill: #ff7b72; font-size: 22px; font-weight: bold; }
+    .card-title-burr { fill: #d29922; font-size: 22px; font-weight: bold; }
+    .card-desc { fill: #c9d1d9; font-size: 20px; }
+    .card-warn { fill: #f85149; font-size: 20px; font-weight: bold; }
+    .part-label { fill: #8b949e; font-size: 20px; font-weight: bold; }
+  </style>
+
+  <!-- 標題區 -->
+  <text x="25" y="42" class="title">切削外觀表徵：崩角 vs. 毛邊/拉絲</text>
+  <text x="25" y="72" class="subtitle">顯微宏觀特徵形態對照（非遠端成因診斷）</text>
+
+  <!-- 警示橫幅 -->
+  <rect x="25" y="90" width="530" height="36" class="banner-bg" />
+  <text x="290" y="115" class="banner-text">【AI 整理示意／非機台實測／非缺陷判定標準】</text>
+
+  <!-- 上半部：崩角 (Chipping) 外觀特徵 -->
+  <g transform="translate(25, 145)">
+    <rect width="530" height="330" class="card-bg" stroke="#da3633" />
+    <text x="25" y="38" class="card-title-chipping">1. 樹脂／材料崩角 (Mold / Top Chipping)</text>
+    
+    <!-- 圖解區：工件邊緣破碎缺角 -->
+    <g transform="translate(25, 55)">
+      <!-- 正常封裝體本體 (環氧樹脂) -->
+      <path d="M 0 0 L 260 0 L 260 110 L 0 110 Z" fill="#21262d" stroke="#8b949e" stroke-width="2" />
+      <text x="130" y="60" class="part-label" text-anchor="middle">封裝膠體 (Mold Compound)</text>
+
+      <!-- 鋸齒缺口破碎形態 (示意崩角) -->
+      <path d="M 230 0 L 260 0 L 260 50 L 245 40 L 255 25 L 235 20 Z" fill="#da3633" />
+      <path d="M 260 70 L 240 85 L 260 100 Z" fill="#da3633" />
+      
+      <!-- 標示文字 -->
+      <line x1="245" y1="20" x2="310" y2="30" stroke="#f85149" stroke-width="2" />
+      <text x="320" y="36" fill="#f85149" font-size="20" font-weight="bold">不規則缺角 / 凹坑</text>
+
+      <line x1="245" y1="85" x2="310" y2="85" stroke="#f85149" stroke-width="2" />
+      <text x="320" y="91" fill="#f85149" font-size="20" font-weight="bold">邊緣脆性碎裂</text>
+    </g>
+
+    <!-- 特徵描述條列 -->
+    <text x="25" y="200" class="card-desc">• 視覺特徵：切口邊緣呈現貝殼狀或不規則碎裂凹坑。</text>
+    <text x="25" y="230" class="card-desc">• 材料行為：硬脆性環氧樹脂在刀刃衝擊下之脆性斷裂。</text>
+    <text x="25" y="260" class="card-desc">• 觀察要點：需以光學顯微鏡量測崩裂深度與延伸尺寸。</text>
+    <text x="25" y="295" class="card-warn" data-tooltip="此為幾何外觀描述，真確成因請依廠內規範排查。">※ 僅外觀描述，成因依廠內規範排查。</text>
+  </g>
+
+  <!-- 下半部：毛邊與拉絲 (Burr & Smearing) 外觀特徵 -->
+  <g transform="translate(25, 495)">
+    <rect width="530" height="340" class="card-bg" stroke="#d29922" />
+    <text x="25" y="38" class="card-title-burr">2. 銅引腳毛邊與拉絲 (Burr &amp; Smearing)</text>
+    
+    <!-- 圖解區：銅導線邊緣毛邊凸起與延性拉伸 -->
+    <g transform="translate(25, 55)">
+      <!-- 銅引腳截面 (銅材質) -->
+      <path d="M 0 0 L 260 0 L 260 110 L 0 110 Z" fill="#302217" stroke="#d29922" stroke-width="2" />
+      <text x="130" y="60" fill="#e3b341" font-size="20" font-weight="bold" text-anchor="middle">銅導線 / 接腳 (Copper Lead)</text>
+
+      <!-- 延展毛邊與拉絲 (示意凸出) -->
+      <path d="M 260 15 C 285 10, 295 25, 275 35 C 265 40, 260 30, 260 25 Z" fill="#d29922" stroke="#e3b341" />
+      <path d="M 260 65 C 290 60, 305 85, 270 95 C 262 98, 260 85, 260 80 Z" fill="#d29922" stroke="#e3b341" />
+
+      <!-- 標示文字 -->
+      <line x1="280" y1="25" x2="330" y2="25" stroke="#e3b341" stroke-width="2" />
+      <text x="330" y="31" fill="#e3b341" font-size="20" font-weight="bold">銅毛邊 (Burr)</text>
+
+      <line x1="285" y1="80" x2="330" y2="80" stroke="#e3b341" stroke-width="2" />
+      <text x="340" y="86" fill="#e3b341" font-size="20" font-weight="bold">橫向拉絲短路風險</text>
+    </g>
+
+    <!-- 特徵描述條列 -->
+    <text x="25" y="200" class="card-desc">• 視覺特徵：切口銅面邊緣向上翹起或向兩側橫向延展。</text>
+    <text x="25" y="230" class="card-desc">• 材料行為：延性銅受切削擠壓產生塑性流動與金屬拉絲。</text>
+    <text x="25" y="260" class="card-desc">• 觀察要點：毛邊若跨越相鄰引腳絕緣間隙，具短路風險。</text>
+    <text x="25" y="300" class="card-warn" data-tooltip="請勿依外觀推斷機台故障，依標準程序回報導師。">※ 勿依外觀推斷故障，依標準程序回報導師。</text>
+  </g>
+</svg></div>
 </div>
 </div>
 
@@ -112,22 +371,18 @@ function hideTooltip() {
   tooltip.classList.remove('show');
 }
 
-// Wait for each object to load, then attach listeners to elements with data-tooltip
-svgObjects.forEach(obj => {
-  obj.addEventListener('load', () => {
-    try {
-      const svgDoc = obj.contentDocument;
-      svgDocs.push(svgDoc);
-      const elems = svgDoc.querySelectorAll('[data-tooltip]');
-      elems.forEach(el => {
-        el.addEventListener('mouseenter', e => showTooltip(e, el.dataset.tooltip));
-        el.addEventListener('mouseleave', hideTooltip);
-        el.addEventListener('touchstart', e => { e.preventDefault(); showTooltip(e, el.dataset.tooltip); });
-        el.addEventListener('touchend', hideTooltip);
-      });
-    } catch (e) {
-      console.warn('Could not access SVG DOM (maybe cross‑origin)', e);
-    }
+// Attach listeners directly to inline SVG elements with data-tooltip
+const elems = document.querySelectorAll('[data-tooltip]');
+elems.forEach(el => {
+  el.style.cursor = 'pointer';
+  el.addEventListener('mouseenter', e => showTooltip(e, el.dataset.tooltip));
+  el.addEventListener('mousemove', e => showTooltip(e, el.dataset.tooltip));
+  el.addEventListener('mouseleave', hideTooltip);
+  el.addEventListener('touchstart', e => {
+    showTooltip(e.touches[0] || e, el.dataset.tooltip);
+  });
+  el.addEventListener('touchend', () => {
+    setTimeout(hideTooltip, 2000);
   });
 });
 

@@ -26,6 +26,11 @@ source:
 #referencesList li, #referencesList a{overflow-wrap:anywhere;word-break:break-all;}
 </style>
 
+
+> 💡 **動態互動演練**：
+> 本文已建置沉浸式動態操作對照與向量圖解互動頁面（支援 SVG 元素 Hover/Tap 懸浮名詞解說、主軸轉速模擬滑桿與可折疊操作卡）：
+> 👉 [點此進入 SAW 封裝切割站 – 互動學習頁](https://jnocode.github.io/wiki/interactive/saw-learning/index.html)
+
 ---
 
 ## 一、 如何閱讀英文手冊（不要求先啃完整本）
