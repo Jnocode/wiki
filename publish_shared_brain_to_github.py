@@ -25,6 +25,8 @@ TARGETS = [
     "kanban.html",
     "kanban_status.json",
     "projects/publishing_matrix.md",
+    "matrix/index.html",
+    "matrix/graph_data.json",
     "concepts/agent-collaboration-contract.md",
     "concepts/codex-context-management.md",
     "concepts/data-source-integrity-and-fallback.md",
@@ -116,6 +118,11 @@ def main() -> int:
     if compiled.returncode != 0:
         print("PUBLISH_BLOCKED hot_cache_compile_failed=true", file=sys.stderr)
         return 1
+
+    # 3.5 重新生成全息決鬥場 3D 圖譜資料
+    duel_script = REPO / "scripts/generate_duel_graph_data.py"
+    if duel_script.exists():
+        run(sys.executable, str(duel_script), check=False)
 
     # 4. Stage strictly the allow-listed projection
     run("git", "add", *TARGETS)
