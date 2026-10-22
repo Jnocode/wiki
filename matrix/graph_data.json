@@ -6,7 +6,7 @@
       "domain": "core",
       "val": 30,
       "isHub": true,
-      "cleanSummary": "全域第一原則：多源交叉比對、拒絕偽安全感、冷讀獨立驗收。貫穿量化交易風控、半導體精密點檢、AI Agent 雙核閉環。",
+      "cleanSummary": "全域第一原則：多源交叉比對、拒絕口頭假陽性、冷讀獨立驗收。貫穿量化交易風控、半導體精密點檢、AI Agent 雙核閉環。",
       "tags": [
         "Absolute-Truth",
         "No-Sycophancy",
@@ -15,7 +15,7 @@
       "highlight": "DATA SOURCE INTEGRITY · 拒絕口頭假陽性",
       "color": "#ffffff",
       "colorHex": 16777215,
-      "domainName": "Core Philosophy (白金·誠信中樞)"
+      "domainName": "Core Philosophy (全域誠信中樞)"
     },
     {
       "id": "HUB_AUTOMATION_CDP",
@@ -32,7 +32,7 @@
       "highlight": "工業級狀態機 · 瀏覽器底層控制面",
       "color": "#ffffff",
       "colorHex": 16777215,
-      "domainName": "Core Philosophy (白金·誠信中樞)"
+      "domainName": "Core Philosophy (全域誠信中樞)"
     },
     {
       "id": "HUB_SHARED_BRAIN",
@@ -49,60 +49,60 @@
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "color": "#ffffff",
       "colorHex": 16777215,
-      "domainName": "Core Philosophy (白金·誠信中樞)"
+      "domainName": "Core Philosophy (全域誠信中樞)"
     },
     {
       "id": "hot.md",
       "name": "🔥 Hot Cache — 近 7 天動態焦點 (完整 7 日時間線)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 10,
       "cleanSummary": "完整展示過去 7 天（2026-10-11 至 2026-10-17）每日活躍條目與重要進展，共 9 項。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
       "id": "log.md",
       "name": "Wiki Log",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 4,
       "cleanSummary": "- 位置: D:\\Personal Website\\wiki - SCHEMA.md, index.md, log.md 建立完成 - 等待首次 ingest - 建立 entities/hermes-agent.md - 建立 entities/agent-office-shared.md - office\\shared\\ (77 md, Obsidian vault) - 建立 entities/openclaw.md - 建立 entities/aixquantmedia.md - 建立 entities/jojo-trading.md - 建立 concepts/model-training.md - office\\shared\\brain/ (77 md files) - 跳過: 07 notes(日記), 03 meetings(會議), 06 tasks(任務) — 時效性內容 - 新增 recall-memory-devlog.md (entities/) - 新增 recall-memory-pitfalls.md (entities/) - 補齊 11 頁 YAML frontmatter - 補齊 wikilinks（每頁 ≥2 條出鏈） - 修復 CORS [ ] → restrict origins - 修復 datetime.utcnow → datetime.now(timezone.utc) - 修復 config.py 硬編碼 → os.getenv fallback - SCHEMA.md 同步：移除 comparisons/ queries/ raw/ 定義 - server/backend/main.py: CORS [ ] → 限制 origin - server/backend/models.py: 3處 datetime.utcnow → timezone.utc - server/backend/config.py: 硬編碼 → os.getenv fallback - 修正 10 頁 frontmatter 三重括號 [xxx] → xxx - 更新 entities/recall-memory-pitfalls.md，納入 SQLite 併發寫入自我死鎖與 Windows MCP 孤兒進程洩漏的根因及修復方案。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
       "id": "SCHEMA.md",
       "name": "Wiki Schema",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 4,
       "cleanSummary": "AI 系統架構、量化交易開發、自動化工程、科技自媒體 — Jun 的個人知識庫。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
@@ -111,14 +111,14 @@
       "domain": "spec",
       "color": "#ff3838",
       "colorHex": 16726072,
-      "domainName": "Specs & QA (緋紅·契約硬閘門)",
+      "domainName": "Specs & QA (契約門禁與測試)",
       "val": 4,
       "cleanSummary": "定義小衡、小克與 Codex 的分工、交接、驗收與對外發布邊界。",
       "tags": [
-        "Specs-Audit",
-        "Playwright-QA",
-        "Contract",
-        "Zero-Defect"
+        "DATA-INTEGRITY",
+        "Playwright-Harness",
+        "Hard-Gate",
+        "Audit"
       ],
       "highlight": "DATA SOURCE INTEGRITY · 拒絕口頭假陽性",
       "isHub": false
@@ -126,19 +126,19 @@
     {
       "id": "concepts/agent_reach_cli_evaluation.md",
       "name": "Agent-Reach CLI 免費免 Key 爬取能力與風控評估 (t_df9bd17c)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "quant",
+      "color": "#39ff14",
+      "colorHex": 3800852,
+      "domainName": "Quant & Alpha (量化風控與交易)",
       "val": 5,
       "cleanSummary": "深入調研 Panniantong/Agent-Reach (77k stars) 的底層機制：揭露其所謂免 Key 本質為調用本機瀏覽器 Extension/OpenCLI 借用使用者個人 Session；評估其在 WSL2 無頭環境與 24/7 自動化巡邏下的高風控封號風險，建議不予導入主幹。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "JoJo-Trader",
+        "Risk-Control",
+        "Stop-Loss",
+        "Zero-Lot"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "本金 2 萬生命線 · 16,000 元強制熔斷",
       "isHub": false
     },
     {
@@ -147,16 +147,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "將 Codex 的長工作階段上下文與團隊共用 Markdown 任務帳本分層，避免把模型歷史誤當成驗收證據。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -165,14 +165,14 @@
       "domain": "spec",
       "color": "#ff3838",
       "colorHex": 16726072,
-      "domainName": "Specs & QA (緋紅·契約硬閘門)",
+      "domainName": "Specs & QA (契約門禁與測試)",
       "val": 4,
       "cleanSummary": "統一即時資料查證、API 失敗處理、Quota Pool 熔斷與未驗證資訊標示規則。",
       "tags": [
-        "Specs-Audit",
-        "Playwright-QA",
-        "Contract",
-        "Zero-Defect"
+        "DATA-INTEGRITY",
+        "Playwright-Harness",
+        "Hard-Gate",
+        "Audit"
       ],
       "highlight": "DATA SOURCE INTEGRITY · 拒絕口頭假陽性",
       "isHub": false
@@ -183,34 +183,34 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 8,
       "cleanSummary": "解析傳統 cron 分鐘級排程在限時搶購的失效根因，確立基於 monotonic clock、提前預熱、Fail-closed 狀態機與單一 Controller Lease 的 Deterministic Watcher 架構。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
       "id": "concepts/discord-ai-digest-presentation.md",
       "name": "Discord AI 日報卡片與安全發布",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "semi",
+      "color": "#ffd700",
+      "colorHex": 16766720,
+      "domainName": "Semiconductor (晶圓工藝與封測)",
       "val": 4,
       "cleanSummary": "定義 Discord AI 日報的資料誠信、卡片版型、錯誤隔離與發布 read-back 規則。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Wafer-SAW",
+        "ASE-Packaging",
+        "Blade-Inspect",
+        "Zero-Tolerance"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "微米級精準度 · 實體零容錯防呆",
       "isHub": false
     },
     {
@@ -219,16 +219,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "解析 Hermes 在多模型輪替時遇到的 429 級聯雪崩問題，實作 Quota-Pool 級熔斷機制，杜絕同一耗盡池重複重試。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -237,16 +237,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "本 brain 系統自身的設計原則：四層邊界、canonical home、provenance 鏈、寫入閘門與預設不記住。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -255,16 +255,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "來自 brain/01 tech/model training/ 的技術筆記。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -273,16 +273,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 5,
       "cleanSummary": "深度提煉 Moltbook 前沿熱帖（ID 9670cce8 與 e301d991）：剖析 Tool-name 安全防線的失效原理，以及 Agent 瓶頸往往在於缺少確定性 API 與 Action Surface，而非模型智商。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -291,16 +291,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 6,
       "cleanSummary": "巡邏 Moltbook 前沿社群趨勢，深度提煉四項關鍵架構洞見：(1) 工具名稱防護是安全假象，防禦必須落在 Syscall 層；(2) Agent 瓶頸在於確定性 Action Surface；(3) A2A 生產協作必須實體隔離 Maker 與 Grader；(4) 免 Key 爬蟲本質為瀏覽器 Session 借用，高風險需隔離沙盒。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -309,14 +309,14 @@
       "domain": "semi",
       "color": "#ffd700",
       "colorHex": 16766720,
-      "domainName": "Semiconductor (純金·晶圓工藝)",
+      "domainName": "Semiconductor (晶圓工藝與封測)",
       "val": 5,
       "cleanSummary": "深入驗證 momo-request-sniper 單一 Controller Lease 互斥鎖與 Read-back Owner 雙重驗證機制，保障高併發限時搶購時零重複下單與狀態機確定性。",
       "tags": [
         "Wafer-SAW",
         "ASE-Packaging",
-        "7-Steps-Blade",
-        "Poka-Yoke"
+        "Blade-Inspect",
+        "Zero-Tolerance"
       ],
       "highlight": "微米級精準度 · 實體零容錯防呆",
       "isHub": false
@@ -327,32 +327,32 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "記錄 2026-09-15 診斷後台 CLI 調度器、小克 Discord 響應鏈路與 Cron 故障排查。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
       "id": "concepts/podcast-current-production-contract.md",
       "name": "Podcast 現行產線契約",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 4,
       "cleanSummary": "定義目前三人主持、音訊製作、品質閘門與 SoundOn 發布的現行規則。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -363,16 +363,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 5,
       "cleanSummary": "GitHub public-apis/public-apis 免費 API 目錄；工具缺外部資料源時先查分類與官方文件，再決定是否接入。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -381,34 +381,34 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "修復 Recall 專案遠端 GitHub Actions 測試矩陣、Windows tar 解壓縮路徑與 venv 隔離問題。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
       "id": "concepts/runtime-environment-map.md",
       "name": "WSL Windows 與 Codex 現行環境圖",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "infra",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 5,
       "cleanSummary": "記錄目前可驗證的 Windows、Workspace、Codex 與 OpenClaw 邊界；不把歷史配置當現行路徑。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "NAS-Cluster",
+        "Tailscale",
+        "Docker-Compose",
+        "Auto-Heal"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "30分鐘自愈守護 · 內網零信任隔離",
       "isHub": false
     },
     {
@@ -417,14 +417,14 @@
       "domain": "semi",
       "color": "#ffd700",
       "colorHex": 16766720,
-      "domainName": "Semiconductor (純金·晶圓工藝)",
+      "domainName": "Semiconductor (晶圓工藝與封測)",
       "val": 16,
       "cleanSummary": "半導體封裝切割站（Package Singulation）公開教材導讀指南。協助新進人員建立手冊術語、機構空間與幾何特徵之視覺聯想，提供操作對照卡空白範本與前輩提問指引。",
       "tags": [
         "Wafer-SAW",
         "ASE-Packaging",
-        "7-Steps-Blade",
-        "Poka-Yoke"
+        "Blade-Inspect",
+        "Zero-Tolerance"
       ],
       "highlight": "微米級精準度 · 實體零容錯防呆",
       "isHub": false
@@ -435,61 +435,61 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "評估 0.9B 級別多人語音識別模型於本機 CPU/GPU 環境下的轉譯延遲與繁體中文辨識率。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
       "id": "concepts/stable-diffusion-setup.md",
       "name": "Stable Diffusion — 工具與設定",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "aigc",
+      "color": "#bf55ec",
+      "colorHex": 12539372,
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 4,
       "cleanSummary": "構圖、視角、藝術風格 2. 角色、衣服、氣質 3. 背景、地點、物品 4. 其他想放但不重要 插件 用途 ------ ------ ControlNet 精確控制生成 (姿態、深度、邊緣) ADetailer 臉部修復/細節增強 AnimateDiff 動畫生成 Civitai Helper 模型管理 TagComplete 標籤自動完成 Dynamic Prompts 動態提示詞 Prompt All in One 提示詞管理 EasyPhoto 人像生成 Segment Anything 影像分割 TensorRT 效能加速 Ultimate Upscale 放大增強 FreeU 取樣優化 OpenPose Editor 姿勢編輯 WD14 Tagger 圖片標籤回推 Prompt Travel 提示詞過渡動畫 Config Presets 配置預設值 StyleSelectorXL 風格選擇 Photoshop 插件 Auto-Photoshop-StableDiffusion-Plugin Kohya 無學習率優化器: - Adafactor (Google): 學習較慢、不易過擬 - LRscheduler=Adafactor, loraTX=0.5, UNET lr=1 - DAdaptAdam (Meta): 學習較快、容易過擬 - Text Encoder lr=1, Network Alpha=1 - LRscheduler=constant, warmup=0 - 推薦: Text Encoder = UNET lr = 0.4 - 參數: decouple=True, weight decay=0.1, betas=0.9,0.99 DreamBooth 訓練: 類+標識符方式 - model-training - creative-works。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Code-Gaps",
+        "Gemini-TTS",
+        "Voice-Clone",
+        "-16LUFS"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
     },
     {
       "id": "concepts/video-automation-moneyprinterturbo-debug.md",
       "name": "MoneyPrinterTurbo 本地化模型配置與短影音渲染除錯",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "aigc",
+      "color": "#bf55ec",
+      "colorHex": 12539372,
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 4,
       "cleanSummary": "記錄 2026-09-14 於本機配置 MoneyPrinterTurbo 本地模型、歌詞畫面修正與 rendermv.sh 執行流程踩坑。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Code-Gaps",
+        "Gemini-TTS",
+        "Voice-Clone",
+        "-16LUFS"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
     },
     {
       "id": "concepts/wiki-nas-bidirectional-sync-architecture.md",
       "name": "Wiki 雙軌同步架構：GitHub Pages 與 Synology NAS 離線同步",
       "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "落實本地 Markdown 知識庫、Synology NAS (PostgreSQL + Meilisearch) 與 GitHub Pages 之三向同步與健康監控。",
       "tags": [
@@ -504,19 +504,19 @@
     {
       "id": "concepts/workspace-architecture.md",
       "name": "Workspace 工作區架構與整理規則",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "infra",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "定義 D:\\\\Workspace 的資料邊界、正本判定、搬移驗證與 artifacts 生命週期。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "NAS-Cluster",
+        "Tailscale",
+        "Docker-Compose",
+        "Auto-Heal"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "30分鐘自愈守護 · 內網零信任隔離",
       "isHub": false
     },
     {
@@ -525,16 +525,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "Hermes 與 OpenClaw 雙 Agent 協作的工作目錄。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -543,16 +543,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "核心服務 : AI 自動化內容生成 - 目標客戶 : 電商賣家、部落客、行銷公司 - 服務內容 : 一站式自動化文案產製、審查、交付與收款 - 技術核心 : MCP 自動化處理 - 優勢 : 降低人力成本、提升效率與規模化能力 - 2024 年生成式 AI 市場規模從 23 億美元成長至 138 億美元 - 2025-2034 CAGR 超過 30% - 主流應用: 內容生成、行銷、客服、知識管理、軟體開發 - 趨勢: 多模型協作、AI 代理人、法規趨嚴、開源模型普及 - 全自動 API 串接與流程自動化（審查→交付→收款→數據分析） - 台灣在地法規與語境最佳化 - 多平台 API 串接，數據網絡效應 - 比 Jasper、Copy.ai 多了自動化交付與收款能力 - 導入後可提升內容產出速度 2-5 倍 - 內容品質控管 → 自動審查 - 資料安全與隱私 → 本地處理 - 模型運算成本 → MCP 調度 - 平台整合複雜 → API 統一串接 - aixquantmedia - ai-park-workspace。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -561,16 +561,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "整合現有專案（LivePilotAI、開發專案、商業活動） 2. 標準化開發、文檔、版本控制流程 3. 自動化工具提升生產力 4. 完善 Obsidian 知識管理體系 階段 期間 交付 ------ ------ ------ 現狀整理 2025-09-04 09-18 專案清單、優先級排序、資源盤點 流程建立 2025-09-19 10-15 開發規範、文檔模板、自動化腳本 專案執行 2025-10-16 11-30 重點專案推進、知識庫完善 優化收尾 2025-12-01 12-31 成果總結、下年度規劃 專案 優先級 完成度 狀態 ------ -------- -------- ------ LivePilotAI (創新獎參賽) 🔴高 80% 準備提交 AI 工具開發 🟡中 60% 進行中 商業簡報系統 🟡中 70% 進行中 電商自動化 🟢低 40% 暫停 知識庫管理 🔴高 85% 持續優化 工作流程優化 🔴高 10% 規劃中 - 時間資源不足 (🔴高) - LivePilotAI 競賽截止 (🔴高) - 多專案並行衝突 (🟡中)。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -579,7 +579,7 @@
       "domain": "quant",
       "color": "#39ff14",
       "colorHex": 3800852,
-      "domainName": "Quant & Alpha (螢綠·量化風控)",
+      "domainName": "Quant & Alpha (量化風控與交易)",
       "val": 4,
       "cleanSummary": "Jun 的個人品牌公司，整合 AI 技術 × 量化金融 × 數位媒體。",
       "tags": [
@@ -588,43 +588,43 @@
         "Stop-Loss",
         "Zero-Lot"
       ],
-      "highlight": "本金 2 萬生命線 · 16,000 元強制斷路",
+      "highlight": "本金 2 萬生命線 · 16,000 元強制熔斷",
       "isHub": false
     },
     {
       "id": "entities/book-notes.md",
       "name": "書籍筆記",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 4,
       "cleanSummary": "- 實體 PDF 位於 - 模板格式包含: 核心觀點、觸動引言、思考心得、行動清單 - - 實體 PDF 位於 - 主題: 電商創業從零到一的實戰經驗 所有書籍筆記使用統一模板: - frontmatter: title, author, year, status, rating, tags - 簡介 → 核心觀點 → 引言 → 心得 → 行動清單 → 相關連結 - ie-department - knowledge-base。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
       "id": "entities/bug-hunt-log.md",
       "name": "Bug Hunt Log — 專案除錯日誌",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "spec",
+      "color": "#ff3838",
+      "colorHex": 16726072,
+      "domainName": "Specs & QA (契約門禁與測試)",
       "val": 4,
       "cleanSummary": "- 現象 : - 調用 寫入 梯度記憶時，持續出現 錯誤。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "DATA-INTEGRITY",
+        "Playwright-Harness",
+        "Hard-Gate",
+        "Audit"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "DATA SOURCE INTEGRITY · 拒絕口頭假陽性",
       "isHub": false
     },
     {
@@ -633,16 +633,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "類型 ------ ------ 韭菜人 改編鏈鋸人 OP，交易主題 強車大馬路 改編強風大背頭 ONLY UP 版 改編強風大背頭 三峽車禍 — 控訴與哀嘆 (中文/英文版) 社會議題 你是不是也在想我 抒情 深淵 — 哭不出來的淚 抒情 櫻花與心跳 抒情 - 交易 畢業了 : 交易生涯反思 - 清醒夢 — 旅遊逃殺 (2024-03-26) : 夢境記錄 - ARP 查看網路位置 : 技術隨筆 - 關於 OPEN AI : AI 觀點 - ROI : 投資回報思考 - 廣播節目結構 : Podcast 啟蒙 - self-media - aixquantmedia。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -651,34 +651,34 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 5,
       "cleanSummary": "此文件載入於每個 session 開始時，定義行為慣例與專案常識。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
       "id": "entities/hybrid-deployment.md",
       "name": "WSL/Windows 混合部署",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "infra",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "OpenClaw 技能拆為 WSL 端與 Windows 端。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "NAS-Cluster",
+        "Tailscale",
+        "Docker-Compose",
+        "Auto-Heal"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "30分鐘自愈守護 · 內網零信任隔離",
       "isHub": false
     },
     {
@@ -687,16 +687,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "完整課程大綱與 17 週進度。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -705,7 +705,7 @@
       "domain": "quant",
       "color": "#39ff14",
       "colorHex": 3800852,
-      "domainName": "Quant & Alpha (螢綠·量化風控)",
+      "domainName": "Quant & Alpha (量化風控與交易)",
       "val": 4,
       "cleanSummary": "Jun 的量化交易系統，包含回測引擎與即時交易。",
       "tags": [
@@ -714,7 +714,7 @@
         "Stop-Loss",
         "Zero-Lot"
       ],
-      "highlight": "本金 2 萬生命線 · 16,000 元強制斷路",
+      "highlight": "本金 2 萬生命線 · 16,000 元強制熔斷",
       "isHub": false
     },
     {
@@ -723,16 +723,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 5,
       "cleanSummary": "使用者 Jun 的身份、環境與工作偏好正本；personawriter.py（P2）唯一寫入目標。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -741,14 +741,14 @@
       "domain": "semi",
       "color": "#ffd700",
       "colorHex": 16766720,
-      "domainName": "Semiconductor (純金·晶圓工藝)",
+      "domainName": "Semiconductor (晶圓工藝與封測)",
       "val": 4,
       "cleanSummary": "GitHub 倉庫) 舊版 Obsidian 知識庫，以 10 大分類組織所有筆記與文件。",
       "tags": [
         "Wafer-SAW",
         "ASE-Packaging",
-        "7-Steps-Blade",
-        "Poka-Yoke"
+        "Blade-Inspect",
+        "Zero-Tolerance"
       ],
       "highlight": "微米級精準度 · 實體零容錯防呆",
       "isHub": false
@@ -759,16 +759,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "物件定義所有 MCP 伺服器。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -777,79 +777,79 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "由 Nous Research 開發的 AI Agent 框架，Jun 的後端重型運算主力。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
       "id": "entities/recall-memory-devlog.md",
       "name": "recall. 🧠 開發日誌",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 4,
       "cleanSummary": "--- 三審（費曼、Karpathy、Musk）通過記憶系統整合方案 v3： - recall = 目的地 （SAG 論文實作，改善到能取代 Honcho） - Honcho = 橋樑 （階段性任務，解鎖現有 1625 條 embeddings） - Plugin 發布 ： Hermes plugin，不改 core - 5 條 memory tool facts 遷入 recall（1400 → 1405 memories） - Honcho vs recall gap analysis 完成 - Hermes provider plugin 確認為 Phase 2 P0 - Hermes provider plugin：recall 取代 Honcho 的管道 - Session/peer context model：recall 有 session id 欄位但無結構化模型 - Collections/tag 強化 --- 優先 項目 工時 :----: :----- :----: P0 Hermes provider plugin 1-2天 P1 Session/peer context model 2-3天 P2 Collections/tag + IDF 加權 1-2天 P3 Background deriver 不急 - ✅ Hybrid search（3-path RRF：ANN + SQL JOIN + FTS5） - ✅ MCP server（recall mcp.py） - hermes-agent - mcp-config。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
       "id": "entities/recall-memory-pitfalls.md",
       "name": "recall. 🧠 踩坑記錄",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "spec",
+      "color": "#ff3838",
+      "colorHex": 16726072,
+      "domainName": "Specs & QA (契約門禁與測試)",
       "val": 6,
       "cleanSummary": "--- 坑： 查 Honcho 用 舊端點拿到 404，錯誤判定 Honcho 為空殼。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "DATA-INTEGRITY",
+        "Playwright-Harness",
+        "Hard-Gate",
+        "Audit"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "DATA SOURCE INTEGRITY · 拒絕口頭假陽性",
       "isHub": false
     },
     {
       "id": "entities/self-media.md",
       "name": "自媒體內容產出",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "aigc",
+      "color": "#bf55ec",
+      "colorHex": 12539372,
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 4,
       "cleanSummary": "文章 : 每週一篇（技術教學、專業分享、品牌故事） - 影片 : 每兩週一支（技術解說） - 圖片 : 每週一張（品牌宣傳、技術教學） - 發布時間 : 文章週二、圖片週五 標題: 一次修好 OpenClaw 多模態失效：從 image model failed 到穩定看圖 根因分析: - 模型端正常（含 mmproj、API 回傳 multimodal） - 問題在路由層：agent 模型只宣告 ，圖片不會被路由到 image 流程 - Gateway 顯示 修正步驟: 1. 確認模型端有多模態: → 看 含 2. 補全域模型能力宣告 3. 補 agent 模型能力宣告 4. Compaction 保留值調整為 （與 32K 窗口相容） 5. 重啟 Gateway + session - 內容有吸引力、有價值、與品牌/專業相關 - 多樣化格式（文本、圖片、影片、音訊） - 與粉絲互動相關聯（問卷、投票、競賽） - creative-works - aixquantmedia。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Code-Gaps",
+        "Gemini-TTS",
+        "Voice-Clone",
+        "-16LUFS"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
     },
     {
       "id": "nas_vitepress_source/index.md",
       "name": "https://vitepress.dev/reference/default-theme-home-page",
       "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "收錄於 Jun's Wiki 的 https://vitepress.dev/reference/default-theme-home-page 技術架構紀錄。",
       "tags": [
@@ -867,16 +867,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 7,
       "cleanSummary": "完整拆解圭話行銷『電商營運工具箱』201+款工具前端Next.js架構、資料結構、純前端vs雙軌運算與商業閉環。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -885,7 +885,7 @@
       "domain": "quant",
       "color": "#39ff14",
       "colorHex": 3800852,
-      "domainName": "Quant & Alpha (螢綠·量化風控)",
+      "domainName": "Quant & Alpha (量化風控與交易)",
       "val": 8,
       "cleanSummary": "把 TradeStation MCP LLM 券商帳戶架構落地到台股端，以 JoJo Trader 既有 ShioajiConnector 為基礎，建標準 MCP Server 供自然語言查詢與受保護下單。",
       "tags": [
@@ -894,7 +894,7 @@
         "Stop-Loss",
         "Zero-Lot"
       ],
-      "highlight": "本金 2 萬生命線 · 16,000 元強制斷路",
+      "highlight": "本金 2 萬生命線 · 16,000 元強制熔斷",
       "isHub": false
     },
     {
@@ -903,16 +903,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "部署於 Synology NAS Web Station。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -921,34 +921,34 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "收錄於 Jun's Wiki 的 https://vitepress.dev/reference/default-theme-home-page 技術架構紀錄。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
       "id": "server/frontend/SCHEMA.md",
       "name": "Wiki Schema",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 4,
       "cleanSummary": "AI 系統架構、量化交易開發、自動化工程、科技自媒體 — Jun 的個人知識庫。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
@@ -957,34 +957,34 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "來自 brain/01 tech/model training/ 的技術筆記。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
       "id": "server/frontend/concepts/stable-diffusion-setup.md",
       "name": "Stable Diffusion — 工具與設定",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "aigc",
+      "color": "#bf55ec",
+      "colorHex": 12539372,
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 4,
       "cleanSummary": "構圖、視角、藝術風格 2. 角色、衣服、氣質 3. 背景、地點、物品 4. 其他想放但不重要 插件 用途 ------ ------ ControlNet 精確控制生成 (姿態、深度、邊緣) ADetailer 臉部修復/細節增強 AnimateDiff 動畫生成 Civitai Helper 模型管理 TagComplete 標籤自動完成 Dynamic Prompts 動態提示詞 Prompt All in One 提示詞管理 EasyPhoto 人像生成 Segment Anything 影像分割 TensorRT 效能加速 Ultimate Upscale 放大增強 FreeU 取樣優化 OpenPose Editor 姿勢編輯 WD14 Tagger 圖片標籤回推 Prompt Travel 提示詞過渡動畫 Config Presets 配置預設值 StyleSelectorXL 風格選擇 Photoshop 插件 Auto-Photoshop-StableDiffusion-Plugin Kohya 無學習率優化器: - Adafactor (Google): 學習較慢、不易過擬 - LRscheduler=Adafactor, loraTX=0.5, UNET lr=1 - DAdaptAdam (Meta): 學習較快、容易過擬 - Text Encoder lr=1, Network Alpha=1 - LRscheduler=constant, warmup=0 - 推薦: Text Encoder = UNET lr = 0.4 - 參數: decouple=True, weight decay=0.1, betas=0.9,0.99 DreamBooth 訓練: 類+標識符方式。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Code-Gaps",
+        "Gemini-TTS",
+        "Voice-Clone",
+        "-16LUFS"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
     },
     {
@@ -993,16 +993,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "Hermes 與 OpenClaw 雙 Agent 協作的工作目錄。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -1011,16 +1011,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "核心服務 : AI 自動化內容生成 - 目標客戶 : 電商賣家、部落客、行銷公司 - 服務內容 : 一站式自動化文案產製、審查、交付與收款 - 技術核心 : MCP 自動化處理 - 優勢 : 降低人力成本、提升效率與規模化能力 - 2024 年生成式 AI 市場規模從 23 億美元成長至 138 億美元 - 2025-2034 CAGR 超過 30% - 主流應用: 內容生成、行銷、客服、知識管理、軟體開發 - 趨勢: 多模型協作、AI 代理人、法規趨嚴、開源模型普及 - 全自動 API 串接與流程自動化（審查→交付→收款→數據分析） - 台灣在地法規與語境最佳化 - 多平台 API 串接，數據網絡效應 - 比 Jasper、Copy.ai 多了自動化交付與收款能力 - 導入後可提升內容產出速度 2-5 倍 - 內容品質控管 → 自動審查 - 資料安全與隱私 → 本地處理 - 模型運算成本 → MCP 調度 - 平台整合複雜 → API 統一串接。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -1029,16 +1029,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "整合現有專案（LivePilotAI、開發專案、商業活動） 2. 標準化開發、文檔、版本控制流程 3. 自動化工具提升生產力 4. 完善 Obsidian 知識管理體系 階段 期間 交付 ------ ------ ------ 現狀整理 2025-09-04 09-18 專案清單、優先級排序、資源盤點 流程建立 2025-09-19 10-15 開發規範、文檔模板、自動化腳本 專案執行 2025-10-16 11-30 重點專案推進、知識庫完善 優化收尾 2025-12-01 12-31 成果總結、下年度規劃 專案 優先級 完成度 狀態 ------ -------- -------- ------ LivePilotAI (創新獎參賽) 🔴高 80% 準備提交 AI 工具開發 🟡中 60% 進行中 商業簡報系統 🟡中 70% 進行中 電商自動化 🟢低 40% 暫停 知識庫管理 🔴高 85% 持續優化 工作流程優化 🔴高 10% 規劃中 - 時間資源不足 (🔴高) - LivePilotAI 競賽截止 (🔴高) - 多專案並行衝突 (🟡中)。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -1047,7 +1047,7 @@
       "domain": "quant",
       "color": "#39ff14",
       "colorHex": 3800852,
-      "domainName": "Quant & Alpha (螢綠·量化風控)",
+      "domainName": "Quant & Alpha (量化風控與交易)",
       "val": 4,
       "cleanSummary": "Jun 的個人品牌公司，整合 AI 技術 × 量化金融 × 數位媒體。",
       "tags": [
@@ -1056,25 +1056,25 @@
         "Stop-Loss",
         "Zero-Lot"
       ],
-      "highlight": "本金 2 萬生命線 · 16,000 元強制斷路",
+      "highlight": "本金 2 萬生命線 · 16,000 元強制熔斷",
       "isHub": false
     },
     {
       "id": "server/frontend/entities/book-notes.md",
       "name": "書籍筆記",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 4,
       "cleanSummary": "- 實體 PDF 位於 - 模板格式包含: 核心觀點、觸動引言、思考心得、行動清單 - - 實體 PDF 位於 - 主題: 電商創業從零到一的實戰經驗 所有書籍筆記使用統一模板: - frontmatter: title, author, year, status, rating, tags - 簡介 → 核心觀點 → 引言 → 心得 → 行動清單 → 相關連結。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
@@ -1083,16 +1083,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "類型 ------ ------ 韭菜人 改編鏈鋸人 OP，交易主題 強車大馬路 改編強風大背頭 ONLY UP 版 改編強風大背頭 三峽車禍 — 控訴與哀嘆 (中文/英文版) 社會議題 你是不是也在想我 抒情 深淵 — 哭不出來的淚 抒情 櫻花與心跳 抒情 - 交易 畢業了 : 交易生涯反思 - 清醒夢 — 旅遊逃殺 (2024-03-26) : 夢境記錄 - ARP 查看網路位置 : 技術隨筆 - 關於 OPEN AI : AI 觀點 - ROI : 投資回報思考 - 廣播節目結構 : Podcast 啟蒙。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -1101,34 +1101,34 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "由 Nous Research 開發的自主 AI Agent 框架，本地部署、多工具支援。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
       "id": "server/frontend/entities/hybrid-deployment.md",
       "name": "WSL/Windows 混合部署",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "infra",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "OpenClaw 技能拆為 WSL 端與 Windows 端。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "NAS-Cluster",
+        "Tailscale",
+        "Docker-Compose",
+        "Auto-Heal"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "30分鐘自愈守護 · 內網零信任隔離",
       "isHub": false
     },
     {
@@ -1137,16 +1137,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "完整課程大綱與 17 週進度。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -1155,7 +1155,7 @@
       "domain": "quant",
       "color": "#39ff14",
       "colorHex": 3800852,
-      "domainName": "Quant & Alpha (螢綠·量化風控)",
+      "domainName": "Quant & Alpha (量化風控與交易)",
       "val": 4,
       "cleanSummary": "Jun 的量化交易系統，包含回測引擎與即時交易。",
       "tags": [
@@ -1164,7 +1164,7 @@
         "Stop-Loss",
         "Zero-Lot"
       ],
-      "highlight": "本金 2 萬生命線 · 16,000 元強制斷路",
+      "highlight": "本金 2 萬生命線 · 16,000 元強制熔斷",
       "isHub": false
     },
     {
@@ -1173,14 +1173,14 @@
       "domain": "semi",
       "color": "#ffd700",
       "colorHex": 16766720,
-      "domainName": "Semiconductor (純金·晶圓工藝)",
+      "domainName": "Semiconductor (晶圓工藝與封測)",
       "val": 4,
       "cleanSummary": "GitHub 倉庫) 舊版 Obsidian 知識庫，以 10 大分類組織所有筆記與文件。",
       "tags": [
         "Wafer-SAW",
         "ASE-Packaging",
-        "7-Steps-Blade",
-        "Poka-Yoke"
+        "Blade-Inspect",
+        "Zero-Tolerance"
       ],
       "highlight": "微米級精準度 · 實體零容錯防呆",
       "isHub": false
@@ -1191,16 +1191,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "物件定義所有 MCP 伺服器。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -1209,52 +1209,52 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "由 Nous Research 開發的 AI Agent 框架，Jun 的後端重型運算主力。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
       "id": "server/frontend/entities/self-media.md",
       "name": "自媒體內容產出",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "aigc",
+      "color": "#bf55ec",
+      "colorHex": 12539372,
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 4,
       "cleanSummary": "文章 : 每週一篇（技術教學、專業分享、品牌故事） - 影片 : 每兩週一支（技術解說） - 圖片 : 每週一張（品牌宣傳、技術教學） - 發布時間 : 文章週二、圖片週五 標題: 一次修好 OpenClaw 多模態失效：從 image model failed 到穩定看圖 根因分析: - 模型端正常（含 mmproj、API 回傳 multimodal） - 問題在路由層：agent 模型只宣告 ，圖片不會被路由到 image 流程 - Gateway 顯示 修正步驟: 1. 確認模型端有多模態: → 看 含 2. 補全域模型能力宣告 3. 補 agent 模型能力宣告 4. Compaction 保留值調整為 （與 32K 窗口相容） 5. 重啟 Gateway + session - 內容有吸引力、有價值、與品牌/專業相關 - 多樣化格式（文本、圖片、影片、音訊） - 與粉絲互動相關聯（問卷、投票、競賽）。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Code-Gaps",
+        "Gemini-TTS",
+        "Voice-Clone",
+        "-16LUFS"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
     },
     {
       "id": "raw/2026/2026-07-07_ep4_memory_script.md",
       "name": "代碼縫隙 Code Gaps — EP4：AI 的記憶系統",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "aigc",
+      "color": "#bf55ec",
+      "colorHex": 12539372,
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 16,
       "cleanSummary": "ingestsource.py 歸檔的原文：ep4memoryscript",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Code-Gaps",
+        "Gemini-TTS",
+        "Voice-Clone",
+        "-16LUFS"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
     },
     {
@@ -1263,16 +1263,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 16,
       "cleanSummary": "ingestsource.py 歸檔的原文：ep5aidevtoolsscript",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -1281,32 +1281,32 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 16,
       "cleanSummary": "ingestsource.py 歸檔的原文：maigentaiexamanswers",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
       "id": "raw/2026/2026-07-27_podcast_research_brief.md",
       "name": "《代碼縫隙》Podcast 社群素材採集 Research Brief (2026-07-27)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 14,
       "cleanSummary": "2026-07-27 社群素材採集 Research Brief：包含 Claude Opus 5 Context Engineering、OpenAI 駭客 Agent 爭議、Htmx 4.0 GameBoy 版等熱門話題。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1314,17 +1314,17 @@
     {
       "id": "raw/2026/2026-07-29_podcast_research_brief.md",
       "name": "《代碼縫隙》Podcast 社群素材研究簡報 (Research Brief)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 11,
       "cleanSummary": "2026-07-29 原文存檔與研究資料",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1332,17 +1332,17 @@
     {
       "id": "raw/2026/2026-07-30_podcast_research_brief.md",
       "name": "2026-07-30_podcast_research_brief",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 9,
       "cleanSummary": "2026-07-30 抓取之 Hacker News 與社群熱門線索清單，涵蓋 AI Agent 漏洞入侵、系統 Prompt 長文治理失效、Copilot 蠕蟲、開源外設韌體與遊戲產業 AI 揭露議題。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1350,17 +1350,17 @@
     {
       "id": "raw/2026/2026-07-31_podcast_research_brief.md",
       "name": "《代碼縫隙》Podcast 社群素材採集 Research Brief (2026-07-31)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 12,
       "cleanSummary": "2026-07-31 社群素材研究簡報：GPT-5.6 發布與 Sol 虧損踩坑、GitHub Stacked PRs、Claude-of-Duty 3D FPS 遊戲等話題。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1368,17 +1368,17 @@
     {
       "id": "raw/2026/2026-08-01_podcast_research_brief.md",
       "name": "《代碼縫隙》Podcast 社群素材採集簡報 (2026-08-01)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 9,
       "cleanSummary": "社群素材採集簡報：AI Agent 測試與 Harness 工具熱潮、GPT-5.6 / DeepSeek-V4-Flash 發表與實用性爭議、Gears of War 無氪金回歸與獨立遊戲聯名救援包。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1386,17 +1386,17 @@
     {
       "id": "raw/2026/2026-08-02_podcast_research_brief.md",
       "name": "🎙️《代碼縫隙》Podcast 社群素材採集簡報 (2026-08-02)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 16,
       "cleanSummary": "2026-08-02 社群採集未經查證之素材簡報。包含 AI Agent 踩坑/開發工具、LLM 路由與推理討論、ACG/極客遊戲話題。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1404,17 +1404,17 @@
     {
       "id": "raw/2026/2026-08-03_podcast_research_brief.md",
       "name": "Podcast Research Brief (2026-08-03)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 12,
       "cleanSummary": "2026-08-03 社群熱門素材採集簡報，包含 AI Agent 框架 qm、DeepSeek-V4-Flash、Kimi-K3 NVMe 執行引擎、遊戲光碟保存危機及 Reddit AI 流量衝擊討論。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1422,17 +1422,17 @@
     {
       "id": "raw/2026/2026-08-04_podcast_research_brief.md",
       "name": "Podcast Research Brief (2026-08-04)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 9,
       "cleanSummary": "過去 24-48 小時內 Hacker News、GitHub Trending 之熱門 AI Agent、LLM 實戰踩坑與極客遊戲社群話題線索。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1440,17 +1440,17 @@
     {
       "id": "raw/2026/2026-08-05_podcast_research_brief.md",
       "name": "Podcast Research Brief (2026-08-05 週三號)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 15,
       "cleanSummary": "2026-08-05 週三主題（AI Agent / 軟體工程實戰）與週五主題（科技雜談 / ACG / 數位生活）社群熱門素材與線索彙整。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1458,17 +1458,17 @@
     {
       "id": "raw/2026/2026-08-06_podcast_research_brief.md",
       "name": "🎙️《代碼縫隙》Podcast 社群素材採集簡報 (2026-08-06)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 9,
       "cleanSummary": "2026-08-06 社群熱門素材採集簡報（未經查證線索清單）",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1476,17 +1476,17 @@
     {
       "id": "raw/2026/2026-08-07_podcast_research_brief.md",
       "name": "Podcast Research Brief (2026-08-07)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 14,
       "cleanSummary": "2026-08-07 社群熱門素材採集簡報，涵蓋 Qwen3.8 Max 排行奪冠、AMD 併購晶片新創 Taalas、AI Agent 權限盲簽安全漏洞、OpenAI 與同業推動 Skill/MCP Agent 標準化、Super Mario 帕雷托最佳解化、Pokémon Emerald 移植 Raspberry Pi Pico 2、N64 遊戲 2026 開發實戰等。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1494,17 +1494,17 @@
     {
       "id": "raw/2026/2026-08-08_podcast_research_brief.md",
       "name": "2026-08-08_podcast_research_brief",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 7,
       "cleanSummary": "2026-08-08《代碼縫隙》Podcast 素材採集 (HN/Tech/ACG)",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1512,17 +1512,17 @@
     {
       "id": "raw/2026/2026-08-09_podcast_research_brief.md",
       "name": "2026-08-09_podcast_research_brief",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 10,
       "cleanSummary": "2026-08-09《代碼縫隙》社群熱門線索採集簡報（每週三/週五兩大維度）",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1530,17 +1530,17 @@
     {
       "id": "raw/2026/2026-08-10_podcast_research_brief.md",
       "name": "Podcast Research Brief — 2026-08-10",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 13,
       "cleanSummary": "2026-08-10 原文存檔與研究資料",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1548,17 +1548,17 @@
     {
       "id": "raw/2026/2026-08-11_podcast_research_brief.md",
       "name": "2026-08-11_podcast_research_brief",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 12,
       "cleanSummary": "2026-08-11 社群熱門線索採集：Meta 發布 Muse Glimmer 30B 代理模型、Docker Sandboxes 推出、Claude Code 預設 Auto 模式，以及 Prove You",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1566,17 +1566,17 @@
     {
       "id": "raw/2026/2026-08-12_podcast_research_brief.md",
       "name": "🎙️ 《代碼縫隙》Podcast 素材研究簡報 (2026-08-12)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 10,
       "cleanSummary": "2026-08-12 《代碼縫隙》Podcast 社群素材採集簡報（週三技術/Agent/LLM 主題 + 週五科技雜談/ACG 預備）。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1584,17 +1584,17 @@
     {
       "id": "raw/2026/2026-08-13_podcast_research_brief.md",
       "name": "🎙️ 《代碼縫隙》Podcast 素材研究簡報 (2026-08-13)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 9,
       "cleanSummary": "2026-08-13 《代碼縫隙》Podcast 社群素材採集簡報（週三技術/Agent/LLM 主題 + 週五科技雜談/ACG 預備）。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1602,17 +1602,17 @@
     {
       "id": "raw/2026/2026-08-15_podcast_research_brief.md",
       "name": "《代碼縫隙》Podcast 社群素材採集 Research Brief (2026-08-15)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 11,
       "cleanSummary": "2026-08-15 社群素材採集 Research Brief：包含 AI Agent 框架突破（GLM-5.3、Qwen 3.8、DeepSeek Harness）、軟體工程實戰踩坑（Opus 5 爭議、systemd 日誌膨脹）、以及極客與數位生活話題。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1620,17 +1620,17 @@
     {
       "id": "raw/2026/2026-08-16_podcast_research_brief.md",
       "name": "《代碼縫隙》Podcast 社群素材採集 Research Brief (2026-08-16)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 11,
       "cleanSummary": "2026-08-16 社群素材採集 Research Brief：包含 AI Agent 框架突破（GLM-5.3、Qwen 3.8 27B、Codex Auto-research Kernel 優化、ThoughtDAG、法庭文件 Prompt Injection）以及極客數位生活話題（Firefox 堅守 uBlock Origin、Every Fucking Website 諷刺、RSS 電子紙報紙、法國社群媒體禁令違憲）。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1638,17 +1638,17 @@
     {
       "id": "raw/2026/2026-08-17_podcast_research_brief.md",
       "name": "《代碼縫隙》Podcast 社群素材採集 Research Brief (2026-08-17)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 12,
       "cleanSummary": "2026-08-17 社群素材採集 Research Brief：包含 Stripe 70 億美元併購 OpenRouter、Anthropic Claude 文字水印爭議與官方 System Prompts 大公開、1Password AI Agent 安全測試 SCAM Benchmark，以及 ACG 與極客生活話題（日本法院勒令 YouTube 揭露動畫懶人包頻道主資訊、C++ 自研遊戲引擎 Soup Raiders、網頁多人在線 Karaoke 遊戲 Mic Drop、日曆俄羅斯方塊）。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1656,17 +1656,17 @@
     {
       "id": "raw/2026/2026-08-18_podcast_research_brief.md",
       "name": "《代碼縫隙》Podcast 社群素材採集 Research Brief (2026-08-18)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 11,
       "cleanSummary": "2026-08-18 社群素材採集 Research Brief：包含 AI Agent 自動修復漏洞引發 Snowflake Jira 安全威脅、OpenAI GPT 5.6 Sol 視覺模型登場、DuckDB v2.0 預覽與數據庫革新、AI Agent 權限與成本控制框架（Paitify / Agent Control Plane），以及極客文化話題（AI;DR 閱讀文明反思、Bluesky 截圖隱形水印技術、Quake 共享軟體 CD-ROM 考古與 Commodore PET 3D FPS）。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1674,17 +1674,17 @@
     {
       "id": "raw/2026/2026-08-19_podcast_research_brief.md",
       "name": "《代碼縫隙》Podcast 社群素材採集 Research Brief (2026-08-19)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 11,
       "cleanSummary": "2026-08-19 社群素材採集 Research Brief：包含 Cursor Origin 挑戰 GitHub 程式碼託管、以色列虛擬智庫投毒 LLM 訓練集、Linux 7.3 vRAM Overcommit 效能革新、AI Agent 團隊協作與 UNIX 工具化（cumora / fx），以及極客文化話題（AI;DR 閱讀失真現象、Bluesky 前端截圖水印技術、Quake 1996 光碟空間密碼考古、DRAM 價格飆升 500% 的 DIY 危機）。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1692,17 +1692,17 @@
     {
       "id": "raw/2026/2026-08-20_podcast_research_brief.md",
       "name": "1. 週三主題方向：技術 / AI Agent / LLM / 軟體工程實戰",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 11,
       "cleanSummary": "2026-08-20 《代碼縫隙》Podcast 社群素材採集簡報，包含週三技術/AI與週五科技雜談/ACG趨勢線索。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1710,17 +1710,17 @@
     {
       "id": "raw/2026/2026-08-21_podcast_research_brief.md",
       "name": "2026-08-21_podcast_research_brief",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 12,
       "cleanSummary": "2026-08-21 社群素材採集簡報：DeepSeek Harness 爆紅生態系、LLM 代碼清理與反Slop規範、Rogue AI 漏洞、復刻 1993 經典 DEMO。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1728,17 +1728,17 @@
     {
       "id": "raw/2026/2026-08-22_podcast_research_brief.md",
       "name": "《代碼縫隙》Podcast 社群素材研究簡報 (Research Brief)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 12,
       "cleanSummary": "2026-08-22 原文存檔與研究資料",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1746,17 +1746,17 @@
     {
       "id": "raw/2026/2026-08-23_podcast_research_brief.md",
       "name": "2026-08-23_podcast_research_brief",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 15,
       "cleanSummary": "2026-08-23 社群素材採集簡報：包含 Munder Difflin AI 分身辦公室 harness、Claude 5 輸出清理工具 Vomit、無頭/桌面 Agent 專用環境（OpenBot, cumora, macOS-harness）、Linux 遊戲 Lossless Scaling 工具 MAKO 等熱門話題。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1764,17 +1764,17 @@
     {
       "id": "raw/2026/2026-08-24_podcast_research_brief.md",
       "name": "Podcast 社群素材採集簡報 (2026-08-24)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 5,
       "cleanSummary": "2026-08-24 每日 Podcats 研究簡報：包含 Qwen 3.8 27B 本地逆向工程討論、AI 帶讀源碼方法論、MartyPC Rust 模擬器、Wi-Fi 8 範式轉移等熱門社群線索。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1782,17 +1782,17 @@
     {
       "id": "raw/2026/2026-08-25_podcast_research_brief.md",
       "name": "2026-08-25_podcast_research_brief",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 9,
       "cleanSummary": "2026-08-25 社群熱門線索採集：AI Coding 依賴隱憂、agent.md 最佳實踐、Anthropic/OpenAI 商業與價格戰、Reverse Engineering Qwen 3.8 27B 與隱形浮水印安全題材。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1800,17 +1800,17 @@
     {
       "id": "raw/2026/2026-08-26_podcast_research_brief.md",
       "name": "2026-08-26_podcast_research_brief",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 9,
       "cleanSummary": "採集過去 24 小時內 Hacker News / GitHub / 社群關於 AI Agent、LLM 發展、開發者踩坑與遊戲極客文化之熱門未查證線索。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1818,17 +1818,17 @@
     {
       "id": "raw/2026/2026-08-27_podcast_research_brief.md",
       "name": "代碼縫隙 Podcast 社群素材採集 Research Brief (2026-08-27)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 10,
       "cleanSummary": "2026-08-27 原文存檔與研究資料",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1836,17 +1836,17 @@
     {
       "id": "raw/2026/2026-08-28_podcast_research_brief.md",
       "name": "《代碼縫隙》Podcast 社群素材採集 Research Brief (2026-08-28)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 9,
       "cleanSummary": "2026-08-28 日定時採集之 Podcast 線索簡報，包含 Nvidia 收購 Hugging Face 傳聞、GLM-5.3-Flash 發布、AI CEO 復仇開源專案與 NES 模擬器 Vibe Coding 爭議。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1854,17 +1854,17 @@
     {
       "id": "raw/2026/2026-08-29_podcast_research_brief.md",
       "name": "《代碼縫隙》Podcast 社群素材採集 Research Brief (2026-08-29)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 10,
       "cleanSummary": "2026-08-29 日定時採集之 Podcast 線索簡報，包含 GLM-5.3 開源權重、AI Agent Root 權限安全、ChatGPT+Codex 雙腦流、Htmx 4.0 發布、Luanti AI DMCA 誤判下架與 Cartographia 40k 星系圖。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -1875,16 +1875,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 16,
       "cleanSummary": "- 查證時間：2026-09-09 08:00（UTC+8）",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -1893,16 +1893,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 16,
       "cleanSummary": "- 查證時間：2026-09-10 07:00（UTC+8）",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -1911,52 +1911,52 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 16,
       "cleanSummary": "Verdict：BLOCKED。 可執行 S1 已接通並實機驗證；一張人物圖到可販售 V 皮的完整產線尚未完成。G0 未核准，G1–G5 均未前進。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
       "id": "projects/dev_ops_maintenance/git_dirty_repos_hygiene_report.md",
       "name": "GitHub 專案維運：Git 專案 .gitignore 補齊與快取雜檔治理報告 (t_2ac30cc5)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "infra",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "排查 03DevProjects 內 20 個 Git 專案；全面補齊標準 Python 與 UE5 .gitignore 排除規則（覆蓋率達 100%），產出結構化執行報告至 artifacts/gitcleanupreport.json。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "NAS-Cluster",
+        "Tailscale",
+        "Docker-Compose",
+        "Auto-Heal"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "30分鐘自愈守護 · 內網零信任隔離",
       "isHub": false
     },
     {
       "id": "projects/dev_ops_maintenance/index.md",
       "name": "GitHub 項目維運與環境健康審查報告 (t_9c935db0)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "infra",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 7,
       "cleanSummary": "全面盤點 D:/Workspace 下 20 個主力開源專案之 Git 狀態、CI/CD 配置覆蓋率，定位遺漏自動化腳本並建立目錄衛生與維運標準。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "NAS-Cluster",
+        "Tailscale",
+        "Docker-Compose",
+        "Auto-Heal"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "30分鐘自愈守護 · 內網零信任隔離",
       "isHub": false
     },
     {
@@ -1965,14 +1965,14 @@
       "domain": "spec",
       "color": "#ff3838",
       "colorHex": 16726072,
-      "domainName": "Specs & QA (緋紅·契約硬閘門)",
+      "domainName": "Specs & QA (契約門禁與測試)",
       "val": 5,
       "cleanSummary": "完成全自動 Workspace 衛生與 Git 狀態審計工具 auditworkspacehygiene.py；輸出最新衛生報告（根目錄 0 雜檔，20 個 Repos CI 覆蓋率 25%）；提供標準化 Python CI/CD 範本。",
       "tags": [
-        "Specs-Audit",
-        "Playwright-QA",
-        "Contract",
-        "Zero-Defect"
+        "DATA-INTEGRITY",
+        "Playwright-Harness",
+        "Hard-Gate",
+        "Audit"
       ],
       "highlight": "DATA SOURCE INTEGRITY · 拒絕口頭假陽性",
       "isHub": false
@@ -1980,55 +1980,55 @@
     {
       "id": "projects/discord_community/discord_digest_cards_architecture.md",
       "name": "Discord 每日動態摘要卡片生成架構與預覽驗收標準",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "semi",
+      "color": "#ffd700",
+      "colorHex": 16766720,
+      "domainName": "Semiconductor (晶圓工藝與封測)",
       "val": 4,
       "cleanSummary": "打造 Discord 每日動態摘要卡片管線，支援前端 HTML/PNG 視覺預覽、結構化 JSON 與嚴格 QA 驗收。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Wafer-SAW",
+        "ASE-Packaging",
+        "Blade-Inspect",
+        "Zero-Tolerance"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "微米級精準度 · 實體零容錯防呆",
       "isHub": false
     },
     {
       "id": "projects/discord_community/discord_permission_audit_20260904.md",
       "name": "Discord 權限邊界審計與運維優化報告 (t_bf90f515)",
-      "domain": "spec",
-      "color": "#ff3838",
-      "colorHex": 16726072,
-      "domainName": "Specs & QA (緋紅·契約硬閘門)",
+      "domain": "semi",
+      "color": "#ffd700",
+      "colorHex": 16766720,
+      "domainName": "Semiconductor (晶圓工藝與封測)",
       "val": 5,
       "cleanSummary": "完成 Guild 614428019716653086（代碼縫隙）實體權限覆寫審計（VIEWCHANNEL = 1 << 10）；證實內部管理區 100% 隔離（SECURE），公開訪客僅能存取 13 個入口與社群頻道，產出結構化審計報告。",
       "tags": [
-        "Specs-Audit",
-        "Playwright-QA",
-        "Contract",
-        "Zero-Defect"
+        "Wafer-SAW",
+        "ASE-Packaging",
+        "Blade-Inspect",
+        "Zero-Tolerance"
       ],
-      "highlight": "DATA SOURCE INTEGRITY · 拒絕口頭假陽性",
+      "highlight": "微米級精準度 · 實體零容錯防呆",
       "isHub": false
     },
     {
       "id": "projects/discord_community/index.md",
       "name": "Discord 社群伺服器運維與權限邊界規範 (t_bf90f515)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "semi",
+      "color": "#ffd700",
+      "colorHex": 16766720,
+      "domainName": "Semiconductor (晶圓工藝與封測)",
       "val": 5,
       "cleanSummary": "確立 Guild 614428019716653086（代碼縫隙）之資訊架構、匿名權限隔離審計（VIEWCHANNEL 1<<10）、討論串自動化歸檔與 Bot 廣播低延遲優化方案。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Wafer-SAW",
+        "ASE-Packaging",
+        "Blade-Inspect",
+        "Zero-Tolerance"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "微米級精準度 · 實體零容錯防呆",
       "isHub": false
     },
     {
@@ -2037,160 +2037,160 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "自架 Hermes Agent 的開發專案 MOC：記憶系統以 recall plugin 為唯一 provider，Honcho fallback OFF。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
       "id": "projects/job_patrol/index.md",
       "name": "求職串多平台自動化巡邏與分類管線 (t_38fbfa76)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 4,
       "cleanSummary": "實作 JOBPATROLSPECV2 規範：建立 104 與 CakeResume 自動化爬蟲腳本，輸出 dailytop10 JSON 檔案，嚴格達成全職(4)、遠端(3)、接案(3) 三維分類配比與去重機制。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
       "id": "projects/job_search/2026-09-03_market_jobs_scan.md",
       "name": "台灣市場 AI Agent / 應用工程師 / 技術 PM 職缺情報掃描",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 12,
       "cleanSummary": "針對台灣求職市場最新 AI Agent、AI 應用工程師、技術 PM 職缺之真實 API 數據掃描，篩選 5 大高匹配具競爭力職缺，並深度對齊 Jun 既有作品集（A2A、Podcast 產線、UE5、量化交易）。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
       "id": "projects/job_search/autonomous_resume_sync_blocker_report.md",
       "name": "104 與 CakeResume 全自主登入寫入實機卡點與安全防線報告 (t_e1071fe3)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 6,
       "cleanSummary": "小克自主調用本機全部可用瀏覽器工具（Playwright、Camoufox、Chrome CDP、Browser Tool）實機測試 104/CakeResume 線上寫入；誠實揭露無頭環境遭遇 MFA/CAPTCHA 與本地瀏覽器 Daemon 離線卡點，輸出實證數據與解鎖方案。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
       "id": "projects/job_search/chrome_9222_launch_and_watch_protocol.md",
       "name": "Chrome 9222 啟動與自動接管協議報告 (t_6d404273)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 4,
       "cleanSummary": "為 Jun 建立 Windows 原生專用啟動批次檔 (launchchromeagent.bat)，配置遠端除錯埠 9222 與獨立 Profile 目錄；實作 watchcdpandinject.py 監聽腳本，待 Jun 在 Windows 點擊登入後立即接管寫入。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
       "id": "projects/job_search/company_maigent_notes.md",
       "name": "MaiAgent 應徵筆記",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 4,
       "cleanSummary": "MaiAgent AI Agent 工程師應徵：2026-07-04 完成開放資源作答的生成式 AI 考題；狀態正本在 business.db。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
       "id": "projects/job_search/index.md",
       "name": "求職 Job Search",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 4,
       "cleanSummary": "Jun 的求職專案 MOC：申請狀態正本在 business.db 的 jobapplications；此頁只放敘事與導覽。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
       "id": "projects/job_search/master_resume_google_xyz.md",
       "name": "Jun Jiang (姜鈞) — Master Resume (Google XYZ Format)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 15,
       "cleanSummary": "嚴格採用 Google XYZ 公式（Accomplished X, measured by Y, by doing Z）重構之雙語 Master 履歷母版，整合 AI Agent、ComfyUI 產線、A2A 協作、量化回測與 12 年跨領域領導實績。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
       "id": "projects/job_search/resume_sync_camoufox_protocol.md",
       "name": "104 與 CakeResume 線上履歷同步與 Quill 自動化協議 (t_b144c685)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "career",
+      "color": "#e0e6ed",
+      "colorHex": 14739181,
+      "domainName": "Career & Meta (職涯沉澱與時間線)",
       "val": 6,
       "cleanSummary": "完成 104 與 CakeResume 履歷同步規格化作業；解析 104 Quill 編輯器鍵盤注入防破壞機制，建立結構化資料 Payload (resumesyncpayload.json) 與 8 大核心字根外部 Read-back 驗收清單。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Jun-Profile",
+        "Open-Source",
+        "Timeline",
+        "Architecture"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "日月光工程師 · 個人研究與開源主線",
       "isHub": false
     },
     {
@@ -2199,7 +2199,7 @@
       "domain": "quant",
       "color": "#39ff14",
       "colorHex": 3800852,
-      "domainName": "Quant & Alpha (螢綠·量化風控)",
+      "domainName": "Quant & Alpha (量化風控與交易)",
       "val": 5,
       "cleanSummary": "確立 stocks.db 資料品質契約（288 檔標的、dataqualityscore 指標），實體成長股與景氣循環股隔離機制，SMC 與布林通道量化回測風控標準。",
       "tags": [
@@ -2208,7 +2208,7 @@
         "Stop-Loss",
         "Zero-Lot"
       ],
-      "highlight": "本金 2 萬生命線 · 16,000 元強制斷路",
+      "highlight": "本金 2 萬生命線 · 16,000 元強制熔斷",
       "isHub": false
     },
     {
@@ -2217,7 +2217,7 @@
       "domain": "quant",
       "color": "#39ff14",
       "colorHex": 3800852,
-      "domainName": "Quant & Alpha (螢綠·量化風控)",
+      "domainName": "Quant & Alpha (量化風控與交易)",
       "val": 4,
       "cleanSummary": "實作 TWSE/MOPS 月營收 OpenAPI (t187ap05L) 暴增黑馬篩選器，鎖定 YoY > 50% 且 PE < 15 之低估值潛力飆股；成功修復 2451 創見（YoY 61.4%, PE 11.8）漏抓問題，輸出結構化清單至 shared/stocks/revenuesurge.json。",
       "tags": [
@@ -2226,7 +2226,7 @@
         "Stop-Loss",
         "Zero-Lot"
       ],
-      "highlight": "本金 2 萬生命線 · 16,000 元強制斷路",
+      "highlight": "本金 2 萬生命線 · 16,000 元強制熔斷",
       "isHub": false
     },
     {
@@ -2235,7 +2235,7 @@
       "domain": "quant",
       "color": "#39ff14",
       "colorHex": 3800852,
-      "domainName": "Quant & Alpha (螢綠·量化風控)",
+      "domainName": "Quant & Alpha (量化風控與交易)",
       "val": 4,
       "cleanSummary": "深入驗證 jojotrading 策略引擎中 SMCStrategy (PivotState, TrailingExtremes, Wilder ATR) 之實體代碼結構，確立市場結構突破 (BOS)、動態 ATR 風控與布林位階之回測風控規範。",
       "tags": [
@@ -2244,59 +2244,59 @@
         "Stop-Loss",
         "Zero-Lot"
       ],
-      "highlight": "本金 2 萬生命線 · 16,000 元強制斷路",
+      "highlight": "本金 2 萬生命線 · 16,000 元強制熔斷",
       "isHub": false
     },
     {
       "id": "projects/live2d_pipeline/index.md",
       "name": "Live2D Cubism 與模型自動化產線打磨專案 (t_cd1837f9)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "game",
+      "color": "#ff6600",
+      "colorHex": 16737792,
+      "domainName": "Game Dev (獨立遊戲與UE5)",
       "val": 6,
       "cleanSummary": "落實小衡規範之「多視角設計→完整 source master clone 分件/W3差分→Cubism→PSD/moc3/VTS」自動化產線打磨與資產標準化。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Spirits-Calling",
+        "UE5-Stealth",
+        "Blender-Mesh",
+        "Roguelite"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "UE5.8 賽博靈異潛行 · 實感物理手感",
       "isHub": false
     },
     {
       "id": "projects/live2d_pipeline/placement_fix_report.md",
       "name": "Live2D 產線打磨與圖層位置 (Layer Placement) 修復 (t_cd1837f9)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "game",
+      "color": "#ff6600",
+      "colorHex": 16737792,
+      "domainName": "Game Dev (獨立遊戲與UE5)",
       "val": 6,
       "cleanSummary": "深入剖析 chr001 Live2D 模型在 Viewer 錯位的根因（PNG 圖層缺少全畫布座標導致 drawImage(0,0) 疊合偏移）；確立 Source Master Clone + Placement Manifest 機制與 Cubism CLI 驗證標準。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Spirits-Calling",
+        "UE5-Stealth",
+        "Blender-Mesh",
+        "Roguelite"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "UE5.8 賽博靈異潛行 · 實感物理手感",
       "isHub": false
     },
     {
       "id": "projects/podcast/ep04_notes.md",
       "name": "EP4：AI 的記憶系統",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 4,
       "cleanSummary": "EP4 完稿筆記：無狀態 LLM、外接記憶、三路檢索與名次融合（RRF 式投票）取代分數加權的實戰教訓。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -2304,17 +2304,17 @@
     {
       "id": "projects/podcast/ep05_notes.md",
       "name": "EP5：AI 開發工具的真實面貌",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 4,
       "cleanSummary": "EP5 完稿筆記：NAS 部署翻車實錄、MoE 的 VRAM 迷思（省會議費不省住宿費）、模型命名混亂自保守則。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -2322,17 +2322,17 @@
     {
       "id": "projects/podcast/ep16_script_condense_contract.md",
       "name": "Podcast EP16 腳本去蕪存菁與長度合約壓縮驗收報告 (t_f9af51a4)",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 7,
       "cleanSummary": "執行 EP16 腳本去蕪存菁與聽感合約壓縮；保留全部 45 項 Claims 與開場 Token，總字數由 18,080 字精確降至 6,211 字（預估聽感 19.2 分鐘，完美符合 5800~7200 字區間），QA 查核 100% PASS。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -2340,17 +2340,17 @@
     {
       "id": "projects/podcast/ep19_script_published.md",
       "name": "《代碼縫隙》EP19：AI 控制瑪利歐又擋寫程式代理？拆解 System-1 快決策模型 Jev 的真實邊界",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 10,
       "cleanSummary": "EP19 已發布腳本。拆解 TypeSafe Jev 快決策模型（System-1），深入探討瑪利歐控制器實驗、寫程式代理安全攔截的真實風險與算力邊界。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -2358,17 +2358,17 @@
     {
       "id": "projects/podcast/ep20_script_review.md",
       "name": "《代碼縫隙》EP20：從「聲音克隆」到「思考延遲」——當合成成本歸零，為什麼我們反而更難聽下去？",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 7,
       "cleanSummary": "EP20 R2 待修訂腳本。以開源語音 VoxCPM2 踩坑為起點，深入探討聲音克隆、思考延遲與內容通膨等議題。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -2376,17 +2376,17 @@
     {
       "id": "projects/podcast/index.md",
       "name": "代碼縫隙 Code Gaps",
-      "domain": "podcast",
+      "domain": "aigc",
       "color": "#bf55ec",
       "colorHex": 12539372,
-      "domainName": "AIGC Pipeline (賽博紫·代碼縫隙)",
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 4,
       "cleanSummary": "Jun 的技術 Podcast 專案 MOC：主持設定、製作流程與集數導覽；集數狀態正本在 business.db。",
       "tags": [
         "Code-Gaps",
         "Gemini-TTS",
         "Voice-Clone",
-        "Automation"
+        "-16LUFS"
       ],
       "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
@@ -2394,118 +2394,118 @@
     {
       "id": "projects/social_content_fracture/index.md",
       "name": "多平台內容裂變與社群發布管線架構 (t_f92fde19)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "aigc",
+      "color": "#bf55ec",
+      "colorHex": 12539372,
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 6,
       "cleanSummary": "落實「方格子長文正本→Discord 留存→社群引流」全管線 SOP-01，修復 Threads 長效 Token 驗證，建立 Approved-only 受保護發布隊列與 Read-back 回讀驗收機制。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Code-Gaps",
+        "Gemini-TTS",
+        "Voice-Clone",
+        "-16LUFS"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
     },
     {
       "id": "projects/social_content_fracture/publish_queue_gate_spec.md",
       "name": "多平台發布隊列 (Publish Queue) 與六道 Gate 驗證 (t_f92fde19)",
-      "domain": "spec",
-      "color": "#ff3838",
-      "colorHex": 16726072,
-      "domainName": "Specs & QA (緋紅·契約硬閘門)",
+      "domain": "aigc",
+      "color": "#bf55ec",
+      "colorHex": 12539372,
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 5,
       "cleanSummary": "深入分析 content-os-20260723 實體發布隊列 publishqueue.json 之六道嚴格防護 Gate；確立 Approved-only 安全邊界，杜絕未經審核之跨平台草稿外洩或自動群發。",
       "tags": [
-        "Specs-Audit",
-        "Playwright-QA",
-        "Contract",
-        "Zero-Defect"
+        "Code-Gaps",
+        "Gemini-TTS",
+        "Voice-Clone",
+        "-16LUFS"
       ],
-      "highlight": "DATA SOURCE INTEGRITY · 拒絕口頭假陽性",
+      "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
     },
     {
       "id": "projects/spirits_calling/index.md",
       "name": "Spirits-Calling UE5.8 垂直切片結案報告 (t_278939a8)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "game",
+      "color": "#ff6600",
+      "colorHex": 16737792,
+      "domainName": "Game Dev (獨立遊戲與UE5)",
       "val": 6,
       "cleanSummary": "收斂 Spirits-Calling P10/P11 核心體驗流程（冷啟動、主選單、P1探索、收集Psyche、Ghost-Hack、附身奪舍），記錄未提交改動邊界、自動化測試 5/5 全數 PASS 與雙環境驗證指標。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Spirits-Calling",
+        "UE5-Stealth",
+        "Blender-Mesh",
+        "Roguelite"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "UE5.8 賽博靈異潛行 · 實感物理手感",
       "isHub": false
     },
     {
       "id": "projects/spirits_calling/playtest_guide.md",
       "name": "Spirits-Calling P10/P11 垂直切片真人 Playtest 驗收指南 (t_278939a8)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "game",
+      "color": "#ff6600",
+      "colorHex": 16737792,
+      "domainName": "Game Dev (獨立遊戲與UE5)",
       "val": 5,
       "cleanSummary": "提供專案負責人 Jun 之真人 Playtest 實機操作指南：一鍵啟動腳本 playtestp10verticalslice.bat、3–5 分鐘六大核心節奏反饋矩陣與驗收指標。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "Spirits-Calling",
+        "UE5-Stealth",
+        "Blender-Mesh",
+        "Roguelite"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "UE5.8 賽博靈異潛行 · 實感物理手感",
       "isHub": false
     },
     {
       "id": "projects/wiki_governance/giscus_discussions_integration.md",
       "name": "Wiki Giscus 評論系統整合與倉庫層設定踩坑記",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "spec",
+      "color": "#ff3838",
+      "colorHex": 16726072,
+      "domainName": "Specs & QA (契約門禁與測試)",
       "val": 4,
       "cleanSummary": "記錄 Wiki 導入 Giscus 評論系統時遇到的排序與設定權限問題，確立 giscus.json 為倉庫級正本的除錯結論。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "DATA-INTEGRITY",
+        "Playwright-Harness",
+        "Hard-Gate",
+        "Audit"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "DATA SOURCE INTEGRITY · 拒絕口頭假陽性",
       "isHub": false
     },
     {
       "id": "projects/wiki_governance/index.md",
       "name": "Wiki 知識庫 NAS 與本地雙向同步與索引治理 (t_5b5f912b)",
-      "domain": "agent",
-      "color": "#00f0ff",
-      "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domain": "spec",
+      "color": "#ff3838",
+      "colorHex": 16726072,
+      "domainName": "Specs & QA (契約門禁與測試)",
       "val": 5,
       "cleanSummary": "完成 agentoffice/shared/brain 知識庫 60 篇 Markdown 格式全面修復，達成 100% SCHEMA.md 合規率；驗證 wikisync.py 雙向同步通道與 VitePress 索引建置標準。",
       "tags": [
-        "AI-Agent",
-        "CDP-Control",
-        "State-Machine",
-        "Dual-Core"
+        "DATA-INTEGRITY",
+        "Playwright-Harness",
+        "Hard-Gate",
+        "Audit"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "DATA SOURCE INTEGRITY · 拒絕口頭假陽性",
       "isHub": false
     },
     {
       "id": "nas_vitepress_source/concepts/model-training.md",
       "name": "模型訓練與微調",
       "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "來自 brain/01 tech/model training/ 的技術筆記。",
       "tags": [
@@ -2520,28 +2520,28 @@
     {
       "id": "nas_vitepress_source/concepts/stable-diffusion-setup.md",
       "name": "Stable Diffusion — 工具與設定",
-      "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "domain": "aigc",
+      "color": "#bf55ec",
+      "colorHex": 12539372,
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 4,
       "cleanSummary": "構圖、視角、藝術風格 2. 角色、衣服、氣質 3. 背景、地點、物品 4. 其他想放但不重要 插件 用途 ------ ------ ControlNet 精確控制生成 (姿態、深度、邊緣) ADetailer 臉部修復/細節增強 AnimateDiff 動畫生成 Civitai Helper 模型管理 TagComplete 標籤自動完成 Dynamic Prompts 動態提示詞 Prompt All in One 提示詞管理 EasyPhoto 人像生成 Segment Anything 影像分割 TensorRT 效能加速 Ultimate Upscale 放大增強 FreeU 取樣優化 OpenPose Editor 姿勢編輯 WD14 Tagger 圖片標籤回推 Prompt Travel 提示詞過渡動畫 Config Presets 配置預設值 StyleSelectorXL 風格選擇 Photoshop 插件 Auto-Photoshop-StableDiffusion-Plugin Kohya 無學習率優化器: - Adafactor (Google): 學習較慢、不易過擬 - LRscheduler=Adafactor, loraTX=0.5, UNET lr=1 - DAdaptAdam (Meta): 學習較快、容易過擬 - Text Encoder lr=1, Network Alpha=1 - LRscheduler=constant, warmup=0 - 推薦: Text Encoder = UNET lr = 0.4 - 參數: decouple=True, weight decay=0.1, betas=0.9,0.99 DreamBooth 訓練: 類+標識符方式。",
       "tags": [
-        "NAS-Cluster",
-        "Tailscale",
-        "Docker-Compose",
-        "Auto-Heal"
+        "Code-Gaps",
+        "Gemini-TTS",
+        "Voice-Clone",
+        "-16LUFS"
       ],
-      "highlight": "30分鐘自愈守護 · 內網零信任隔離",
+      "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
     },
     {
       "id": "nas_vitepress_source/entities/agent-office-shared.md",
       "name": "Agent Office Shared",
       "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "Hermes 與 OpenClaw 雙 Agent 協作的工作目錄。",
       "tags": [
@@ -2557,9 +2557,9 @@
       "id": "nas_vitepress_source/entities/ai-content-business.md",
       "name": "AI 自動化內容生成商業模式",
       "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "核心服務 : AI 自動化內容生成 - 目標客戶 : 電商賣家、部落客、行銷公司 - 服務內容 : 一站式自動化文案產製、審查、交付與收款 - 技術核心 : MCP 自動化處理 - 優勢 : 降低人力成本、提升效率與規模化能力 - 2024 年生成式 AI 市場規模從 23 億美元成長至 138 億美元 - 2025-2034 CAGR 超過 30% - 主流應用: 內容生成、行銷、客服、知識管理、軟體開發 - 趨勢: 多模型協作、AI 代理人、法規趨嚴、開源模型普及 - 全自動 API 串接與流程自動化（審查→交付→收款→數據分析） - 台灣在地法規與語境最佳化 - 多平台 API 串接，數據網絡效應 - 比 Jasper、Copy.ai 多了自動化交付與收款能力 - 導入後可提升內容產出速度 2-5 倍 - 內容品質控管 → 自動審查 - 資料安全與隱私 → 本地處理 - 模型運算成本 → MCP 調度 - 平台整合複雜 → API 統一串接。",
       "tags": [
@@ -2575,9 +2575,9 @@
       "id": "nas_vitepress_source/entities/ai-park-workspace.md",
       "name": "AI_Park 工作區 — 2025 年度專案計劃",
       "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "整合現有專案（LivePilotAI、開發專案、商業活動） 2. 標準化開發、文檔、版本控制流程 3. 自動化工具提升生產力 4. 完善 Obsidian 知識管理體系 階段 期間 交付 ------ ------ ------ 現狀整理 2025-09-04 09-18 專案清單、優先級排序、資源盤點 流程建立 2025-09-19 10-15 開發規範、文檔模板、自動化腳本 專案執行 2025-10-16 11-30 重點專案推進、知識庫完善 優化收尾 2025-12-01 12-31 成果總結、下年度規劃 專案 優先級 完成度 狀態 ------ -------- -------- ------ LivePilotAI (創新獎參賽) 🔴高 80% 準備提交 AI 工具開發 🟡中 60% 進行中 商業簡報系統 🟡中 70% 進行中 電商自動化 🟢低 40% 暫停 知識庫管理 🔴高 85% 持續優化 工作流程優化 🔴高 10% 規劃中 - 時間資源不足 (🔴高) - LivePilotAI 競賽截止 (🔴高) - 多專案並行衝突 (🟡中)。",
       "tags": [
@@ -2595,7 +2595,7 @@
       "domain": "quant",
       "color": "#39ff14",
       "colorHex": 3800852,
-      "domainName": "Quant & Alpha (螢綠·量化風控)",
+      "domainName": "Quant & Alpha (量化風控與交易)",
       "val": 4,
       "cleanSummary": "Jun 的個人品牌公司，整合 AI 技術 × 量化金融 × 數位媒體。",
       "tags": [
@@ -2604,16 +2604,16 @@
         "Stop-Loss",
         "Zero-Lot"
       ],
-      "highlight": "本金 2 萬生命線 · 16,000 元強制斷路",
+      "highlight": "本金 2 萬生命線 · 16,000 元強制熔斷",
       "isHub": false
     },
     {
       "id": "nas_vitepress_source/entities/book-notes.md",
       "name": "書籍筆記",
       "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "- 實體 PDF 位於 - 模板格式包含: 核心觀點、觸動引言、思考心得、行動清單 - - 實體 PDF 位於 - 主題: 電商創業從零到一的實戰經驗 所有書籍筆記使用統一模板: - frontmatter: title, author, year, status, rating, tags - 簡介 → 核心觀點 → 引言 → 心得 → 行動清單 → 相關連結。",
       "tags": [
@@ -2629,9 +2629,9 @@
       "id": "nas_vitepress_source/entities/creative-works.md",
       "name": "創意作品與歌詞",
       "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "類型 ------ ------ 韭菜人 改編鏈鋸人 OP，交易主題 強車大馬路 改編強風大背頭 ONLY UP 版 改編強風大背頭 三峽車禍 — 控訴與哀嘆 (中文/英文版) 社會議題 你是不是也在想我 抒情 深淵 — 哭不出來的淚 抒情 櫻花與心跳 抒情 - 交易 畢業了 : 交易生涯反思 - 清醒夢 — 旅遊逃殺 (2024-03-26) : 夢境記錄 - ARP 查看網路位置 : 技術隨筆 - 關於 OPEN AI : AI 觀點 - ROI : 投資回報思考 - 廣播節目結構 : Podcast 啟蒙。",
       "tags": [
@@ -2647,9 +2647,9 @@
       "id": "nas_vitepress_source/entities/hermes-agent.md",
       "name": "Hermes Agent",
       "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "由 Nous Research 開發的自主 AI Agent 框架，本地部署、多工具支援。",
       "tags": [
@@ -2665,9 +2665,9 @@
       "id": "nas_vitepress_source/entities/hybrid-deployment.md",
       "name": "WSL/Windows 混合部署",
       "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "OpenClaw 技能拆為 WSL 端與 Windows 端。",
       "tags": [
@@ -2683,9 +2683,9 @@
       "id": "nas_vitepress_source/entities/ie-department.md",
       "name": "工業工程與管理系 — 課程筆記",
       "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "完整課程大綱與 17 週進度。",
       "tags": [
@@ -2703,7 +2703,7 @@
       "domain": "quant",
       "color": "#39ff14",
       "colorHex": 3800852,
-      "domainName": "Quant & Alpha (螢綠·量化風控)",
+      "domainName": "Quant & Alpha (量化風控與交易)",
       "val": 4,
       "cleanSummary": "Jun 的量化交易系統，包含回測引擎與即時交易。",
       "tags": [
@@ -2712,7 +2712,7 @@
         "Stop-Loss",
         "Zero-Lot"
       ],
-      "highlight": "本金 2 萬生命線 · 16,000 元強制斷路",
+      "highlight": "本金 2 萬生命線 · 16,000 元強制熔斷",
       "isHub": false
     },
     {
@@ -2721,14 +2721,14 @@
       "domain": "semi",
       "color": "#ffd700",
       "colorHex": 16766720,
-      "domainName": "Semiconductor (純金·晶圓工藝)",
+      "domainName": "Semiconductor (晶圓工藝與封測)",
       "val": 4,
       "cleanSummary": "GitHub 倉庫) 舊版 Obsidian 知識庫，以 10 大分類組織所有筆記與文件。",
       "tags": [
         "Wafer-SAW",
         "ASE-Packaging",
-        "7-Steps-Blade",
-        "Poka-Yoke"
+        "Blade-Inspect",
+        "Zero-Tolerance"
       ],
       "highlight": "微米級精準度 · 實體零容錯防呆",
       "isHub": false
@@ -2737,9 +2737,9 @@
       "id": "nas_vitepress_source/entities/mcp-config.md",
       "name": "MCP (Model Context Protocol) 配置說明",
       "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "物件定義所有 MCP 伺服器。",
       "tags": [
@@ -2755,9 +2755,9 @@
       "id": "nas_vitepress_source/entities/openclaw.md",
       "name": "OpenClaw",
       "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "color": "#4da6ff",
+      "colorHex": 5089023,
+      "domainName": "Cloud Infra (私有雲與DevOps)",
       "val": 4,
       "cleanSummary": "由 Nous Research 開發的 AI Agent 框架，Jun 的後端重型運算主力。",
       "tags": [
@@ -2772,19 +2772,19 @@
     {
       "id": "nas_vitepress_source/entities/self-media.md",
       "name": "自媒體內容產出",
-      "domain": "infra",
-      "color": "#ff7700",
-      "colorHex": 16742144,
-      "domainName": "Infra & Cloud (熔岩橙·私有雲)",
+      "domain": "aigc",
+      "color": "#bf55ec",
+      "colorHex": 12539372,
+      "domainName": "AIGC & Media (代碼縫隙與影音)",
       "val": 4,
       "cleanSummary": "文章 : 每週一篇（技術教學、專業分享、品牌故事） - 影片 : 每兩週一支（技術解說） - 圖片 : 每週一張（品牌宣傳、技術教學） - 發布時間 : 文章週二、圖片週五 標題: 一次修好 OpenClaw 多模態失效：從 image model failed 到穩定看圖 根因分析: - 模型端正常（含 mmproj、API 回傳 multimodal） - 問題在路由層：agent 模型只宣告 ，圖片不會被路由到 image 流程 - Gateway 顯示 修正步驟: 1. 確認模型端有多模態: → 看 含 2. 補全域模型能力宣告 3. 補 agent 模型能力宣告 4. Compaction 保留值調整為 （與 32K 窗口相容） 5. 重啟 Gateway + session - 內容有吸引力、有價值、與品牌/專業相關 - 多樣化格式（文本、圖片、影片、音訊） - 與粉絲互動相關聯（問卷、投票、競賽）。",
       "tags": [
-        "NAS-Cluster",
-        "Tailscale",
-        "Docker-Compose",
-        "Auto-Heal"
+        "Code-Gaps",
+        "Gemini-TTS",
+        "Voice-Clone",
+        "-16LUFS"
       ],
-      "highlight": "30分鐘自愈守護 · 內網零信任隔離",
+      "highlight": "-16 LUFS 廣播標竿 · 雙角色硬核對抗",
       "isHub": false
     },
     {
@@ -2793,16 +2793,16 @@
       "domain": "agent",
       "color": "#00f0ff",
       "colorHex": 61695,
-      "domainName": "Agent Systems (青藍·代理控制面)",
+      "domainName": "Agent Systems (代理人與控制面)",
       "val": 4,
       "cleanSummary": "- 任務 : 整合 Windows-Copilot-API 並修復 recall 記憶庫鎖定問題。",
       "tags": [
         "AI-Agent",
-        "CDP-Control",
+        "CDP-Guardian",
         "State-Machine",
         "Dual-Core"
       ],
-      "highlight": "Maker 施工 + Grader 38 項硬閘門獨立驗收",
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     }
   ],
@@ -2815,12 +2815,12 @@
     {
       "source": "hot.md",
       "target": "concepts/codex-context-management.md",
-      "cross": false
+      "cross": true
     },
     {
       "source": "hot.md",
       "target": "concepts/discord-ai-digest-presentation.md",
-      "cross": false
+      "cross": true
     },
     {
       "source": "hot.md",
@@ -2830,7 +2830,7 @@
     {
       "source": "hot.md",
       "target": "concepts/public_apis_free_data_source_index.md",
-      "cross": false
+      "cross": true
     },
     {
       "source": "hot.md",
@@ -2840,12 +2840,12 @@
     {
       "source": "hot.md",
       "target": "concepts/runtime-environment-map.md",
-      "cross": false
+      "cross": true
     },
     {
       "source": "hot.md",
       "target": "concepts/workspace-architecture.md",
-      "cross": false
+      "cross": true
     },
     {
       "source": "hot.md",
@@ -2853,28 +2853,13 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "hot.md",
-      "cross": true
-    },
-    {
       "source": "HUB_SHARED_BRAIN",
       "target": "hot.md",
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "log.md",
-      "cross": true
-    },
-    {
       "source": "HUB_SHARED_BRAIN",
       "target": "log.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "SCHEMA.md",
       "cross": true
     },
     {
@@ -2888,12 +2873,7 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "concepts/agent_reach_cli_evaluation.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_SHARED_BRAIN",
+      "source": "HUB_DATA_INTEGRITY",
       "target": "concepts/agent_reach_cli_evaluation.md",
       "cross": true
     },
@@ -2923,12 +2903,12 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
+      "source": "HUB_DATA_INTEGRITY",
       "target": "concepts/discord-ai-digest-presentation.md",
       "cross": true
     },
     {
-      "source": "HUB_SHARED_BRAIN",
+      "source": "HUB_AUTOMATION_CDP",
       "target": "concepts/discord-ai-digest-presentation.md",
       "cross": true
     },
@@ -3033,11 +3013,6 @@
       "cross": true
     },
     {
-      "source": "HUB_SHARED_BRAIN",
-      "target": "concepts/runtime-environment-map.md",
-      "cross": true
-    },
-    {
       "source": "HUB_DATA_INTEGRITY",
       "target": "concepts/semiconductor-saw-learning.md",
       "cross": true
@@ -3058,18 +3033,8 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "concepts/stable-diffusion-setup.md",
-      "cross": true
-    },
-    {
       "source": "HUB_SHARED_BRAIN",
       "target": "concepts/stable-diffusion-setup.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "concepts/video-automation-moneyprinterturbo-debug.md",
       "cross": true
     },
     {
@@ -3084,11 +3049,6 @@
     },
     {
       "source": "HUB_AUTOMATION_CDP",
-      "target": "concepts/workspace-architecture.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_SHARED_BRAIN",
       "target": "concepts/workspace-architecture.md",
       "cross": true
     },
@@ -3128,22 +3088,12 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "entities/book-notes.md",
-      "cross": true
-    },
-    {
       "source": "HUB_SHARED_BRAIN",
       "target": "entities/book-notes.md",
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "entities/bug-hunt-log.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_SHARED_BRAIN",
+      "source": "HUB_DATA_INTEGRITY",
       "target": "entities/bug-hunt-log.md",
       "cross": true
     },
@@ -3169,11 +3119,6 @@
     },
     {
       "source": "HUB_AUTOMATION_CDP",
-      "target": "entities/hybrid-deployment.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_SHARED_BRAIN",
       "target": "entities/hybrid-deployment.md",
       "cross": true
     },
@@ -3233,28 +3178,13 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "entities/recall-memory-devlog.md",
-      "cross": true
-    },
-    {
       "source": "HUB_SHARED_BRAIN",
       "target": "entities/recall-memory-devlog.md",
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
+      "source": "HUB_DATA_INTEGRITY",
       "target": "entities/recall-memory-pitfalls.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_SHARED_BRAIN",
-      "target": "entities/recall-memory-pitfalls.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "entities/self-media.md",
       "cross": true
     },
     {
@@ -3303,11 +3233,6 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "server/frontend/SCHEMA.md",
-      "cross": true
-    },
-    {
       "source": "HUB_SHARED_BRAIN",
       "target": "server/frontend/SCHEMA.md",
       "cross": true
@@ -3320,11 +3245,6 @@
     {
       "source": "HUB_SHARED_BRAIN",
       "target": "server/frontend/concepts/model-training.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "server/frontend/concepts/stable-diffusion-setup.md",
       "cross": true
     },
     {
@@ -3368,11 +3288,6 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "server/frontend/entities/book-notes.md",
-      "cross": true
-    },
-    {
       "source": "HUB_SHARED_BRAIN",
       "target": "server/frontend/entities/book-notes.md",
       "cross": true
@@ -3399,11 +3314,6 @@
     },
     {
       "source": "HUB_AUTOMATION_CDP",
-      "target": "server/frontend/entities/hybrid-deployment.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_SHARED_BRAIN",
       "target": "server/frontend/entities/hybrid-deployment.md",
       "cross": true
     },
@@ -3453,18 +3363,8 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "server/frontend/entities/self-media.md",
-      "cross": true
-    },
-    {
       "source": "HUB_SHARED_BRAIN",
       "target": "server/frontend/entities/self-media.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "raw/2026/2026-07-07_ep4_memory_script.md",
       "cross": true
     },
     {
@@ -3688,17 +3588,7 @@
       "cross": true
     },
     {
-      "source": "HUB_SHARED_BRAIN",
-      "target": "projects/dev_ops_maintenance/git_dirty_repos_hygiene_report.md",
-      "cross": true
-    },
-    {
       "source": "HUB_AUTOMATION_CDP",
-      "target": "projects/dev_ops_maintenance/index.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_SHARED_BRAIN",
       "target": "projects/dev_ops_maintenance/index.md",
       "cross": true
     },
@@ -3708,12 +3598,12 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
+      "source": "HUB_DATA_INTEGRITY",
       "target": "projects/discord_community/discord_digest_cards_architecture.md",
       "cross": true
     },
     {
-      "source": "HUB_SHARED_BRAIN",
+      "source": "HUB_AUTOMATION_CDP",
       "target": "projects/discord_community/discord_digest_cards_architecture.md",
       "cross": true
     },
@@ -3724,11 +3614,16 @@
     },
     {
       "source": "HUB_AUTOMATION_CDP",
+      "target": "projects/discord_community/discord_permission_audit_20260904.md",
+      "cross": true
+    },
+    {
+      "source": "HUB_DATA_INTEGRITY",
       "target": "projects/discord_community/index.md",
       "cross": true
     },
     {
-      "source": "HUB_SHARED_BRAIN",
+      "source": "HUB_AUTOMATION_CDP",
       "target": "projects/discord_community/index.md",
       "cross": true
     },
@@ -3743,18 +3638,8 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "projects/job_patrol/index.md",
-      "cross": true
-    },
-    {
       "source": "HUB_SHARED_BRAIN",
       "target": "projects/job_patrol/index.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "projects/job_search/2026-09-03_market_jobs_scan.md",
       "cross": true
     },
     {
@@ -3763,18 +3648,8 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "projects/job_search/autonomous_resume_sync_blocker_report.md",
-      "cross": true
-    },
-    {
       "source": "HUB_SHARED_BRAIN",
       "target": "projects/job_search/autonomous_resume_sync_blocker_report.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "projects/job_search/chrome_9222_launch_and_watch_protocol.md",
       "cross": true
     },
     {
@@ -3783,18 +3658,8 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "projects/job_search/company_maigent_notes.md",
-      "cross": true
-    },
-    {
       "source": "HUB_SHARED_BRAIN",
       "target": "projects/job_search/company_maigent_notes.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "projects/job_search/index.md",
       "cross": true
     },
     {
@@ -3803,18 +3668,8 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "projects/job_search/master_resume_google_xyz.md",
-      "cross": true
-    },
-    {
       "source": "HUB_SHARED_BRAIN",
       "target": "projects/job_search/master_resume_google_xyz.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "projects/job_search/resume_sync_camoufox_protocol.md",
       "cross": true
     },
     {
@@ -3843,17 +3698,7 @@
       "cross": true
     },
     {
-      "source": "HUB_SHARED_BRAIN",
-      "target": "projects/live2d_pipeline/index.md",
-      "cross": true
-    },
-    {
       "source": "HUB_AUTOMATION_CDP",
-      "target": "projects/live2d_pipeline/placement_fix_report.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_SHARED_BRAIN",
       "target": "projects/live2d_pipeline/placement_fix_report.md",
       "cross": true
     },
@@ -3888,17 +3733,12 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "projects/social_content_fracture/index.md",
-      "cross": true
-    },
-    {
       "source": "HUB_SHARED_BRAIN",
       "target": "projects/social_content_fracture/index.md",
       "cross": true
     },
     {
-      "source": "HUB_DATA_INTEGRITY",
+      "source": "HUB_SHARED_BRAIN",
       "target": "projects/social_content_fracture/publish_queue_gate_spec.md",
       "cross": true
     },
@@ -3908,37 +3748,17 @@
       "cross": true
     },
     {
-      "source": "HUB_SHARED_BRAIN",
-      "target": "projects/spirits_calling/index.md",
-      "cross": true
-    },
-    {
       "source": "HUB_AUTOMATION_CDP",
       "target": "projects/spirits_calling/playtest_guide.md",
       "cross": true
     },
     {
-      "source": "HUB_SHARED_BRAIN",
-      "target": "projects/spirits_calling/playtest_guide.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_AUTOMATION_CDP",
+      "source": "HUB_DATA_INTEGRITY",
       "target": "projects/wiki_governance/giscus_discussions_integration.md",
       "cross": true
     },
     {
-      "source": "HUB_SHARED_BRAIN",
-      "target": "projects/wiki_governance/giscus_discussions_integration.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_AUTOMATION_CDP",
-      "target": "projects/wiki_governance/index.md",
-      "cross": true
-    },
-    {
-      "source": "HUB_SHARED_BRAIN",
+      "source": "HUB_DATA_INTEGRITY",
       "target": "projects/wiki_governance/index.md",
       "cross": true
     },
@@ -3948,7 +3768,7 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
+      "source": "HUB_SHARED_BRAIN",
       "target": "nas_vitepress_source/concepts/stable-diffusion-setup.md",
       "cross": true
     },
@@ -4023,7 +3843,7 @@
       "cross": true
     },
     {
-      "source": "HUB_AUTOMATION_CDP",
+      "source": "HUB_SHARED_BRAIN",
       "target": "nas_vitepress_source/entities/self-media.md",
       "cross": true
     },
