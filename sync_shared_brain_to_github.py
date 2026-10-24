@@ -19,6 +19,7 @@ MAPPINGS = {
     "01_tech/agent-collaboration-contract.md": "concepts/agent-collaboration-contract.md",
     "01_tech/codex-context-management.md": "concepts/codex-context-management.md",
     "01_tech/data-source-integrity-and-fallback.md": "concepts/data-source-integrity-and-fallback.md",
+    "01_tech/autonomous-self-healing-quota-relay-architecture.md": "concepts/autonomous-self-healing-quota-relay-architecture.md",
     "90_system/workspace-architecture.md": "concepts/workspace-architecture.md",
     "90_system/runtime-environment-map.md": "concepts/runtime-environment-map.md",
     "04_media/podcast-current-production-contract.md": "concepts/podcast-current-production-contract.md",
@@ -33,6 +34,11 @@ RELATED = {
     "concepts/codex-context-management.md": [
         ("concepts/agent-collaboration-contract.md", "Agent 協作契約"),
         ("concepts/workspace-architecture.md", "Workspace 架構"),
+    ],
+    "concepts/autonomous-self-healing-quota-relay-architecture.md": [
+        ("concepts/data-source-integrity-and-fallback.md", "資料來源完整性"),
+        ("concepts/hermes_quota_pool_circuit_breaker.md", "Quota-Pool 熔斷架構"),
+        ("concepts/agent-collaboration-contract.md", "Agent 協作契約"),
     ],
     "concepts/data-source-integrity-and-fallback.md": [
         ("concepts/agent-collaboration-contract.md", "Agent 協作契約"),

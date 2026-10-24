@@ -58,8 +58,8 @@
       "color": "#e0e6ed",
       "colorHex": 14739181,
       "domainName": "Career & Meta (職涯沉澱與時間線)",
-      "val": 10,
-      "cleanSummary": "完整展示過去 7 天（2026-10-11 至 2026-10-17）每日活躍條目與重要進展，共 9 項。",
+      "val": 11,
+      "cleanSummary": "完整展示過去 7 天（2026-10-18 至 2026-10-24）每日活躍條目與重要進展，共 10 項。",
       "tags": [
         "Jun-Profile",
         "Open-Source",
@@ -139,6 +139,24 @@
         "Zero-Lot"
       ],
       "highlight": "本金 2 萬生命線 · 16,000 元強制熔斷",
+      "isHub": false
+    },
+    {
+      "id": "concepts/autonomous-self-healing-quota-relay-architecture.md",
+      "name": "長程自治 AI 工作流：額度冷卻自癒與確定性斷點接力架構",
+      "domain": "agent",
+      "color": "#00f0ff",
+      "colorHex": 61695,
+      "domainName": "Agent Systems (代理人與控制面)",
+      "val": 12,
+      "cleanSummary": "結合雙狀態機解耦、配額池連帶熔斷、Half-Open 探針自癒與 Fresh Context 確定性斷點接力，實現跨越 API 額度冷卻的長程無人值守產出架構。",
+      "tags": [
+        "AI-Agent",
+        "CDP-Guardian",
+        "State-Machine",
+        "Dual-Core"
+      ],
+      "highlight": "Maker 施工 + Grader 38 項硬閘門驗收",
       "isHub": false
     },
     {
@@ -2834,11 +2852,6 @@
     },
     {
       "source": "hot.md",
-      "target": "concepts/semiconductor-saw-learning.md",
-      "cross": true
-    },
-    {
-      "source": "hot.md",
       "target": "concepts/runtime-environment-map.md",
       "cross": true
     },
@@ -2850,6 +2863,16 @@
     {
       "source": "hot.md",
       "target": "concepts/data-source-integrity-and-fallback.md",
+      "cross": true
+    },
+    {
+      "source": "hot.md",
+      "target": "concepts/autonomous-self-healing-quota-relay-architecture.md",
+      "cross": true
+    },
+    {
+      "source": "hot.md",
+      "target": "projects/podcast/ep20_script_review.md",
       "cross": true
     },
     {
@@ -2875,6 +2898,16 @@
     {
       "source": "HUB_DATA_INTEGRITY",
       "target": "concepts/agent_reach_cli_evaluation.md",
+      "cross": true
+    },
+    {
+      "source": "HUB_AUTOMATION_CDP",
+      "target": "concepts/autonomous-self-healing-quota-relay-architecture.md",
+      "cross": true
+    },
+    {
+      "source": "HUB_SHARED_BRAIN",
+      "target": "concepts/autonomous-self-healing-quota-relay-architecture.md",
       "cross": true
     },
     {

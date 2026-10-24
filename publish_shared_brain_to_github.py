@@ -31,6 +31,7 @@ TARGETS = [
     "concepts/agent-collaboration-contract.md",
     "concepts/codex-context-management.md",
     "concepts/data-source-integrity-and-fallback.md",
+    "concepts/autonomous-self-healing-quota-relay-architecture.md",
     "concepts/discord-ai-digest-presentation.md",
     "concepts/podcast-current-production-contract.md",
     "concepts/runtime-environment-map.md",
