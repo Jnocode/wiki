@@ -58,8 +58,8 @@
       "color": "#e0e6ed",
       "colorHex": 14739181,
       "domainName": "Career & Meta (職涯沉澱與時間線)",
-      "val": 11,
-      "cleanSummary": "完整展示過去 7 天（2026-10-18 至 2026-10-24）每日活躍條目與重要進展，共 10 項。",
+      "val": 10,
+      "cleanSummary": "完整展示過去 7 天（2026-10-19 至 2026-10-25）每日活躍條目與重要進展，共 9 項。",
       "tags": [
         "Jun-Profile",
         "Open-Source",
@@ -2868,11 +2868,6 @@
     {
       "source": "hot.md",
       "target": "concepts/autonomous-self-healing-quota-relay-architecture.md",
-      "cross": true
-    },
-    {
-      "source": "hot.md",
-      "target": "projects/podcast/ep20_script_review.md",
       "cross": true
     },
     {

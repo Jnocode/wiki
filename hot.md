@@ -1,16 +1,19 @@
 ---
 title: "Hot Cache — 近 7 天動態焦點"
 type: log
-date: 2026-10-24
-updated: 2026-10-24
+date: 2026-10-25
+updated: 2026-10-25
 tags: [hot, summary, digest]
-summary: "完整展示過去 7 天（2026-10-18 至 2026-10-24）每日活躍條目與重要進展，共 10 項。"
+summary: "完整展示過去 7 天（2026-10-19 至 2026-10-25）每日活躍條目與重要進展，共 9 項。"
 status: active
 ---
 
 # 🔥 Hot Cache — 近 7 天動態焦點 (完整 7 日時間線)
 
 > 由 `compile_hot_cache.py` 嚴格依據過去 7 日（7x24小時）時間窗口編譯；每天皆有明確動態與進展條目，按日分層展示。點擊任意連結皆可在維基閱讀器中開啟。
+
+### 📅 2026-10-25 (週日) — 共 0 項動態
+- *當日無新發布條目（系統自主巡邏與背景排程運作）*
 
 ### 📅 2026-10-24 (週六) — 共 9 項動態
 - [Agent 團隊協作契約](concepts/agent-collaboration-contract.md) — <small style='color:var(--wiki-text-muted);'>定義小衡、小克與 Codex 的分工、交接、驗收與對外發布邊界。</small>
@@ -38,9 +41,6 @@ status: active
 ### 📅 2026-10-19 (週一) — 共 0 項動態
 - *當日無新發布條目（系統自主巡邏與背景排程運作）*
 
-### 📅 2026-10-18 (週日) — 共 1 項動態
-- [Podcast 腳本：EP20 開源語音 VoxCPM2 與可聽成品的創作工作流 (R2 待修訂)](projects/podcast/ep20_script_review.md) — <small style='color:var(--wiki-text-muted);'>EP20 R2 待修訂腳本。以開源語音 VoxCPM2 踩坑為起點，深入探討聲音克隆、思考延遲與內容通膨等議題。</small>
-
 ---
 ## 條目摘要與詳細說明 (Verified Metadata)
 
@@ -54,6 +54,3 @@ status: active
 - **Workspace 工作區架構與整理規則**：定義 D:\\Workspace 的資料邊界、正本判定、搬移驗證與 artifacts 生命週期。（路徑：`concepts/workspace-architecture.md`）
 - **資料來源完整性與 Provider 備援**：統一即時資料查證、API 失敗處理、Quota Pool 熔斷與未驗證資訊標示規則。（路徑：`concepts/data-source-integrity-and-fallback.md`）
 - **長程自治 AI 工作流：額度冷卻自癒與確定性斷點接力架構**：結合雙狀態機解耦、配額池連帶熔斷、Half-Open 探針自癒與 Fresh Context 確定性斷點接力，實現跨越 API 額度冷卻的長程無人值守產出架構。（路徑：`concepts/autonomous-self-healing-quota-relay-architecture.md`）
-
-#### 2026-10-18
-- **Podcast 腳本：EP20 開源語音 VoxCPM2 與可聽成品的創作工作流 (R2 待修訂)**：EP20 R2 待修訂腳本。以開源語音 VoxCPM2 踩坑為起點，深入探討聲音克隆、思考延遲與內容通膨等議題。（路徑：`projects/podcast/ep20_script_review.md`）
