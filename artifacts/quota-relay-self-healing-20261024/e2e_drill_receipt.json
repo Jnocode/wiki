@@ -1,0 +1,47 @@
+{
+  "drill_name": "Quota Relay Auto-Refill Component Integration Drill",
+  "harness_version": "2.0.0",
+  "overall_verdict": "PASS",
+  "executed_at": "2026-10-25T01:49:56.519115+00:00",
+  "grader": "Xiao Heng (Tech Lead / Grader)",
+  "simulation_nature": "Deterministic Component Integration Simulation (Isolated Clock & Memory State)",
+  "phases": {
+    "phase1_quota_injection": {
+      "status": "PASS",
+      "cpa_pool_state": "COOLDOWN",
+      "cpa_cooldown_until": 1792886460.0,
+      "codex_pool_state": "HARD_LOCK",
+      "codex_hard_lock_verified": true,
+      "same_pool_retries_allowed": false
+    },
+    "phase2_queue_census": {
+      "status": "PASS",
+      "total_queued": 2,
+      "waiting_for_quota": 1,
+      "waiting_for_slot": 1
+    },
+    "phase3_canary_recovery": {
+      "status": "PASS",
+      "pool_restored": "cpa_pool",
+      "canary_probe_status": 200,
+      "resource_event_emitted": true,
+      "waiting_for_quota_remaining": 0,
+      "waiting_for_slot_updated": 2
+    },
+    "phase4_slot_freed_and_reaper": {
+      "status": "PASS",
+      "promotion_latency_sec": 0.0052,
+      "latency_under_60s": true,
+      "promoted_card_id": "card_wait_quota",
+      "stale_lease_fenced": true,
+      "zombie_writeback_rejected": true,
+      "business_block_preserved": true
+    },
+    "phase5_checkpoint_anti_tamper": {
+      "status": "PASS",
+      "step_committed": 1,
+      "outbox_idempotency_enforced": true,
+      "tamper_detected_and_rejected": true
+    }
+  }
+}

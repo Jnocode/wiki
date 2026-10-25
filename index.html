@@ -663,7 +663,7 @@
       grid-template-columns: 1fr;
     }
   }
-</style></style>
+</style>
 </head>
 <body onload="const orig=window.getComputedStyle;window.getComputedStyle=function(el){if(!el||el===window)return{display:'flex'};return orig.apply(this,arguments);};">
 
@@ -730,6 +730,7 @@
       <h1>歡迎來到 Jun's Wiki</h1>
       <p>自由的個人知識庫 · AI 記憶架構 × 量化交易 × 自媒體調研</p>
       <div class="wiki-portals">
+        <a href="war-room.html" class="portal-tag" style="color:var(--lime);border-color:var(--lime);font-weight:700;box-shadow:0 0 10px rgba(183,245,109,0.25);">🛰️ 自治運營戰情室 (War Room)</a>
         <a href="javascript:void(0)" onclick="filterCategory('concepts')" class="portal-tag">🧠 核心概念</a>
         <a href="javascript:void(0)" onclick="filterCategory('projects')" class="portal-tag">💼 專案演進</a>
         <a href="javascript:void(0)" onclick="filterCategory('raw')" class="portal-tag">🎙 每日調研</a>
@@ -747,6 +748,19 @@
       發布機制：<span style="color:var(--wiki-link);font-weight:600;">● GitHub Pages 靜態快照</span><br>
       <small>新鮮度依據：見各條目與看板時間戳</small>
     </div>
+  </div>
+
+  <!-- 營運狀態即時速覽列 -->
+  <div class="war-room-quick-bar" style="background:linear-gradient(135deg,rgba(114,220,255,0.10),rgba(255,174,120,0.08));border:1px solid rgba(114,220,255,0.35);border-left:4px solid var(--cyan);border-radius:6px;padding:0.75rem 1rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;">
+    <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;">
+      <span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);"></span>
+      <strong style="font-size:0.92rem;color:var(--text);">組件驗收通過 · 常駐 Daemon 待部署</strong>
+      <span style="font-family:var(--mono);font-size:0.8rem;color:var(--muted);background:rgba(8,13,21,0.5);padding:0.15rem 0.5rem;border-radius:4px;border:1px solid var(--line);">18 正常 · 4 異常 · 7 暫停</span>
+      <span style="font-size:0.8rem;color:var(--muted);">架構與調度演練 14/14 PASS</span>
+    </div>
+    <a href="war-room.html" style="color:var(--cyan);font-weight:700;text-decoration:none;font-size:0.85rem;display:inline-flex;align-items:center;gap:0.3rem;">
+      進入自治運營戰情室 (War Room) →
+    </a>
   </div>
 
   <div class="current-system-quick" style="background:linear-gradient(135deg,rgba(88,166,255,0.13),rgba(63,185,80,0.08));border:1px solid var(--wiki-link);border-left:4px solid var(--wiki-link);border-radius:6px;padding:0.9rem 1rem;margin-bottom:1.25rem;">

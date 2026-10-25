@@ -345,8 +345,8 @@
         "title": "EP21 心理成長主軸 draft（Option A：10/23五檔期從簡、10/28三上架）",
         "status": "todo",
         "assigned_to": "main (🦞🦐 小克)",
-        "wait_reason": "WAITING_FOR_SLOT",
-        "expected_wake_at": "2026-10-25T14:00:00+08:00",
+        "wait_reason": "REQUIREMENT_REGISTRATION",
+        "expected_wake_at": null,
         "priority": "high",
         "pool_id": "cpa_pool"
       },
@@ -355,8 +355,8 @@
         "title": "Podcast 聽感 SOP v1：EP20 私人樣本與獨立全片驗收",
         "status": "todo",
         "assigned_to": "main (🦞🦐 小克)",
-        "wait_reason": "WAITING_FOR_DEPENDENCY",
-        "expected_wake_at": "2026-10-25T18:00:00+08:00",
+        "wait_reason": "REQUIREMENT_REGISTRATION",
+        "expected_wake_at": null,
         "priority": "high",
         "pool_id": "cpa_pool"
       }

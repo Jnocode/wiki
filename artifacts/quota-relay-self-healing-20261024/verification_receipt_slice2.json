@@ -1,0 +1,24 @@
+{
+  "verified_at": "2026-10-25T01:23:45.197518+00:00",
+  "task_id": "quota_relay_slice2",
+  "grader": "Xiao Heng (Tech Lead)",
+  "maker": "Xiao Ke (OpenClaw agent:main)",
+  "features_verified": 7,
+  "all_passes": true,
+  "anti_cheat_passed": 3,
+  "full_suite_test_count": 14,
+  "source_sha256": {
+    "provider_recovery_sentinel.py": "7fe10c91207e799c344c770be2e90908a624e8d5f16672154e769a2b49981428",
+    "auto_refill_controller.py": "9fbc9b0a214897960d294ee2570da26cc4198951f4e04a6ae9e9d05c02999cfd",
+    "checkpoint_manager.py": "54b29c667443e7321206466c896a77bcffbabe01b4aa03d5436a7d0e52dd58fc",
+    "ops_telemetry_exporter.py": "7822eadd398205a7539bd39e94ba5828de1bd283651148e0c4a80bc7add7beef",
+    "test_slice2_failure_injection.py": "64a9e10c73c58287a089fa04bdb6b53f3b49f0b09c42e155532ff62d93e597ed"
+  },
+  "source_sizes_bytes": {
+    "provider_recovery_sentinel.py": 17482,
+    "auto_refill_controller.py": 45729,
+    "checkpoint_manager.py": 21078,
+    "ops_telemetry_exporter.py": 27781,
+    "test_slice2_failure_injection.py": 35118
+  }
+}

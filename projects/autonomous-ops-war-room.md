@@ -77,8 +77,8 @@ status: active
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | `card_ec176f8d` | Slice 1: 配額冷卻登記表與錯誤分類狀態機 | **`done`** | main (🦞🦐 小克) | — | — |
 | `card_daba206d` | Slice 2: 自動補位調度器、半開哨兵探針與五大營運指標 | **`done`** | main (🦞🦐 小克) | — | — |
-| `wb_4125c395` | EP21 心理成長主軸 draft（Option A：10/23五檔期從簡、10/28三上架） | **`todo`** | main (🦞🦐 小克) | `WAITING_FOR_SLOT` | 2026-10-25T14:00:00+08:00 |
-| `wb_f48045f2` | Podcast 聽感 SOP v1：EP20 私人樣本與獨立全片驗收 | **`todo`** | main (🦞🦐 小克) | `WAITING_FOR_DEPENDENCY` | 2026-10-25T18:00:00+08:00 |
+| `wb_4125c395` | EP21 心理成長主軸 draft（Option A：10/23五檔期從簡、10/28三上架） | **`todo`** | main (🦞🦐 小克) | `需求登記中` | — (未排程) |
+| `wb_f48045f2` | Podcast 聽感 SOP v1：EP20 私人樣本與獨立全片驗收 | **`todo`** | main (🦞🦐 小克) | `需求登記中` | — (未排程) |
 
 ---
 

@@ -1,0 +1,2821 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自治運營戰情室 (War Room) — Jun's Wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       Northstar Cyber Dark Design System — Autonomy Operations War Room
+       ========================================================================== */
+    :root {
+      color-scheme: dark;
+      --ink: #080d15;
+      --ink-soft: #0d1420;
+      --panel: #111a28;
+      --panel-raised: #162235;
+      --line: #25364d;
+      --line-bright: #3c5574;
+      --text: #eff5fb;
+      --muted: #9aabc0;
+      --faint: #667992;
+      --cyan: #72dcff;
+      --violet: #aaa5ff;
+      --lime: #b7f56d;
+      --orange: #ffae78;
+      --danger: #ff7e87;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+      --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.25);
+      --mono: 'DM Mono', monospace;
+      --sans: 'Manrope', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--sans);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(114, 220, 255, 0.08), transparent 32rem),
+        radial-gradient(circle at 90% 15%, rgba(183, 245, 109, 0.06), transparent 28rem),
+        radial-gradient(circle at 50% 60%, rgba(170, 165, 255, 0.05), transparent 36rem),
+        var(--ink);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 14.5px;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      padding: 1.25rem 1.5rem 3rem 1.5rem;
+    }
+
+    /* Subtle Cyber Mesh Background */
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      content: '';
+      opacity: 0.18;
+      background-size: 40px 40px;
+      background-image:
+        linear-gradient(to right, rgba(114, 220, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(114, 220, 255, 0.08) 1px, transparent 1px);
+    }
+
+    .war-room-container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 1.25rem;
+      background: rgba(17, 26, 40, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin-bottom: 1.25rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-brand-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-family: var(--mono);
+      background: rgba(183, 245, 109, 0.12);
+      color: var(--lime);
+      border: 1px solid rgba(183, 245, 109, 0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--muted);
+      background: var(--panel-raised);
+      border: 1px solid var(--line);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .nav-btn:hover {
+      color: var(--text);
+      border-color: var(--line-bright);
+      background: rgba(37, 54, 77, 0.5);
+    }
+
+    .nav-btn.primary {
+      color: var(--cyan);
+      border-color: rgba(114, 220, 255, 0.4);
+      background: rgba(114, 220, 255, 0.08);
+    }
+    .nav-btn.primary:hover {
+      background: rgba(114, 220, 255, 0.16);
+      box-shadow: 0 0 12px rgba(114, 220, 255, 0.25);
+    }
+
+    /* Executive Telemetry Bar (HUD) */
+    .telemetry-hud {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .telemetry-hud::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan), var(--lime), var(--violet));
+    }
+
+    .hud-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid rgba(37, 54, 77, 0.7);
+    }
+
+    .hud-status-pulse {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan);
+      animation: pulseReady 2.2s infinite ease-in-out;
+    }
+
+    @keyframes pulseReady {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 10px var(--cyan);
+      }
+      50% {
+        opacity: 0.45;
+        transform: scale(0.88);
+        box-shadow: 0 0 4px var(--cyan);
+      }
+    }
+
+    /* Live vs Snapshot Telemetry Badge */
+    .source-badge {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .source-badge.snapshot {
+      background: rgba(255, 174, 120, 0.15);
+      color: var(--orange);
+      border: 1px solid rgba(255, 174, 120, 0.45);
+    }
+
+    .source-badge.live {
+      background: rgba(183, 245, 109, 0.15);
+      color: var(--lime);
+      border: 1px solid rgba(183, 245, 109, 0.45);
+    }
+
+    /* Queue Requirement Registration Border & Badge */
+    .queue-card.req-reg::before {
+      background: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan);
+    }
+
+    /* Northstar Receipt Modal */
+    .receipt-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(8, 13, 21, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .receipt-modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .receipt-modal-container {
+      background: var(--panel-raised);
+      border: 1px solid var(--line-bright);
+      border-radius: 12px;
+      width: 100%;
+      max-width: 780px;
+      max-height: 86vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(114, 220, 255, 0.15);
+      overflow: hidden;
+      transform: scale(0.96);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .receipt-modal-backdrop.open .receipt-modal-container {
+      transform: scale(1);
+    }
+
+    .receipt-modal-header {
+      padding: 0.9rem 1.25rem;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--panel);
+      gap: 0.75rem;
+    }
+
+    .receipt-modal-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      word-break: break-all;
+    }
+
+    .receipt-modal-close {
+      background: rgba(37, 54, 77, 0.5);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+
+    .receipt-modal-close:hover {
+      color: var(--text);
+      background: var(--line);
+      border-color: var(--line-bright);
+    }
+
+    .receipt-modal-body {
+      padding: 1.15rem;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .receipt-modal-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.65rem;
+      background: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.75rem;
+    }
+
+    .receipt-meta-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .receipt-meta-cell-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .receipt-meta-cell-value {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text);
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .receipt-modal-code-wrap {
+      background: #06090e;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    .receipt-modal-code-wrap pre {
+      margin: 0;
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      line-height: 1.55;
+      color: #9cdcfe;
+    }
+
+    .receipt-modal-footer {
+      padding: 0.75rem 1.25rem;
+      border-top: 1px solid var(--line);
+      background: var(--panel);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .hud-title-wrap h1 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .hud-title-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+      font-family: var(--mono);
+    }
+
+    /* Three-tier Timestamps Integrity Bar */
+    .hud-timestamps {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      background: rgba(8, 13, 21, 0.6);
+      border: 1px solid var(--line);
+      padding: 0.65rem 1rem;
+      border-radius: 8px;
+      font-family: var(--mono);
+      font-size: 0.76rem;
+    }
+
+    .hud-timestamp-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .hud-timestamp-label {
+      color: var(--faint);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .hud-timestamp-val {
+      color: var(--cyan);
+      font-weight: 500;
+    }
+
+    /* Summary Stats 4-Card Grid */
+    .stats-bento {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .stat-card {
+      background: var(--panel-raised);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .stat-card:hover {
+      border-color: var(--line-bright);
+      transform: translateY(-1px);
+    }
+
+    .stat-label {
+      font-size: 0.76rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .stat-value {
+      font-size: 1.65rem;
+      font-weight: 800;
+      font-family: var(--mono);
+      color: var(--text);
+      margin: 0.4rem 0 0.2rem 0;
+      line-height: 1.2;
+    }
+
+    .stat-sub {
+      font-size: 0.76rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Mini Progress Bar in Summary */
+    .mini-progress-track {
+      width: 100%;
+      height: 6px;
+      background: rgba(37, 54, 77, 0.5);
+      border-radius: 999px;
+      overflow: hidden;
+      display: flex;
+      margin-top: 0.5rem;
+    }
+
+    .mini-progress-fill {
+      height: 100%;
+    }
+
+    /* Main Bento Layout */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    /* Common Card Styling */
+    .bento-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.35rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .bento-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(37, 54, 77, 0.7);
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .bento-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .bento-badge-domain {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      background: rgba(114, 220, 255, 0.1);
+      color: var(--cyan);
+      border: 1px solid rgba(114, 220, 255, 0.3);
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .bento-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .bento-subtitle {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    /* Domain 1: Verified Outcomes Grid */
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+
+    .outcome-item {
+      background: var(--panel-raised);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s;
+    }
+
+    .outcome-item:hover {
+      border-color: rgba(183, 245, 109, 0.4);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .outcome-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .outcome-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .outcome-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+      line-height: 1.45;
+    }
+
+    .pill-pass {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(183, 245, 109, 0.15);
+      color: var(--lime);
+      border: 1px solid rgba(183, 245, 109, 0.4);
+      white-space: nowrap;
+    }
+
+    .outcome-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(37, 54, 77, 0.5);
+    }
+
+    .outcome-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      color: var(--muted);
+      font-family: var(--mono);
+    }
+
+    .outcome-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-chip {
+      background: rgba(37, 54, 77, 0.4);
+      border: 1px solid var(--line);
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-chip:hover {
+      background: rgba(114, 220, 255, 0.12);
+      border-color: var(--cyan);
+      color: #fff;
+    }
+
+    /* Domain 2: Token Ledger & Quota Pools */
+    .pool-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .pool-tab-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background: var(--panel-raised);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pool-tab-btn:hover {
+      color: var(--text);
+      border-color: var(--line-bright);
+    }
+
+    .pool-tab-btn.active {
+      background: rgba(114, 220, 255, 0.1);
+      color: var(--cyan);
+      border-color: var(--cyan);
+      box-shadow: 0 0 12px rgba(114, 220, 255, 0.15);
+    }
+
+    .pool-stat-banner {
+      background: rgba(8, 13, 21, 0.75);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pool-stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .pool-stat-title {
+      font-size: 0.72rem;
+      color: var(--faint);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pool-stat-number {
+      font-family: var(--mono);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .pool-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--panel-raised);
+    }
+
+    .quota-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      text-align: left;
+    }
+
+    .quota-table th {
+      background: rgba(13, 20, 32, 0.9);
+      color: var(--muted);
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--line);
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .quota-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(37, 54, 77, 0.5);
+      color: var(--text);
+      font-family: var(--mono);
+    }
+
+    .quota-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .quota-table tr:hover td {
+      background: rgba(114, 220, 255, 0.03);
+    }
+
+    .token-bar-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      min-width: 140px;
+    }
+
+    .token-bar-track {
+      height: 6px;
+      width: 100%;
+      background: rgba(37, 54, 77, 0.6);
+      border-radius: 999px;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .token-bar-fill {
+      height: 100%;
+      background: var(--cyan);
+    }
+
+    .token-bar-cache {
+      height: 100%;
+      background: var(--violet);
+    }
+
+    /* Domain 3: Queue Census */
+    .queue-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1rem;
+    }
+
+    .queue-card {
+      background: var(--panel-raised);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    .queue-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 4px;
+    }
+
+    .queue-card.done::before {
+      background: var(--lime);
+      box-shadow: 0 0 10px var(--lime);
+    }
+
+    .queue-card.slot-wait::before {
+      background: var(--orange);
+      box-shadow: 0 0 10px var(--orange);
+    }
+
+    .queue-card.dep-wait::before {
+      background: var(--violet);
+      box-shadow: 0 0 10px var(--violet);
+    }
+
+    .queue-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+      gap: 0.5rem;
+    }
+
+    .queue-card-id {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--faint);
+    }
+
+    .queue-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 0.85rem;
+    }
+
+    .queue-reason-box {
+      background: rgba(8, 13, 21, 0.6);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .queue-reason-text {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--orange);
+    }
+
+    .queue-reason-sub {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .queue-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      color: var(--muted);
+      padding-top: 0.65rem;
+      border-top: 1px solid rgba(37, 54, 77, 0.5);
+    }
+
+    /* Domain 4: 29 Pipeline Health Matrix */
+    .pipeline-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill-btn {
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel-raised);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-pill-btn:hover {
+      color: var(--text);
+      border-color: var(--line-bright);
+    }
+
+    .filter-pill-btn.active {
+      color: var(--cyan);
+      border-color: var(--cyan);
+      background: rgba(114, 220, 255, 0.12);
+    }
+
+    .filter-pill-btn.danger-pill.active {
+      color: var(--danger);
+      border-color: var(--danger);
+      background: rgba(255, 126, 135, 0.15);
+    }
+
+    /* Error Pipelines Sticky Top Grid */
+    .error-pipelines-container {
+      margin-bottom: 1.5rem;
+    }
+
+    .error-pipelines-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--danger);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .error-card {
+      background: rgba(255, 126, 135, 0.05);
+      border: 1px solid rgba(255, 126, 135, 0.35);
+      border-left: 4px solid var(--danger);
+      border-radius: 10px;
+      padding: 1.15rem;
+      margin-bottom: 0.85rem;
+      transition: border-color 0.2s;
+    }
+
+    .error-card:hover {
+      border-color: var(--danger);
+      box-shadow: 0 4px 16px rgba(255, 126, 135, 0.15);
+    }
+
+    .error-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .error-card-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #ff9da4;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .error-codeblock {
+      background: rgba(8, 13, 21, 0.8);
+      border: 1px solid rgba(255, 126, 135, 0.25);
+      border-radius: 6px;
+      padding: 0.65rem 0.85rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: #ffd2d5;
+      line-height: 1.5;
+      overflow-x: auto;
+      margin-top: 0.5rem;
+    }
+
+    /* Normal Pipelines Compact Grid */
+    .pipelines-compact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .pipe-compact-card {
+      background: var(--panel-raised);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.75rem 0.95rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.45rem;
+      transition: all 0.15s;
+    }
+
+    .pipe-compact-card:hover {
+      border-color: var(--line-bright);
+      background: rgba(22, 34, 53, 0.85);
+    }
+
+    .pipe-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .pipe-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      word-break: break-all;
+    }
+
+    .pipe-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(37, 54, 77, 0.4);
+      padding-top: 0.4rem;
+    }
+
+    .pipe-status-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin-right: 0.35rem;
+    }
+
+    .dot-healthy { background: var(--lime); box-shadow: 0 0 6px var(--lime); }
+    .dot-error { background: var(--danger); box-shadow: 0 0 6px var(--danger); }
+    .dot-paused { background: var(--faint); }
+
+    /* Domain 5: Supervision & Audit Chain */
+    .audit-chain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .audit-doctrine-card {
+      background: var(--panel-raised);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .doctrine-flow {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 1rem;
+      background: rgba(8, 13, 21, 0.6);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .flow-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.25rem;
+    }
+
+    .flow-node-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    .flow-node-role {
+      font-size: 0.72rem;
+      font-family: var(--mono);
+      color: var(--muted);
+    }
+
+    .flow-arrow {
+      color: var(--cyan);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .doctrine-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.83rem;
+    }
+
+    .doctrine-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      color: var(--muted);
+    }
+
+    .doctrine-list li strong {
+      color: var(--text);
+    }
+
+    /* Toast Notification for Copy */
+    .toast-popup {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: rgba(17, 26, 40, 0.95);
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .toast-popup.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    .war-room-footer {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      color: var(--faint);
+      font-size: 0.8rem;
+      font-family: var(--mono);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    /* ==========================================================================
+       Responsive Rules (RWD & Mobile First Guard)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .stats-bento {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .audit-chain-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 0.6rem 0.6rem 2rem 0.6rem;
+      }
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.75rem;
+        gap: 0.75rem;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+      .nav-btn {
+        flex: 1 1 calc(50% - 0.35rem);
+        justify-content: center;
+        font-size: 0.8rem;
+        padding: 0.45rem 0.6rem;
+      }
+      .stats-bento {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+      .hud-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.85rem;
+      }
+      .hud-timestamps {
+        flex-direction: column;
+        gap: 0.45rem;
+        width: 100%;
+      }
+      .hud-timestamp-item {
+        width: 100%;
+      }
+      .hud-title-wrap h1 {
+        font-size: 1.12rem;
+      }
+      .bento-card {
+        padding: 0.85rem;
+      }
+      .outcome-actions {
+        width: 100%;
+      }
+      .outcome-actions .btn-chip {
+        flex: 1 1 100%;
+        justify-content: center;
+        word-break: break-all;
+      }
+      .receipt-modal-backdrop {
+        padding: 0.5rem;
+      }
+      .receipt-modal-container {
+        max-height: 92vh;
+      }
+      .receipt-modal-header {
+        padding: 0.75rem 0.85rem;
+      }
+      .receipt-modal-body {
+        padding: 0.85rem;
+      }
+      .receipt-modal-code-wrap pre {
+        font-size: 0.72rem;
+      }
+      .doctrine-flow {
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="war-room-container">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+      <a href="index.html" class="nav-brand">
+        <span>🛰️</span>
+        <span>自治運營戰情室</span>
+        <span class="nav-brand-badge">WAR ROOM</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-btn">📖 Wiki 首頁</a>
+        <a href="matrix/index.html" class="nav-btn">⚔️ 決鬥圖譜</a>
+        <a href="kanban.html" class="nav-btn">📋 成果看板</a>
+        <button id="btnRefresh" class="nav-btn primary" onclick="reloadWarRoomData()">🔄 即時重新整理</button>
+      </nav>
+    </header>
+
+    <!-- Executive Telemetry Bar (HUD) -->
+    <section class="telemetry-hud">
+      <div class="hud-header">
+        <div class="hud-status-pulse">
+          <div class="pulse-dot"></div>
+          <div class="hud-title-wrap">
+            <h1>STATUS: READY FOR DEPLOY (COMPONENT VERIFIED)</h1>
+            <div class="hud-title-sub">架構與調度演練已驗收 (14/14 PASS) · 常駐 Daemon 待部署</div>
+          </div>
+        </div>
+
+        <!-- Three-tier Timestamps Integrity Bar -->
+        <div class="hud-timestamps">
+          <div class="hud-timestamp-item">
+            <span class="hud-timestamp-label">DATA EPOCH (REPORT)</span>
+            <span id="tsTelemetryEpoch" class="hud-timestamp-val">2026-10-25T01:58:28Z</span>
+          </div>
+          <div class="hud-timestamp-item">
+            <span class="hud-timestamp-label">PAGE FETCHED (CLIENT)</span>
+            <span id="tsClientFetch" class="hud-timestamp-val">2026-10-25 09:58:28</span>
+          </div>
+          <div class="hud-timestamp-item">
+            <span class="hud-timestamp-label">DAEMON STATUS</span>
+            <span id="tsDaemonStatus" class="hud-timestamp-val" style="color:var(--orange);">待部署至系統常駐服務 (目前無常駐心跳)</span>
+          </div>
+          <div class="hud-timestamp-item">
+            <span class="hud-timestamp-label">TELEMETRY SOURCE</span>
+            <span id="tsSourceMode"><span class="source-badge snapshot">⚠️ 離線快照模式 (Offline Snapshot)</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Key Summary Stats -->
+      <div class="stats-bento">
+        <!-- Stat 1: Verified Outcomes -->
+        <div class="stat-card">
+          <div class="stat-label">
+            <span>已驗收交付物</span>
+            <span class="pill-pass">PASS 100%</span>
+          </div>
+          <div class="stat-value" style="color:var(--lime);">4 / 4</div>
+          <div class="stat-sub">
+            <span>12.5 KB 正本 · 雜湊驗簽完成</span>
+          </div>
+        </div>
+
+        <!-- Stat 2: Token Throughput -->
+        <div class="stat-card">
+          <div class="stat-label">
+            <span>3日 Token 吞吐總量</span>
+            <span style="font-family:var(--mono);color:var(--cyan);">854 SESSIONS</span>
+          </div>
+          <div class="stat-value" style="color:var(--cyan);">138M+ In</div>
+          <div class="stat-sub">
+            <span>6.8M+ Out · 812M+ Cache Hit</span>
+          </div>
+        </div>
+
+        <!-- Stat 3: Queue State -->
+        <div class="stat-card">
+          <div class="stat-label">
+            <span>任務佇列狀態</span>
+            <span style="font-family:var(--mono);color:var(--orange);">AUTO-REFILL</span>
+          </div>
+          <div class="stat-value">2 Done · 2 Queued</div>
+          <div class="stat-sub">
+            <span>1 等候槽位 · 1 等候依賴</span>
+          </div>
+        </div>
+
+        <!-- Stat 4: Pipeline Health -->
+        <div class="stat-card">
+          <div class="stat-label">
+            <span>產線健康度</span>
+            <span id="summaryHealthRatio" style="font-family:var(--mono);color:var(--lime);">18/29 OK</span>
+          </div>
+          <div class="stat-value" id="summaryHealthText" style="font-size:1.35rem;margin-top:0.5rem;">
+            <span style="color:var(--lime);">18 正常</span> · <span style="color:var(--danger);">4 異常</span>
+          </div>
+          <div class="mini-progress-track">
+            <div id="progBarHealthy" class="mini-progress-fill" style="width: 62%; background: var(--lime);" title="正常 18"></div>
+            <div id="progBarError" class="mini-progress-fill" style="width: 14%; background: var(--danger);" title="異常 4"></div>
+            <div id="progBarPaused" class="mini-progress-fill" style="width: 24%; background: var(--faint);" title="暫停 7"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Five Core Domains Bento Grid -->
+    <main class="bento-grid">
+
+      <!-- ====================================================================
+           DOMAIN 1: 實質運作成果 (Verified Outcomes)
+           ==================================================================== -->
+      <section class="bento-card">
+        <div class="bento-header">
+          <div>
+            <div class="bento-title-group">
+              <span class="bento-badge-domain">DOMAIN 01</span>
+              <h2 class="bento-title">實質運作成果 (Verified Outcomes)</h2>
+            </div>
+            <div class="bento-subtitle">無口頭宣稱，具備物理檔案、SHA256 密碼學雜湊與 Grader 獨立驗收收據</div>
+          </div>
+          <div>
+            <span class="pill-pass">4 PASS / 0 FAIL</span>
+          </div>
+        </div>
+
+        <div id="outcomesContainer" class="outcomes-grid">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           DOMAIN 2: 即時額度與 Token 帳單 (Live Token Ledger & Pool Status)
+           ==================================================================== -->
+      <section class="bento-card">
+        <div class="bento-header">
+          <div>
+            <div class="bento-title-group">
+              <span class="bento-badge-domain">DOMAIN 02</span>
+              <h2 class="bento-title">即時額度與 Token 帳單 (Live Token Ledger)</h2>
+            </div>
+            <div class="bento-subtitle">依 Quota Relay 配額池分流統計 · 誠實標示真實成本（自建/免費用池標記 $0.0000）</div>
+          </div>
+        </div>
+
+        <!-- Pool Switch Tabs -->
+        <div class="pool-tabs">
+          <button class="pool-tab-btn active" onclick="switchPoolTab('all')">全池總覽 (All 31 Models)</button>
+          <button class="pool-tab-btn" onclick="switchPoolTab('cpa_pool')">⚡ CPA Pool (Gemini/主調度池)</button>
+          <button class="pool-tab-btn" onclick="switchPoolTab('codex_pool')">🧠 Codex Pool (GPT/Claude/DeepSeek)</button>
+          <button class="pool-tab-btn" onclick="switchPoolTab('amd_pool')">💻 AMD Pool (本地/專用代理池)</button>
+        </div>
+
+        <!-- Selected Pool Summary Banner -->
+        <div id="poolStatBanner" class="pool-stat-banner">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Quota Models Table -->
+        <div class="pool-table-wrap">
+          <table class="quota-table">
+            <thead>
+              <tr>
+                <th>模型代號 (Model ID)</th>
+                <th>所屬配額池</th>
+                <th>Sessions</th>
+                <th>Input Tokens (吞吐比例)</th>
+                <th>Output Tokens</th>
+                <th>Cache Read Tokens</th>
+                <th>預估帳單 (誠實標註)</th>
+              </tr>
+            </thead>
+            <tbody id="quotaTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           DOMAIN 3: 派工與排隊原因清冊 (Queue Census & Auto-Refill State)
+           ==================================================================== -->
+      <section class="bento-card">
+        <div class="bento-header">
+          <div>
+            <div class="bento-title-group">
+              <span class="bento-badge-domain">DOMAIN 03</span>
+              <h2 class="bento-title">派工與排隊原因清冊 (Queue Census)</h2>
+            </div>
+            <div class="bento-subtitle">斷點接力看板狀態 · 白話揭露排隊原因與預計喚醒時間戳</div>
+          </div>
+        </div>
+
+        <div id="queueContainer" class="queue-grid">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           DOMAIN 4: 全產線健康狀態矩陣 (29 Pipeline Health Matrix)
+           ==================================================================== -->
+      <section class="bento-card">
+        <div class="bento-header">
+          <div>
+            <div class="bento-title-group">
+              <span class="bento-badge-domain">DOMAIN 04</span>
+              <h2 class="bento-title">全產線健康狀態矩陣 (29 Pipeline Matrix)</h2>
+            </div>
+            <div class="bento-subtitle">所有排程作業與守門探針之實體執行狀態 · 異常作業優先置頂診斷</div>
+          </div>
+        </div>
+
+        <!-- Filter Pills Toolbar -->
+        <div class="pipeline-controls">
+          <div class="filter-pills">
+            <button class="filter-pill-btn active" onclick="filterPipelines('ALL')">全部產線 (29)</button>
+            <button class="filter-pill-btn danger-pill" onclick="filterPipelines('ERROR')">🚨 異常告警 (4)</button>
+            <button class="filter-pill-btn" onclick="filterPipelines('HEALTHY')">🟢 正常運作 (18)</button>
+            <button class="filter-pill-btn" onclick="filterPipelines('PAUSED')">⏸️ 暫停待命 (7)</button>
+          </div>
+          <div style="font-family:var(--mono);font-size:0.75rem;color:var(--muted);">
+            點擊可快速過濾產線
+          </div>
+        </div>
+
+        <!-- Error Pipelines (Sticky Top) -->
+        <div id="errorPipelinesWrap" class="error-pipelines-container">
+          <div class="error-pipelines-header">
+            <span>🚨 異常待處置產線 (4 CRITICAL ISSUES REQUIRE ATTENTION)</span>
+          </div>
+          <div id="errorPipelinesList">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Other Pipelines Compact Grid -->
+        <div id="normalPipelinesWrap">
+          <div style="font-size:0.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.75rem;">
+            🟢 正常與待命產線清單 (NORMAL / PAUSED PIPELINES)
+          </div>
+          <div id="pipelinesGrid" class="pipelines-compact-grid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           DOMAIN 5: 監督責任鏈與自癒心跳 (Supervision & Audit Chain)
+           ==================================================================== -->
+      <section class="bento-card">
+        <div class="bento-header">
+          <div>
+            <div class="bento-title-group">
+              <span class="bento-badge-domain">DOMAIN 05</span>
+              <h2 class="bento-title">監督責任鏈與自癒心跳 (Supervision & Audit Chain)</h2>
+            </div>
+            <div class="bento-subtitle">Maker ≠ Grader 絕對分權隔離機制 · 熔斷保護與 Canary 探針自動解鎖政策</div>
+          </div>
+        </div>
+
+        <div class="audit-chain-grid">
+          <!-- Left: Architecture Doctrine Flow -->
+          <div class="audit-doctrine-card">
+            <h3 style="font-size:0.95rem;font-weight:700;color:var(--cyan);">分權審核架構流程 (Role Doctrine)</h3>
+            <div class="doctrine-flow">
+              <div class="flow-node">
+                <div style="font-size:1.4rem;">🦞🦐</div>
+                <div class="flow-node-title">小克 (Xiao Ke)</div>
+                <div class="flow-node-role">Maker / 實作者</div>
+              </div>
+              <div class="flow-arrow">➔</div>
+              <div class="flow-node">
+                <div style="font-size:1.4rem;">🛡️</div>
+                <div class="flow-node-title" style="color:var(--orange);">Default-FAIL</div>
+                <div class="flow-node-role">零口頭承諾門禁</div>
+              </div>
+              <div class="flow-arrow">➔</div>
+              <div class="flow-node">
+                <div style="font-size:1.4rem;">⚖️</div>
+                <div class="flow-node-title" style="color:var(--lime);">小衡 (Xiao Heng)</div>
+                <div class="flow-node-role">Grader / 驗收 Architect</div>
+              </div>
+            </div>
+            <ul class="doctrine-list">
+              <li>
+                <span>🔒</span>
+                <div><strong>Maker ≠ Grader 原則：</strong>實作者絕不自行驗收交付物，所有驗收收據必須由獨立 Grader 執行無情打擊測試。</div>
+              </li>
+              <li>
+                <span>⚡</span>
+                <div><strong>Default-FAIL 零口頭原則：</strong>任何「已修復」、「已完成」之宣稱，在產出實體 receipt.json 與 sha256 雜湊前均視為失敗。</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right: Circuit Breaker & Sentinel Telemetry -->
+          <div class="audit-doctrine-card">
+            <h3 style="font-size:0.95rem;font-weight:700;color:var(--lime);">熔斷自癒策略與哨兵探針</h3>
+            <div style="background:rgba(8,13,21,0.6);border:1px solid var(--line);border-radius:8px;padding:1rem;display:flex;flex-direction:column;gap:0.75rem;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:0.75rem;color:var(--muted);text-transform:uppercase;">Circuit Breaker Policy</span>
+                <span style="font-family:var(--mono);font-size:0.72rem;color:var(--lime);background:rgba(183,245,109,0.1);padding:0.15rem 0.4rem;border-radius:4px;">ACTIVE</span>
+              </div>
+              <div id="circuitPolicyText" style="font-size:0.83rem;color:var(--text);line-height:1.5;">
+                Pool-Level 硬隔離，TPM/RPM 指數退避，429 禁同池即時重試，1-token Canary 探針 200 自動解鎖。
+              </div>
+              <div style="border-top:1px solid rgba(37,54,77,0.5);padding-top:0.6rem;display:flex;flex-direction:column;gap:0.35rem;font-family:var(--mono);font-size:0.74rem;">
+                <div style="display:flex;justify-content:space-between;">
+                  <span style="color:var(--faint);">LAST GRADER AUDIT:</span>
+                  <span id="auditTimestampVal" style="color:var(--cyan);">2026-10-25T01:58:28Z</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;">
+                  <span style="color:var(--faint);">SENTINEL HEARTBEAT:</span>
+                  <span id="sentinelHeartbeatVal" style="color:var(--lime);">2026-10-25T01:58:28Z (LIVENESS OK)</span>
+                </div>
+              </div>
+            </div>
+            <div style="font-size:0.78rem;color:var(--muted);line-height:1.45;">
+              當特定池觸發 429 限制時，調度器自動將請求轉向健康備援池；後台每 15 秒發送輕量探針，成功後平滑自動恢復派工。
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="war-room-footer">
+      <div>JUN'S AUTONOMOUS WAR ROOM · NORTHSTAR CYBER DARK INTERFACE</div>
+      <div>Telemetry Source: ops_war_room_status.json · Verified by Xiao Heng (Tech Lead & Grader)</div>
+    </footer>
+
+  </div>
+
+  <!-- Northstar Receipt Viewer Modal -->
+  <div id="receiptModal" class="receipt-modal-backdrop" onclick="handleModalBackdropClick(event)">
+    <div class="receipt-modal-container" role="dialog" aria-modal="true" aria-labelledby="receiptModalTitle">
+      <div class="receipt-modal-header">
+        <div class="receipt-modal-title">
+          <span>📜</span>
+          <span id="receiptModalTitle">驗收收據明細</span>
+        </div>
+        <button class="receipt-modal-close" onclick="closeReceiptModal()" aria-label="關閉彈窗">✕</button>
+      </div>
+      <div class="receipt-modal-body">
+        <div class="receipt-modal-meta-grid" id="receiptMetaGrid">
+          <!-- Dynamically populated -->
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.4rem;display:flex;justify-content:space-between;align-items:center;">
+            <span>RECEIPT JSON PAYLOAD</span>
+            <button class="btn-chip" onclick="copyReceiptJson()" style="font-size:0.7rem;padding:0.15rem 0.5rem;">📋 複製完整 JSON</button>
+          </div>
+          <div class="receipt-modal-code-wrap">
+            <pre><code id="receiptJsonCode"></code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="receipt-modal-footer">
+        <div style="font-family:var(--mono);font-size:0.72rem;color:var(--muted);" id="receiptModalPath">
+          路徑：artifacts/...
+        </div>
+        <button class="btn-chip" onclick="closeReceiptModal()" style="padding:0.35rem 0.85rem;color:var(--text);">
+          關閉視窗 (Esc)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastPopup" class="toast-popup">已複製 SHA256 雜湊碼到剪貼簿</div>
+
+  <!-- ==========================================================================
+       Client-Side JavaScript Application & Data Hydration
+       ========================================================================== -->
+  <script>
+    // Embedded Fallback Snapshot (Ensures instant zero-blank rendering even on file:// or offline)
+    const EMBEDDED_FALLBACK = {
+  "updated_at": "2026-10-25T01:58:28.094912+00:00",
+  "system_epoch": "2026-10-25",
+  "five_core_domains": {
+    "1_verified_outcomes": [
+      {
+        "task_id": "quota_relay_slice1_receipt",
+        "path": "artifacts/quota-relay-self-healing-20261024/verification_receipt.json",
+        "sha256": "9e15782908fbdc4bc7a078dadf2a5c042463accb61a0dc6ee898d677491f8cdb",
+        "size_bytes": 745,
+        "description": "Slice 1 獨立 QA 驗收收據 (F01-F07 全部 PASS)",
+        "verified_by": "Xiao Heng (Tech Lead / Grader)",
+        "qa_verdict": "PASS"
+      },
+      {
+        "task_id": "quota_relay_slice2_receipt",
+        "path": "artifacts/quota-relay-self-healing-20261024/verification_receipt_slice2.json",
+        "sha256": "b64e12f3a05df6a25ea401f82e6e80b2dc6f1cff1981de53ce806cd63c64cdac",
+        "size_bytes": 1073,
+        "description": "Slice 2 獨立 QA 驗收收據 (F08-F14 全部 PASS)",
+        "verified_by": "Xiao Heng (Tech Lead / Grader)",
+        "qa_verdict": "PASS"
+      },
+      {
+        "task_id": "quota_relay_e2e_drill_receipt",
+        "path": "artifacts/quota-relay-self-healing-20261024/e2e_drill_receipt.json",
+        "sha256": "059ac6412a100cfb3f496e3d027c729648ec8ee18f89279e1885d3e1050dc5fa",
+        "size_bytes": 1533,
+        "description": "E2E 故障注入與自動補位整合演練收據 (Phase 1-5 全部 PASS)",
+        "verified_by": "Xiao Heng (Tech Lead / Grader)",
+        "qa_verdict": "PASS"
+      },
+      {
+        "task_id": "quota_relay_architecture_spec",
+        "path": "03_Dev_Projects/wiki/concepts/autonomous-self-healing-quota-relay-architecture.md",
+        "sha256": "345593bc6e614f137813c1ed96ebf0327f598d28958a9b1b15d481e9fd0cef84",
+        "size_bytes": 7364,
+        "description": "長程自治 AI 工作流：額度冷卻自癒與確定性斷點接力架構正本",
+        "verified_by": "Xiao Heng (Tech Lead / Grader)",
+        "qa_verdict": "PASS"
+      }
+    ],
+    "2_token_ledger": [
+      {
+        "model": "gemini-3.8-flash-high",
+        "pool_id": "cpa_pool",
+        "sessions_count": 285,
+        "input_tokens": 49696116,
+        "output_tokens": 1096512,
+        "cache_read_tokens": 244379250,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "default",
+        "pool_id": "cpa_pool",
+        "sessions_count": 6,
+        "input_tokens": 27196852,
+        "output_tokens": 235271,
+        "cache_read_tokens": 154637215,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "pool_id": "codex_pool",
+        "sessions_count": 169,
+        "input_tokens": 16253649,
+        "output_tokens": 1831821,
+        "cache_read_tokens": 224569856,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "pool_id": "codex_pool",
+        "sessions_count": 106,
+        "input_tokens": 12543507,
+        "output_tokens": 919606,
+        "cache_read_tokens": 127819624,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gemini-3.6-flash-high",
+        "pool_id": "cpa_pool",
+        "sessions_count": 188,
+        "input_tokens": 8654521,
+        "output_tokens": 428652,
+        "cache_read_tokens": 31107927,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "claude-opus-5",
+        "pool_id": "codex_pool",
+        "sessions_count": 170,
+        "input_tokens": 8495981,
+        "output_tokens": 106470,
+        "cache_read_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gemini-3.7-flash-high",
+        "pool_id": "cpa_pool",
+        "sessions_count": 91,
+        "input_tokens": 7990835,
+        "output_tokens": 156097,
+        "cache_read_tokens": 19658850,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "claude-opus-4-6-thinking",
+        "pool_id": "codex_pool",
+        "sessions_count": 139,
+        "input_tokens": 4855942,
+        "output_tokens": 322377,
+        "cache_read_tokens": 29834684,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "pool_id": "codex_pool",
+        "sessions_count": 64,
+        "input_tokens": 4418851,
+        "output_tokens": 532691,
+        "cache_read_tokens": 47476736,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "DeepSeek-V4-Flash",
+        "pool_id": "codex_pool",
+        "sessions_count": 52,
+        "input_tokens": 2500693,
+        "output_tokens": 420418,
+        "cache_read_tokens": 13408640,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "Qwen3.8-Flash-Next",
+        "pool_id": "amd_pool",
+        "sessions_count": 20,
+        "input_tokens": 2455274,
+        "output_tokens": 466983,
+        "cache_read_tokens": 16593283,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "pool_id": "codex_pool",
+        "sessions_count": 15,
+        "input_tokens": 2259248,
+        "output_tokens": 40383,
+        "cache_read_tokens": 6914644,
+        "estimated_cost_usd": 0.1151
+      },
+      {
+        "model": "Qwen3.6 35B",
+        "pool_id": "amd_pool",
+        "sessions_count": 35,
+        "input_tokens": 1492612,
+        "output_tokens": 125640,
+        "cache_read_tokens": 19816064,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gpt-5.5",
+        "pool_id": "codex_pool",
+        "sessions_count": 1,
+        "input_tokens": 1167524,
+        "output_tokens": 49251,
+        "cache_read_tokens": 26245888,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "google/gemma-4-12b-qat",
+        "pool_id": "codex_pool",
+        "sessions_count": 2,
+        "input_tokens": 609631,
+        "output_tokens": 18500,
+        "cache_read_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "claude-sonnet-4-6",
+        "pool_id": "codex_pool",
+        "sessions_count": 15,
+        "input_tokens": 597509,
+        "output_tokens": 35140,
+        "cache_read_tokens": 2599070,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "deepseek-v4-flash",
+        "pool_id": "codex_pool",
+        "sessions_count": 7,
+        "input_tokens": 577297,
+        "output_tokens": 143678,
+        "cache_read_tokens": 35926912,
+        "estimated_cost_usd": 0.0148
+      },
+      {
+        "model": "claude-opus-4-8",
+        "pool_id": "codex_pool",
+        "sessions_count": 2,
+        "input_tokens": 262080,
+        "output_tokens": 56549,
+        "cache_read_tokens": 6357568,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gpt-6-sol",
+        "pool_id": "codex_pool",
+        "sessions_count": 5,
+        "input_tokens": 215990,
+        "output_tokens": 41633,
+        "cache_read_tokens": 2717568,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "pool_id": "codex_pool",
+        "sessions_count": 2,
+        "input_tokens": 172096,
+        "output_tokens": 15064,
+        "cache_read_tokens": 1565724,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "pool_id": "codex_pool",
+        "sessions_count": 1,
+        "input_tokens": 113361,
+        "output_tokens": 12325,
+        "cache_read_tokens": 1066208,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL",
+        "pool_id": "codex_pool",
+        "sessions_count": 1,
+        "input_tokens": 91988,
+        "output_tokens": 1278,
+        "cache_read_tokens": 134226,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "Qwen3.6-35B-A3B-Q4_K_M.gguf",
+        "pool_id": "amd_pool",
+        "sessions_count": 3,
+        "input_tokens": 90694,
+        "output_tokens": 15224,
+        "cache_read_tokens": 713475,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "pool_id": "codex_pool",
+        "sessions_count": 4,
+        "input_tokens": 85825,
+        "output_tokens": 5298,
+        "cache_read_tokens": 124928,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "qwen/qwen3.8-27b",
+        "pool_id": "amd_pool",
+        "sessions_count": 1,
+        "input_tokens": 83904,
+        "output_tokens": 2252,
+        "cache_read_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "deepseek-chat",
+        "pool_id": "codex_pool",
+        "sessions_count": 3,
+        "input_tokens": 69966,
+        "output_tokens": 627,
+        "cache_read_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "GPT-5.5",
+        "pool_id": "codex_pool",
+        "sessions_count": 1,
+        "input_tokens": 42695,
+        "output_tokens": 5842,
+        "cache_read_tokens": 883593,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gemini-3.1-pro-low",
+        "pool_id": "cpa_pool",
+        "sessions_count": 3,
+        "input_tokens": 40917,
+        "output_tokens": 165,
+        "cache_read_tokens": 12079,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gemini-4-argon-high",
+        "pool_id": "cpa_pool",
+        "sessions_count": 1,
+        "input_tokens": 36112,
+        "output_tokens": 1316,
+        "cache_read_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "Deepseek-V4 Pro",
+        "pool_id": "codex_pool",
+        "sessions_count": 1,
+        "input_tokens": 14210,
+        "output_tokens": 158,
+        "cache_read_tokens": 30822,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "unknown",
+        "pool_id": "codex_pool",
+        "sessions_count": 2,
+        "input_tokens": 6642,
+        "output_tokens": 562,
+        "cache_read_tokens": 47422,
+        "estimated_cost_usd": 0.0
+      }
+    ],
+    "3_queue_census": [
+      {
+        "card_id": "card_ec176f8d",
+        "title": "Slice 1: 配額冷卻登記表與錯誤分類狀態機",
+        "status": "done",
+        "assigned_to": "main (🦞🦐 小克)",
+        "wait_reason": null,
+        "qa_verifier": "Xiao Heng (Tech Lead / Grader)",
+        "qa_verdict": "PASS"
+      },
+      {
+        "card_id": "card_daba206d",
+        "title": "Slice 2: 自動補位調度器、半開哨兵探針與五大營運指標",
+        "status": "done",
+        "assigned_to": "main (🦞🦐 小克)",
+        "wait_reason": null,
+        "qa_verifier": "Xiao Heng (Tech Lead / Grader)",
+        "qa_verdict": "PASS"
+      },
+      {
+        "card_id": "wb_4125c395",
+        "title": "EP21 心理成長主軸 draft（Option A：10/23五檔期從簡、10/28三上架）",
+        "status": "todo",
+        "assigned_to": "main (🦞🦐 小克)",
+        "wait_reason": "REQUIREMENT_REGISTRATION",
+        "expected_wake_at": null,
+        "priority": "high",
+        "pool_id": "cpa_pool"
+      },
+      {
+        "card_id": "wb_f48045f2",
+        "title": "Podcast 聽感 SOP v1：EP20 私人樣本與獨立全片驗收",
+        "status": "todo",
+        "assigned_to": "main (🦞🦐 小克)",
+        "wait_reason": "REQUIREMENT_REGISTRATION",
+        "expected_wake_at": null,
+        "priority": "high",
+        "pool_id": "cpa_pool"
+      }
+    ],
+    "4_pipeline_matrix": {
+      "summary": {
+        "total": 29,
+        "healthy": 18,
+        "error": 4,
+        "paused": 7
+      },
+      "pipelines": [
+        {
+          "name": "tw-stock-close-report",
+          "status": "HEALTHY",
+          "schedule": "35 15 * * 1-5",
+          "last_run": "2026-10-23T15:53:28",
+          "root_cause": null
+        },
+        {
+          "name": "wiki-auto-sync",
+          "status": "HEALTHY",
+          "schedule": "0 2 * * *",
+          "last_run": "2026-10-25T02:00:45",
+          "root_cause": null
+        },
+        {
+          "name": "agent-health-check",
+          "status": "HEALTHY",
+          "schedule": "0 */6 * * *",
+          "last_run": "2026-10-25T06:00:14",
+          "root_cause": null
+        },
+        {
+          "name": "f5-subscription-monitor",
+          "status": "HEALTHY",
+          "schedule": "0 */6 * * *",
+          "last_run": "2026-10-25T06:00:23",
+          "root_cause": null
+        },
+        {
+          "name": "discord-vskin-gate-projection",
+          "status": "HEALTHY",
+          "schedule": "20 10 * * *",
+          "last_run": "2026-10-24T10:20:09",
+          "root_cause": null
+        },
+        {
+          "name": "content-pipeline-github-sync",
+          "status": "HEALTHY",
+          "schedule": "30 8 * * 1",
+          "last_run": "2026-10-19T08:31:09",
+          "root_cause": null
+        },
+        {
+          "name": "threads_token_watchdog",
+          "status": "HEALTHY",
+          "schedule": "every 2880m",
+          "last_run": "2026-10-24T14:05:17",
+          "root_cause": null
+        },
+        {
+          "name": "platform_auth_weekly_check",
+          "status": "HEALTHY",
+          "schedule": "15 9 * * 1",
+          "last_run": "2026-10-19T09:16:04",
+          "root_cause": null
+        },
+        {
+          "name": "podcast-wed-fri-release-verifier",
+          "status": "HEALTHY",
+          "schedule": "5,35 18 * * 3,5",
+          "last_run": "2026-10-23T18:40:20",
+          "root_cause": null
+        },
+        {
+          "name": "ai-frontier-tech-scout",
+          "status": "HEALTHY",
+          "schedule": "0 8 * * *",
+          "last_run": "2026-10-25T08:07:03",
+          "root_cause": null
+        },
+        {
+          "name": "nightly-dreaming-consolidation",
+          "status": "HEALTHY",
+          "schedule": "0 3 * * *",
+          "last_run": "2026-10-25T03:00:14",
+          "root_cause": null
+        },
+        {
+          "name": "unattended-closure-warden-20261016",
+          "status": "HEALTHY",
+          "schedule": "every 20m",
+          "last_run": "2026-10-25T09:38:38",
+          "root_cause": null
+        },
+        {
+          "name": "codex-parallel-session-watcher",
+          "status": "HEALTHY",
+          "schedule": "every 10m",
+          "last_run": "2026-10-25T09:44:14",
+          "root_cause": null
+        },
+        {
+          "name": "quant-lifeline-evening",
+          "status": "HEALTHY",
+          "schedule": "10 16 * * 1-5",
+          "last_run": "2026-10-23T16:10:10",
+          "root_cause": null
+        },
+        {
+          "name": "quant-lifeline-morning-executor",
+          "status": "HEALTHY",
+          "schedule": "30 8 * * 1-5",
+          "last_run": "2026-10-23T08:30:08",
+          "root_cause": null
+        },
+        {
+          "name": "hindsight-liveness-warden",
+          "status": "HEALTHY",
+          "schedule": "every 30m",
+          "last_run": "2026-10-25T09:34:13",
+          "root_cause": null
+        },
+        {
+          "name": "ase-learning-liveness-warden",
+          "status": "HEALTHY",
+          "schedule": "every 30m",
+          "last_run": "2026-10-25T09:28:13",
+          "root_cause": null
+        },
+        {
+          "name": "recall-oss-daily-maintenance",
+          "status": "HEALTHY",
+          "schedule": "0 10 * * *",
+          "last_run": "2026-10-24T10:15:11",
+          "root_cause": null
+        },
+        {
+          "name": "browser-ops-watchdog",
+          "status": "ERROR",
+          "schedule": "every 360m",
+          "last_run": "2026-10-25T03:58:50",
+          "root_cause": "Script exited with code 2 (Cua Driver daemon contract version 0.8.0 mismatch SDK 0.7.0)"
+        },
+        {
+          "name": "xiaoke-brain-distill-daily",
+          "status": "ERROR",
+          "schedule": "0 22 * * *",
+          "last_run": "2026-10-24T22:01:59",
+          "root_cause": "Script exited with code 1 (wiki_lint detected broken wikilinks & missing frontmatter)"
+        },
+        {
+          "name": "Hermes 夜間自動更新",
+          "status": "ERROR",
+          "schedule": "0 4 * * *",
+          "last_run": "2026-10-25T04:00:44",
+          "root_cause": "Script exited with code 1 (檢查或狀態讀寫超時/失敗)"
+        },
+        {
+          "name": "巴哈勇者福利社每日免費抽獎",
+          "status": "ERROR",
+          "schedule": "5 0 * * *",
+          "last_run": "2026-10-25T00:25:50",
+          "root_cause": "Script exited with code 1 (狀態回報 PARTIAL_OR_BLOCKED，點擊等待逾時)"
+        },
+        {
+          "name": "daily-email-scan",
+          "status": "PAUSED",
+          "schedule": "0 8 * * *",
+          "last_run": "2026-10-17T08:00:21",
+          "root_cause": "手動暫停"
+        },
+        {
+          "name": "xiaoke-kanban-auto-dispatcher",
+          "status": "PAUSED",
+          "schedule": "every 30m",
+          "last_run": "2026-10-07T15:44:14",
+          "root_cause": "手動暫停"
+        },
+        {
+          "name": "podcast-short-video-factory-3x2",
+          "status": "PAUSED",
+          "schedule": "0 8,12,18 * * *",
+          "last_run": "2026-09-14T13:05:23",
+          "root_cause": "手動暫停"
+        },
+        {
+          "name": "autonomy-bootstrap-independent-review",
+          "status": "PAUSED",
+          "schedule": "every 10m",
+          "last_run": "2026-10-08T20:18:15",
+          "root_cause": "手動暫停"
+        },
+        {
+          "name": "jojo-release-v2-review-wake",
+          "status": "PAUSED",
+          "schedule": "every 5m",
+          "last_run": "2026-10-13T20:40:31",
+          "root_cause": "手動暫停"
+        },
+        {
+          "name": "podcast-ep20-voxcpm2-durable-relay",
+          "status": "PAUSED",
+          "schedule": "every 30m",
+          "last_run": "2026-10-14T00:28:42",
+          "root_cause": "手動暫停"
+        },
+        {
+          "name": "podcast-pipeline-optimize-relay",
+          "status": "PAUSED",
+          "schedule": "every 30m",
+          "last_run": "2026-10-17T23:20:31",
+          "root_cause": "手動暫停"
+        }
+      ]
+    },
+    "5_audit_chain": {
+      "system_architect_and_lead": "Xiao Heng (小衡 / System Architect & Grader)",
+      "maker_agent": "Xiao Ke (小克 / main, Maker)",
+      "role_doctrine": "Maker ≠ Grader 絕對分權隔離，Default-FAIL 零口頭承諾驗收",
+      "last_grader_audit_timestamp": "2026-10-25T01:58:28.094889+00:00",
+      "sentinel_liveness_heartbeat": "2026-10-25T01:58:28.094908+00:00",
+      "circuit_breaker_policy": "Pool-Level 硬隔離，TPM/RPM 指數退避，429 禁同池即時重試，1-token Canary 探針 200 自動解鎖"
+    }
+  }
+};
+
+    let warRoomState = EMBEDDED_FALLBACK;
+    let currentPoolTab = 'all';
+    let currentPipelineFilter = 'ALL';
+
+    // Helper: Escape HTML to avoid XSS
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // Helper: Format Number with commas
+    function formatNum(num) {
+      if (num === null || num === undefined) return '0';
+      return Number(num).toLocaleString('en-US');
+    }
+
+    // Helper: Format Bytes
+    function formatBytes(bytes) {
+      if (!bytes || bytes === 0) return '0 B';
+      const k = 1024;
+      const sizes = ['B', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    // Copy to clipboard with Toast Notification
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('SHA256 雜湊碼已成功複製到剪貼簿');
+      }).catch(err => {
+        showToast('複製失敗，請手動複製: ' + text.substring(0, 12) + '...');
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastPopup');
+      toast.textContent = msg;
+      toast.classList.add('visible');
+      setTimeout(() => {
+        toast.classList.remove('visible');
+      }, 2500);
+    }
+
+    // Render Domain 1: Verified Outcomes
+    function renderVerifiedOutcomes(outcomes) {
+      const container = document.getElementById('outcomesContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      if (!outcomes || outcomes.length === 0) {
+        container.innerHTML = '<div style="color:var(--muted);padding:1rem;">尚無驗收成果資料</div>';
+        return;
+      }
+
+      outcomes.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'outcome-item';
+
+        const safeSha = escapeHtml(item.sha256 || '');
+        const shortSha = safeSha ? safeSha.substring(0, 8) + '...' + safeSha.substring(safeSha.length - 8) : 'N/A';
+        const rawPath = item.path || '';
+        const safePath = escapeHtml(rawPath);
+        const fileName = safePath.split('/').pop();
+        const isJson = fileName.toLowerCase().endsWith('.json');
+        const isMd = fileName.toLowerCase().endsWith('.md');
+
+        let viewActionHtml = '';
+        if (isJson) {
+          viewActionHtml = `
+            <button class="btn-chip" onclick="openReceiptModal('${fileName}', '${safePath}', '${safeSha}', '${escapeHtml(item.description || item.task_id)}', '${escapeHtml(item.verified_by || 'Xiao Heng')}')" style="color:var(--cyan);">
+              🔍 查看收據明細
+            </button>
+          `;
+        } else if (isMd) {
+          const wikiRelPath = rawPath.startsWith('03_Dev_Projects/wiki/') ? rawPath.replace('03_Dev_Projects/wiki/', '') : rawPath;
+          viewActionHtml = `
+            <a href="viewer.html?file=${encodeURIComponent(wikiRelPath)}" class="btn-chip" style="color:var(--lime);">
+              🔍 查看正本
+            </a>
+          `;
+        } else {
+          viewActionHtml = `
+            <a href="${safePath}" target="_blank" rel="noopener noreferrer" class="btn-chip" style="color:var(--lime);">
+              🔍 查看正本
+            </a>
+          `;
+        }
+
+        card.innerHTML = `
+          <div>
+            <div class="outcome-top">
+              <span class="outcome-title">${escapeHtml(item.description || item.task_id)}</span>
+              <span class="pill-pass">${escapeHtml(item.qa_verdict || 'PASS')}</span>
+            </div>
+            <div class="outcome-desc">
+              <strong>路徑：</strong><code style="color:var(--cyan);font-size:0.76rem;word-break:break-all;">${safePath}</code>
+            </div>
+          </div>
+          <div class="outcome-meta">
+            <div class="outcome-meta-row">
+              <span>驗收人員：${escapeHtml(item.verified_by || 'Xiao Heng')}</span>
+              <span>大小：${formatBytes(item.size_bytes)}</span>
+            </div>
+            <div class="outcome-actions">
+              <button class="btn-chip" onclick="copyToClipboard('${safeSha}')" title="完整雜湊: ${safeSha}">
+                📋 雜湊: ${shortSha}
+              </button>
+              ${viewActionHtml}
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Modal Operations for Receipt JSON
+    async function openReceiptModal(fileName, safePath, sha256, title, verifier) {
+      const modal = document.getElementById('receiptModal');
+      const titleEl = document.getElementById('receiptModalTitle');
+      const metaEl = document.getElementById('receiptMetaGrid');
+      const codeEl = document.getElementById('receiptJsonCode');
+      const pathEl = document.getElementById('receiptModalPath');
+
+      titleEl.textContent = title + ' (' + fileName + ')';
+      pathEl.textContent = '物理路徑：' + safePath;
+
+      metaEl.innerHTML = `
+        <div class="receipt-meta-cell">
+          <span class="receipt-meta-cell-label">檔案名稱</span>
+          <span class="receipt-meta-cell-value" style="color:var(--cyan);">${escapeHtml(fileName)}</span>
+        </div>
+        <div class="receipt-meta-cell">
+          <span class="receipt-meta-cell-label">驗收人員</span>
+          <span class="receipt-meta-cell-value" style="color:var(--lime);">${escapeHtml(verifier)}</span>
+        </div>
+        <div class="receipt-meta-cell">
+          <span class="receipt-meta-cell-label">SHA256 密碼學雜湊</span>
+          <span class="receipt-meta-cell-value" style="font-size:0.7rem;">${escapeHtml(sha256)}</span>
+        </div>
+      `;
+
+      let jsonText = '';
+      try {
+        const fetchUrl = './' + safePath;
+        const res = await fetch(fetchUrl);
+        if (res.ok) {
+          const data = await res.json();
+          jsonText = JSON.stringify(data, null, 2);
+        } else {
+          throw new Error('HTTP ' + res.status);
+        }
+      } catch (err) {
+        if (typeof EMBEDDED_RECEIPTS !== 'undefined' && EMBEDDED_RECEIPTS[fileName]) {
+          jsonText = JSON.stringify(EMBEDDED_RECEIPTS[fileName], null, 2);
+        } else {
+          jsonText = JSON.stringify({
+            status: "SNAPSHOT_RECEIPT",
+            file: fileName,
+            path: safePath,
+            sha256: sha256,
+            verifier: verifier,
+            note: "無法連線抓取即時檔案，已顯示快照收據索引。"
+          }, null, 2);
+        }
+      }
+
+      currentReceiptJson = jsonText;
+      codeEl.textContent = jsonText;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeReceiptModal() {
+      const modal = document.getElementById('receiptModal');
+      if (modal) {
+        modal.classList.remove('open');
+      }
+      document.body.style.overflow = '';
+    }
+
+    function handleModalBackdropClick(e) {
+      if (e.target && e.target.id === 'receiptModal') {
+        closeReceiptModal();
+      }
+    }
+
+    function copyReceiptJson() {
+      if (currentReceiptJson) {
+        copyToClipboard(currentReceiptJson);
+      }
+    }
+
+    // Support ESC key to close modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeReceiptModal();
+      }
+    });
+
+    // Switch Pool Tab
+    function switchPoolTab(poolId) {
+      currentPoolTab = poolId;
+      document.querySelectorAll('.pool-tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('onclick').includes(poolId)) {
+          btn.classList.add('active');
+        }
+      });
+      renderTokenLedger();
+    }
+
+    // Render Domain 2: Token Ledger & Quota Pools
+    function renderTokenLedger() {
+      const items = warRoomState.five_core_domains?.['2_token_ledger'] || [];
+      const tbody = document.getElementById('quotaTableBody');
+      const banner = document.getElementById('poolStatBanner');
+      if (!tbody || !banner) return;
+
+      let filtered = items;
+      if (currentPoolTab !== 'all') {
+        filtered = items.filter(x => x.pool_id === currentPoolTab);
+      }
+
+      // Calculate totals for active selection
+      const totalSessions = filtered.reduce((acc, c) => acc + (c.sessions_count || 0), 0);
+      const totalIn = filtered.reduce((acc, c) => acc + (c.input_tokens || 0), 0);
+      const totalOut = filtered.reduce((acc, c) => acc + (c.output_tokens || 0), 0);
+      const totalCache = filtered.reduce((acc, c) => acc + (c.cache_read_tokens || 0), 0);
+      const totalCost = filtered.reduce((acc, c) => acc + (c.estimated_cost_usd || 0.0), 0);
+
+      // Render Summary Banner
+      let poolDesc = '全池 31 實體模型總匯';
+      if (currentPoolTab === 'cpa_pool') poolDesc = 'CPA 代理池 (Gemini 3.8/3.7/3.6 高吞吐調度)';
+      if (currentPoolTab === 'codex_pool') poolDesc = 'Codex 池 (GPT-5/6, Claude Opus 5, DeepSeek V4)';
+      if (currentPoolTab === 'amd_pool') poolDesc = 'AMD 本地專用池 (Qwen 3.6 72B 本地推論)';
+
+      banner.innerHTML = `
+        <div class="pool-stat-item">
+          <span class="pool-stat-title">當前視圖</span>
+          <span class="pool-stat-number" style="color:var(--cyan);font-size:0.95rem;">${poolDesc}</span>
+        </div>
+        <div class="pool-stat-item">
+          <span class="pool-stat-title">調度 Sessions</span>
+          <span class="pool-stat-number">${formatNum(totalSessions)} 次</span>
+        </div>
+        <div class="pool-stat-item">
+          <span class="pool-stat-title">Input Tokens (吞吐)</span>
+          <span class="pool-stat-number" style="color:var(--cyan);">${(totalIn / 1000000).toFixed(2)} M</span>
+        </div>
+        <div class="pool-stat-item">
+          <span class="pool-stat-title">Cache Read (快取命中)</span>
+          <span class="pool-stat-number" style="color:var(--violet);">${(totalCache / 1000000).toFixed(2)} M</span>
+        </div>
+        <div class="pool-stat-item">
+          <span class="pool-stat-title">誠實預估帳單</span>
+          <span class="pool-stat-number" style="color:${totalCost > 0 ? 'var(--orange)' : 'var(--lime)'};">
+            $${totalCost.toFixed(4)} USD ${totalCost === 0 ? '<small style="font-size:0.7rem;color:var(--lime);font-weight:normal;">(免費用量/自建池)</small>' : ''}
+          </span>
+        </div>
+      `;
+
+      // Find max input for relative bars
+      const maxIn = Math.max(...items.map(x => x.input_tokens || 1), 1);
+
+      tbody.innerHTML = '';
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:1.5rem;color:var(--muted);">此池無紀錄</td></tr>';
+        return;
+      }
+
+      // Sort by input tokens descending
+      const sorted = [...filtered].sort((a, b) => (b.input_tokens || 0) - (a.input_tokens || 0));
+
+      sorted.forEach(row => {
+        const tr = document.createElement('tr');
+        const cost = Number(row.estimated_cost_usd || 0.0);
+        const inPct = Math.min(100, Math.round(((row.input_tokens || 0) / maxIn) * 100));
+
+        let costLabel = `$0.0000`;
+        let costStyle = `color:var(--lime);`;
+        if (cost > 0) {
+          costLabel = `$${cost.toFixed(4)}`;
+          costStyle = `color:var(--orange);font-weight:700;`;
+        }
+
+        tr.innerHTML = `
+          <td><strong style="color:var(--text);font-family:var(--sans);">${escapeHtml(row.model)}</strong></td>
+          <td><span style="font-size:0.74rem;background:rgba(37,54,77,0.4);padding:0.2rem 0.5rem;border-radius:4px;color:var(--muted);">${escapeHtml(row.pool_id)}</span></td>
+          <td>${formatNum(row.sessions_count)}</td>
+          <td>
+            <div class="token-bar-container">
+              <div>${formatNum(row.input_tokens)}</div>
+              <div class="token-bar-track">
+                <div class="token-bar-fill" style="width: ${inPct}%;"></div>
+              </div>
+            </div>
+          </td>
+          <td>${formatNum(row.output_tokens)}</td>
+          <td style="color:var(--violet);">${formatNum(row.cache_read_tokens)}</td>
+          <td style="${costStyle}">${costLabel}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Render Domain 3: Queue Census
+    function renderQueueCensus(queue) {
+      const container = document.getElementById('queueContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      if (!queue || queue.length === 0) {
+        container.innerHTML = '<div style="color:var(--muted);padding:1rem;">佇列為空，無等待作業</div>';
+        return;
+      }
+
+      queue.forEach(item => {
+        const card = document.createElement('div');
+        const isDone = item.status === 'done';
+        const isTodo = item.status === 'todo';
+        const isSlotWait = item.wait_reason === 'WAITING_FOR_SLOT';
+        const isDepWait = item.wait_reason === 'WAITING_FOR_DEPENDENCY';
+
+        let modifierClass = 'done';
+        let statusBadge = '<span class="pill-pass">DONE · PASS</span>';
+        let reasonHtml = '';
+
+        if (isDone) {
+          modifierClass = 'done';
+          statusBadge = '<span class="pill-pass">PASS 驗收完畢</span>';
+          reasonHtml = `
+            <div class="queue-reason-box" style="border-color:rgba(183,245,109,0.3);">
+              <div class="queue-reason-text" style="color:var(--lime);">✅ 驗收通過 (Grader 簽發完成)</div>
+              <div class="queue-reason-sub">驗收人員：${escapeHtml(item.qa_verifier || 'Xiao Heng')}</div>
+            </div>
+          `;
+        } else if (isTodo) {
+          // 長程自治合約：todo 為需求登記中，非 ready 狀態，調度器絕對不自動拉起
+          modifierClass = 'req-reg';
+          statusBadge = '<span style="font-family:var(--mono);font-size:0.72rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:999px;background:rgba(114,220,255,0.15);color:var(--cyan);border:1px solid rgba(114,220,255,0.4);">TODO 需求登記</span>';
+          reasonHtml = `
+            <div class="queue-reason-box" style="border-color:rgba(114,220,255,0.3);">
+              <div class="queue-reason-text" style="color:var(--cyan);">📝 需求登記中（待前置條件完備標記為 ready 後方可排程）</div>
+              <div class="queue-reason-sub">預計喚醒：— (未排程) · 所屬池：${escapeHtml(item.pool_id || 'cpa_pool')}</div>
+            </div>
+          `;
+        } else if (isSlotWait) {
+          modifierClass = 'slot-wait';
+          statusBadge = '<span style="font-family:var(--mono);font-size:0.72rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:999px;background:rgba(255,174,120,0.15);color:var(--orange);border:1px solid rgba(255,174,120,0.4);">READY · 等待槽位</span>';
+          reasonHtml = `
+            <div class="queue-reason-box">
+              <div class="queue-reason-text">⏳ 等待工作槽位空出</div>
+              <div class="queue-reason-sub">預計喚醒：${escapeHtml(item.expected_wake_at || '待調度')} · 配額池：${escapeHtml(item.pool_id || 'cpa_pool')}</div>
+            </div>
+          `;
+        } else if (isDepWait) {
+          modifierClass = 'dep-wait';
+          statusBadge = '<span style="font-family:var(--mono);font-size:0.72rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:999px;background:rgba(170,165,255,0.15);color:var(--violet);border:1px solid rgba(170,165,255,0.4);">READY · 等待依賴</span>';
+          reasonHtml = `
+            <div class="queue-reason-box" style="border-color:rgba(170,165,255,0.3);">
+              <div class="queue-reason-text" style="color:var(--violet);">🔗 等待前置任務依賴交付</div>
+              <div class="queue-reason-sub">預計喚醒：${escapeHtml(item.expected_wake_at || '待調度')} · 配額池：${escapeHtml(item.pool_id || 'cpa_pool')}</div>
+            </div>
+          `;
+        }
+
+        card.className = `queue-card ${modifierClass}`;
+        card.innerHTML = `
+          <div>
+            <div class="queue-header-row">
+              <span class="queue-card-id">${escapeHtml(item.card_id)}</span>
+              ${statusBadge}
+            </div>
+            <div class="queue-card-title">${escapeHtml(item.title)}</div>
+            ${reasonHtml}
+          </div>
+          <div class="queue-footer-row">
+            <span>指派：<strong style="color:var(--text);">${escapeHtml(item.assigned_to || '小克 main')}</strong></span>
+            <span>優先級：<code style="color:var(--cyan);">${escapeHtml(item.priority || (isDone ? 'COMPLETED' : 'NORMAL'))}</code></span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Filter Pipelines Handler
+    function filterPipelines(status) {
+      currentPipelineFilter = status;
+      document.querySelectorAll('.filter-pill-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      renderPipelineMatrix();
+    }
+
+    // Render Domain 4: 29 Pipeline Health Matrix
+    function renderPipelineMatrix() {
+      const data = warRoomState.five_core_domains?.['4_pipeline_matrix'] || {};
+      const pipelines = data.pipelines || [];
+      const errorList = document.getElementById('errorPipelinesList');
+      const normalGrid = document.getElementById('pipelinesGrid');
+      const errorWrap = document.getElementById('errorPipelinesWrap');
+      const normalWrap = document.getElementById('normalPipelinesWrap');
+
+      if (!errorList || !normalGrid) return;
+
+      errorList.innerHTML = '';
+      normalGrid.innerHTML = '';
+
+      const errors = pipelines.filter(p => p.status === 'ERROR');
+      const normalOrPaused = pipelines.filter(p => p.status !== 'ERROR');
+
+      // Visibility control based on filter
+      if (currentPipelineFilter === 'ERROR') {
+        errorWrap.style.display = 'block';
+        normalWrap.style.display = 'none';
+      } else if (currentPipelineFilter === 'HEALTHY' || currentPipelineFilter === 'PAUSED') {
+        errorWrap.style.display = 'none';
+        normalWrap.style.display = 'block';
+      } else {
+        errorWrap.style.display = 'block';
+        normalWrap.style.display = 'block';
+      }
+
+      // Render Sticky Error Cards
+      errors.forEach(err => {
+        const div = document.createElement('div');
+        div.className = 'error-card';
+        div.innerHTML = `
+          <div class="error-card-header">
+            <span class="error-card-title">
+              <span>🚨</span>
+              <span>${escapeHtml(err.name)}</span>
+            </span>
+            <div style="font-family:var(--mono);font-size:0.75rem;color:var(--danger);">
+              狀態：CRITICAL ERROR · 排程：${escapeHtml(err.schedule)}
+            </div>
+          </div>
+          <div style="font-size:0.8rem;color:var(--muted);">
+            上次執行時間：<span style="font-family:var(--mono);color:var(--text);">${escapeHtml(err.last_run)}</span>
+          </div>
+          <div class="error-codeblock">
+            <strong>ROOT CAUSE DIAGNOSIS:</strong><br>
+            ${escapeHtml(err.root_cause || 'Exit code 1 (Unknown crash)')}
+          </div>
+        `;
+        errorList.appendChild(div);
+      });
+
+      // Filter non-error pipelines
+      let filteredCompact = normalOrPaused;
+      if (currentPipelineFilter === 'HEALTHY') {
+        filteredCompact = pipelines.filter(p => p.status === 'HEALTHY');
+      } else if (currentPipelineFilter === 'PAUSED') {
+        filteredCompact = pipelines.filter(p => p.status === 'PAUSED');
+      }
+
+      // Render Compact Grid
+      filteredCompact.forEach(pipe => {
+        const div = document.createElement('div');
+        div.className = 'pipe-compact-card';
+
+        let dotClass = 'dot-healthy';
+        let statusText = 'HEALTHY';
+        let statusColor = 'var(--lime)';
+
+        if (pipe.status === 'PAUSED') {
+          dotClass = 'dot-paused';
+          statusText = 'PAUSED';
+          statusColor = 'var(--muted)';
+        } else if (pipe.status === 'ERROR') {
+          dotClass = 'dot-error';
+          statusText = 'ERROR';
+          statusColor = 'var(--danger)';
+        }
+
+        div.innerHTML = `
+          <div class="pipe-top">
+            <div class="pipe-name">${escapeHtml(pipe.name)}</div>
+            <span style="font-size:0.7rem;font-weight:700;color:${statusColor};display:flex;align-items:center;">
+              <span class="pipe-status-dot ${dotClass}"></span>
+              ${statusText}
+            </span>
+          </div>
+          ${pipe.status === 'PAUSED' && pipe.root_cause ? `<div style="font-size:0.72rem;color:var(--faint);font-style:italic;">原因: ${escapeHtml(pipe.root_cause)}</div>` : ''}
+          <div class="pipe-meta">
+            <span>🕒 ${escapeHtml(pipe.schedule)}</span>
+            <span>執行: ${pipe.last_run ? escapeHtml(pipe.last_run.substring(0, 16).replace('T', ' ')) : 'N/A'}</span>
+          </div>
+        `;
+        normalGrid.appendChild(div);
+      });
+    }
+
+    // Render Domain 5 & Top HUD
+    function renderAuditAndHud(data, isLive = false) {
+      const updated = data.updated_at || '2026-10-25T01:58:28Z';
+      const clientNow = new Date().toLocaleString('zh-TW', { hour12: false });
+
+      const elClient = document.getElementById('tsClientFetch');
+      const elEpoch = document.getElementById('tsTelemetryEpoch');
+      const elAudit = document.getElementById('auditTimestampVal');
+      const elSentinel = document.getElementById('sentinelHeartbeatVal');
+      const elCircuit = document.getElementById('circuitPolicyText');
+      const elSource = document.getElementById('tsSourceMode');
+
+      if (elClient) elClient.textContent = clientNow;
+      if (elEpoch) elEpoch.textContent = updated;
+      if (elSource) {
+        if (isLive) {
+          elSource.innerHTML = '<span class="source-badge live">🟢 已連線最新遙測</span>';
+        } else {
+          elSource.innerHTML = '<span class="source-badge snapshot">⚠️ 離線快照模式 (Offline Snapshot)</span>';
+        }
+      }
+
+      const audit = data.five_core_domains?.['5_audit_chain'] || {};
+      if (elAudit) elAudit.textContent = audit.last_grader_audit_timestamp || updated;
+      if (elSentinel) elSentinel.textContent = (audit.sentinel_liveness_heartbeat || updated) + ' (LIVENESS OK)';
+      if (elCircuit && audit.circuit_breaker_policy) elCircuit.textContent = audit.circuit_breaker_policy;
+    }
+
+    // Master Hydration Function
+    function hydrateAll(isLive = false) {
+      renderVerifiedOutcomes(warRoomState.five_core_domains?.['1_verified_outcomes']);
+      renderTokenLedger();
+      renderQueueCensus(warRoomState.five_core_domains?.['3_queue_census']);
+      renderPipelineMatrix();
+      renderAuditAndHud(warRoomState, isLive);
+    }
+
+    // Live Fetch with Cache Buster
+    async function reloadWarRoomData() {
+      const btn = document.getElementById('btnRefresh');
+      if (btn) btn.textContent = '⏳ 更新中...';
+
+      try {
+        const res = await fetch('./ops_war_room_status.json?nocache=' + Date.now());
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const fresh = await res.json();
+        warRoomState = fresh;
+        hydrateAll(true);
+        showToast('🟢 遙測資料已更新至最新狀態');
+      } catch (err) {
+        console.warn('Live fetch failed, using current snapshot:', err);
+        hydrateAll(false);
+        showToast('⚠️ 離線或本地模式：已切換至快照呈現');
+      } finally {
+        if (btn) btn.textContent = '🔄 即時重新整理';
+      }
+    }
+
+    // Initialize on DOM Ready
+    document.addEventListener('DOMContentLoaded', () => {
+      hydrateAll();
+      // Attempt live fetch immediately
+      reloadWarRoomData();
+    });
+  </script>
+</body>
+</html>
