@@ -4,7 +4,7 @@ type: log
 date: 2026-10-25
 updated: 2026-10-25
 tags: [hot, summary, digest]
-summary: "完整展示過去 7 天（2026-10-19 至 2026-10-25）每日活躍條目與重要進展，共 9 項。"
+summary: "完整展示過去 7 天（2026-10-19 至 2026-10-25）每日活躍條目與重要進展，共 10 項。"
 status: active
 ---
 
@@ -12,8 +12,8 @@ status: active
 
 > 由 `compile_hot_cache.py` 嚴格依據過去 7 日（7x24小時）時間窗口編譯；每天皆有明確動態與進展條目，按日分層展示。點擊任意連結皆可在維基閱讀器中開啟。
 
-### 📅 2026-10-25 (週日) — 共 0 項動態
-- *當日無新發布條目（系統自主巡邏與背景排程運作）*
+### 📅 2026-10-25 (週日) — 共 1 項動態
+- [自治運營戰情室 — 五大核心營運指標常態看板](projects/autonomous-ops-war-room.md) — <small style='color:var(--wiki-text-muted);'>長程自治 AI 工作流實時戰情室：即時呈現已驗收實質成果、真實 Token 帳單、派工排隊清冊、全產線 29 條健康矩陣與監督責任鏈心跳。</small>
 
 ### 📅 2026-10-24 (週六) — 共 9 項動態
 - [Agent 團隊協作契約](concepts/agent-collaboration-contract.md) — <small style='color:var(--wiki-text-muted);'>定義小衡、小克與 Codex 的分工、交接、驗收與對外發布邊界。</small>
@@ -43,6 +43,9 @@ status: active
 
 ---
 ## 條目摘要與詳細說明 (Verified Metadata)
+
+#### 2026-10-25
+- **自治運營戰情室 — 五大核心營運指標常態看板**：長程自治 AI 工作流實時戰情室：即時呈現已驗收實質成果、真實 Token 帳單、派工排隊清冊、全產線 29 條健康矩陣與監督責任鏈心跳。（路徑：`projects/autonomous-ops-war-room.md`）
 
 #### 2026-10-24
 - **Agent 團隊協作契約**：定義小衡、小克與 Codex 的分工、交接、驗收與對外發布邊界。（路徑：`concepts/agent-collaboration-contract.md`）
