@@ -1311,10 +1311,10 @@
     <section class="telemetry-hud">
       <div class="hud-header">
         <div class="hud-status-pulse">
-          <div class="pulse-dot"></div>
+          <div id="hudPulseDot" class="pulse-dot"></div>
           <div class="hud-title-wrap">
-            <h1>STATUS: READY FOR DEPLOY (COMPONENT VERIFIED)</h1>
-            <div class="hud-title-sub">架構與調度演練已驗收 (14/14 PASS) · 常駐 Daemon 待部署</div>
+            <h1 id="hudMainTitle">STATUS: READY FOR DEPLOY (COMPONENT VERIFIED)</h1>
+            <div id="hudSubTitle" class="hud-title-sub">架構與調度演練已驗收 (14/14 PASS) · 常駐 Daemon 待部署</div>
           </div>
         </div>
 
@@ -1335,6 +1335,10 @@
           <div class="hud-timestamp-item">
             <span class="hud-timestamp-label">TELEMETRY SOURCE</span>
             <span id="tsSourceMode"><span class="source-badge snapshot">⚠️ 離線快照模式 (Offline Snapshot)</span></span>
+          </div>
+          <div class="hud-timestamp-item">
+            <span class="hud-timestamp-label">AUTO SYNC</span>
+            <span id="tsAutoSync" class="hud-timestamp-val" style="color:var(--cyan);">自動同步：每 30 秒</span>
           </div>
         </div>
       </div>
@@ -2763,6 +2767,10 @@
       const elSentinel = document.getElementById('sentinelHeartbeatVal');
       const elCircuit = document.getElementById('circuitPolicyText');
       const elSource = document.getElementById('tsSourceMode');
+      const elDaemon = document.getElementById('tsDaemonStatus');
+      const elMainTitle = document.getElementById('hudMainTitle');
+      const elSubTitle = document.getElementById('hudSubTitle');
+      const elAutoSync = document.getElementById('tsAutoSync');
 
       if (elClient) elClient.textContent = clientNow;
       if (elEpoch) elEpoch.textContent = updated;
@@ -2773,10 +2781,42 @@
           elSource.innerHTML = '<span class="source-badge snapshot">⚠️ 離線快照模式 (Offline Snapshot)</span>';
         }
       }
+      if (elAutoSync) {
+        elAutoSync.textContent = isLive ? '自動同步：每 30 秒 (ACTIVE)' : '自動同步：每 30 秒';
+      }
 
       const audit = data.five_core_domains?.['5_audit_chain'] || {};
+      const daemonStatus = data.daemon_status || audit.daemon_status || {};
+      const statusVal = daemonStatus.status || audit.status || 'OFFLINE_STALE';
+      const pid = daemonStatus.pid ?? audit.pid ?? 'N/A';
+      const seq = daemonStatus.seq ?? audit.seq ?? 0;
+
+      if (elDaemon) {
+        if (statusVal === 'ONLINE') {
+          elDaemon.textContent = `🟢 常駐守護進程運行中 (PID: ${pid}, seq: ${seq})`;
+          elDaemon.style.color = 'var(--lime)';
+          if (elMainTitle) elMainTitle.textContent = 'STATUS: AUTONOMOUS OPS ACTIVE (DAEMON ONLINE)';
+          if (elSubTitle) elSubTitle.textContent = '長程自治運營中 (活體遙測連線) · 常駐 Daemon 監控中';
+        } else if (statusVal === 'DEGRADED') {
+          elDaemon.textContent = `🟡 常駐心跳延遲告警 (PID: ${pid}, seq: ${seq})`;
+          elDaemon.style.color = 'var(--orange)';
+          if (elMainTitle) elMainTitle.textContent = 'STATUS: DAEMON HEARTBEAT DEGRADED';
+          if (elSubTitle) elSubTitle.textContent = '長程自治運營中 (心跳延遲 45-120s) · 常駐 Daemon 監控中';
+        } else {
+          elDaemon.textContent = pid !== 'N/A' && pid !== null
+            ? `🔴 常駐守護進程離線/過期 (Last PID: ${pid}, seq: ${seq})`
+            : '待部署至系統常駐服務 (目前無常駐心跳)';
+          elDaemon.style.color = 'var(--orange)';
+          if (elMainTitle) elMainTitle.textContent = 'STATUS: READY FOR DEPLOY (COMPONENT VERIFIED)';
+          if (elSubTitle) elSubTitle.textContent = '架構與調度演練已驗收 (14/14 PASS) · 常駐 Daemon 待部署';
+        }
+      }
+
       if (elAudit) elAudit.textContent = audit.last_grader_audit_timestamp || updated;
-      if (elSentinel) elSentinel.textContent = (audit.sentinel_liveness_heartbeat || updated) + ' (LIVENESS OK)';
+      if (elSentinel) {
+        const hbTime = daemonStatus.last_heartbeat_at || audit.sentinel_liveness_heartbeat || updated;
+        elSentinel.textContent = `${hbTime} (${statusVal === 'ONLINE' ? 'LIVENESS OK · seq=' + seq : statusVal})`;
+      }
       if (elCircuit && audit.circuit_breaker_policy) elCircuit.textContent = audit.circuit_breaker_policy;
     }
 
@@ -2795,7 +2835,7 @@
       if (btn) btn.textContent = '⏳ 更新中...';
 
       try {
-        const res = await fetch('./ops_war_room_status.json?nocache=' + Date.now());
+        const res = await fetch(`./ops_war_room_status.json?nocache=${Date.now()}`);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const fresh = await res.json();
         warRoomState = fresh;
@@ -2810,11 +2850,13 @@
       }
     }
 
-    // Initialize on DOM Ready
+    // Initialize on DOM Ready + 30s Auto-Polling
     document.addEventListener('DOMContentLoaded', () => {
       hydrateAll();
       // Attempt live fetch immediately
       reloadWarRoomData();
+      // Auto-poll every 30 seconds
+      setInterval(reloadWarRoomData, 30000);
     });
   </script>
 </body>

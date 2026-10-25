@@ -1,5 +1,5 @@
 {
-  "timestamp": 1792891904,
+  "timestamp": 1792929335,
   "time_iso": "2026-10-22 17:42:01",
   "total": 5,
   "up": 5,
@@ -87,1013 +87,127 @@
     }
   ],
   "schema_version": "2.0.0",
-  "generated_at": "2026-10-25T01:31:44.787015+00:00",
+  "generated_at": "2026-10-25T11:55:35.881172+00:00",
   "verified_outcomes": {
-    "total_verified": 7,
-    "items": [
-      {
-        "task_id": "quota_relay_master",
-        "path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\verification_receipt.json",
-        "artifact_path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\verification_receipt.json",
-        "description": "Slice 1 Independent QA Verification Receipt",
-        "sha256": "9e15782908fbdc4bc7a078dadf2a5c042463accb61a0dc6ee898d677491f8cdb",
-        "size_bytes": 745,
-        "verified_at": "2026-10-25T01:31:44.746166+00:00"
-      },
-      {
-        "task_id": "quota_relay_master",
-        "path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\verification_receipt_slice2.json",
-        "artifact_path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\verification_receipt_slice2.json",
-        "description": "Slice 2 Independent QA Verification Receipt",
-        "sha256": "b64e12f3a05df6a25ea401f82e6e80b2dc6f1cff1981de53ce806cd63c64cdac",
-        "size_bytes": 1073,
-        "verified_at": "2026-10-25T01:31:44.746166+00:00"
-      },
-      {
-        "task_id": "quota_relay_master",
-        "path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\src\\auto_refill_controller.py",
-        "artifact_path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\src\\auto_refill_controller.py",
-        "description": "Auto-Refill Queue Controller",
-        "sha256": "9fbc9b0a214897960d294ee2570da26cc4198951f4e04a6ae9e9d05c02999cfd",
-        "size_bytes": 45729,
-        "verified_at": "2026-10-25T01:31:44.746166+00:00"
-      },
-      {
-        "task_id": "quota_relay_master",
-        "path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\src\\provider_recovery_sentinel.py",
-        "artifact_path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\src\\provider_recovery_sentinel.py",
-        "description": "Half-Open Canary Probe Sentinel",
-        "sha256": "7fe10c91207e799c344c770be2e90908a624e8d5f16672154e769a2b49981428",
-        "size_bytes": 17482,
-        "verified_at": "2026-10-25T01:31:44.746166+00:00"
-      },
-      {
-        "task_id": "quota_relay_slice1",
-        "path": "artifacts/quota-relay-self-healing-20261024/verification_receipt.json",
-        "artifact_path": "artifacts/quota-relay-self-healing-20261024/verification_receipt.json",
-        "description": "Slice 1: 配額冷卻登記表與錯誤分型狀態機（F01-F07 獨立跑分全 PASS）",
-        "sha256": "9e15782908fbdc4bc7a078dadf2a5c042463accb61a0dc6ee898d677491f8cdb",
-        "qa_status": "PASS (Grader Verified)",
-        "verified_at": "2026-10-25T01:31:44.787015+00:00"
-      },
-      {
-        "task_id": "quota_relay_slice2",
-        "path": "artifacts/quota-relay-self-healing-20261024/verification_receipt_slice2.json",
-        "artifact_path": "artifacts/quota-relay-self-healing-20261024/verification_receipt_slice2.json",
-        "description": "Slice 2: 自動補位調度器、半開探針哨兵與斷點接力（F08-F14 獨立跑分全 PASS）",
-        "sha256": "b64e12f3a05df6a25ea401f82e6e80b2dc6f1cff1981de53ce806cd63c64cdac",
-        "qa_status": "PASS (Grader Verified)",
-        "verified_at": "2026-10-25T01:31:44.787015+00:00"
-      },
-      {
-        "task_id": "wiki_concepts_architecture",
-        "path": "concepts/autonomous-self-healing-quota-relay-architecture.md",
-        "artifact_path": "concepts/autonomous-self-healing-quota-relay-architecture.md",
-        "description": "長程自治 AI 工作流：額度冷卻自癒與確定性斷點接力架構正本",
-        "sha256": "f7aa5e6e1bc1fd0bf3f163a162cc80a7fbece9ae753e246bb9089c130933c07c",
-        "qa_status": "PASS (Published to Wiki)",
-        "verified_at": "2026-10-25T01:31:44.787015+00:00"
-      }
-    ],
-    "artifacts": [
-      {
-        "task_id": "quota_relay_master",
-        "path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\verification_receipt.json",
-        "artifact_path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\verification_receipt.json",
-        "description": "Slice 1 Independent QA Verification Receipt",
-        "sha256": "9e15782908fbdc4bc7a078dadf2a5c042463accb61a0dc6ee898d677491f8cdb",
-        "size_bytes": 745,
-        "verified_at": "2026-10-25T01:31:44.746166+00:00"
-      },
-      {
-        "task_id": "quota_relay_master",
-        "path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\verification_receipt_slice2.json",
-        "artifact_path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\verification_receipt_slice2.json",
-        "description": "Slice 2 Independent QA Verification Receipt",
-        "sha256": "b64e12f3a05df6a25ea401f82e6e80b2dc6f1cff1981de53ce806cd63c64cdac",
-        "size_bytes": 1073,
-        "verified_at": "2026-10-25T01:31:44.746166+00:00"
-      },
-      {
-        "task_id": "quota_relay_master",
-        "path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\src\\auto_refill_controller.py",
-        "artifact_path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\src\\auto_refill_controller.py",
-        "description": "Auto-Refill Queue Controller",
-        "sha256": "9fbc9b0a214897960d294ee2570da26cc4198951f4e04a6ae9e9d05c02999cfd",
-        "size_bytes": 45729,
-        "verified_at": "2026-10-25T01:31:44.746166+00:00"
-      },
-      {
-        "task_id": "quota_relay_master",
-        "path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\src\\provider_recovery_sentinel.py",
-        "artifact_path": "D:\\Workspace\\artifacts\\quota-relay-self-healing-20261024\\src\\provider_recovery_sentinel.py",
-        "description": "Half-Open Canary Probe Sentinel",
-        "sha256": "7fe10c91207e799c344c770be2e90908a624e8d5f16672154e769a2b49981428",
-        "size_bytes": 17482,
-        "verified_at": "2026-10-25T01:31:44.746166+00:00"
-      },
-      {
-        "task_id": "quota_relay_slice1",
-        "path": "artifacts/quota-relay-self-healing-20261024/verification_receipt.json",
-        "artifact_path": "artifacts/quota-relay-self-healing-20261024/verification_receipt.json",
-        "description": "Slice 1: 配額冷卻登記表與錯誤分型狀態機（F01-F07 獨立跑分全 PASS）",
-        "sha256": "9e15782908fbdc4bc7a078dadf2a5c042463accb61a0dc6ee898d677491f8cdb",
-        "qa_status": "PASS (Grader Verified)",
-        "verified_at": "2026-10-25T01:31:44.787015+00:00"
-      },
-      {
-        "task_id": "quota_relay_slice2",
-        "path": "artifacts/quota-relay-self-healing-20261024/verification_receipt_slice2.json",
-        "artifact_path": "artifacts/quota-relay-self-healing-20261024/verification_receipt_slice2.json",
-        "description": "Slice 2: 自動補位調度器、半開探針哨兵與斷點接力（F08-F14 獨立跑分全 PASS）",
-        "sha256": "b64e12f3a05df6a25ea401f82e6e80b2dc6f1cff1981de53ce806cd63c64cdac",
-        "qa_status": "PASS (Grader Verified)",
-        "verified_at": "2026-10-25T01:31:44.787015+00:00"
-      },
-      {
-        "task_id": "wiki_concepts_architecture",
-        "path": "concepts/autonomous-self-healing-quota-relay-architecture.md",
-        "artifact_path": "concepts/autonomous-self-healing-quota-relay-architecture.md",
-        "description": "長程自治 AI 工作流：額度冷卻自癒與確定性斷點接力架構正本",
-        "sha256": "f7aa5e6e1bc1fd0bf3f163a162cc80a7fbece9ae753e246bb9089c130933c07c",
-        "qa_status": "PASS (Published to Wiki)",
-        "verified_at": "2026-10-25T01:31:44.787015+00:00"
-      }
-    ],
-    "updated_at": "2026-10-25T01:31:44.787015+00:00"
+    "total_verified": 0,
+    "items": [],
+    "artifacts": [],
+    "updated_at": "2026-10-25T11:55:35.881172+00:00"
   },
   "token_ledger": {
     "summary": {
-      "total_input_tokens": 152527222,
-      "total_output_tokens": 7052433,
-      "total_cache_tokens": 993038580,
-      "total_tokens": 1152618235,
-      "total_cost_usd": 0.12996
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_cache_tokens": 0,
+      "total_tokens": 0,
+      "total_cost_usd": 0.0
     },
-    "models": {
-      "DeepSeek-V4-Flash": {
-        "model": "DeepSeek-V4-Flash",
-        "pool_id": "codex_pool",
-        "input_tokens": 2500693,
-        "output_tokens": 420418,
-        "cache_tokens": 13408640,
-        "total_tokens": 16329751,
-        "cost_usd": 0.0
-      },
-      "Deepseek-V4 Pro": {
-        "model": "Deepseek-V4 Pro",
-        "pool_id": "codex_pool",
-        "input_tokens": 14210,
-        "output_tokens": 158,
-        "cache_tokens": 30822,
-        "total_tokens": 45190,
-        "cost_usd": 0.0
-      },
-      "GPT-5.5": {
-        "model": "GPT-5.5",
-        "pool_id": "codex_pool",
-        "input_tokens": 42695,
-        "output_tokens": 5842,
-        "cache_tokens": 883593,
-        "total_tokens": 932130,
-        "cost_usd": 0.0
-      },
-      "Gemma-4-E4B-It": {
-        "model": "Gemma-4-E4B-It",
-        "pool_id": "codex_pool",
-        "input_tokens": 0,
-        "output_tokens": 0,
-        "cache_tokens": 0,
-        "total_tokens": 0,
-        "cost_usd": 0.0
-      },
-      "Qwen3.6 35B": {
-        "model": "Qwen3.6 35B",
-        "pool_id": "amd_pool",
-        "input_tokens": 1492612,
-        "output_tokens": 125640,
-        "cache_tokens": 19816064,
-        "total_tokens": 21434316,
-        "cost_usd": 0.0
-      },
-      "Qwen3.6-35B-A3B-Q4_K_M.gguf": {
-        "model": "Qwen3.6-35B-A3B-Q4_K_M.gguf",
-        "pool_id": "amd_pool",
-        "input_tokens": 90694,
-        "output_tokens": 15224,
-        "cache_tokens": 713475,
-        "total_tokens": 819393,
-        "cost_usd": 0.0
-      },
-      "Qwen3.8-Flash-Next": {
-        "model": "Qwen3.8-Flash-Next",
-        "pool_id": "amd_pool",
-        "input_tokens": 2455274,
-        "output_tokens": 466983,
-        "cache_tokens": 16593283,
-        "total_tokens": 19515540,
-        "cost_usd": 0.0
-      },
-      "claude-opus-4-6": {
-        "model": "claude-opus-4-6",
-        "pool_id": "codex_pool",
-        "input_tokens": 172096,
-        "output_tokens": 15064,
-        "cache_tokens": 1565724,
-        "total_tokens": 1752884,
-        "cost_usd": 0.0
-      },
-      "claude-opus-4-6-thinking": {
-        "model": "claude-opus-4-6-thinking",
-        "pool_id": "codex_pool",
-        "input_tokens": 4855942,
-        "output_tokens": 322377,
-        "cache_tokens": 29834684,
-        "total_tokens": 35013003,
-        "cost_usd": 0.0
-      },
-      "claude-opus-4-8": {
-        "model": "claude-opus-4-8",
-        "pool_id": "codex_pool",
-        "input_tokens": 262080,
-        "output_tokens": 56549,
-        "cache_tokens": 6357568,
-        "total_tokens": 6676197,
-        "cost_usd": 0.0
-      },
-      "claude-opus-5": {
-        "model": "claude-opus-5",
-        "pool_id": "codex_pool",
-        "input_tokens": 8495981,
-        "output_tokens": 106470,
-        "cache_tokens": 0,
-        "total_tokens": 8602451,
-        "cost_usd": 0.0
-      },
-      "claude-sonnet-4-6": {
-        "model": "claude-sonnet-4-6",
-        "pool_id": "codex_pool",
-        "input_tokens": 597509,
-        "output_tokens": 35140,
-        "cache_tokens": 2599070,
-        "total_tokens": 3231719,
-        "cost_usd": 0.0
-      },
-      "deepseek-chat": {
-        "model": "deepseek-chat",
-        "pool_id": "codex_pool",
-        "input_tokens": 69966,
-        "output_tokens": 627,
-        "cache_tokens": 0,
-        "total_tokens": 70593,
-        "cost_usd": 0.0
-      },
-      "deepseek-v4-flash": {
-        "model": "deepseek-v4-flash",
-        "pool_id": "codex_pool",
-        "input_tokens": 577297,
-        "output_tokens": 143678,
-        "cache_tokens": 35926912,
-        "total_tokens": 36647887,
-        "cost_usd": 0.01481
-      },
-      "deepseek-v4-pro": {
-        "model": "deepseek-v4-pro",
-        "pool_id": "codex_pool",
-        "input_tokens": 2259248,
-        "output_tokens": 40383,
-        "cache_tokens": 6914644,
-        "total_tokens": 9214275,
-        "cost_usd": 0.115149
-      },
-      "default": {
-        "model": "default",
-        "pool_id": "cpa_pool",
-        "input_tokens": 26638194,
-        "output_tokens": 200483,
-        "cache_tokens": 133080961,
-        "total_tokens": 159919638,
-        "cost_usd": 0.0
-      },
-      "gemini-3.1-pro-low": {
-        "model": "gemini-3.1-pro-low",
-        "pool_id": "cpa_pool",
-        "input_tokens": 40917,
-        "output_tokens": 165,
-        "cache_tokens": 12079,
-        "total_tokens": 53161,
-        "cost_usd": 0.0
-      },
-      "gemini-3.6-flash-high": {
-        "model": "gemini-3.6-flash-high",
-        "pool_id": "cpa_pool",
-        "input_tokens": 8654521,
-        "output_tokens": 428652,
-        "cache_tokens": 31107927,
-        "total_tokens": 40191100,
-        "cost_usd": 0.0
-      },
-      "gemini-3.7-flash-high": {
-        "model": "gemini-3.7-flash-high",
-        "pool_id": "cpa_pool",
-        "input_tokens": 7990835,
-        "output_tokens": 156097,
-        "cache_tokens": 19658850,
-        "total_tokens": 27805782,
-        "cost_usd": 0.0
-      },
-      "gemini-3.8-flash-high": {
-        "model": "gemini-3.8-flash-high",
-        "pool_id": "cpa_pool",
-        "input_tokens": 49696116,
-        "output_tokens": 1096512,
-        "cache_tokens": 244379250,
-        "total_tokens": 295171878,
-        "cost_usd": 0.0
-      },
-      "gemini-4-argon-high": {
-        "model": "gemini-4-argon-high",
-        "pool_id": "cpa_pool",
-        "input_tokens": 36112,
-        "output_tokens": 1316,
-        "cache_tokens": 0,
-        "total_tokens": 37428,
-        "cost_usd": 0.0
-      },
-      "google/gemma-4-12b-qat": {
-        "model": "google/gemma-4-12b-qat",
-        "pool_id": "codex_pool",
-        "input_tokens": 609631,
-        "output_tokens": 18500,
-        "cache_tokens": 0,
-        "total_tokens": 628131,
-        "cost_usd": 0.0
-      },
-      "gpt-5.5": {
-        "model": "gpt-5.5",
-        "pool_id": "codex_pool",
-        "input_tokens": 1167524,
-        "output_tokens": 49251,
-        "cache_tokens": 26245888,
-        "total_tokens": 27462663,
-        "cost_usd": 0.0
-      },
-      "gpt-5.6-luna": {
-        "model": "gpt-5.6-luna",
-        "pool_id": "codex_pool",
-        "input_tokens": 4418851,
-        "output_tokens": 532691,
-        "cache_tokens": 47476736,
-        "total_tokens": 52428278,
-        "cost_usd": 0.0
-      },
-      "gpt-5.6-sol": {
-        "model": "gpt-5.6-sol",
-        "pool_id": "codex_pool",
-        "input_tokens": 16253649,
-        "output_tokens": 1831821,
-        "cache_tokens": 224569856,
-        "total_tokens": 242655326,
-        "cost_usd": 0.0
-      },
-      "gpt-5.6-terra": {
-        "model": "gpt-5.6-terra",
-        "pool_id": "codex_pool",
-        "input_tokens": 85825,
-        "output_tokens": 5298,
-        "cache_tokens": 124928,
-        "total_tokens": 216051,
-        "cost_usd": 0.0
-      },
-      "gpt-6-sol": {
-        "model": "gpt-6-sol",
-        "pool_id": "codex_pool",
-        "input_tokens": 215990,
-        "output_tokens": 41633,
-        "cache_tokens": 2717568,
-        "total_tokens": 2975191,
-        "cost_usd": 0.0
-      },
-      "gpt-6.1-sol": {
-        "model": "gpt-6.1-sol",
-        "pool_id": "codex_pool",
-        "input_tokens": 12543507,
-        "output_tokens": 919606,
-        "cache_tokens": 127819624,
-        "total_tokens": 141282737,
-        "cost_usd": 0.0
-      },
-      "nvidia/nemotron-3-super-120b-a12b": {
-        "model": "nvidia/nemotron-3-super-120b-a12b",
-        "pool_id": "codex_pool",
-        "input_tokens": 113361,
-        "output_tokens": 12325,
-        "cache_tokens": 1066208,
-        "total_tokens": 1191894,
-        "cost_usd": 0.0
-      },
-      "qwen/qwen3.8-27b": {
-        "model": "qwen/qwen3.8-27b",
-        "pool_id": "amd_pool",
-        "input_tokens": 83904,
-        "output_tokens": 2252,
-        "cache_tokens": 0,
-        "total_tokens": 86156,
-        "cost_usd": 0.0
-      },
-      "qwen3.6-35b-a3b-uncensored-hauhaucs-aggressive": {
-        "model": "qwen3.6-35b-a3b-uncensored-hauhaucs-aggressive",
-        "pool_id": "amd_pool",
-        "input_tokens": 0,
-        "output_tokens": 0,
-        "cache_tokens": 0,
-        "total_tokens": 0,
-        "cost_usd": 0.0
-      },
-      "qwen3.6-moe": {
-        "model": "qwen3.6-moe",
-        "pool_id": "amd_pool",
-        "input_tokens": 0,
-        "output_tokens": 0,
-        "cache_tokens": 0,
-        "total_tokens": 0,
-        "cost_usd": 0.0
-      },
-      "unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL": {
-        "model": "unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL",
-        "pool_id": "codex_pool",
-        "input_tokens": 91988,
-        "output_tokens": 1278,
-        "cache_tokens": 134226,
-        "total_tokens": 227492,
-        "cost_usd": 0.0
-      }
-    },
-    "by_model": {
-      "DeepSeek-V4-Flash": {
-        "model": "DeepSeek-V4-Flash",
-        "pool_id": "codex_pool",
-        "input_tokens": 2500693,
-        "output_tokens": 420418,
-        "cache_tokens": 13408640,
-        "total_tokens": 16329751,
-        "cost_usd": 0.0
-      },
-      "Deepseek-V4 Pro": {
-        "model": "Deepseek-V4 Pro",
-        "pool_id": "codex_pool",
-        "input_tokens": 14210,
-        "output_tokens": 158,
-        "cache_tokens": 30822,
-        "total_tokens": 45190,
-        "cost_usd": 0.0
-      },
-      "GPT-5.5": {
-        "model": "GPT-5.5",
-        "pool_id": "codex_pool",
-        "input_tokens": 42695,
-        "output_tokens": 5842,
-        "cache_tokens": 883593,
-        "total_tokens": 932130,
-        "cost_usd": 0.0
-      },
-      "Gemma-4-E4B-It": {
-        "model": "Gemma-4-E4B-It",
-        "pool_id": "codex_pool",
-        "input_tokens": 0,
-        "output_tokens": 0,
-        "cache_tokens": 0,
-        "total_tokens": 0,
-        "cost_usd": 0.0
-      },
-      "Qwen3.6 35B": {
-        "model": "Qwen3.6 35B",
-        "pool_id": "amd_pool",
-        "input_tokens": 1492612,
-        "output_tokens": 125640,
-        "cache_tokens": 19816064,
-        "total_tokens": 21434316,
-        "cost_usd": 0.0
-      },
-      "Qwen3.6-35B-A3B-Q4_K_M.gguf": {
-        "model": "Qwen3.6-35B-A3B-Q4_K_M.gguf",
-        "pool_id": "amd_pool",
-        "input_tokens": 90694,
-        "output_tokens": 15224,
-        "cache_tokens": 713475,
-        "total_tokens": 819393,
-        "cost_usd": 0.0
-      },
-      "Qwen3.8-Flash-Next": {
-        "model": "Qwen3.8-Flash-Next",
-        "pool_id": "amd_pool",
-        "input_tokens": 2455274,
-        "output_tokens": 466983,
-        "cache_tokens": 16593283,
-        "total_tokens": 19515540,
-        "cost_usd": 0.0
-      },
-      "claude-opus-4-6": {
-        "model": "claude-opus-4-6",
-        "pool_id": "codex_pool",
-        "input_tokens": 172096,
-        "output_tokens": 15064,
-        "cache_tokens": 1565724,
-        "total_tokens": 1752884,
-        "cost_usd": 0.0
-      },
-      "claude-opus-4-6-thinking": {
-        "model": "claude-opus-4-6-thinking",
-        "pool_id": "codex_pool",
-        "input_tokens": 4855942,
-        "output_tokens": 322377,
-        "cache_tokens": 29834684,
-        "total_tokens": 35013003,
-        "cost_usd": 0.0
-      },
-      "claude-opus-4-8": {
-        "model": "claude-opus-4-8",
-        "pool_id": "codex_pool",
-        "input_tokens": 262080,
-        "output_tokens": 56549,
-        "cache_tokens": 6357568,
-        "total_tokens": 6676197,
-        "cost_usd": 0.0
-      },
-      "claude-opus-5": {
-        "model": "claude-opus-5",
-        "pool_id": "codex_pool",
-        "input_tokens": 8495981,
-        "output_tokens": 106470,
-        "cache_tokens": 0,
-        "total_tokens": 8602451,
-        "cost_usd": 0.0
-      },
-      "claude-sonnet-4-6": {
-        "model": "claude-sonnet-4-6",
-        "pool_id": "codex_pool",
-        "input_tokens": 597509,
-        "output_tokens": 35140,
-        "cache_tokens": 2599070,
-        "total_tokens": 3231719,
-        "cost_usd": 0.0
-      },
-      "deepseek-chat": {
-        "model": "deepseek-chat",
-        "pool_id": "codex_pool",
-        "input_tokens": 69966,
-        "output_tokens": 627,
-        "cache_tokens": 0,
-        "total_tokens": 70593,
-        "cost_usd": 0.0
-      },
-      "deepseek-v4-flash": {
-        "model": "deepseek-v4-flash",
-        "pool_id": "codex_pool",
-        "input_tokens": 577297,
-        "output_tokens": 143678,
-        "cache_tokens": 35926912,
-        "total_tokens": 36647887,
-        "cost_usd": 0.01481
-      },
-      "deepseek-v4-pro": {
-        "model": "deepseek-v4-pro",
-        "pool_id": "codex_pool",
-        "input_tokens": 2259248,
-        "output_tokens": 40383,
-        "cache_tokens": 6914644,
-        "total_tokens": 9214275,
-        "cost_usd": 0.115149
-      },
-      "default": {
-        "model": "default",
-        "pool_id": "cpa_pool",
-        "input_tokens": 26638194,
-        "output_tokens": 200483,
-        "cache_tokens": 133080961,
-        "total_tokens": 159919638,
-        "cost_usd": 0.0
-      },
-      "gemini-3.1-pro-low": {
-        "model": "gemini-3.1-pro-low",
-        "pool_id": "cpa_pool",
-        "input_tokens": 40917,
-        "output_tokens": 165,
-        "cache_tokens": 12079,
-        "total_tokens": 53161,
-        "cost_usd": 0.0
-      },
-      "gemini-3.6-flash-high": {
-        "model": "gemini-3.6-flash-high",
-        "pool_id": "cpa_pool",
-        "input_tokens": 8654521,
-        "output_tokens": 428652,
-        "cache_tokens": 31107927,
-        "total_tokens": 40191100,
-        "cost_usd": 0.0
-      },
-      "gemini-3.7-flash-high": {
-        "model": "gemini-3.7-flash-high",
-        "pool_id": "cpa_pool",
-        "input_tokens": 7990835,
-        "output_tokens": 156097,
-        "cache_tokens": 19658850,
-        "total_tokens": 27805782,
-        "cost_usd": 0.0
-      },
-      "gemini-3.8-flash-high": {
-        "model": "gemini-3.8-flash-high",
-        "pool_id": "cpa_pool",
-        "input_tokens": 49696116,
-        "output_tokens": 1096512,
-        "cache_tokens": 244379250,
-        "total_tokens": 295171878,
-        "cost_usd": 0.0
-      },
-      "gemini-4-argon-high": {
-        "model": "gemini-4-argon-high",
-        "pool_id": "cpa_pool",
-        "input_tokens": 36112,
-        "output_tokens": 1316,
-        "cache_tokens": 0,
-        "total_tokens": 37428,
-        "cost_usd": 0.0
-      },
-      "google/gemma-4-12b-qat": {
-        "model": "google/gemma-4-12b-qat",
-        "pool_id": "codex_pool",
-        "input_tokens": 609631,
-        "output_tokens": 18500,
-        "cache_tokens": 0,
-        "total_tokens": 628131,
-        "cost_usd": 0.0
-      },
-      "gpt-5.5": {
-        "model": "gpt-5.5",
-        "pool_id": "codex_pool",
-        "input_tokens": 1167524,
-        "output_tokens": 49251,
-        "cache_tokens": 26245888,
-        "total_tokens": 27462663,
-        "cost_usd": 0.0
-      },
-      "gpt-5.6-luna": {
-        "model": "gpt-5.6-luna",
-        "pool_id": "codex_pool",
-        "input_tokens": 4418851,
-        "output_tokens": 532691,
-        "cache_tokens": 47476736,
-        "total_tokens": 52428278,
-        "cost_usd": 0.0
-      },
-      "gpt-5.6-sol": {
-        "model": "gpt-5.6-sol",
-        "pool_id": "codex_pool",
-        "input_tokens": 16253649,
-        "output_tokens": 1831821,
-        "cache_tokens": 224569856,
-        "total_tokens": 242655326,
-        "cost_usd": 0.0
-      },
-      "gpt-5.6-terra": {
-        "model": "gpt-5.6-terra",
-        "pool_id": "codex_pool",
-        "input_tokens": 85825,
-        "output_tokens": 5298,
-        "cache_tokens": 124928,
-        "total_tokens": 216051,
-        "cost_usd": 0.0
-      },
-      "gpt-6-sol": {
-        "model": "gpt-6-sol",
-        "pool_id": "codex_pool",
-        "input_tokens": 215990,
-        "output_tokens": 41633,
-        "cache_tokens": 2717568,
-        "total_tokens": 2975191,
-        "cost_usd": 0.0
-      },
-      "gpt-6.1-sol": {
-        "model": "gpt-6.1-sol",
-        "pool_id": "codex_pool",
-        "input_tokens": 12543507,
-        "output_tokens": 919606,
-        "cache_tokens": 127819624,
-        "total_tokens": 141282737,
-        "cost_usd": 0.0
-      },
-      "nvidia/nemotron-3-super-120b-a12b": {
-        "model": "nvidia/nemotron-3-super-120b-a12b",
-        "pool_id": "codex_pool",
-        "input_tokens": 113361,
-        "output_tokens": 12325,
-        "cache_tokens": 1066208,
-        "total_tokens": 1191894,
-        "cost_usd": 0.0
-      },
-      "qwen/qwen3.8-27b": {
-        "model": "qwen/qwen3.8-27b",
-        "pool_id": "amd_pool",
-        "input_tokens": 83904,
-        "output_tokens": 2252,
-        "cache_tokens": 0,
-        "total_tokens": 86156,
-        "cost_usd": 0.0
-      },
-      "qwen3.6-35b-a3b-uncensored-hauhaucs-aggressive": {
-        "model": "qwen3.6-35b-a3b-uncensored-hauhaucs-aggressive",
-        "pool_id": "amd_pool",
-        "input_tokens": 0,
-        "output_tokens": 0,
-        "cache_tokens": 0,
-        "total_tokens": 0,
-        "cost_usd": 0.0
-      },
-      "qwen3.6-moe": {
-        "model": "qwen3.6-moe",
-        "pool_id": "amd_pool",
-        "input_tokens": 0,
-        "output_tokens": 0,
-        "cache_tokens": 0,
-        "total_tokens": 0,
-        "cost_usd": 0.0
-      },
-      "unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL": {
-        "model": "unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL",
-        "pool_id": "codex_pool",
-        "input_tokens": 91988,
-        "output_tokens": 1278,
-        "cache_tokens": 134226,
-        "total_tokens": 227492,
-        "cost_usd": 0.0
-      }
-    },
+    "models": {},
+    "by_model": {},
     "pools": {},
     "pool_states": {},
-    "updated_at": "2026-10-25T01:31:44.787015+00:00"
+    "updated_at": "2026-10-25T11:55:35.881172+00:00"
   },
   "queue_census": {
-    "total_queued": 2,
+    "total_queued": 0,
     "by_reason": {
       "WAITING_FOR_QUOTA": 0,
-      "WAITING_FOR_SLOT": 1,
-      "WAITING_FOR_DEPENDENCY": 1
+      "WAITING_FOR_SLOT": 0,
+      "WAITING_FOR_DEPENDENCY": 0
     },
     "counts": {
       "WAITING_FOR_QUOTA": 0,
-      "WAITING_FOR_SLOT": 1,
-      "WAITING_FOR_DEPENDENCY": 1
+      "WAITING_FOR_SLOT": 0,
+      "WAITING_FOR_DEPENDENCY": 0
     },
     "WAITING_FOR_QUOTA": 0,
-    "WAITING_FOR_SLOT": 1,
-    "WAITING_FOR_DEPENDENCY": 1,
-    "cards": [
-      {
-        "card_id": "wb_4125c395",
-        "title": "EP21 心理成長主軸 draft（Option A：10/23五檔期從簡、10/28三上架）",
-        "status": "todo",
-        "priority": 80,
-        "pool_id": "cpa_pool",
-        "reason": "WAITING_FOR_SLOT",
-        "wait_reason": "WAITING_FOR_SLOT",
-        "dependencies": []
-      },
-      {
-        "card_id": "wb_f48045f2",
-        "title": "Podcast 聽感 SOP v1：EP20 私人樣本與獨立全片驗收",
-        "status": "todo",
-        "priority": 80,
-        "pool_id": "cpa_pool",
-        "reason": "WAITING_FOR_DEPENDENCY",
-        "wait_reason": "WAITING_FOR_DEPENDENCY",
-        "dependencies": []
-      }
-    ],
-    "items": [
-      {
-        "card_id": "wb_4125c395",
-        "title": "EP21 心理成長主軸 draft（Option A：10/23五檔期從簡、10/28三上架）",
-        "status": "todo",
-        "priority": 80,
-        "pool_id": "cpa_pool",
-        "reason": "WAITING_FOR_SLOT",
-        "wait_reason": "WAITING_FOR_SLOT",
-        "dependencies": []
-      },
-      {
-        "card_id": "wb_f48045f2",
-        "title": "Podcast 聽感 SOP v1：EP20 私人樣本與獨立全片驗收",
-        "status": "todo",
-        "priority": 80,
-        "pool_id": "cpa_pool",
-        "reason": "WAITING_FOR_DEPENDENCY",
-        "wait_reason": "WAITING_FOR_DEPENDENCY",
-        "dependencies": []
-      }
-    ],
-    "updated_at": "2026-10-25T01:31:44.787015+00:00"
+    "WAITING_FOR_SLOT": 0,
+    "WAITING_FOR_DEPENDENCY": 0,
+    "cards": [],
+    "items": [],
+    "updated_at": "2026-10-25T11:55:35.881172+00:00"
   },
   "pipeline_matrix": {
-    "total": 15,
-    "healthy": 10,
-    "normal": 10,
-    "up": 10,
-    "error": 5,
-    "failed": 5,
-    "down": 5,
+    "total": 4,
+    "healthy": 4,
+    "normal": 4,
+    "up": 4,
+    "error": 0,
+    "failed": 0,
+    "down": 0,
     "disabled": 0,
-    "error_causes": [
-      {
-        "pipeline_id": "cron-browser-ops-watchdog",
-        "name": "Browser Ops Watchdog",
-        "root_cause": "依賴二進位與環境路徑不一致 (Exit 2)"
-      },
-      {
-        "pipeline_id": "cron-xiaoke-brain-distill",
-        "name": "小克大腦編譯 (Brain Distill)",
-        "root_cause": "歷史報告缺少 YAML frontmatter 觸發 lint 阻擋 (Exit 1)"
-      },
-      {
-        "pipeline_id": "cron-hermes-nightly-update",
-        "name": "Hermes 夜間自動更新",
-        "root_cause": "Windows 狀態讀寫逾時 (Exit 1)"
-      },
-      {
-        "pipeline_id": "cron-bahamut-fuli-lottery",
-        "name": "巴哈勇者福利社抽獎",
-        "root_cause": "回報 PARTIAL_OR_BLOCKED，點擊選擇器需微調 (Exit 1)"
-      },
-      {
-        "pipeline_id": "svc-jojo-api-8008",
-        "name": "JoJo Trading API (:8008)",
-        "root_cause": "進程未監聽 (Connection Refused)"
-      }
-    ],
-    "root_causes": [
-      {
-        "pipeline_id": "cron-browser-ops-watchdog",
-        "name": "Browser Ops Watchdog",
-        "root_cause": "依賴二進位與環境路徑不一致 (Exit 2)"
-      },
-      {
-        "pipeline_id": "cron-xiaoke-brain-distill",
-        "name": "小克大腦編譯 (Brain Distill)",
-        "root_cause": "歷史報告缺少 YAML frontmatter 觸發 lint 阻擋 (Exit 1)"
-      },
-      {
-        "pipeline_id": "cron-hermes-nightly-update",
-        "name": "Hermes 夜間自動更新",
-        "root_cause": "Windows 狀態讀寫逾時 (Exit 1)"
-      },
-      {
-        "pipeline_id": "cron-bahamut-fuli-lottery",
-        "name": "巴哈勇者福利社抽獎",
-        "root_cause": "回報 PARTIAL_OR_BLOCKED，點擊選擇器需微調 (Exit 1)"
-      },
-      {
-        "pipeline_id": "svc-jojo-api-8008",
-        "name": "JoJo Trading API (:8008)",
-        "root_cause": "進程未監聽 (Connection Refused)"
-      }
-    ],
+    "error_causes": [],
+    "root_causes": [],
     "pipelines": [
       {
-        "id": "cron-tw-stock-close-report",
-        "name": "台股盤後籌碼與損益報告",
+        "id": "quota-relay-control-plane",
+        "name": "Quota Relay Self-Healing Control Plane",
         "status": "HEALTHY",
         "root_cause": null,
-        "latency_ms": 1240
+        "latency_ms": 1
       },
       {
-        "id": "cron-wiki-auto-sync",
-        "name": "Wiki 知識庫雙向同步",
+        "id": "cpa-gateway-18004",
+        "name": "CLIProxyAPI Gateway 18004",
         "status": "HEALTHY",
         "root_cause": null,
-        "latency_ms": 420
+        "latency_ms": 2
       },
       {
-        "id": "cron-agent-health-check",
-        "name": "系統代理全量健康檢查",
-        "status": "HEALTHY",
-        "root_cause": null,
-        "latency_ms": 310
-      },
-      {
-        "id": "cron-f5-subscription-monitor",
-        "name": "F5 訂閱狀態與額度監控",
-        "status": "HEALTHY",
-        "root_cause": null,
-        "latency_ms": 280
-      },
-      {
-        "id": "oc-hotspot-scanner",
-        "name": "繁中 AI 熱點採集器",
-        "status": "HEALTHY",
-        "root_cause": null,
-        "latency_ms": 4123
-      },
-      {
-        "id": "oc-memory-dreaming",
-        "name": "Memory Dreaming 記憶沉澱",
-        "status": "HEALTHY",
-        "root_cause": null,
-        "latency_ms": 10589
-      },
-      {
-        "id": "svc-hindsight-9077",
-        "name": "Hindsight 長期語意記憶庫 (:9077)",
-        "status": "HEALTHY",
-        "root_cause": null,
-        "latency_ms": 5
-      },
-      {
-        "id": "svc-cpa-18004",
-        "name": "CPA 本地代理 (:18004)",
-        "status": "HEALTHY",
-        "root_cause": null,
-        "latency_ms": 12
-      },
-      {
-        "id": "svc-codex-proxy-58771",
-        "name": "Codex Proxy Cockpit (:58771)",
+        "id": "hindsight-core-9077",
+        "name": "Hindsight Memory Core 9077",
         "status": "HEALTHY",
         "root_cause": null,
         "latency_ms": 15
       },
       {
-        "id": "svc-ase-vault-18090",
-        "name": "日月光學習路徑私網服務 (:18090)",
+        "id": "nas-wiki-stack-8000",
+        "name": "NAS Wiki Stack 8000",
         "status": "HEALTHY",
         "root_cause": null,
-        "latency_ms": 8
-      },
-      {
-        "id": "cron-browser-ops-watchdog",
-        "name": "Browser Ops Watchdog",
-        "status": "ERROR",
-        "root_cause": "依賴二進位與環境路徑不一致 (Exit 2)",
-        "latency_ms": 0
-      },
-      {
-        "id": "cron-xiaoke-brain-distill",
-        "name": "小克大腦編譯 (Brain Distill)",
-        "status": "ERROR",
-        "root_cause": "歷史報告缺少 YAML frontmatter 觸發 lint 阻擋 (Exit 1)",
-        "latency_ms": 0
-      },
-      {
-        "id": "cron-hermes-nightly-update",
-        "name": "Hermes 夜間自動更新",
-        "status": "ERROR",
-        "root_cause": "Windows 狀態讀寫逾時 (Exit 1)",
-        "latency_ms": 0
-      },
-      {
-        "id": "cron-bahamut-fuli-lottery",
-        "name": "巴哈勇者福利社抽獎",
-        "status": "ERROR",
-        "root_cause": "回報 PARTIAL_OR_BLOCKED，點擊選擇器需微調 (Exit 1)",
-        "latency_ms": 0
-      },
-      {
-        "id": "svc-jojo-api-8008",
-        "name": "JoJo Trading API (:8008)",
-        "status": "ERROR",
-        "root_cause": "進程未監聽 (Connection Refused)",
-        "latency_ms": 0
+        "latency_ms": 18
       }
     ],
-    "updated_at": "2026-10-25T01:31:44.787015+00:00"
+    "updated_at": "2026-10-25T11:55:35.881172+00:00"
   },
   "audit_chain": {
     "grader": {
       "role": "Grader / Tech Lead",
       "agent": "小衡 (Xiao Heng)",
-      "last_heartbeat_at": "2026-10-25T01:31:44.787015+00:00",
-      "timestamp": 1792891904.7870147,
+      "last_heartbeat_at": "2026-10-25T11:55:35.881172+00:00",
+      "timestamp": 1792929335.8811724,
       "status": "ACTIVE"
     },
     "maker": {
       "role": "Maker / Implementer",
       "agent": "小克 (Xiao Ke / agent:main)",
-      "last_heartbeat_at": "2026-10-25T01:31:44.787015+00:00",
-      "timestamp": 1792891904.7870147,
+      "last_heartbeat_at": "2026-10-25T11:55:35.881172+00:00",
+      "timestamp": 1792929335.8811724,
       "status": "ACTIVE"
     },
     "controller": {
       "role": "AutoRefillController & RecoverySentinel",
       "agent": "durable-control-plane",
-      "last_heartbeat_at": "2026-10-25T01:31:44.787015+00:00",
-      "sentinel_heartbeat_at": "2026-10-25T01:31:44.787015+00:00",
-      "timestamp": 1792891904.7870147,
-      "status": "ACTIVE"
+      "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+      "sentinel_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+      "timestamp": 1792929335.879784,
+      "status": "ONLINE"
     },
-    "grader_heartbeat_at": "2026-10-25T01:31:44.787015+00:00",
-    "maker_heartbeat_at": "2026-10-25T01:31:44.787015+00:00",
-    "controller_heartbeat_at": "2026-10-25T01:31:44.787015+00:00",
-    "updated_at": "2026-10-25T01:31:44.787015+00:00"
+    "daemon_status": {
+      "pid": 93588,
+      "pid_alive": true,
+      "seq": 37,
+      "uptime_sec": 540,
+      "age_sec": 0.0,
+      "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+      "status": "ONLINE"
+    },
+    "grader_heartbeat_at": "2026-10-25T11:55:35.881172+00:00",
+    "maker_heartbeat_at": "2026-10-25T11:55:35.881172+00:00",
+    "controller_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+    "updated_at": "2026-10-25T11:55:35.881172+00:00"
   },
-  "updated_at": "2026-10-25T01:58:28.096661+00:00",
+  "updated_at": "2026-10-25T11:55:35.881172+00:00",
   "war_room_status": {
     "updated_at": "2026-10-25T01:58:28.094912+00:00",
     "system_epoch": "2026-10-25",
@@ -1688,5 +802,611 @@
   },
   "pipelines_healthy": 18,
   "pipelines_error": 4,
-  "grader": "Xiao Heng"
+  "grader": "Xiao Heng",
+  "system_epoch": "2026-10-25",
+  "daemon_status": {
+    "pid": 93588,
+    "pid_alive": true,
+    "seq": 37,
+    "uptime_sec": 540,
+    "age_sec": 0.0,
+    "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+    "status": "ONLINE"
+  },
+  "five_core_domains": {
+    "1_verified_outcomes": [
+      {
+        "task_id": "quota_relay_slice1_receipt",
+        "path": "artifacts/quota-relay-self-healing-20261024/verification_receipt.json",
+        "sha256": "9e15782908fbdc4bc7a078dadf2a5c042463accb61a0dc6ee898d677491f8cdb",
+        "size_bytes": 745,
+        "description": "Slice 1 獨立 QA 驗收收據 (F01-F07 全部 PASS)",
+        "verified_by": "Xiao Heng (Tech Lead / Grader)",
+        "qa_verdict": "PASS"
+      },
+      {
+        "task_id": "quota_relay_slice2_receipt",
+        "path": "artifacts/quota-relay-self-healing-20261024/verification_receipt_slice2.json",
+        "sha256": "b64e12f3a05df6a25ea401f82e6e80b2dc6f1cff1981de53ce806cd63c64cdac",
+        "size_bytes": 1073,
+        "description": "Slice 2 獨立 QA 驗收收據 (F08-F14 全部 PASS)",
+        "verified_by": "Xiao Heng (Tech Lead / Grader)",
+        "qa_verdict": "PASS"
+      },
+      {
+        "task_id": "quota_relay_e2e_drill_receipt",
+        "path": "artifacts/quota-relay-self-healing-20261024/e2e_drill_receipt.json",
+        "sha256": "059ac6412a100cfb3f496e3d027c729648ec8ee18f89279e1885d3e1050dc5fa",
+        "size_bytes": 1533,
+        "description": "E2E 故障注入與自動補位整合演練收據 (Phase 1-5 全部 PASS)",
+        "verified_by": "Xiao Heng (Tech Lead / Grader)",
+        "qa_verdict": "PASS"
+      },
+      {
+        "task_id": "quota_relay_architecture_spec",
+        "path": "03_Dev_Projects/wiki/concepts/autonomous-self-healing-quota-relay-architecture.md",
+        "sha256": "345593bc6e614f137813c1ed96ebf0327f598d28958a9b1b15d481e9fd0cef84",
+        "size_bytes": 7364,
+        "description": "長程自治 AI 工作流：額度冷卻自癒與確定性斷點接力架構正本",
+        "verified_by": "Xiao Heng (Tech Lead / Grader)",
+        "qa_verdict": "PASS"
+      }
+    ],
+    "2_token_ledger": [
+      {
+        "model": "gemini-3.8-flash-high",
+        "pool_id": "cpa_pool",
+        "sessions_count": 285,
+        "input_tokens": 49696116,
+        "output_tokens": 1096512,
+        "cache_read_tokens": 244379250,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "default",
+        "pool_id": "cpa_pool",
+        "sessions_count": 6,
+        "input_tokens": 27196852,
+        "output_tokens": 235271,
+        "cache_read_tokens": 154637215,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "pool_id": "codex_pool",
+        "sessions_count": 169,
+        "input_tokens": 16253649,
+        "output_tokens": 1831821,
+        "cache_read_tokens": 224569856,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "pool_id": "codex_pool",
+        "sessions_count": 106,
+        "input_tokens": 12543507,
+        "output_tokens": 919606,
+        "cache_read_tokens": 127819624,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gemini-3.6-flash-high",
+        "pool_id": "cpa_pool",
+        "sessions_count": 188,
+        "input_tokens": 8654521,
+        "output_tokens": 428652,
+        "cache_read_tokens": 31107927,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "claude-opus-5",
+        "pool_id": "codex_pool",
+        "sessions_count": 170,
+        "input_tokens": 8495981,
+        "output_tokens": 106470,
+        "cache_read_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gemini-3.7-flash-high",
+        "pool_id": "cpa_pool",
+        "sessions_count": 91,
+        "input_tokens": 7990835,
+        "output_tokens": 156097,
+        "cache_read_tokens": 19658850,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "claude-opus-4-6-thinking",
+        "pool_id": "codex_pool",
+        "sessions_count": 139,
+        "input_tokens": 4855942,
+        "output_tokens": 322377,
+        "cache_read_tokens": 29834684,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gpt-5.6-luna",
+        "pool_id": "codex_pool",
+        "sessions_count": 64,
+        "input_tokens": 4418851,
+        "output_tokens": 532691,
+        "cache_read_tokens": 47476736,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "DeepSeek-V4-Flash",
+        "pool_id": "codex_pool",
+        "sessions_count": 52,
+        "input_tokens": 2500693,
+        "output_tokens": 420418,
+        "cache_read_tokens": 13408640,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "Qwen3.8-Flash-Next",
+        "pool_id": "amd_pool",
+        "sessions_count": 20,
+        "input_tokens": 2455274,
+        "output_tokens": 466983,
+        "cache_read_tokens": 16593283,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "pool_id": "codex_pool",
+        "sessions_count": 15,
+        "input_tokens": 2259248,
+        "output_tokens": 40383,
+        "cache_read_tokens": 6914644,
+        "estimated_cost_usd": 0.1151
+      },
+      {
+        "model": "Qwen3.6 35B",
+        "pool_id": "amd_pool",
+        "sessions_count": 35,
+        "input_tokens": 1492612,
+        "output_tokens": 125640,
+        "cache_read_tokens": 19816064,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gpt-5.5",
+        "pool_id": "codex_pool",
+        "sessions_count": 1,
+        "input_tokens": 1167524,
+        "output_tokens": 49251,
+        "cache_read_tokens": 26245888,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "google/gemma-4-12b-qat",
+        "pool_id": "codex_pool",
+        "sessions_count": 2,
+        "input_tokens": 609631,
+        "output_tokens": 18500,
+        "cache_read_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "claude-sonnet-4-6",
+        "pool_id": "codex_pool",
+        "sessions_count": 15,
+        "input_tokens": 597509,
+        "output_tokens": 35140,
+        "cache_read_tokens": 2599070,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "deepseek-v4-flash",
+        "pool_id": "codex_pool",
+        "sessions_count": 7,
+        "input_tokens": 577297,
+        "output_tokens": 143678,
+        "cache_read_tokens": 35926912,
+        "estimated_cost_usd": 0.0148
+      },
+      {
+        "model": "claude-opus-4-8",
+        "pool_id": "codex_pool",
+        "sessions_count": 2,
+        "input_tokens": 262080,
+        "output_tokens": 56549,
+        "cache_read_tokens": 6357568,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gpt-6-sol",
+        "pool_id": "codex_pool",
+        "sessions_count": 5,
+        "input_tokens": 215990,
+        "output_tokens": 41633,
+        "cache_read_tokens": 2717568,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "pool_id": "codex_pool",
+        "sessions_count": 2,
+        "input_tokens": 172096,
+        "output_tokens": 15064,
+        "cache_read_tokens": 1565724,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "pool_id": "codex_pool",
+        "sessions_count": 1,
+        "input_tokens": 113361,
+        "output_tokens": 12325,
+        "cache_read_tokens": 1066208,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL",
+        "pool_id": "codex_pool",
+        "sessions_count": 1,
+        "input_tokens": 91988,
+        "output_tokens": 1278,
+        "cache_read_tokens": 134226,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "Qwen3.6-35B-A3B-Q4_K_M.gguf",
+        "pool_id": "amd_pool",
+        "sessions_count": 3,
+        "input_tokens": 90694,
+        "output_tokens": 15224,
+        "cache_read_tokens": 713475,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gpt-5.6-terra",
+        "pool_id": "codex_pool",
+        "sessions_count": 4,
+        "input_tokens": 85825,
+        "output_tokens": 5298,
+        "cache_read_tokens": 124928,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "qwen/qwen3.8-27b",
+        "pool_id": "amd_pool",
+        "sessions_count": 1,
+        "input_tokens": 83904,
+        "output_tokens": 2252,
+        "cache_read_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "deepseek-chat",
+        "pool_id": "codex_pool",
+        "sessions_count": 3,
+        "input_tokens": 69966,
+        "output_tokens": 627,
+        "cache_read_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "GPT-5.5",
+        "pool_id": "codex_pool",
+        "sessions_count": 1,
+        "input_tokens": 42695,
+        "output_tokens": 5842,
+        "cache_read_tokens": 883593,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gemini-3.1-pro-low",
+        "pool_id": "cpa_pool",
+        "sessions_count": 3,
+        "input_tokens": 40917,
+        "output_tokens": 165,
+        "cache_read_tokens": 12079,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "gemini-4-argon-high",
+        "pool_id": "cpa_pool",
+        "sessions_count": 1,
+        "input_tokens": 36112,
+        "output_tokens": 1316,
+        "cache_read_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "Deepseek-V4 Pro",
+        "pool_id": "codex_pool",
+        "sessions_count": 1,
+        "input_tokens": 14210,
+        "output_tokens": 158,
+        "cache_read_tokens": 30822,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "model": "unknown",
+        "pool_id": "codex_pool",
+        "sessions_count": 2,
+        "input_tokens": 6642,
+        "output_tokens": 562,
+        "cache_read_tokens": 47422,
+        "estimated_cost_usd": 0.0
+      }
+    ],
+    "3_queue_census": [
+      {
+        "card_id": "card_ec176f8d",
+        "title": "Slice 1: 配額冷卻登記表與錯誤分類狀態機",
+        "status": "done",
+        "assigned_to": "main (🦞🦐 小克)",
+        "wait_reason": null,
+        "qa_verifier": "Xiao Heng (Tech Lead / Grader)",
+        "qa_verdict": "PASS"
+      },
+      {
+        "card_id": "card_daba206d",
+        "title": "Slice 2: 自動補位調度器、半開哨兵探針與五大營運指標",
+        "status": "done",
+        "assigned_to": "main (🦞🦐 小克)",
+        "wait_reason": null,
+        "qa_verifier": "Xiao Heng (Tech Lead / Grader)",
+        "qa_verdict": "PASS"
+      },
+      {
+        "card_id": "wb_4125c395",
+        "title": "EP21 心理成長主軸 draft（Option A：10/23五檔期從簡、10/28三上架）",
+        "status": "todo",
+        "assigned_to": "main (🦞🦐 小克)",
+        "wait_reason": "REQUIREMENT_REGISTRATION",
+        "expected_wake_at": null,
+        "priority": "high",
+        "pool_id": "cpa_pool"
+      },
+      {
+        "card_id": "wb_f48045f2",
+        "title": "Podcast 聽感 SOP v1：EP20 私人樣本與獨立全片驗收",
+        "status": "todo",
+        "assigned_to": "main (🦞🦐 小克)",
+        "wait_reason": "REQUIREMENT_REGISTRATION",
+        "expected_wake_at": null,
+        "priority": "high",
+        "pool_id": "cpa_pool"
+      }
+    ],
+    "4_pipeline_matrix": {
+      "summary": {
+        "total": 29,
+        "healthy": 18,
+        "error": 4,
+        "paused": 7
+      },
+      "pipelines": [
+        {
+          "name": "tw-stock-close-report",
+          "status": "HEALTHY",
+          "schedule": "35 15 * * 1-5",
+          "last_run": "2026-10-23T15:53:28",
+          "root_cause": null
+        },
+        {
+          "name": "wiki-auto-sync",
+          "status": "HEALTHY",
+          "schedule": "0 2 * * *",
+          "last_run": "2026-10-25T02:00:45",
+          "root_cause": null
+        },
+        {
+          "name": "agent-health-check",
+          "status": "HEALTHY",
+          "schedule": "0 */6 * * *",
+          "last_run": "2026-10-25T06:00:14",
+          "root_cause": null
+        },
+        {
+          "name": "f5-subscription-monitor",
+          "status": "HEALTHY",
+          "schedule": "0 */6 * * *",
+          "last_run": "2026-10-25T06:00:23",
+          "root_cause": null
+        },
+        {
+          "name": "discord-vskin-gate-projection",
+          "status": "HEALTHY",
+          "schedule": "20 10 * * *",
+          "last_run": "2026-10-24T10:20:09",
+          "root_cause": null
+        },
+        {
+          "name": "content-pipeline-github-sync",
+          "status": "HEALTHY",
+          "schedule": "30 8 * * 1",
+          "last_run": "2026-10-19T08:31:09",
+          "root_cause": null
+        },
+        {
+          "name": "threads_token_watchdog",
+          "status": "HEALTHY",
+          "schedule": "every 2880m",
+          "last_run": "2026-10-24T14:05:17",
+          "root_cause": null
+        },
+        {
+          "name": "platform_auth_weekly_check",
+          "status": "HEALTHY",
+          "schedule": "15 9 * * 1",
+          "last_run": "2026-10-19T09:16:04",
+          "root_cause": null
+        },
+        {
+          "name": "podcast-wed-fri-release-verifier",
+          "status": "HEALTHY",
+          "schedule": "5,35 18 * * 3,5",
+          "last_run": "2026-10-23T18:40:20",
+          "root_cause": null
+        },
+        {
+          "name": "ai-frontier-tech-scout",
+          "status": "HEALTHY",
+          "schedule": "0 8 * * *",
+          "last_run": "2026-10-25T08:07:03",
+          "root_cause": null
+        },
+        {
+          "name": "nightly-dreaming-consolidation",
+          "status": "HEALTHY",
+          "schedule": "0 3 * * *",
+          "last_run": "2026-10-25T03:00:14",
+          "root_cause": null
+        },
+        {
+          "name": "unattended-closure-warden-20261016",
+          "status": "HEALTHY",
+          "schedule": "every 20m",
+          "last_run": "2026-10-25T09:38:38",
+          "root_cause": null
+        },
+        {
+          "name": "codex-parallel-session-watcher",
+          "status": "HEALTHY",
+          "schedule": "every 10m",
+          "last_run": "2026-10-25T09:44:14",
+          "root_cause": null
+        },
+        {
+          "name": "quant-lifeline-evening",
+          "status": "HEALTHY",
+          "schedule": "10 16 * * 1-5",
+          "last_run": "2026-10-23T16:10:10",
+          "root_cause": null
+        },
+        {
+          "name": "quant-lifeline-morning-executor",
+          "status": "HEALTHY",
+          "schedule": "30 8 * * 1-5",
+          "last_run": "2026-10-23T08:30:08",
+          "root_cause": null
+        },
+        {
+          "name": "hindsight-liveness-warden",
+          "status": "HEALTHY",
+          "schedule": "every 30m",
+          "last_run": "2026-10-25T09:34:13",
+          "root_cause": null
+        },
+        {
+          "name": "ase-learning-liveness-warden",
+          "status": "HEALTHY",
+          "schedule": "every 30m",
+          "last_run": "2026-10-25T09:28:13",
+          "root_cause": null
+        },
+        {
+          "name": "recall-oss-daily-maintenance",
+          "status": "HEALTHY",
+          "schedule": "0 10 * * *",
+          "last_run": "2026-10-24T10:15:11",
+          "root_cause": null
+        },
+        {
+          "name": "browser-ops-watchdog",
+          "status": "ERROR",
+          "schedule": "every 360m",
+          "last_run": "2026-10-25T03:58:50",
+          "root_cause": "Script exited with code 2 (Cua Driver daemon contract version 0.8.0 mismatch SDK 0.7.0)"
+        },
+        {
+          "name": "xiaoke-brain-distill-daily",
+          "status": "ERROR",
+          "schedule": "0 22 * * *",
+          "last_run": "2026-10-24T22:01:59",
+          "root_cause": "Script exited with code 1 (wiki_lint detected broken wikilinks & missing frontmatter)"
+        },
+        {
+          "name": "Hermes 夜間自動更新",
+          "status": "ERROR",
+          "schedule": "0 4 * * *",
+          "last_run": "2026-10-25T04:00:44",
+          "root_cause": "Script exited with code 1 (檢查或狀態讀寫超時/失敗)"
+        },
+        {
+          "name": "巴哈勇者福利社每日免費抽獎",
+          "status": "ERROR",
+          "schedule": "5 0 * * *",
+          "last_run": "2026-10-25T00:25:50",
+          "root_cause": "Script exited with code 1 (狀態回報 PARTIAL_OR_BLOCKED，點擊等待逾時)"
+        },
+        {
+          "name": "daily-email-scan",
+          "status": "PAUSED",
+          "schedule": "0 8 * * *",
+          "last_run": "2026-10-17T08:00:21",
+          "root_cause": "手動暫停"
+        },
+        {
+          "name": "xiaoke-kanban-auto-dispatcher",
+          "status": "PAUSED",
+          "schedule": "every 30m",
+          "last_run": "2026-10-07T15:44:14",
+          "root_cause": "手動暫停"
+        },
+        {
+          "name": "podcast-short-video-factory-3x2",
+          "status": "PAUSED",
+          "schedule": "0 8,12,18 * * *",
+          "last_run": "2026-09-14T13:05:23",
+          "root_cause": "手動暫停"
+        },
+        {
+          "name": "autonomy-bootstrap-independent-review",
+          "status": "PAUSED",
+          "schedule": "every 10m",
+          "last_run": "2026-10-08T20:18:15",
+          "root_cause": "手動暫停"
+        },
+        {
+          "name": "jojo-release-v2-review-wake",
+          "status": "PAUSED",
+          "schedule": "every 5m",
+          "last_run": "2026-10-13T20:40:31",
+          "root_cause": "手動暫停"
+        },
+        {
+          "name": "podcast-ep20-voxcpm2-durable-relay",
+          "status": "PAUSED",
+          "schedule": "every 30m",
+          "last_run": "2026-10-14T00:28:42",
+          "root_cause": "手動暫停"
+        },
+        {
+          "name": "podcast-pipeline-optimize-relay",
+          "status": "PAUSED",
+          "schedule": "every 30m",
+          "last_run": "2026-10-17T23:20:31",
+          "root_cause": "手動暫停"
+        }
+      ]
+    },
+    "5_audit_chain": {
+      "system_architect_and_lead": "Xiao Heng (小衡 / System Architect & Grader)",
+      "maker_agent": "Xiao Ke (小克 / main, Maker)",
+      "role_doctrine": "Maker ≠ Grader 絕對分權隔離，Default-FAIL 零口頭承諾驗收",
+      "last_grader_audit_timestamp": "2026-10-25T01:58:28.094889+00:00",
+      "sentinel_liveness_heartbeat": "2026-10-25T11:55:35.879784+00:00",
+      "circuit_breaker_policy": "Pool-Level 硬隔離，TPM/RPM 指數退避，429 禁同池即時重試，1-token Canary 探針 200 自動解鎖",
+      "daemon_status": {
+        "pid": 93588,
+        "pid_alive": true,
+        "seq": 37,
+        "uptime_sec": 540,
+        "age_sec": 0.0,
+        "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+        "status": "ONLINE"
+      },
+      "pid": 93588,
+      "seq": 37,
+      "uptime_sec": 540,
+      "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+      "status": "ONLINE"
+    }
+  }
 }

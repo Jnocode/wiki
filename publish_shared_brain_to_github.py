@@ -24,6 +24,9 @@ TARGETS = [
     "hot.md",
     "kanban.html",
     "kanban_status.json",
+    "war-room.html",
+    "ops_war_room_status.json",
+    "projects/autonomous-ops-war-room.md",
     "projects/publishing_matrix.md",
     "matrix/index.html",
     "matrix/graph_data.json",
@@ -128,6 +131,24 @@ def main() -> int:
     telemetry_script = REPO / "scripts/duel_telemetry_probe.py"
     if telemetry_script.exists():
         run(sys.executable, str(telemetry_script), check=False)
+
+    # 3.6 驗證自治運營戰情室 (War Room) 發布檔案存在性與 JSON 格式正確性
+    for wr_rel in ("ops_war_room_status.json", "war-room.html", "projects/autonomous-ops-war-room.md"):
+        wr_path = REPO / wr_rel
+        if not wr_path.exists() or wr_path.stat().st_size == 0:
+            print(f"PUBLISH_BLOCKED war_room_target_missing={wr_rel}", file=sys.stderr)
+            return 1
+
+    war_room_json_path = REPO / "ops_war_room_status.json"
+    try:
+        with open(war_room_json_path, encoding="utf-8") as wf:
+            war_room_data = json.load(wf)
+        if not isinstance(war_room_data, dict) or "five_core_domains" not in war_room_data or "daemon_status" not in war_room_data:
+            print("PUBLISH_BLOCKED war_room_json_schema_invalid=true", file=sys.stderr)
+            return 1
+    except Exception as we:
+        print(f"PUBLISH_BLOCKED war_room_json_unreadable={we}", file=sys.stderr)
+        return 1
 
     # 4. Stage strictly the allow-listed projection
     run("git", "add", *TARGETS)

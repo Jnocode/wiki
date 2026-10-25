@@ -1,6 +1,18 @@
 {
-  "updated_at": "2026-10-25T01:58:28.094912+00:00",
+  "schema_version": "2.0.0",
+  "generated_at": "2026-10-25T11:55:35.881172+00:00",
+  "updated_at": "2026-10-25T11:55:35.881172+00:00",
   "system_epoch": "2026-10-25",
+  "timestamp": 1792929335,
+  "daemon_status": {
+    "pid": 93588,
+    "pid_alive": true,
+    "seq": 37,
+    "uptime_sec": 540,
+    "age_sec": 0.0,
+    "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+    "status": "ONLINE"
+  },
   "five_core_domains": {
     "1_verified_outcomes": [
       {
@@ -579,8 +591,141 @@
       "maker_agent": "Xiao Ke (小克 / main, Maker)",
       "role_doctrine": "Maker ≠ Grader 絕對分權隔離，Default-FAIL 零口頭承諾驗收",
       "last_grader_audit_timestamp": "2026-10-25T01:58:28.094889+00:00",
-      "sentinel_liveness_heartbeat": "2026-10-25T01:58:28.094908+00:00",
-      "circuit_breaker_policy": "Pool-Level 硬隔離，TPM/RPM 指數退避，429 禁同池即時重試，1-token Canary 探針 200 自動解鎖"
+      "sentinel_liveness_heartbeat": "2026-10-25T11:55:35.879784+00:00",
+      "circuit_breaker_policy": "Pool-Level 硬隔離，TPM/RPM 指數退避，429 禁同池即時重試，1-token Canary 探針 200 自動解鎖",
+      "daemon_status": {
+        "pid": 93588,
+        "pid_alive": true,
+        "seq": 37,
+        "uptime_sec": 540,
+        "age_sec": 0.0,
+        "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+        "status": "ONLINE"
+      },
+      "pid": 93588,
+      "seq": 37,
+      "uptime_sec": 540,
+      "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+      "status": "ONLINE"
     }
+  },
+  "verified_outcomes": {
+    "total_verified": 0,
+    "items": [],
+    "artifacts": [],
+    "updated_at": "2026-10-25T11:55:35.881172+00:00"
+  },
+  "token_ledger": {
+    "summary": {
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "total_cache_tokens": 0,
+      "total_tokens": 0,
+      "total_cost_usd": 0.0
+    },
+    "models": {},
+    "by_model": {},
+    "pools": {},
+    "pool_states": {},
+    "updated_at": "2026-10-25T11:55:35.881172+00:00"
+  },
+  "queue_census": {
+    "total_queued": 0,
+    "by_reason": {
+      "WAITING_FOR_QUOTA": 0,
+      "WAITING_FOR_SLOT": 0,
+      "WAITING_FOR_DEPENDENCY": 0
+    },
+    "counts": {
+      "WAITING_FOR_QUOTA": 0,
+      "WAITING_FOR_SLOT": 0,
+      "WAITING_FOR_DEPENDENCY": 0
+    },
+    "WAITING_FOR_QUOTA": 0,
+    "WAITING_FOR_SLOT": 0,
+    "WAITING_FOR_DEPENDENCY": 0,
+    "cards": [],
+    "items": [],
+    "updated_at": "2026-10-25T11:55:35.881172+00:00"
+  },
+  "pipeline_matrix": {
+    "total": 4,
+    "healthy": 4,
+    "normal": 4,
+    "up": 4,
+    "error": 0,
+    "failed": 0,
+    "down": 0,
+    "disabled": 0,
+    "error_causes": [],
+    "root_causes": [],
+    "pipelines": [
+      {
+        "id": "quota-relay-control-plane",
+        "name": "Quota Relay Self-Healing Control Plane",
+        "status": "HEALTHY",
+        "root_cause": null,
+        "latency_ms": 1
+      },
+      {
+        "id": "cpa-gateway-18004",
+        "name": "CLIProxyAPI Gateway 18004",
+        "status": "HEALTHY",
+        "root_cause": null,
+        "latency_ms": 2
+      },
+      {
+        "id": "hindsight-core-9077",
+        "name": "Hindsight Memory Core 9077",
+        "status": "HEALTHY",
+        "root_cause": null,
+        "latency_ms": 15
+      },
+      {
+        "id": "nas-wiki-stack-8000",
+        "name": "NAS Wiki Stack 8000",
+        "status": "HEALTHY",
+        "root_cause": null,
+        "latency_ms": 18
+      }
+    ],
+    "updated_at": "2026-10-25T11:55:35.881172+00:00"
+  },
+  "audit_chain": {
+    "grader": {
+      "role": "Grader / Tech Lead",
+      "agent": "小衡 (Xiao Heng)",
+      "last_heartbeat_at": "2026-10-25T11:55:35.881172+00:00",
+      "timestamp": 1792929335.8811724,
+      "status": "ACTIVE"
+    },
+    "maker": {
+      "role": "Maker / Implementer",
+      "agent": "小克 (Xiao Ke / agent:main)",
+      "last_heartbeat_at": "2026-10-25T11:55:35.881172+00:00",
+      "timestamp": 1792929335.8811724,
+      "status": "ACTIVE"
+    },
+    "controller": {
+      "role": "AutoRefillController & RecoverySentinel",
+      "agent": "durable-control-plane",
+      "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+      "sentinel_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+      "timestamp": 1792929335.879784,
+      "status": "ONLINE"
+    },
+    "daemon_status": {
+      "pid": 93588,
+      "pid_alive": true,
+      "seq": 37,
+      "uptime_sec": 540,
+      "age_sec": 0.0,
+      "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+      "status": "ONLINE"
+    },
+    "grader_heartbeat_at": "2026-10-25T11:55:35.881172+00:00",
+    "maker_heartbeat_at": "2026-10-25T11:55:35.881172+00:00",
+    "controller_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+    "updated_at": "2026-10-25T11:55:35.881172+00:00"
   }
 }

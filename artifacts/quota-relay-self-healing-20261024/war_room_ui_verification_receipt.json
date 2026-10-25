@@ -1,6 +1,6 @@
 {
   "verdict": "PASS",
-  "verified_at": "2026-10-25T03:34:57.047117+00:00",
+  "verified_at": "2026-10-25T11:51:47.015210+00:00",
   "task_id": "war_room_ui_redesign",
   "grader": "Xiao Heng (Tech Lead / Grader)",
   "maker": "Xiao Ke (main / Maker)",
@@ -14,11 +14,11 @@
     "G07_js_syntax_valid_node": true
   },
   "details": {
-    "war_room_size_kb": 88.56
+    "war_room_size_kb": 91.08
   },
   "files_sha256": {
-    "war-room.html": "06217398a91ff0b6e167d53c41902b996853037b9dec13f3560fa253aa448c87",
+    "war-room.html": "ed844298175da67018eb5559e1176887062b1a8e91fee03e2cc0f8bbd2b491b8",
     "index.html": "f478bf885453076def8bf08f484e8a65e3092c123c2760c81733802b2f923b11",
-    "ops_war_room_status.json": "2960bfcacf516565b94e63c000a2a6d4b3585e1f373547cb8e8fbc7f9204fbb5"
+    "ops_war_room_status.json": "76007ec6328ca7397c7a94be9fde72fb410168c66b11774a9792e071b8151f11"
   }
 }
