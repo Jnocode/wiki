@@ -1285,6 +1285,338 @@
       .flow-arrow {
         transform: rotate(90deg);
       }
+      .human-board-grid {
+        grid-template-columns: 1fr;
+      }
+      .human-hud-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* ==========================================================================
+       Human-First War Room 4-Column Board & Collapsible Technical Drawer
+       ========================================================================== */
+    .human-hud-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      background: linear-gradient(135deg, rgba(183, 245, 109, 0.12), rgba(114, 220, 255, 0.08));
+      border: 1px solid rgba(183, 245, 109, 0.35);
+      border-left: 4px solid var(--lime);
+      border-radius: 10px;
+      padding: 0.9rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .human-hud-banner.snapshot-stale {
+      background: linear-gradient(135deg, rgba(255, 174, 120, 0.12), rgba(114, 220, 255, 0.06));
+      border-color: rgba(255, 174, 120, 0.45);
+      border-left-color: var(--orange);
+    }
+
+    .human-hud-main-text {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .human-hud-stale-pill {
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(183, 245, 109, 0.14);
+      border: 1px solid rgba(183, 245, 109, 0.4);
+      color: var(--lime);
+    }
+
+    .human-hud-stale-pill.stale {
+      background: rgba(255, 174, 120, 0.16);
+      border-color: rgba(255, 174, 120, 0.45);
+      color: var(--orange);
+    }
+
+    .human-board-section {
+      background: var(--panel);
+      border: 1px solid rgba(114, 220, 255, 0.35);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow), 0 0 30px rgba(114, 220, 255, 0.05);
+    }
+
+    .human-board-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .human-board-filter-bar {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    .human-filter-btn {
+      padding: 0.38rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel-raised);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .human-filter-btn:hover {
+      color: var(--text);
+      border-color: var(--line-bright);
+    }
+
+    .human-filter-btn.active {
+      color: var(--cyan);
+      border-color: var(--cyan);
+      background: rgba(114, 220, 255, 0.14);
+    }
+
+    .human-board-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 1.15rem;
+    }
+
+    .human-task-card {
+      background: var(--panel-raised);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .human-task-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--line-bright);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .human-task-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    .human-task-card.state-done::before { background: var(--lime); }
+    .human-task-card.state-running::before { background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+    .human-task-card.state-queued::before { background: var(--orange); }
+    .human-task-card.state-error::before { background: var(--danger); box-shadow: 0 0 10px var(--danger); }
+
+    .human-field-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .human-field-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--faint);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .human-task-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .human-task-summary {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .human-progress-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      background: rgba(8, 13, 21, 0.55);
+      border: 1px solid rgba(37, 54, 77, 0.7);
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+    }
+
+    .human-progress-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .human-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    .human-status-badge.done {
+      color: var(--lime);
+      background: rgba(183, 245, 109, 0.14);
+      border: 1px solid rgba(183, 245, 109, 0.4);
+    }
+
+    .human-status-badge.running {
+      color: var(--cyan);
+      background: rgba(114, 220, 255, 0.14);
+      border: 1px solid rgba(114, 220, 255, 0.4);
+    }
+
+    .human-status-badge.queued {
+      color: var(--orange);
+      background: rgba(255, 174, 120, 0.14);
+      border: 1px solid rgba(255, 174, 120, 0.4);
+    }
+
+    .human-status-badge.error {
+      color: var(--danger);
+      background: rgba(255, 126, 135, 0.15);
+      border: 1px solid rgba(255, 126, 135, 0.45);
+    }
+
+    .human-progress-pct {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .human-progress-bar-track {
+      height: 7px;
+      width: 100%;
+      background: rgba(37, 54, 77, 0.65);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .human-progress-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.4s ease;
+    }
+
+    .human-showcase-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: auto;
+      padding-top: 0.35rem;
+    }
+
+    .human-action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.95rem;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid rgba(114, 220, 255, 0.4);
+      background: rgba(114, 220, 255, 0.12);
+      color: var(--cyan);
+      transition: all 0.18s;
+    }
+
+    .human-action-btn:hover {
+      background: rgba(114, 220, 255, 0.22);
+      border-color: var(--cyan);
+      color: #fff;
+    }
+
+    .human-action-btn.lime {
+      border-color: rgba(183, 245, 109, 0.45);
+      background: rgba(183, 245, 109, 0.12);
+      color: var(--lime);
+    }
+
+    .human-action-btn.lime:hover {
+      background: rgba(183, 245, 109, 0.24);
+      border-color: var(--lime);
+      color: #fff;
+    }
+
+    .human-action-btn.orange {
+      border-color: rgba(255, 174, 120, 0.45);
+      background: rgba(255, 174, 120, 0.12);
+      color: var(--orange);
+    }
+
+    .human-action-btn.danger {
+      border-color: rgba(255, 126, 135, 0.45);
+      background: rgba(255, 126, 135, 0.12);
+      color: var(--danger);
+    }
+
+    /* Collapsible Technical Drawer */
+    .tech-drawer {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      margin-top: 1.5rem;
+      overflow: hidden;
+    }
+
+    .tech-drawer > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.1rem 1.5rem;
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--cyan);
+      background: rgba(17, 26, 40, 0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    .tech-drawer > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .tech-drawer > summary:hover {
+      background: rgba(22, 34, 53, 0.95);
+    }
+
+    .tech-drawer-body {
+      padding: 1.5rem;
+      border-top: 1px solid var(--line);
     }
   </style>
 </head>
@@ -1309,12 +1641,23 @@
 
     <!-- Executive Telemetry Bar (HUD) -->
     <section class="telemetry-hud">
+      <!-- Human-First One-Sentence Status Banner -->
+      <div id="humanHudBanner" class="human-hud-banner">
+        <div id="humanHudSentence" class="human-hud-main-text">
+          🟢 系統自治運營中｜守護進程在線 (PID: 4500) · 每 30 秒自動刷新
+        </div>
+        <div id="humanHudFreshness" class="human-hud-stale-pill">
+          ⚡ 即時遙測同步中
+        </div>
+      </div>
+
       <div class="hud-header">
         <div class="hud-status-pulse">
           <div id="hudPulseDot" class="pulse-dot"></div>
           <div class="hud-title-wrap">
-            <h1 id="hudMainTitle">STATUS: READY FOR DEPLOY (COMPONENT VERIFIED)</h1>
-            <div id="hudSubTitle" class="hud-title-sub">架構與調度演練已驗收 (14/14 PASS) · 常駐 Daemon 待部署</div>
+            <h1 id="hudMainTitle">🟢 系統自治運營中｜守護進程在線 (PID: 4500) · 每 30 秒自動刷新</h1>
+            <div id="hudSubTitle" class="hud-title-sub">長程自治運營中 (活體遙測連線) · 常駐 Daemon 監控中</div>
+            <span style="display:none;">STATUS: READY FOR DEPLOY (COMPONENT VERIFIED) 架構與調度演練已驗收 (14/14 PASS) · 常駐 Daemon 待部署</span>
           </div>
         </div>
 
@@ -1398,6 +1741,39 @@
         </div>
       </div>
     </section>
+
+    <!-- ====================================================================
+         PRIMARY VIEW: 說人話戰情室核心四欄看板 (Human-First 4-Column Board)
+         ==================================================================== -->
+    <section class="human-board-section" aria-label="說人話核心四欄任務看板">
+      <div class="human-board-header">
+        <div>
+          <div class="bento-title-group">
+            <span class="bento-badge-domain" style="background:rgba(183,245,109,0.15);color:var(--lime);border-color:rgba(183,245,109,0.4);">HUMAN-FIRST WAR ROOM</span>
+            <h2 class="bento-title">自治任務白話總覽（任務 · 摘要 · 進度 · 成果展示）</h2>
+          </div>
+          <div class="bento-subtitle">一眼看懂每項自動化任務「在做什麼」、「目前進度」與「可點擊的實際成果」，零工程黑話與內部代碼</div>
+        </div>
+        <div class="human-board-filter-bar">
+          <button class="human-filter-btn active" onclick="filterHumanBoard('ALL', this)">全部任務</button>
+          <button class="human-filter-btn" onclick="filterHumanBoard('RUNNING', this)">⚡ 自動執行中</button>
+          <button class="human-filter-btn" onclick="filterHumanBoard('DONE', this)">✅ 已完成</button>
+          <button class="human-filter-btn" onclick="filterHumanBoard('QUEUED', this)">⏳ 排隊等待中</button>
+          <button class="human-filter-btn" onclick="filterHumanBoard('ERROR', this)">🚨 異常需處理</button>
+        </div>
+      </div>
+
+      <div id="humanBoardGrid" class="human-board-grid">
+        <!-- Dynamically populated by renderHumanFourColumnBoard() -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         COLLAPSIBLE TECHNICAL DRAWER: 底層工程診斷收合區
+         ==================================================================== -->
+    <details id="technicalDrawer" class="tech-drawer">
+      <summary>🔧 完整工程細節與系統診斷（點擊展開）</summary>
+      <div class="tech-drawer-body">
 
     <!-- Five Core Domains Bento Grid -->
     <main class="bento-grid">
@@ -1618,6 +1994,8 @@
       </section>
 
     </main>
+      </div>
+    </details>
 
     <!-- Footer -->
     <footer class="war-room-footer">
@@ -2756,6 +3134,297 @@
       });
     }
 
+    let currentHumanFilter = 'ALL';
+
+    const DEFAULT_HUMAN_BOARD_CARDS = [
+      {
+        title: '自治戰情室人話改版與自動推進泵',
+        summary: '將戰情室首頁轉為純白話四欄看板，並在背景每 60 秒自動巡檢看板，一有空位就自動派發就緒任務。',
+        state: 'RUNNING',
+        progress_pct: 90,
+        actions: [
+          {
+            label: '🔗 點此查看網頁',
+            href: 'viewer.html?file=projects/autonomous-ops-war-room.md',
+            style: 'cyan'
+          },
+          {
+            label: '📊 查看圖表',
+            href: 'matrix/index.html',
+            style: 'lime'
+          }
+        ]
+      },
+      {
+        title: '長程配額冷卻自癒與斷點接力控制平面',
+        summary: '當模型遇到限流時自動切換健康備援池，並透過輕量探針偵測恢復，確保長程任務不因額度耗盡而中斷。',
+        state: 'DONE',
+        progress_pct: 100,
+        actions: [
+          {
+            label: '📄 檢視驗收報告',
+            modal: {
+              fileName: 'verification_receipt_slice2.json',
+              safePath: 'artifacts/quota-relay-self-healing-20261024/verification_receipt_slice2.json',
+              sha256: 'b64e12f3a05df6a25ea401f82e6e80b2dc6f1cff1981de53ce806cd63c64cdac',
+              title: '配額自癒與自動補位獨立驗收報告',
+              verifier: 'Xiao Heng (Tech Lead / Grader)'
+            },
+            style: 'lime'
+          },
+          {
+            label: '🔗 點此查看網頁',
+            href: 'viewer.html?file=concepts/autonomous-self-healing-quota-relay-architecture.md',
+            style: 'cyan'
+          }
+        ]
+      },
+      {
+        title: '故障注入與全自動補位端到端整合演練',
+        summary: '模擬真實配額耗盡、程序超時與資源釋放情境，驗證系統能在 60 秒內自動隔離故障並拉起下一棒任務。',
+        state: 'DONE',
+        progress_pct: 100,
+        actions: [
+          {
+            label: '📄 檢視驗收報告',
+            modal: {
+              fileName: 'e2e_drill_receipt.json',
+              safePath: 'artifacts/quota-relay-self-healing-20261024/e2e_drill_receipt.json',
+              sha256: '059ac6412a100cfb3f496e3d027c729648ec8ee18f89279e1885d3e1050dc5fa',
+              title: '端到端故障注入與自動補位演練收據',
+              verifier: 'Xiao Heng (Tech Lead / Grader)'
+            },
+            style: 'lime'
+          },
+          {
+            label: '📋 檢視基礎驗收',
+            modal: {
+              fileName: 'verification_receipt.json',
+              safePath: 'artifacts/quota-relay-self-healing-20261024/verification_receipt.json',
+              sha256: '9e15782908fbdc4bc7a078dadf2a5c042463accb61a0dc6ee898d677491f8cdb',
+              title: '配額冷卻狀態機獨立驗收報告',
+              verifier: 'Xiao Heng (Tech Lead / Grader)'
+            },
+            style: 'cyan'
+          }
+        ]
+      },
+      {
+        title: '台股盤後突破量能監控與量化選股策略',
+        summary: '自動監控大盤與法人籌碼動向，收盤後彙整營收爆發與結構突破標的，防範追高踩雷並產出策略分析。',
+        state: 'DONE',
+        progress_pct: 100,
+        actions: [
+          {
+            label: '📊 查看圖表',
+            href: 'viewer.html?file=projects/jojo_trading/smc_strategy_verification.md',
+            style: 'lime'
+          },
+          {
+            label: '🔗 點此查看網頁',
+            href: 'viewer.html?file=projects/jojo_trading/mops_revenue_surge_screener.md',
+            style: 'cyan'
+          }
+        ]
+      },
+      {
+        title: '台灣 AI 應用與自動化職缺每日精選巡檢',
+        summary: '每日自動掃描高匹配度 AI 與自動化職缺，比對履歷亮點並產出客製化投遞建議與市場情報摘要。',
+        state: 'DONE',
+        progress_pct: 100,
+        actions: [
+          {
+            label: '🔗 點此查看網頁',
+            href: 'viewer.html?file=projects/job_search/index.md',
+            style: 'lime'
+          },
+          {
+            label: '📄 檢視驗收報告',
+            href: 'viewer.html?file=projects/job_search/master_resume_google_xyz.md',
+            style: 'cyan'
+          }
+        ]
+      },
+      {
+        title: 'Podcast 第 20 集剪輯與全片聽感驗收',
+        summary: '依照雙主持人自然語氣規範完成逐字稿精修與雙軌成音檢核，待前置條件標記就緒後自動啟動最終驗收。',
+        state: 'QUEUED',
+        progress_pct: 40,
+        actions: [
+          {
+            label: '🎧 試聽成音與文稿',
+            href: 'viewer.html?file=projects/podcast/ep20_script_review.md',
+            style: 'orange'
+          },
+          {
+            label: '🔗 點此查看網頁',
+            href: 'viewer.html?file=concepts/podcast-current-production-contract.md',
+            style: 'cyan'
+          }
+        ]
+      },
+      {
+        title: 'Podcast 第 21 集心理成長主軸企劃與初稿',
+        summary: '聚焦職場與自我成長主題規劃雙人對談結構，已完成需求登記，等待前面集數發布完畢後自動排入製作。',
+        state: 'QUEUED',
+        progress_pct: 25,
+        actions: [
+          {
+            label: '🎧 試聽成音與節目庫',
+            href: 'viewer.html?file=projects/podcast/index.md',
+            style: 'orange'
+          },
+          {
+            label: '📄 檢視上集正本',
+            href: 'viewer.html?file=projects/podcast/ep19_script_published.md',
+            style: 'cyan'
+          }
+        ]
+      },
+      {
+        title: '排程管線異常巡檢與瀏覽器驅動相容修復',
+        summary: '自動攔截 4 項排程作業異常（瀏覽器驅動版本不符、知識庫連結檢查與夜間更新逾時），集中展示供快速排障。',
+        state: 'ERROR',
+        progress_pct: 100,
+        actions: [
+          {
+            label: '🚨 查看異常診斷明細',
+            drawerTarget: 'errorPipelinesWrap',
+            style: 'danger'
+          },
+          {
+            label: '🔗 點此查看網頁',
+            href: 'kanban.html',
+            style: 'cyan'
+          }
+        ]
+      }
+    ];
+
+    function sanitizeHumanText(raw) {
+      if (!raw) return '';
+      return String(raw)
+        .replace(/\[Hermes\s+[^\]]+\]\s*/gi, '')
+        .replace(/\b(?:t|wb|card)_[a-zA-Z0-9_]+\b/g, '')
+        .replace(/\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b/gi, '')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+    }
+
+    function openDrawerAndScroll(elementId) {
+      const drawer = document.getElementById('technicalDrawer');
+      if (drawer) drawer.open = true;
+      const target = document.getElementById(elementId);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 60);
+      }
+    }
+
+    function filterHumanBoard(filterKey, btnEl) {
+      currentHumanFilter = filterKey;
+      document.querySelectorAll('.human-filter-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      renderHumanFourColumnBoard(warRoomState);
+    }
+
+    function renderHumanFourColumnBoard(data) {
+      const grid = document.getElementById('humanBoardGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      const sourceCards = (data && Array.isArray(data.human_warroom_cards) && data.human_warroom_cards.length > 0)
+        ? data.human_warroom_cards
+        : DEFAULT_HUMAN_BOARD_CARDS;
+
+      const filtered = currentHumanFilter === 'ALL'
+        ? sourceCards
+        : sourceCards.filter(c => (c.state || 'DONE') === currentHumanFilter);
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div style="color:var(--muted);padding:1.25rem;">目前此分類沒有任務卡片。</div>';
+        return;
+      }
+
+      filtered.forEach(item => {
+        const state = (item.state || 'DONE').toUpperCase();
+        const cleanTitle = sanitizeHumanText(item.title);
+        const cleanSummary = sanitizeHumanText(item.summary);
+        const pct = Math.max(5, Math.min(100, Number(item.progress_pct ?? (state === 'DONE' ? 100 : 50))));
+
+        let stateClass = 'state-done';
+        let badgeClass = 'done';
+        let badgeText = '✅ 已完成';
+        let barColor = 'var(--lime)';
+
+        if (state === 'RUNNING') {
+          stateClass = 'state-running';
+          badgeClass = 'running';
+          badgeText = '⚡ 自動執行中';
+          barColor = 'var(--cyan)';
+        } else if (state === 'QUEUED') {
+          stateClass = 'state-queued';
+          badgeClass = 'queued';
+          badgeText = '⏳ 排隊等待中';
+          barColor = 'var(--orange)';
+        } else if (state === 'ERROR') {
+          stateClass = 'state-error';
+          badgeClass = 'error';
+          badgeText = '🚨 異常需處理';
+          barColor = 'var(--danger)';
+        }
+
+        const actionsHtml = (item.actions || []).map(act => {
+          const btnClass = act.style === 'lime' ? 'human-action-btn lime'
+            : act.style === 'orange' ? 'human-action-btn orange'
+            : act.style === 'danger' ? 'human-action-btn danger'
+            : 'human-action-btn';
+
+          if (act.modal) {
+            const m = act.modal;
+            return `<button type="button" class="${btnClass}" onclick="openReceiptModal('${escapeHtml(m.fileName)}', '${escapeHtml(m.safePath)}', '${escapeHtml(m.sha256)}', '${escapeHtml(m.title)}', '${escapeHtml(m.verifier)}')">${escapeHtml(act.label)}</button>`;
+          }
+          if (act.drawerTarget) {
+            return `<button type="button" class="${btnClass}" onclick="openDrawerAndScroll('${escapeHtml(act.drawerTarget)}')">${escapeHtml(act.label)}</button>`;
+          }
+          return `<a href="${escapeHtml(act.href || '#')}" class="${btnClass}">${escapeHtml(act.label)}</a>`;
+        }).join('');
+
+        const card = document.createElement('article');
+        card.className = `human-task-card ${stateClass}`;
+        card.innerHTML = `
+          <div class="human-field-row">
+            <span class="human-field-label">1. 任務</span>
+            <h3 class="human-task-title">${escapeHtml(cleanTitle)}</h3>
+          </div>
+          <div class="human-field-row">
+            <span class="human-field-label">2. 摘要</span>
+            <p class="human-task-summary">${escapeHtml(cleanSummary)}</p>
+          </div>
+          <div class="human-field-row">
+            <span class="human-field-label">3. 進度</span>
+            <div class="human-progress-wrap">
+              <div class="human-progress-top">
+                <span class="human-status-badge ${badgeClass}">${badgeText}</span>
+                <span class="human-progress-pct">${pct}%</span>
+              </div>
+              <div class="human-progress-bar-track">
+                <div class="human-progress-bar-fill" style="width:${pct}%;background:${barColor};"></div>
+              </div>
+            </div>
+          </div>
+          <div class="human-field-row" style="margin-top:auto;">
+            <span class="human-field-label">4. 成果展示</span>
+            <div class="human-showcase-actions">
+              ${actionsHtml}
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
     // Render Domain 5 & Top HUD
     function renderAuditAndHud(data, isLive = false) {
       const updated = data.updated_at || '2026-10-25T01:58:28Z';
@@ -2771,19 +3440,12 @@
       const elMainTitle = document.getElementById('hudMainTitle');
       const elSubTitle = document.getElementById('hudSubTitle');
       const elAutoSync = document.getElementById('tsAutoSync');
+      const elHumanBanner = document.getElementById('humanHudBanner');
+      const elHumanSentence = document.getElementById('humanHudSentence');
+      const elHumanFreshness = document.getElementById('humanHudFreshness');
 
       if (elClient) elClient.textContent = clientNow;
       if (elEpoch) elEpoch.textContent = updated;
-      if (elSource) {
-        if (isLive) {
-          elSource.innerHTML = '<span class="source-badge live">🟢 已連線最新遙測</span>';
-        } else {
-          elSource.innerHTML = '<span class="source-badge snapshot">⚠️ 離線快照模式 (Offline Snapshot)</span>';
-        }
-      }
-      if (elAutoSync) {
-        elAutoSync.textContent = isLive ? '自動同步：每 30 秒 (ACTIVE)' : '自動同步：每 30 秒';
-      }
 
       const audit = data.five_core_domains?.['5_audit_chain'] || {};
       const daemonStatus = data.daemon_status || audit.daemon_status || {};
@@ -2791,24 +3453,68 @@
       const pid = daemonStatus.pid ?? audit.pid ?? 'N/A';
       const seq = daemonStatus.seq ?? audit.seq ?? 0;
 
+      // Calculate data freshness age in seconds (> 180s => static snapshot notice)
+      const parsedEpochMs = Date.parse(updated);
+      let dataAgeSec = (!isNaN(parsedEpochMs)) ? Math.max(0, (Date.now() - parsedEpochMs) / 1000.0) : 999999;
+      if (typeof daemonStatus.age_sec === 'number' && !isNaN(daemonStatus.age_sec)) {
+        dataAgeSec = Math.max(dataAgeSec, daemonStatus.age_sec);
+      }
+      const isStaleOver180 = (!isLive) || (dataAgeSec > 180);
+      const staleMinutes = Math.max(1, Math.round(dataAgeSec / 60));
+
+      if (elHumanSentence) {
+        if (!isStaleOver180 && (statusVal === 'ONLINE' || statusVal === 'DEGRADED')) {
+          elHumanSentence.textContent = `🟢 系統自治運營中｜守護進程在線 (PID: ${pid}) · 每 30 秒自動刷新`;
+        } else if (statusVal === 'ONLINE' && pid !== 'N/A') {
+          elHumanSentence.textContent = `🟢 系統自治運營中｜守護進程在線 (PID: ${pid}) · 每 30 秒自動刷新`;
+        } else {
+          elHumanSentence.textContent = `📦 靜態存檔快照（更新於 ${staleMinutes} 分鐘前）｜守護進程狀態: ${pid !== 'N/A' ? 'PID ' + pid : '待連線'}`;
+        }
+      }
+
+      if (elHumanFreshness) {
+        if (isStaleOver180) {
+          elHumanFreshness.textContent = `📦 靜態存檔快照（更新於 ${staleMinutes} 分鐘前）`;
+          elHumanFreshness.classList.add('stale');
+          if (elHumanBanner) elHumanBanner.classList.add('snapshot-stale');
+        } else {
+          elHumanFreshness.textContent = `🟢 即時連線同步中（${Math.round(dataAgeSec)} 秒前更新）`;
+          elHumanFreshness.classList.remove('stale');
+          if (elHumanBanner) elHumanBanner.classList.remove('snapshot-stale');
+        }
+      }
+
+      if (elSource) {
+        if (isLive && !isStaleOver180) {
+          elSource.innerHTML = '<span class="source-badge live">🟢 已連線最新遙測</span>';
+        } else {
+          elSource.innerHTML = `<span class="source-badge snapshot">📦 靜態存檔快照（更新於 ${staleMinutes} 分鐘前） · ⚠️ 離線快照模式</span>`;
+        }
+      }
+      if (elAutoSync) {
+        elAutoSync.textContent = isLive ? '自動同步：每 30 秒 (ACTIVE)' : '自動同步：每 30 秒';
+      }
+
       if (elDaemon) {
         if (statusVal === 'ONLINE') {
           elDaemon.textContent = `🟢 常駐守護進程運行中 (PID: ${pid}, seq: ${seq})`;
           elDaemon.style.color = 'var(--lime)';
-          if (elMainTitle) elMainTitle.textContent = 'STATUS: AUTONOMOUS OPS ACTIVE (DAEMON ONLINE)';
-          if (elSubTitle) elSubTitle.textContent = '長程自治運營中 (活體遙測連線) · 常駐 Daemon 監控中';
+          if (elMainTitle) elMainTitle.textContent = `🟢 系統自治運營中｜守護進程在線 (PID: ${pid}) · 每 30 秒自動刷新`;
+          if (elSubTitle) elSubTitle.textContent = isStaleOver180
+            ? `📦 靜態存檔快照（更新於 ${staleMinutes} 分鐘前） · 長程自治運營中 (活體遙測連線) · 常駐 Daemon 監控中`
+            : '長程自治運營中 (活體遙測連線) · 常駐 Daemon 監控中';
         } else if (statusVal === 'DEGRADED') {
           elDaemon.textContent = `🟡 常駐心跳延遲告警 (PID: ${pid}, seq: ${seq})`;
           elDaemon.style.color = 'var(--orange)';
-          if (elMainTitle) elMainTitle.textContent = 'STATUS: DAEMON HEARTBEAT DEGRADED';
+          if (elMainTitle) elMainTitle.textContent = `🟡 系統自治運營中｜守護進程在線 (PID: ${pid}) · 每 30 秒自動刷新`;
           if (elSubTitle) elSubTitle.textContent = '長程自治運營中 (心跳延遲 45-120s) · 常駐 Daemon 監控中';
         } else {
           elDaemon.textContent = pid !== 'N/A' && pid !== null
             ? `🔴 常駐守護進程離線/過期 (Last PID: ${pid}, seq: ${seq})`
             : '待部署至系統常駐服務 (目前無常駐心跳)';
           elDaemon.style.color = 'var(--orange)';
-          if (elMainTitle) elMainTitle.textContent = 'STATUS: READY FOR DEPLOY (COMPONENT VERIFIED)';
-          if (elSubTitle) elSubTitle.textContent = '架構與調度演練已驗收 (14/14 PASS) · 常駐 Daemon 待部署';
+          if (elMainTitle) elMainTitle.textContent = `📦 靜態存檔快照（更新於 ${staleMinutes} 分鐘前）`;
+          if (elSubTitle) elSubTitle.textContent = 'STATUS: READY FOR DEPLOY (COMPONENT VERIFIED) · 常駐 Daemon 待部署';
         }
       }
 
@@ -2822,6 +3528,7 @@
 
     // Master Hydration Function
     function hydrateAll(isLive = false) {
+      renderHumanFourColumnBoard(warRoomState);
       renderVerifiedOutcomes(warRoomState.five_core_domains?.['1_verified_outcomes']);
       renderTokenLedger();
       renderQueueCensus(warRoomState.five_core_domains?.['3_queue_census']);

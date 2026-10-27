@@ -1,27 +1,26 @@
 {
-  "generated_at": "2026-10-24T19:00:13.885235+00:00",
+  "generated_at": "2026-10-26T19:00:33.184812+00:00",
   "source_latest_event_at": 1791896399,
   "is_snapshot": true,
   "summary": {
-    "total": 108,
-    "ready": 4,
-    "running": 1,
-    "review": 11,
-    "blocked": 9,
-    "done": 75,
+    "total": 113,
+    "ready": 3,
+    "running": 0,
+    "review": 13,
+    "blocked": 12,
+    "done": 78,
     "completed": 3,
     "archived": 1,
     "in_progress": 16,
     "all_statuses": {
-      "done": 75,
+      "done": 78,
       "archived": 1,
       "completed": 3,
       "scheduled": 1,
-      "ready": 4,
-      "review": 11,
-      "blocked": 9,
-      "running": 1,
-      "todo": 3
+      "ready": 3,
+      "review": 13,
+      "blocked": 12,
+      "todo": 2
     }
   },
   "agents": [
@@ -37,16 +36,15 @@
     {
       "name": "小克",
       "id": "xiaoke",
-      "total": 97,
+      "total": 102,
       "by_status": {
-        "done": 67,
+        "done": 70,
         "completed": 3,
         "scheduled": 1,
-        "review": 11,
-        "ready": 2,
-        "blocked": 9,
-        "running": 1,
-        "todo": 3
+        "review": 13,
+        "ready": 1,
+        "blocked": 12,
+        "todo": 2
       }
     },
     {
@@ -61,14 +59,94 @@
   ],
   "tasks": [
     {
+      "id": "wb_07167052",
+      "title": "Crucial Ballistix 記憶體銷售｜整組6500以上、禁止低價出清",
+      "project_id": "general",
+      "assignee": "小克",
+      "status": "blocked",
+      "priority": 0,
+      "created_at": 1793028137,
+      "completed_at": null,
+      "block_kind": "capability",
+      "delivery": {
+        "artifact_url": null,
+        "qa_status": "未獨立驗收",
+        "note": "未登記成品"
+      }
+    },
+    {
+      "id": "wb_ad063a06",
+      "title": "[Hermes t_human_warroom] 戰情室人話四欄改版與無人值守自動推進泵",
+      "project_id": "general",
+      "assignee": "小克",
+      "status": "review",
+      "priority": 0,
+      "created_at": 1793027320,
+      "completed_at": null,
+      "block_kind": null,
+      "delivery": {
+        "artifact_url": null,
+        "qa_status": "未獨立驗收",
+        "note": "未登記成品"
+      }
+    },
+    {
+      "id": "wb_aeecdff3",
+      "title": "無塵室三線學習列印包：SAW、工作英文、iPAS中級",
+      "project_id": "general",
+      "assignee": "小克",
+      "status": "blocked",
+      "priority": 80,
+      "created_at": 1792927318,
+      "completed_at": null,
+      "block_kind": "capability",
+      "delivery": {
+        "artifact_url": null,
+        "qa_status": "未獨立驗收",
+        "note": "未登記成品"
+      }
+    },
+    {
+      "id": "wb_cb294a38",
+      "title": "[Hermes t_warroom_live] 戰情室動態遙測與自動更新管線（Slice 3 閉環）",
+      "project_id": "general",
+      "assignee": "小克",
+      "status": "done",
+      "priority": 80,
+      "created_at": 1792926899,
+      "completed_at": 1792928126,
+      "block_kind": null,
+      "delivery": {
+        "artifact_url": null,
+        "qa_status": "未獨立驗收",
+        "note": "未登記成品"
+      }
+    },
+    {
+      "id": "wb_daba206d",
+      "title": "[Hermes t_quota_relay_s2] 自動補位調度器、探針哨兵與戰情遙測（Slice 2 施工）",
+      "project_id": "general",
+      "assignee": "小克",
+      "status": "review",
+      "priority": 80,
+      "created_at": 1792889323,
+      "completed_at": 1792890129,
+      "block_kind": null,
+      "delivery": {
+        "artifact_url": null,
+        "qa_status": "未獨立驗收",
+        "note": "未登記成品"
+      }
+    },
+    {
       "id": "wb_ec176f8d",
       "title": "[Hermes t_quota_relay_s1] 配額冷卻登記表與錯誤分型狀態機（Slice 1 施工）",
       "project_id": "general",
       "assignee": "小克",
-      "status": "todo",
+      "status": "done",
       "priority": 80,
       "created_at": 1792823934,
-      "completed_at": null,
+      "completed_at": 1792887538,
       "block_kind": null,
       "delivery": {
         "artifact_url": null,
@@ -129,11 +207,11 @@
       "title": "Spirits-Calling：屍袋清算所可玩灰盒與實機閉環",
       "project_id": "general",
       "assignee": "小克",
-      "status": "running",
+      "status": "blocked",
       "priority": 80,
       "created_at": 1792243889,
       "completed_at": null,
-      "block_kind": null,
+      "block_kind": "capability",
       "delivery": {
         "artifact_url": null,
         "qa_status": "未獨立驗收",
@@ -529,10 +607,10 @@
       "title": "Podcast EP17 R5 重試：必須交實體稿",
       "project_id": "general",
       "assignee": "小克",
-      "status": "ready",
+      "status": "done",
       "priority": 80,
       "created_at": 1790833402,
-      "completed_at": null,
+      "completed_at": 1792886768,
       "block_kind": null,
       "delivery": {
         "artifact_url": null,

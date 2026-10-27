@@ -1,5 +1,5 @@
 {
-  "timestamp": 1792929335,
+  "timestamp": 1793072556,
   "time_iso": "2026-10-22 17:42:01",
   "total": 5,
   "up": 5,
@@ -87,12 +87,12 @@
     }
   ],
   "schema_version": "2.0.0",
-  "generated_at": "2026-10-25T11:55:35.881172+00:00",
+  "generated_at": "2026-10-27T03:42:36.995446+00:00",
   "verified_outcomes": {
     "total_verified": 0,
     "items": [],
     "artifacts": [],
-    "updated_at": "2026-10-25T11:55:35.881172+00:00"
+    "updated_at": "2026-10-27T03:42:36.995446+00:00"
   },
   "token_ledger": {
     "summary": {
@@ -106,7 +106,7 @@
     "by_model": {},
     "pools": {},
     "pool_states": {},
-    "updated_at": "2026-10-25T11:55:35.881172+00:00"
+    "updated_at": "2026-10-27T03:42:36.995446+00:00"
   },
   "queue_census": {
     "total_queued": 0,
@@ -125,7 +125,7 @@
     "WAITING_FOR_DEPENDENCY": 0,
     "cards": [],
     "items": [],
-    "updated_at": "2026-10-25T11:55:35.881172+00:00"
+    "updated_at": "2026-10-27T03:42:36.995446+00:00"
   },
   "pipeline_matrix": {
     "total": 4,
@@ -168,46 +168,46 @@
         "latency_ms": 18
       }
     ],
-    "updated_at": "2026-10-25T11:55:35.881172+00:00"
+    "updated_at": "2026-10-27T03:42:36.995446+00:00"
   },
   "audit_chain": {
     "grader": {
       "role": "Grader / Tech Lead",
       "agent": "小衡 (Xiao Heng)",
-      "last_heartbeat_at": "2026-10-25T11:55:35.881172+00:00",
-      "timestamp": 1792929335.8811724,
+      "last_heartbeat_at": "2026-10-27T03:42:36.995446+00:00",
+      "timestamp": 1793072556.9954457,
       "status": "ACTIVE"
     },
     "maker": {
       "role": "Maker / Implementer",
       "agent": "小克 (Xiao Ke / agent:main)",
-      "last_heartbeat_at": "2026-10-25T11:55:35.881172+00:00",
-      "timestamp": 1792929335.8811724,
+      "last_heartbeat_at": "2026-10-27T03:42:36.995446+00:00",
+      "timestamp": 1793072556.9954457,
       "status": "ACTIVE"
     },
     "controller": {
       "role": "AutoRefillController & RecoverySentinel",
       "agent": "durable-control-plane",
-      "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
-      "sentinel_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
-      "timestamp": 1792929335.879784,
+      "last_heartbeat_at": "2026-10-27T03:42:36.994124+00:00",
+      "sentinel_heartbeat_at": "2026-10-27T03:42:36.994124+00:00",
+      "timestamp": 1793072556.994124,
       "status": "ONLINE"
     },
     "daemon_status": {
-      "pid": 93588,
+      "pid": 4500,
       "pid_alive": true,
-      "seq": 37,
-      "uptime_sec": 540,
+      "seq": 4364,
+      "uptime_sec": 65552,
       "age_sec": 0.0,
-      "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+      "last_heartbeat_at": "2026-10-27T03:42:36.994124+00:00",
       "status": "ONLINE"
     },
-    "grader_heartbeat_at": "2026-10-25T11:55:35.881172+00:00",
-    "maker_heartbeat_at": "2026-10-25T11:55:35.881172+00:00",
-    "controller_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
-    "updated_at": "2026-10-25T11:55:35.881172+00:00"
+    "grader_heartbeat_at": "2026-10-27T03:42:36.995446+00:00",
+    "maker_heartbeat_at": "2026-10-27T03:42:36.995446+00:00",
+    "controller_heartbeat_at": "2026-10-27T03:42:36.994124+00:00",
+    "updated_at": "2026-10-27T03:42:36.995446+00:00"
   },
-  "updated_at": "2026-10-25T11:55:35.881172+00:00",
+  "updated_at": "2026-10-27T03:42:36.995446+00:00",
   "war_room_status": {
     "updated_at": "2026-10-25T01:58:28.094912+00:00",
     "system_epoch": "2026-10-25",
@@ -803,14 +803,14 @@
   "pipelines_healthy": 18,
   "pipelines_error": 4,
   "grader": "Xiao Heng",
-  "system_epoch": "2026-10-25",
+  "system_epoch": "2026-10-27",
   "daemon_status": {
-    "pid": 93588,
+    "pid": 4500,
     "pid_alive": true,
-    "seq": 37,
-    "uptime_sec": 540,
+    "seq": 4364,
+    "uptime_sec": 65552,
     "age_sec": 0.0,
-    "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+    "last_heartbeat_at": "2026-10-27T03:42:36.994124+00:00",
     "status": "ONLINE"
   },
   "five_core_domains": {
@@ -1391,21 +1391,21 @@
       "maker_agent": "Xiao Ke (小克 / main, Maker)",
       "role_doctrine": "Maker ≠ Grader 絕對分權隔離，Default-FAIL 零口頭承諾驗收",
       "last_grader_audit_timestamp": "2026-10-25T01:58:28.094889+00:00",
-      "sentinel_liveness_heartbeat": "2026-10-25T11:55:35.879784+00:00",
+      "sentinel_liveness_heartbeat": "2026-10-27T03:42:36.994124+00:00",
       "circuit_breaker_policy": "Pool-Level 硬隔離，TPM/RPM 指數退避，429 禁同池即時重試，1-token Canary 探針 200 自動解鎖",
       "daemon_status": {
-        "pid": 93588,
+        "pid": 4500,
         "pid_alive": true,
-        "seq": 37,
-        "uptime_sec": 540,
+        "seq": 4364,
+        "uptime_sec": 65552,
         "age_sec": 0.0,
-        "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+        "last_heartbeat_at": "2026-10-27T03:42:36.994124+00:00",
         "status": "ONLINE"
       },
-      "pid": 93588,
-      "seq": 37,
-      "uptime_sec": 540,
-      "last_heartbeat_at": "2026-10-25T11:55:35.879784+00:00",
+      "pid": 4500,
+      "seq": 4364,
+      "uptime_sec": 65552,
+      "last_heartbeat_at": "2026-10-27T03:42:36.994124+00:00",
       "status": "ONLINE"
     }
   }
