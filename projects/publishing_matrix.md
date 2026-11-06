@@ -30,14 +30,14 @@ status: "active"
 ## 🎙️ Podcast《代碼縫隙》發布矩陣與節目資產管理
 
 - **節目簡介**：探討 AI 時代個人系統、全端工程、真實算力代價與自動化生活實踐。
-- **公開 RSS Feed**：`https://feeds.soundon.fm/podcasts/954689a5-3096-43a4-a80b-7810b219cef3.xml`
+- **公開 RSS Feed**：[代碼縫隙官方 RSS](https://feeds.soundon.fm/podcasts/a9bfa8f9-6184-49b6-be95-90708cf990d5.xml)
 - **公開收聽平台**：[SoundOn Player](https://player.soundon.fm/p/a9bfa8f9-6184-49b6-be95-90708cf990d5) ｜ [Spotify](https://open.spotify.com/show/代碼縫隙) ｜ [Apple Podcasts](https://podcasts.apple.com/podcast/代碼縫隙)
 
 ### 節目發布狀態清單與人類可讀腳本索引
 
 | 集數 | 單集標題 | 發布狀態 | 公開日期 | 人類可讀腳本內容 | 平台連結 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **EP21** | **從「代碼膨脹」到「心理止損」——當全自動化成了負擔，我們如何學會按下暫停鍵？** | 🛠️ **修訂中（草稿初審通過 / 音訊待合成與聽審）** | 預計 11/11(三) 18:00 | [📄 檢視 EP21 劇本審核稿](projects/podcast/ep21_script_review.md) | 待母帶壓制與排程鎖定 |
+| **EP21** | **從「代碼膨脹」到「心理止損」——當全自動化成了負擔，我們如何學會按下暫停鍵？（舊題待重構）** | 🛑 **退件重構中；內容與全片聽審均未通過** | 通過驗收後另排，不承諾舊日期 | [📄 檢視退件舊稿與修訂說明](projects/podcast/ep21_script_review.md) | 2026-11-07 已讀回 SoundOn 草稿停排，未公開 |
 | **EP20** | **從「聲音克隆」到「思考延遲」——當合成成本歸零，為什麼我們反而更難聽下去？** | 🛠️ **修訂中（草稿退件待補證 / 全片未聽審）** | 暫緩／重構中 | [📄 檢視 EP20 腳本審核與待修草稿](projects/podcast/ep20_script_review.md) | 舊母帶未達標 / 新版待重錄 |
 | **EP19** | **AI 控制瑪利歐又擋寫程式代理？拆解 System-1 快決策模型 Jev 的真實邊界** | ✅ **已發布** | 2026-10-14 | [📄 檢視 EP19 正式對白劇本](projects/podcast/ep19_script_published.md) | [SoundOn](https://player.soundon.fm/p/a9bfa8f9-6184-49b6-be95-90708cf990d5) |
 | **EP18** | **AI 沒讓我提早下班，反而讓我成了五個發瘋實習生的惡毒主管——普通人的 AI 倖存指南** | ✅ **已發布** | 2026-10-07 | 存檔於音訊發布包 | [SoundOn](https://player.soundon.fm/p/a9bfa8f9-6184-49b6-be95-90708cf990d5) |
