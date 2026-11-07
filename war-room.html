@@ -1618,6 +1618,64 @@
       padding: 1.5rem;
       border-top: 1px solid var(--line);
     }
+
+    /* Podcast Live Production Tracker */
+    .podcast-live-section {
+      background: linear-gradient(145deg, rgba(22, 34, 53, 0.92), rgba(17, 26, 40, 0.95));
+      border: 1px solid rgba(114, 220, 255, 0.45);
+      border-left: 4px solid var(--cyan);
+      border-radius: 12px;
+      padding: 1.35rem 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .podcast-stepper-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.75rem;
+      margin: 1rem 0 1.25rem 0;
+    }
+    .podcast-step-card {
+      background: rgba(8, 13, 21, 0.65);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .podcast-step-card.done {
+      border-color: rgba(183, 245, 109, 0.45);
+      background: rgba(183, 245, 109, 0.06);
+    }
+    .podcast-step-card.running {
+      border-color: var(--cyan);
+      background: rgba(114, 220, 255, 0.1);
+      box-shadow: 0 0 16px rgba(114, 220, 255, 0.14);
+    }
+    .podcast-ep-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(8, 13, 21, 0.5);
+    }
+    .podcast-ep-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.83rem;
+    }
+    .podcast-ep-table th, .podcast-ep-table td {
+      padding: 0.65rem 0.85rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(37, 54, 77, 0.5);
+    }
+    .podcast-ep-table th {
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: rgba(22, 34, 53, 0.6);
+    }
   </style>
 </head>
 <body>
@@ -1739,6 +1797,51 @@
             <div id="progBarPaused" class="mini-progress-fill" style="width: 24%; background: var(--faint);" title="暫停 7"></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PODCAST LIVE TRACKER: 《代碼縫隙》Podcast 持續產出五階段即時追蹤器
+         ==================================================================== -->
+    <section id="podcastLiveSection" class="podcast-live-section" aria-label="Podcast 持續產出即時進度">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.75rem;">
+        <div>
+          <div class="bento-title-group">
+            <span class="bento-badge-domain" style="background:rgba(114,220,255,0.16);color:var(--cyan);border-color:rgba(114,220,255,0.45);">PODCAST LIVE PIPELINE</span>
+            <h2 class="bento-title">🎙️ 《代碼縫隙》Podcast 持續產出五階段動態追蹤</h2>
+          </div>
+          <div id="podcastLiveHeadline" class="bento-subtitle" style="color:var(--text);font-weight:600;margin-top:0.25rem;">
+            載入即時製播狀態中...
+          </div>
+        </div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
+          <span id="podcastWorkerBadge" class="human-status-badge running">⚡ 自動推進中</span>
+          <a href="viewer.html?file=projects/podcast/ep21_script_review.md" class="nav-btn primary">📄 預覽 EP21 最新定稿劇本</a>
+          <a href="viewer.html?file=projects/publishing_matrix.md" class="nav-btn">🌐 公開發布矩陣</a>
+        </div>
+      </div>
+
+      <div id="podcastStepperGrid" class="podcast-stepper-grid">
+        <!-- Dynamically populated by renderPodcastLiveMonitor() -->
+      </div>
+
+      <div class="podcast-ep-table-wrap">
+        <table class="podcast-ep-table">
+          <thead>
+            <tr>
+              <th>集數</th>
+              <th>單集主題</th>
+              <th>當前流水線階段</th>
+              <th>內容審稿 (Content QA)</th>
+              <th>全片聽審 (Audio QA)</th>
+              <th>平台發布狀態</th>
+              <th>劇本連結</th>
+            </tr>
+          </thead>
+          <tbody id="podcastEpTableBody">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -3526,8 +3629,93 @@
       if (elCircuit && audit.circuit_breaker_policy) elCircuit.textContent = audit.circuit_breaker_policy;
     }
 
+    // Render Podcast Live Production Tracker
+    function renderPodcastLiveMonitor(data) {
+      const mon = data?.podcast_live_monitor;
+      const headlineEl = document.getElementById('podcastLiveHeadline');
+      const badgeEl = document.getElementById('podcastWorkerBadge');
+      const stepperEl = document.getElementById('podcastStepperGrid');
+      const tbodyEl = document.getElementById('podcastEpTableBody');
+      if (!stepperEl || !tbodyEl) return;
+
+      const steps = Array.isArray(mon?.steps) && mon.steps.length > 0 ? mon.steps : [
+        { step: 1, label: '專屬聲紋映射修復', detail: 'S1/S2/S3 顯式綁定正本 WAV，未知角色阻斷', status: 'DONE' },
+        { step: 2, label: '整包演繹與配額熔斷', detail: 'Gemini 3.8 Flash 單次整包請求，禁回退 SoulX', status: 'DONE' },
+        { step: 3, label: '劇本深度重構與冷讀', detail: '剔除虛構情節與假數據，35 輪定稿冷讀 PASS', status: 'DONE' },
+        { step: 4, label: '雙軌合成與母帶聽審', detail: '整包演技 + OpenVoice 換皮 + -16 LUFS + 全片聽審', status: 'RUNNING' },
+        { step: 5, label: '排程上架與下集接續', detail: 'SoundOn 排程讀回驗證並推進 EP22 週更雙集', status: 'PENDING' }
+      ];
+
+      if (headlineEl) {
+        headlineEl.textContent = mon?.headline || 'EP21 已完成前 3 棒（聲線映射、整包熔斷、劇本重構 PASS），正進行第 4/5 棒【雙軌合成與母帶聽審】';
+      }
+      if (badgeEl) {
+        badgeEl.textContent = mon?.worker_badge || '⚡ 自動接力運行中';
+      }
+
+      stepperEl.innerHTML = steps.map(s => {
+        const st = String(s.status || 'PENDING').toUpperCase();
+        const cls = st === 'DONE' ? 'done' : (st === 'RUNNING' ? 'running' : '');
+        const icon = st === 'DONE' ? '✅ 已完成' : (st === 'RUNNING' ? '⚡ 進行中' : '⏳ 待推進');
+        const color = st === 'DONE' ? 'var(--lime)' : (st === 'RUNNING' ? 'var(--cyan)' : 'var(--muted)');
+        return `
+          <div class="podcast-step-card ${cls}">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;font-family:var(--mono);">
+              <span style="color:var(--muted);">STEP 0${escapeHtml(s.step)}</span>
+              <span style="color:${color};font-weight:700;">${icon}</span>
+            </div>
+            <div style="font-weight:700;font-size:0.92rem;color:var(--text);">${escapeHtml(s.label)}</div>
+            <div style="font-size:0.78rem;color:var(--muted);line-height:1.45;">${escapeHtml(s.detail)}</div>
+          </div>
+        `;
+      }).join('');
+
+      const eps = Array.isArray(mon?.episodes) && mon.episodes.length > 0 ? mon.episodes : [
+        {
+          episode: 'EP21',
+          title: '從「代碼膨脹」到「心理止損」——當全自動化成了負擔，我們如何學會按下暫停鍵？',
+          stage_badge: '第 4/5 棒：雙軌合成與母帶聽審',
+          content_qa: '✅ 冷讀通過 (PASS)',
+          audio_qa: '⏳ 待合成與全片聽審 (NOT_REVIEWED)',
+          platform_state: 'SoundOn 草稿保護中 (未公開)',
+          script_link: 'viewer.html?file=projects/podcast/ep21_script_review.md'
+        },
+        {
+          episode: 'EP20',
+          title: '從「聲音克隆」到「思考延遲」——當合成成本歸零，為什麼我們反而更難聽下去？',
+          stage_badge: '待 EP21 新管線閉環後補錄',
+          content_qa: '🛠️ 待補證修訂',
+          audio_qa: '⏳ 未全片聽審',
+          platform_state: '暫緩發布',
+          script_link: 'viewer.html?file=projects/podcast/ep20_script_review.md'
+        },
+        {
+          episode: 'EP19',
+          title: 'AI 控制瑪利歐又擋寫程式代理？拆解 System-1 快決策模型 Jev 的真實邊界',
+          stage_badge: '✅ 已公開發布',
+          content_qa: '✅ PASS',
+          audio_qa: '✅ PASS',
+          platform_state: 'SoundOn / RSS 公開在線',
+          script_link: 'viewer.html?file=projects/podcast/ep19_script_published.md'
+        }
+      ];
+
+      tbodyEl.innerHTML = eps.map(ep => `
+        <tr>
+          <td><strong style="color:var(--cyan);font-family:var(--mono);">${escapeHtml(ep.episode)}</strong></td>
+          <td><strong>${escapeHtml(ep.title)}</strong></td>
+          <td><span style="color:var(--lime);font-weight:600;">${escapeHtml(ep.stage_badge)}</span></td>
+          <td>${escapeHtml(ep.content_qa)}</td>
+          <td>${escapeHtml(ep.audio_qa)}</td>
+          <td>${escapeHtml(ep.platform_state)}</td>
+          <td><a href="${escapeHtml(ep.script_link)}" style="color:var(--cyan);font-weight:700;text-decoration:none;">📄 查看劇本 →</a></td>
+        </tr>
+      `).join('');
+    }
+
     // Master Hydration Function
     function hydrateAll(isLive = false) {
+      renderPodcastLiveMonitor(warRoomState);
       renderHumanFourColumnBoard(warRoomState);
       renderVerifiedOutcomes(warRoomState.five_core_domains?.['1_verified_outcomes']);
       renderTokenLedger();

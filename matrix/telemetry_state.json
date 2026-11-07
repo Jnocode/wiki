@@ -1,5 +1,5 @@
 {
-  "timestamp": 1793072556,
+  "timestamp": 1794026376,
   "time_iso": "2026-10-22 17:42:01",
   "total": 5,
   "up": 5,
@@ -87,12 +87,12 @@
     }
   ],
   "schema_version": "2.0.0",
-  "generated_at": "2026-10-27T03:42:36.995446+00:00",
+  "generated_at": "2026-11-07T04:39:36.641647+00:00",
   "verified_outcomes": {
     "total_verified": 0,
     "items": [],
     "artifacts": [],
-    "updated_at": "2026-10-27T03:42:36.995446+00:00"
+    "updated_at": "2026-11-07T04:39:36.641647+00:00"
   },
   "token_ledger": {
     "summary": {
@@ -106,7 +106,7 @@
     "by_model": {},
     "pools": {},
     "pool_states": {},
-    "updated_at": "2026-10-27T03:42:36.995446+00:00"
+    "updated_at": "2026-11-07T04:39:36.641647+00:00"
   },
   "queue_census": {
     "total_queued": 0,
@@ -125,7 +125,7 @@
     "WAITING_FOR_DEPENDENCY": 0,
     "cards": [],
     "items": [],
-    "updated_at": "2026-10-27T03:42:36.995446+00:00"
+    "updated_at": "2026-11-07T04:39:36.641647+00:00"
   },
   "pipeline_matrix": {
     "total": 4,
@@ -168,46 +168,46 @@
         "latency_ms": 18
       }
     ],
-    "updated_at": "2026-10-27T03:42:36.995446+00:00"
+    "updated_at": "2026-11-07T04:39:36.641647+00:00"
   },
   "audit_chain": {
     "grader": {
       "role": "Grader / Tech Lead",
       "agent": "小衡 (Xiao Heng)",
-      "last_heartbeat_at": "2026-10-27T03:42:36.995446+00:00",
-      "timestamp": 1793072556.9954457,
+      "last_heartbeat_at": "2026-11-07T04:39:36.641647+00:00",
+      "timestamp": 1794026376.6416466,
       "status": "ACTIVE"
     },
     "maker": {
       "role": "Maker / Implementer",
       "agent": "小克 (Xiao Ke / agent:main)",
-      "last_heartbeat_at": "2026-10-27T03:42:36.995446+00:00",
-      "timestamp": 1793072556.9954457,
+      "last_heartbeat_at": "2026-11-07T04:39:36.641647+00:00",
+      "timestamp": 1794026376.6416466,
       "status": "ACTIVE"
     },
     "controller": {
       "role": "AutoRefillController & RecoverySentinel",
       "agent": "durable-control-plane",
-      "last_heartbeat_at": "2026-10-27T03:42:36.994124+00:00",
-      "sentinel_heartbeat_at": "2026-10-27T03:42:36.994124+00:00",
-      "timestamp": 1793072556.994124,
+      "last_heartbeat_at": "2026-11-07T04:39:36.640138+00:00",
+      "sentinel_heartbeat_at": "2026-11-07T04:39:36.640138+00:00",
+      "timestamp": 1794026376.640138,
       "status": "ONLINE"
     },
     "daemon_status": {
-      "pid": 4500,
+      "pid": 12448,
       "pid_alive": true,
-      "seq": 4364,
-      "uptime_sec": 65552,
+      "seq": 4058,
+      "uptime_sec": 68673,
       "age_sec": 0.0,
-      "last_heartbeat_at": "2026-10-27T03:42:36.994124+00:00",
+      "last_heartbeat_at": "2026-11-07T04:39:36.640138+00:00",
       "status": "ONLINE"
     },
-    "grader_heartbeat_at": "2026-10-27T03:42:36.995446+00:00",
-    "maker_heartbeat_at": "2026-10-27T03:42:36.995446+00:00",
-    "controller_heartbeat_at": "2026-10-27T03:42:36.994124+00:00",
-    "updated_at": "2026-10-27T03:42:36.995446+00:00"
+    "grader_heartbeat_at": "2026-11-07T04:39:36.641647+00:00",
+    "maker_heartbeat_at": "2026-11-07T04:39:36.641647+00:00",
+    "controller_heartbeat_at": "2026-11-07T04:39:36.640138+00:00",
+    "updated_at": "2026-11-07T04:39:36.641647+00:00"
   },
-  "updated_at": "2026-10-27T03:42:36.995446+00:00",
+  "updated_at": "2026-11-07T04:39:36.641647+00:00",
   "war_room_status": {
     "updated_at": "2026-10-25T01:58:28.094912+00:00",
     "system_epoch": "2026-10-25",
@@ -803,14 +803,14 @@
   "pipelines_healthy": 18,
   "pipelines_error": 4,
   "grader": "Xiao Heng",
-  "system_epoch": "2026-10-27",
+  "system_epoch": "2026-11-07",
   "daemon_status": {
-    "pid": 4500,
+    "pid": 12448,
     "pid_alive": true,
-    "seq": 4364,
-    "uptime_sec": 65552,
+    "seq": 4058,
+    "uptime_sec": 68673,
     "age_sec": 0.0,
-    "last_heartbeat_at": "2026-10-27T03:42:36.994124+00:00",
+    "last_heartbeat_at": "2026-11-07T04:39:36.640138+00:00",
     "status": "ONLINE"
   },
   "five_core_domains": {
@@ -1135,254 +1135,396 @@
     ],
     "3_queue_census": [
       {
-        "card_id": "card_ec176f8d",
-        "title": "Slice 1: 配額冷卻登記表與錯誤分類狀態機",
-        "status": "done",
-        "assigned_to": "main (🦞🦐 小克)",
-        "wait_reason": null,
-        "qa_verifier": "Xiao Heng (Tech Lead / Grader)",
-        "qa_verdict": "PASS"
-      },
-      {
-        "card_id": "card_daba206d",
-        "title": "Slice 2: 自動補位調度器、半開哨兵探針與五大營運指標",
-        "status": "done",
-        "assigned_to": "main (🦞🦐 小克)",
-        "wait_reason": null,
-        "qa_verifier": "Xiao Heng (Tech Lead / Grader)",
-        "qa_verdict": "PASS"
-      },
-      {
         "card_id": "wb_4125c395",
         "title": "EP21 心理成長主軸 draft（Option A：10/23五檔期從簡、10/28三上架）",
-        "status": "todo",
+        "status": "review",
         "assigned_to": "main (🦞🦐 小克)",
-        "wait_reason": "REQUIREMENT_REGISTRATION",
-        "expected_wake_at": null,
+        "wait_reason": null,
+        "expected_wake_at": "每 15 分鐘巡檢",
         "priority": "high",
-        "pool_id": "cpa_pool"
+        "pool_id": "cpa_pool",
+        "qa_verifier": null,
+        "qa_verdict": null
       },
       {
-        "card_id": "wb_f48045f2",
-        "title": "Podcast 聽感 SOP v1：EP20 私人樣本與獨立全片驗收",
-        "status": "todo",
+        "card_id": "wb_8d500b97",
+        "title": "凡骨江湖：從零六章武俠動作遊戲與打擊感重做",
+        "status": "review",
         "assigned_to": "main (🦞🦐 小克)",
-        "wait_reason": "REQUIREMENT_REGISTRATION",
+        "wait_reason": null,
         "expected_wake_at": null,
         "priority": "high",
-        "pool_id": "cpa_pool"
+        "pool_id": "cpa_pool",
+        "qa_verifier": null,
+        "qa_verdict": null
+      },
+      {
+        "card_id": "wb_ad063a06",
+        "title": "[Hermes t_human_warroom] 戰情室人話四欄改版與無人值守自動推進泵",
+        "status": "review",
+        "assigned_to": "main (🦞🦐 小克)",
+        "wait_reason": null,
+        "expected_wake_at": null,
+        "priority": "urgent",
+        "pool_id": "cpa_pool",
+        "qa_verifier": null,
+        "qa_verdict": null
+      },
+      {
+        "card_id": "wb_daba206d",
+        "title": "[Hermes t_quota_relay_s2] 自動補位調度器、探針哨兵與戰情遙測（Slice 2 施工）",
+        "status": "review",
+        "assigned_to": "main (🦞🦐 小克)",
+        "wait_reason": null,
+        "expected_wake_at": null,
+        "priority": "high",
+        "pool_id": "cpa_pool",
+        "qa_verifier": null,
+        "qa_verdict": null
+      },
+      {
+        "card_id": "wb_7c2b5dda",
+        "title": "台股13:00研究警報 P0：修復ETF刷新、隔離環境與失敗輸出去敏",
+        "status": "review",
+        "assigned_to": "main (🦞🦐 小克)",
+        "wait_reason": null,
+        "expected_wake_at": null,
+        "priority": "high",
+        "pool_id": "cpa_pool",
+        "qa_verifier": null,
+        "qa_verdict": null
+      },
+      {
+        "card_id": "wb_3418b541",
+        "title": "小克模型路由 v2：優化規劃與准入閘門（待實裝授權）",
+        "status": "review",
+        "assigned_to": "main (🦞🦐 小克)",
+        "wait_reason": null,
+        "expected_wake_at": null,
+        "priority": "normal",
+        "pool_id": "cpa_pool",
+        "qa_verifier": null,
+        "qa_verdict": null
+      },
+      {
+        "card_id": "wb_e4e6384f",
+        "title": "代碼縫隙 AI 工作流實測：首集規劃與證據樣板",
+        "status": "review",
+        "assigned_to": "main (🦞🦐 小克)",
+        "wait_reason": null,
+        "expected_wake_at": null,
+        "priority": "high",
+        "pool_id": "cpa_pool",
+        "qa_verifier": null,
+        "qa_verdict": null
+      },
+      {
+        "card_id": "wb_bd8c8e67",
+        "title": "移除現行 Camoufox 硬依賴",
+        "status": "review",
+        "assigned_to": "main (🦞🦐 小克)",
+        "wait_reason": null,
+        "expected_wake_at": null,
+        "priority": "high",
+        "pool_id": "cpa_pool",
+        "qa_verifier": null,
+        "qa_verdict": null
       }
     ],
     "4_pipeline_matrix": {
       "summary": {
-        "total": 29,
-        "healthy": 18,
-        "error": 4,
-        "paused": 7
+        "total": 41,
+        "healthy": 22,
+        "error": 2,
+        "paused": 17
       },
       "pipelines": [
+        {
+          "name": "daily-email-scan",
+          "status": "PAUSED",
+          "schedule": "0 8 * * *",
+          "last_run": "2026-10-17T08:00:21",
+          "root_cause": "依策略停用或待命隔離"
+        },
         {
           "name": "tw-stock-close-report",
           "status": "HEALTHY",
           "schedule": "35 15 * * 1-5",
-          "last_run": "2026-10-23T15:53:28",
+          "last_run": "2026-11-06T15:53:13",
           "root_cause": null
         },
         {
           "name": "wiki-auto-sync",
           "status": "HEALTHY",
           "schedule": "0 2 * * *",
-          "last_run": "2026-10-25T02:00:45",
+          "last_run": "2026-11-07T02:00:45",
           "root_cause": null
         },
         {
           "name": "agent-health-check",
           "status": "HEALTHY",
           "schedule": "0 */6 * * *",
-          "last_run": "2026-10-25T06:00:14",
+          "last_run": "2026-11-07T12:00:25",
           "root_cause": null
         },
         {
           "name": "f5-subscription-monitor",
           "status": "HEALTHY",
           "schedule": "0 */6 * * *",
-          "last_run": "2026-10-25T06:00:23",
+          "last_run": "2026-11-07T12:00:57",
           "root_cause": null
+        },
+        {
+          "name": "podcast-account3-maker-reviewer-lane",
+          "status": "PAUSED",
+          "schedule": "0 0,5,10,15,20 * * *",
+          "last_run": "2026-09-17T15:00:51",
+          "root_cause": "依策略停用或待命隔離"
+        },
+        {
+          "name": "podcast-free-test-maker-reviewer-lane",
+          "status": "PAUSED",
+          "schedule": "40 1,6,11,16,21 * * *",
+          "last_run": "2026-09-17T16:40:56",
+          "root_cause": "依策略停用或待命隔離"
+        },
+        {
+          "name": "podcast-auto-publish-watcher",
+          "status": "PAUSED",
+          "schedule": "*/30 * * * *",
+          "last_run": "2026-09-17T19:00:01",
+          "root_cause": "依策略停用或待命隔離"
+        },
+        {
+          "name": "discord-podcast-release-projection",
+          "status": "PAUSED",
+          "schedule": "5,35 * * * *",
+          "last_run": "2026-09-17T19:05:02",
+          "root_cause": "依策略停用或待命隔離"
         },
         {
           "name": "discord-vskin-gate-projection",
           "status": "HEALTHY",
           "schedule": "20 10 * * *",
-          "last_run": "2026-10-24T10:20:09",
+          "last_run": "2026-11-07T10:20:25",
           "root_cause": null
         },
         {
           "name": "content-pipeline-github-sync",
           "status": "HEALTHY",
           "schedule": "30 8 * * 1",
-          "last_run": "2026-10-19T08:31:09",
-          "root_cause": null
-        },
-        {
-          "name": "threads_token_watchdog",
-          "status": "HEALTHY",
-          "schedule": "every 2880m",
-          "last_run": "2026-10-24T14:05:17",
-          "root_cause": null
-        },
-        {
-          "name": "platform_auth_weekly_check",
-          "status": "HEALTHY",
-          "schedule": "15 9 * * 1",
-          "last_run": "2026-10-19T09:16:04",
-          "root_cause": null
-        },
-        {
-          "name": "podcast-wed-fri-release-verifier",
-          "status": "HEALTHY",
-          "schedule": "5,35 18 * * 3,5",
-          "last_run": "2026-10-23T18:40:20",
-          "root_cause": null
-        },
-        {
-          "name": "ai-frontier-tech-scout",
-          "status": "HEALTHY",
-          "schedule": "0 8 * * *",
-          "last_run": "2026-10-25T08:07:03",
-          "root_cause": null
-        },
-        {
-          "name": "nightly-dreaming-consolidation",
-          "status": "HEALTHY",
-          "schedule": "0 3 * * *",
-          "last_run": "2026-10-25T03:00:14",
-          "root_cause": null
-        },
-        {
-          "name": "unattended-closure-warden-20261016",
-          "status": "HEALTHY",
-          "schedule": "every 20m",
-          "last_run": "2026-10-25T09:38:38",
-          "root_cause": null
-        },
-        {
-          "name": "codex-parallel-session-watcher",
-          "status": "HEALTHY",
-          "schedule": "every 10m",
-          "last_run": "2026-10-25T09:44:14",
-          "root_cause": null
-        },
-        {
-          "name": "quant-lifeline-evening",
-          "status": "HEALTHY",
-          "schedule": "10 16 * * 1-5",
-          "last_run": "2026-10-23T16:10:10",
-          "root_cause": null
-        },
-        {
-          "name": "quant-lifeline-morning-executor",
-          "status": "HEALTHY",
-          "schedule": "30 8 * * 1-5",
-          "last_run": "2026-10-23T08:30:08",
-          "root_cause": null
-        },
-        {
-          "name": "hindsight-liveness-warden",
-          "status": "HEALTHY",
-          "schedule": "every 30m",
-          "last_run": "2026-10-25T09:34:13",
-          "root_cause": null
-        },
-        {
-          "name": "ase-learning-liveness-warden",
-          "status": "HEALTHY",
-          "schedule": "every 30m",
-          "last_run": "2026-10-25T09:28:13",
-          "root_cause": null
-        },
-        {
-          "name": "recall-oss-daily-maintenance",
-          "status": "HEALTHY",
-          "schedule": "0 10 * * *",
-          "last_run": "2026-10-24T10:15:11",
+          "last_run": "2026-11-02T08:30:58",
           "root_cause": null
         },
         {
           "name": "browser-ops-watchdog",
           "status": "ERROR",
           "schedule": "every 360m",
-          "last_run": "2026-10-25T03:58:50",
-          "root_cause": "Script exited with code 2 (Cua Driver daemon contract version 0.8.0 mismatch SDK 0.7.0)"
+          "last_run": "2026-11-07T12:20:02",
+          "root_cause": "Script exited with code 2\nstdout:\n## 🚨 瀏覽器自動化管線警報 (Browser Ops Watchdog)\n- **狀態碼**：`exit_code=2`\n- **診斷摘要**：Blessed Path 巡檢未通過，需要關注。\n\n### 🔍 詳細錯誤紀錄\n```text\n================================================================="
         },
         {
-          "name": "xiaoke-brain-distill-daily",
-          "status": "ERROR",
-          "schedule": "0 22 * * *",
-          "last_run": "2026-10-24T22:01:59",
-          "root_cause": "Script exited with code 1 (wiki_lint detected broken wikilinks & missing frontmatter)"
+          "name": "Threads token watchdog (@codegaps)",
+          "status": "HEALTHY",
+          "schedule": "every 2880m",
+          "last_run": "2026-11-05T17:35:44",
+          "root_cause": null
         },
         {
-          "name": "Hermes 夜間自動更新",
-          "status": "ERROR",
-          "schedule": "0 4 * * *",
-          "last_run": "2026-10-25T04:00:44",
-          "root_cause": "Script exited with code 1 (檢查或狀態讀寫超時/失敗)"
+          "name": "Weekly cross-platform auth healthcheck",
+          "status": "HEALTHY",
+          "schedule": "15 9 * * 1",
+          "last_run": "2026-11-02T09:15:52",
+          "root_cause": null
         },
         {
-          "name": "巴哈勇者福利社每日免費抽獎",
-          "status": "ERROR",
-          "schedule": "5 0 * * *",
-          "last_run": "2026-10-25T00:25:50",
-          "root_cause": "Script exited with code 1 (狀態回報 PARTIAL_OR_BLOCKED，點擊等待逾時)"
-        },
-        {
-          "name": "daily-email-scan",
+          "name": "podcast-account1-maker-reviewer-lane",
           "status": "PAUSED",
+          "schedule": "20 3,8,13,18,23 * * *",
+          "last_run": "2026-09-17T18:22:18",
+          "root_cause": "依策略停用或待命隔離"
+        },
+        {
+          "name": "podcast-slot-promoter",
+          "status": "PAUSED",
+          "schedule": "*/15 * * * *",
+          "last_run": "2026-09-17T19:00:01",
+          "root_cause": "依策略停用或待命隔離"
+        },
+        {
+          "name": "podcast-wed-fri-release-verifier",
+          "status": "HEALTHY",
+          "schedule": "5,35 18 * * 3,5",
+          "last_run": "2026-11-06T18:52:00",
+          "root_cause": null
+        },
+        {
+          "name": "podcast-research-candidate-registry",
+          "status": "PAUSED",
+          "schedule": "every 240m",
+          "last_run": "2026-09-17T18:35:59",
+          "root_cause": "依策略停用或待命隔離"
+        },
+        {
+          "name": "ai-frontier-tech-scout",
+          "status": "HEALTHY",
           "schedule": "0 8 * * *",
-          "last_run": "2026-10-17T08:00:21",
-          "root_cause": "手動暫停"
+          "last_run": "2026-11-07T08:05:31",
+          "root_cause": null
         },
         {
           "name": "xiaoke-kanban-auto-dispatcher",
           "status": "PAUSED",
           "schedule": "every 30m",
           "last_run": "2026-10-07T15:44:14",
-          "root_cause": "手動暫停"
+          "root_cause": "依策略停用或待命隔離"
+        },
+        {
+          "name": "xiaoke-brain-distill-daily",
+          "status": "HEALTHY",
+          "schedule": "0 22 * * *",
+          "last_run": "2026-11-06T22:00:26",
+          "root_cause": null
         },
         {
           "name": "podcast-short-video-factory-3x2",
           "status": "PAUSED",
           "schedule": "0 8,12,18 * * *",
           "last_run": "2026-09-14T13:05:23",
-          "root_cause": "手動暫停"
+          "root_cause": "依策略停用或待命隔離"
+        },
+        {
+          "name": "tw-stock-premarket-morning-report",
+          "status": "HEALTHY",
+          "schedule": "20 8 * * 1-5",
+          "last_run": "2026-11-06T08:32:13",
+          "root_cause": null
+        },
+        {
+          "name": "recall-oss-daily-maintenance",
+          "status": "HEALTHY",
+          "schedule": "0 10 * * *",
+          "last_run": "2026-11-07T10:13:20",
+          "root_cause": null
+        },
+        {
+          "name": "tw-stock-1300-breakout-alert",
+          "status": "HEALTHY",
+          "schedule": "0 13 * * 1-5",
+          "last_run": "2026-11-06T13:00:55",
+          "root_cause": null
+        },
+        {
+          "name": "autonomous-media-ops-engine",
+          "status": "PAUSED",
+          "schedule": "0 18 * * 3,5",
+          "last_run": "2026-10-09T18:00:48",
+          "root_cause": "依策略停用或待命隔離"
+        },
+        {
+          "name": "nightly-dreaming-consolidation",
+          "status": "HEALTHY",
+          "schedule": "0 3 * * *",
+          "last_run": "2026-11-07T03:00:25",
+          "root_cause": null
         },
         {
           "name": "autonomy-bootstrap-independent-review",
           "status": "PAUSED",
           "schedule": "every 10m",
           "last_run": "2026-10-08T20:18:15",
-          "root_cause": "手動暫停"
+          "root_cause": "依策略停用或待命隔離"
+        },
+        {
+          "name": "Hermes 夜間自動更新",
+          "status": "ERROR",
+          "schedule": "0 4 * * *",
+          "last_run": "2026-11-07T04:01:45",
+          "root_cause": "Script exited with code 1\nstdout:\n【Hermes 自動更新異常】檢查或狀態讀寫失敗；未啟動新的安裝，請查核。"
         },
         {
           "name": "jojo-release-v2-review-wake",
           "status": "PAUSED",
           "schedule": "every 5m",
           "last_run": "2026-10-13T20:40:31",
-          "root_cause": "手動暫停"
+          "root_cause": "依策略停用或待命隔離"
         },
         {
           "name": "podcast-ep20-voxcpm2-durable-relay",
           "status": "PAUSED",
           "schedule": "every 30m",
           "last_run": "2026-10-14T00:28:42",
-          "root_cause": "手動暫停"
+          "root_cause": "依策略停用或待命隔離"
+        },
+        {
+          "name": "unattended-closure-warden-20261016",
+          "status": "HEALTHY",
+          "schedule": "every 20m",
+          "last_run": "2026-11-07T12:24:44",
+          "root_cause": null
+        },
+        {
+          "name": "巴哈勇者福利社每日免費抽獎 (零巴幣安全閘門)",
+          "status": "PAUSED",
+          "schedule": "5 0 * * *",
+          "last_run": "2026-10-28T00:25:07",
+          "root_cause": "依策略停用或待命隔離"
         },
         {
           "name": "podcast-pipeline-optimize-relay",
           "status": "PAUSED",
           "schedule": "every 30m",
           "last_run": "2026-10-17T23:20:31",
-          "root_cause": "手動暫停"
+          "root_cause": "依策略停用或待命隔離"
+        },
+        {
+          "name": "codex-parallel-session-watcher",
+          "status": "HEALTHY",
+          "schedule": "every 10m",
+          "last_run": "2026-11-07T12:30:25",
+          "root_cause": null
+        },
+        {
+          "name": "quant-lifeline-evening",
+          "status": "HEALTHY",
+          "schedule": "10 16 * * 1-5",
+          "last_run": "2026-11-06T16:10:42",
+          "root_cause": null
+        },
+        {
+          "name": "quant-lifeline-morning-executor",
+          "status": "HEALTHY",
+          "schedule": "30 8 * * 1-5",
+          "last_run": "2026-11-06T08:30:40",
+          "root_cause": null
+        },
+        {
+          "name": "hindsight-liveness-warden",
+          "status": "HEALTHY",
+          "schedule": "every 30m",
+          "last_run": "2026-11-07T12:20:25",
+          "root_cause": null
+        },
+        {
+          "name": "ase-learning-liveness-warden",
+          "status": "HEALTHY",
+          "schedule": "every 30m",
+          "last_run": "2026-11-07T12:19:25",
+          "root_cause": null
+        },
+        {
+          "name": "巴哈勇者福利社中午補跑 (零巴幣安全閘門)",
+          "status": "PAUSED",
+          "schedule": "0 12 * * *",
+          "last_run": null,
+          "root_cause": "Jun已授權每日12:00加跑；Chrome導航與收據驗收尚未通過，修復前保持停用，禁止假報已啟用。"
+        },
+        {
+          "name": "podcast-continuous-production-relay",
+          "status": "HEALTHY",
+          "schedule": "every 15m",
+          "last_run": "2026-11-07T12:17:34",
+          "root_cause": null
         }
       ]
     },
@@ -1391,22 +1533,181 @@
       "maker_agent": "Xiao Ke (小克 / main, Maker)",
       "role_doctrine": "Maker ≠ Grader 絕對分權隔離，Default-FAIL 零口頭承諾驗收",
       "last_grader_audit_timestamp": "2026-10-25T01:58:28.094889+00:00",
-      "sentinel_liveness_heartbeat": "2026-10-27T03:42:36.994124+00:00",
+      "sentinel_liveness_heartbeat": "2026-11-07T04:39:36.640138+00:00",
       "circuit_breaker_policy": "Pool-Level 硬隔離，TPM/RPM 指數退避，429 禁同池即時重試，1-token Canary 探針 200 自動解鎖",
       "daemon_status": {
-        "pid": 4500,
+        "pid": 12448,
         "pid_alive": true,
-        "seq": 4364,
-        "uptime_sec": 65552,
+        "seq": 4058,
+        "uptime_sec": 68673,
         "age_sec": 0.0,
-        "last_heartbeat_at": "2026-10-27T03:42:36.994124+00:00",
+        "last_heartbeat_at": "2026-11-07T04:39:36.640138+00:00",
         "status": "ONLINE"
       },
-      "pid": 4500,
-      "seq": 4364,
-      "uptime_sec": 65552,
-      "last_heartbeat_at": "2026-10-27T03:42:36.994124+00:00",
+      "pid": 12448,
+      "seq": 4058,
+      "uptime_sec": 68673,
+      "last_heartbeat_at": "2026-11-07T04:39:36.640138+00:00",
       "status": "ONLINE"
     }
-  }
+  },
+  "podcast_live_monitor": {
+    "updated_at": "2026-11-07T04:38:46.867203+00:00",
+    "active_episode": "EP21",
+    "cadence_rule": "每週三、週五 18:00 (Asia/Taipei) 常態雙更",
+    "relay_cron_id": "8e64b26b7578",
+    "relay_schedule": "每 15 分鐘自動巡檢接力 (podcast-continuous-production-relay)",
+    "workboard_card_status": "review",
+    "worker_badge": "🔍 待小衡獨立驗收 (REVIEW)",
+    "overall_progress_pct": 70,
+    "headline": "EP21 正在執行第 4/5 棒【雙軌合成與母帶聽審】· 🔍 待小衡獨立驗收 (REVIEW)",
+    "steps": [
+      {
+        "step": 1,
+        "key": "C1_voice_mapping",
+        "label": "專屬聲紋映射修復",
+        "detail": "S1小克 / S2小衡 / S3傑諾 顯式綁定正本 WAV，未知角色立即阻斷",
+        "status": "DONE",
+        "verified_at": "2026-11-07T04:00:31.556291+00:00"
+      },
+      {
+        "step": 2,
+        "key": "B_full_dialogue_cli",
+        "label": "整包演繹與配額熔斷",
+        "detail": "Gemini 3.8 Flash TTS 完整上下文單次請求（禁逐輪切碎、禁回退 SoulX）",
+        "status": "DONE",
+        "verified_at": "2026-11-07T04:10:55.877886+00:00"
+      },
+      {
+        "step": 3,
+        "key": "A_script_rewrite",
+        "label": "劇本深度重構與冷讀",
+        "detail": "剔除虛構網文情節與假數據，注入真實工程踩坑與認知增量（35輪定稿）",
+        "status": "DONE",
+        "verified_at": "2026-11-07T04:21:47.038797+00:00"
+      },
+      {
+        "step": 4,
+        "key": "D_render_and_master",
+        "label": "雙軌合成與母帶聽審",
+        "detail": "整包演技渲染 + OpenVoice V2 聲紋換皮 + EBU R128 (-16 LUFS) + 全片獨立聽審",
+        "status": "RUNNING",
+        "verified_at": null
+      },
+      {
+        "step": 5,
+        "key": "E_continuous_release",
+        "label": "排程上架與下集接續",
+        "detail": "SoundOn 排程讀回驗證，並無縫推進 EP22 週三／週五常態雙更產線",
+        "status": "PENDING",
+        "verified_at": null
+      }
+    ],
+    "episodes": [
+      {
+        "episode": "EP21",
+        "title": "從「代碼膨脹」到「心理止損」——當全自動化成了負擔，我們如何學會按下暫停鍵？",
+        "stage_badge": "第 4/5 棒：雙軌合成與母帶聽審",
+        "content_qa": "✅ 冷讀通過 (PASS)",
+        "audio_qa": "⏳ 待合成與全片聽審 (NOT_REVIEWED)",
+        "platform_state": "SoundOn 草稿保護中 (未公開)",
+        "script_link": "viewer.html?file=projects/podcast/ep21_script_review.md"
+      },
+      {
+        "episode": "EP20",
+        "title": "從「聲音克隆」到「思考延遲」——當合成成本歸零，為什麼我們反而更難聽下去？",
+        "stage_badge": "待 EP21 新管線閉環後補錄",
+        "content_qa": "🛠️ 待補證修訂",
+        "audio_qa": "⏳ 未全片聽審",
+        "platform_state": "暫緩發布",
+        "script_link": "viewer.html?file=projects/podcast/ep20_script_review.md"
+      },
+      {
+        "episode": "EP19",
+        "title": "AI 控制瑪利歐又擋寫程式代理？拆解 System-1 快決策模型 Jev 的真實邊界",
+        "stage_badge": "✅ 已公開發布",
+        "content_qa": "✅ PASS",
+        "audio_qa": "✅ PASS",
+        "platform_state": "SoundOn / RSS 公開在線",
+        "script_link": "viewer.html?file=projects/podcast/ep19_script_published.md"
+      }
+    ]
+  },
+  "human_warroom_cards": [
+    {
+      "title": "Podcast《代碼縫隙》EP21 重構與持續產出流水線",
+      "summary": "EP21 正在執行第 4/5 棒【雙軌合成與母帶聽審】· 🔍 待小衡獨立驗收 (REVIEW)。已完成聲紋映射修復、整包請求熔斷與 35 輪無虛構劇本定稿，正推進雙軌語音合成與全片聽審。",
+      "state": "RUNNING",
+      "progress_pct": 70,
+      "actions": [
+        {
+          "label": "📄 預覽最新定稿劇本",
+          "href": "viewer.html?file=projects/podcast/ep21_script_review.md",
+          "style": "lime"
+        },
+        {
+          "label": "🎙️ 查看發布矩陣",
+          "href": "viewer.html?file=projects/publishing_matrix.md",
+          "style": "cyan"
+        }
+      ]
+    },
+    {
+      "title": "凡骨江湖：六章武俠動作遊戲與打擊感重做",
+      "summary": "核心戰鬥、存檔補給與建置測試已建立保護基線，目前工單狀態為 REVIEW，按切片獨立實機驗收推進。",
+      "state": "QUEUED",
+      "progress_pct": 85,
+      "actions": [
+        {
+          "label": "📋 查看任務看板",
+          "href": "kanban.html",
+          "style": "cyan"
+        }
+      ]
+    },
+    {
+      "title": "長程配額冷卻自癒與戰情室動態遙測守護進程",
+      "summary": "常駐守護進程每 15 秒更新系統心跳、Workboard 即時狀態與 Podcast 五階段進度，網頁每 30 秒自動拉取最新資料。",
+      "state": "RUNNING",
+      "progress_pct": 100,
+      "actions": [
+        {
+          "label": "⚔️ 開啟 3D 決鬥圖譜",
+          "href": "matrix/index.html",
+          "style": "lime"
+        },
+        {
+          "label": "📖 檢視架構規格",
+          "href": "viewer.html?file=concepts/autonomous-self-healing-quota-relay-architecture.md",
+          "style": "cyan"
+        }
+      ]
+    },
+    {
+      "title": "台股盤後突破量能監控與量化選股策略",
+      "summary": "交易日自動監控大盤與法人籌碼動向，收盤後彙整結構突破標的與風險邊界報告。",
+      "state": "DONE",
+      "progress_pct": 100,
+      "actions": [
+        {
+          "label": "📊 查看策略文件",
+          "href": "viewer.html?file=projects/jojo_trading/smc_strategy_verification.md",
+          "style": "lime"
+        }
+      ]
+    },
+    {
+      "title": "排程管線異常巡檢（目前偵測到 2 項待排障）",
+      "summary": "自動攔截排程作業異常並記錄失敗原因，點擊下方按鈕可直接展開工程診斷區檢視明細。",
+      "state": "ERROR",
+      "progress_pct": 100,
+      "actions": [
+        {
+          "label": "🚨 查看異常診斷明細",
+          "drawerTarget": "errorPipelinesWrap",
+          "style": "danger"
+        }
+      ]
+    }
+  ]
 }
