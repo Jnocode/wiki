@@ -1,5 +1,5 @@
 {
-  "timestamp": 1794026376,
+  "timestamp": 1794026496,
   "time_iso": "2026-10-22 17:42:01",
   "total": 5,
   "up": 5,
@@ -87,12 +87,12 @@
     }
   ],
   "schema_version": "2.0.0",
-  "generated_at": "2026-11-07T04:39:36.641647+00:00",
+  "generated_at": "2026-11-07T04:41:36.910191+00:00",
   "verified_outcomes": {
     "total_verified": 0,
     "items": [],
     "artifacts": [],
-    "updated_at": "2026-11-07T04:39:36.641647+00:00"
+    "updated_at": "2026-11-07T04:41:36.910191+00:00"
   },
   "token_ledger": {
     "summary": {
@@ -106,7 +106,7 @@
     "by_model": {},
     "pools": {},
     "pool_states": {},
-    "updated_at": "2026-11-07T04:39:36.641647+00:00"
+    "updated_at": "2026-11-07T04:41:36.910191+00:00"
   },
   "queue_census": {
     "total_queued": 0,
@@ -125,7 +125,7 @@
     "WAITING_FOR_DEPENDENCY": 0,
     "cards": [],
     "items": [],
-    "updated_at": "2026-11-07T04:39:36.641647+00:00"
+    "updated_at": "2026-11-07T04:41:36.910191+00:00"
   },
   "pipeline_matrix": {
     "total": 4,
@@ -168,46 +168,46 @@
         "latency_ms": 18
       }
     ],
-    "updated_at": "2026-11-07T04:39:36.641647+00:00"
+    "updated_at": "2026-11-07T04:41:36.910191+00:00"
   },
   "audit_chain": {
     "grader": {
       "role": "Grader / Tech Lead",
       "agent": "小衡 (Xiao Heng)",
-      "last_heartbeat_at": "2026-11-07T04:39:36.641647+00:00",
-      "timestamp": 1794026376.6416466,
+      "last_heartbeat_at": "2026-11-07T04:41:36.910191+00:00",
+      "timestamp": 1794026496.9101908,
       "status": "ACTIVE"
     },
     "maker": {
       "role": "Maker / Implementer",
       "agent": "小克 (Xiao Ke / agent:main)",
-      "last_heartbeat_at": "2026-11-07T04:39:36.641647+00:00",
-      "timestamp": 1794026376.6416466,
+      "last_heartbeat_at": "2026-11-07T04:41:36.910191+00:00",
+      "timestamp": 1794026496.9101908,
       "status": "ACTIVE"
     },
     "controller": {
       "role": "AutoRefillController & RecoverySentinel",
       "agent": "durable-control-plane",
-      "last_heartbeat_at": "2026-11-07T04:39:36.640138+00:00",
-      "sentinel_heartbeat_at": "2026-11-07T04:39:36.640138+00:00",
-      "timestamp": 1794026376.640138,
+      "last_heartbeat_at": "2026-11-07T04:41:36.908741+00:00",
+      "sentinel_heartbeat_at": "2026-11-07T04:41:36.908741+00:00",
+      "timestamp": 1794026496.908741,
       "status": "ONLINE"
     },
     "daemon_status": {
       "pid": 12448,
       "pid_alive": true,
-      "seq": 4058,
-      "uptime_sec": 68673,
+      "seq": 4065,
+      "uptime_sec": 68793,
       "age_sec": 0.0,
-      "last_heartbeat_at": "2026-11-07T04:39:36.640138+00:00",
+      "last_heartbeat_at": "2026-11-07T04:41:36.908741+00:00",
       "status": "ONLINE"
     },
-    "grader_heartbeat_at": "2026-11-07T04:39:36.641647+00:00",
-    "maker_heartbeat_at": "2026-11-07T04:39:36.641647+00:00",
-    "controller_heartbeat_at": "2026-11-07T04:39:36.640138+00:00",
-    "updated_at": "2026-11-07T04:39:36.641647+00:00"
+    "grader_heartbeat_at": "2026-11-07T04:41:36.910191+00:00",
+    "maker_heartbeat_at": "2026-11-07T04:41:36.910191+00:00",
+    "controller_heartbeat_at": "2026-11-07T04:41:36.908741+00:00",
+    "updated_at": "2026-11-07T04:41:36.910191+00:00"
   },
-  "updated_at": "2026-11-07T04:39:36.641647+00:00",
+  "updated_at": "2026-11-07T04:41:36.910191+00:00",
   "war_room_status": {
     "updated_at": "2026-10-25T01:58:28.094912+00:00",
     "system_epoch": "2026-10-25",
@@ -807,10 +807,10 @@
   "daemon_status": {
     "pid": 12448,
     "pid_alive": true,
-    "seq": 4058,
-    "uptime_sec": 68673,
+    "seq": 4065,
+    "uptime_sec": 68793,
     "age_sec": 0.0,
-    "last_heartbeat_at": "2026-11-07T04:39:36.640138+00:00",
+    "last_heartbeat_at": "2026-11-07T04:41:36.908741+00:00",
     "status": "ONLINE"
   },
   "five_core_domains": {
@@ -1481,7 +1481,7 @@
           "name": "codex-parallel-session-watcher",
           "status": "HEALTHY",
           "schedule": "every 10m",
-          "last_run": "2026-11-07T12:30:25",
+          "last_run": "2026-11-07T12:41:25",
           "root_cause": null
         },
         {
@@ -1533,26 +1533,26 @@
       "maker_agent": "Xiao Ke (小克 / main, Maker)",
       "role_doctrine": "Maker ≠ Grader 絕對分權隔離，Default-FAIL 零口頭承諾驗收",
       "last_grader_audit_timestamp": "2026-10-25T01:58:28.094889+00:00",
-      "sentinel_liveness_heartbeat": "2026-11-07T04:39:36.640138+00:00",
+      "sentinel_liveness_heartbeat": "2026-11-07T04:41:36.908741+00:00",
       "circuit_breaker_policy": "Pool-Level 硬隔離，TPM/RPM 指數退避，429 禁同池即時重試，1-token Canary 探針 200 自動解鎖",
       "daemon_status": {
         "pid": 12448,
         "pid_alive": true,
-        "seq": 4058,
-        "uptime_sec": 68673,
+        "seq": 4065,
+        "uptime_sec": 68793,
         "age_sec": 0.0,
-        "last_heartbeat_at": "2026-11-07T04:39:36.640138+00:00",
+        "last_heartbeat_at": "2026-11-07T04:41:36.908741+00:00",
         "status": "ONLINE"
       },
       "pid": 12448,
-      "seq": 4058,
-      "uptime_sec": 68673,
-      "last_heartbeat_at": "2026-11-07T04:39:36.640138+00:00",
+      "seq": 4065,
+      "uptime_sec": 68793,
+      "last_heartbeat_at": "2026-11-07T04:41:36.908741+00:00",
       "status": "ONLINE"
     }
   },
   "podcast_live_monitor": {
-    "updated_at": "2026-11-07T04:38:46.867203+00:00",
+    "updated_at": "2026-11-07T04:41:25.868490+00:00",
     "active_episode": "EP21",
     "cadence_rule": "每週三、週五 18:00 (Asia/Taipei) 常態雙更",
     "relay_cron_id": "8e64b26b7578",
